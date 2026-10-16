@@ -1,0 +1,20 @@
+2026-10-12T21:04:55-06:00 start trial=E1-example8-clio-01
+2026-10-13T03:05:38+00:00 pdftotext manuals -> work/manuals/ exit=0
+2026-10-13T03:10:31+00:00 cubit mesh generation start (agent host) work/mesh/mesh.jou
+2026-10-13T03:10:34+00:00 cubit exit=0
+2026-10-13T03:10:53+00:00 XMLGenerator input_deck.i in work/run
+2026-10-13T03:10:54+00:00 XMLGenerator exit=0
+2026-10-13T03:10:54+00:00 exo_summary mesh check exit=0 -> work/verify/mesh.json
+2026-10-13T03:12:18+00:00 XMLGenerator run2 (legacy filter keywords, mat-interp on residual)
+2026-10-13T03:12:18+00:00 XMLGenerator run3 (legacy filter keywords, mat-interp on material)
+2026-10-13T03:12:19+00:00 XMLGenerator run2 exit=0
+2026-10-13T03:12:19+00:00 XMLGenerator run3 exit=0
+2026-10-13T03:13:54+00:00 xml_params run2 exit=0 -> work/verify/generated_config_run2.tsv
+2026-10-13T03:14:06+00:00 sbatch --parsable jobs/morphorm_ex8.sbatch -> jobid=16217928 rc=0 (run dir work/run2)
+2026-10-13T03:14:21+00:00 copied static deliverables to outputs/
+2026-10-13T03:24:59+00:00 job 16217928 COMPLETED 0:0 elapsed 00:09:42 node notch351
+2026-10-13T03:25:02+00:00 diag_summary -> work/verify/diag_summary.json
+2026-10-13T03:25:34+00:00 copied run deliverables to outputs/
+2026-10-13T03:25:34+00:00 outputs/SHA256SUMS.txt written
+2026-10-13T03:25:37+00:00 exo_summary final iteration50.exo and engine_output.exo -> work/verify/
+2026-10-13T03:28:31+00:00 work/run_summary.md written

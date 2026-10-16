@@ -1,0 +1,79 @@
+{
+  "run_dir": "work/run_attempt2_legacy",
+  "verified_utc": "2026-10-09T18:25:22Z",
+  "helmholtz_parameters": {
+    "Length Scale": "0.043301",
+    "Surface Length Scale": "1.0",
+    "Symmetry Plane Sides": "{ss_sym}"
+  },
+  "analyze_essential_bcs": {
+    "Displacement X with ID 1": {
+      "Type": "Fixed Value",
+      "Index": "0",
+      "Sides": "ns_fix",
+      "Value": "0.0"
+    },
+    "Displacement Y with ID 2": {
+      "Type": "Fixed Value",
+      "Index": "1",
+      "Sides": "ns_fix",
+      "Value": "0.0"
+    },
+    "Displacement Z with ID 3": {
+      "Type": "Fixed Value",
+      "Index": "2",
+      "Sides": "ns_fix",
+      "Value": "0.0"
+    },
+    "Displacement Z with ID 4": {
+      "Type": "Fixed Value",
+      "Index": "2",
+      "Sides": "ss_sym",
+      "Value": "0.0"
+    }
+  },
+  "analyze_concentrated_loads": {
+    "Dof": "1",
+    "Value": "-1.0",
+    "Nodes": "ns_load"
+  },
+  "checks": {
+    "helmholtz: Physics == Helmholtz Filter": true,
+    "helmholtz: filter Length Scale present": true,
+    "helmholtz: Length Scale == 0.15/(2*sqrt(3)) = 0.043301 (absolute radius 0.15)": true,
+    "helmholtz: Surface Length Scale (boundary sticking) present == 1.0": true,
+    "helmholtz: Symmetry Plane Sides present == {ss_sym}": true,
+    "helmholtz: domain block_1, mesh mesh.exo": true,
+    "analyze: Physics Mechanical, 3-D, mesh.exo": true,
+    "analyze: material isotropic linear elastic E=1.0 nu=0.3 (material_1)": true,
+    "analyze: block_1 -> material_1": true,
+    "analyze: residual SIMP exponent 3.0, minimum 1e-3, Single-Phase": true,
+    "analyze: compliance criterion (Internal Elastic Energy) SIMP exponent 3.0, minimum ersatz 1e-3": true,
+    "analyze: exactly one concentrated load: ns_load, Dof 1 (y), value -1.0": true,
+    "analyze: no tractions / natural BCs": true,
+    "analyze: essential BCs = ns_fix x,y,z fixed 0 and ss_sym z fixed 0 (4 entries)": true,
+    "analyze: output displacement_x/y/z": true,
+    "interface: Optimizer Package OC": true,
+    "interface: MaxIterations 50": true,
+    "interface: OC default tolerances (1e-4 control, 1e-8 objective, 1e-8 gradient)": true,
+    "interface: ProblemUpdateFrequency 1 and Update Problem stage wired": true,
+    "interface: single constraint, NormalizedTargetValue 0.15 referenced to Design Volume": true,
+    "interface: constraint value computed by engine_1 (ComputeVolume)": true,
+    "interface: objective value computed by analyze_2, aggregated in engine": true,
+    "interface: filter applied by analyze_helmholtz performer (Filter Control / Filter Gradient)": true,
+    "interface: three performers engine_1, analyze_2, analyze_helmholtz": true,
+    "interface: engine output stage writes topology and control": true,
+    "interface: bound constraint [0,1]": true,
+    "engine ops: uniform initial density 0.15": true,
+    "engine ops: discretization density": true,
+    "engine ops: aggregator single weight 1, no normalization element (normalize_in_aggregator false)": true,
+    "engine ops: Update Problem frequency 1": true,
+    "engine ops: PlatoMainOutput MaxIterations 50 with topology+control inputs": true,
+    "engine ops: volume criterion with linear (exponent 1) SIMP": true,
+    "analyze ops: Visualization every iteration (OutputFrequency 1)": true,
+    "mpirun.source: every performer -np 1 (single-rank, no decomposition)": true,
+    "mpirun.source: PlatoMain + analyze_MPMD(analyze_2) + analyze_MPMD(helmholtz)": true,
+    "mesh in run dir identical to verified mesh (sha256)": true
+  },
+  "ALL_CHECKS_PASS": true
+}

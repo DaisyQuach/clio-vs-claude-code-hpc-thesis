@@ -1,0 +1,14 @@
+2026-10-09T17:47:54Z Session B started (agent host Slurm job 16162651 on notch351)
+2026-10-09T17:48:59Z attempt1: run dir work/stage2/attempt1_restart20 prepared (mesh.exo <- outputs/mesh.exo, restart_input.exo <- outputs/stage1/engine_output.exo, deck restart_iteration 20)
+2026-10-09T17:48:59Z attempt1: XMLGenerator translation start
+2026-10-09T17:49:00Z attempt1: XMLGenerator translation end
+2026-10-09T17:49:43Z attempt1: generated-configuration verification (pre-submission)
+2026-10-09T17:49:49Z attempt1: stage2 job submitted: 16162675 (script jobs/stage2_job_script.sbatch, run dir work/stage2/attempt1_restart20)
+2026-10-09T17:50:58Z attempt1: job 16162675 CANCELLED by this session (scancel): first Stage-2 compliance 2.388394e+05 == Stage-1 iteration 19, so restart_iteration 20 selected Exodus time step 20 (iteration 19); corrected to restart_iteration 21 (time step 21 = iteration 20)
+2026-10-09T17:50:58Z attempt2: run dir work/stage2/attempt2_restart21 prepared (deck restart_iteration 21); XMLGenerator translation start
+2026-10-09T17:50:58Z attempt2: XMLGenerator translation end; generated-configuration verification
+2026-10-09T17:51:10Z attempt2: stage2 job submitted: 16162687 (script jobs/stage2_job_script.sbatch, run dir work/stage2/attempt2_restart21)
+2026-10-09T18:12:40Z attempt2: job 16162687 finished (see jobs/sacct_16162687.txt); Stage-2 results/continuation verification
+2026-10-09T18:13:54Z Stage-2 deliverables copied to outputs/stage2/ (from work/stage2/attempt2_restart21); continuation_evidence.json written
+2026-10-09T18:13:55Z outputs/SHA256SUMS.txt regenerated and self-checked
+2026-10-09T18:16:45Z work/run_summary.md updated (Sessions A+B); Session B complete

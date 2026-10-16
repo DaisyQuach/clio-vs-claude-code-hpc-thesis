@@ -1,0 +1,45 @@
+{
+  "spec_id": "ACCEPT-EX16-v1.1",
+  "workflow": "frozen_example16",
+  "frozen_configuration_id": "FROZEN-EX16-v1",
+  "reference_policy": "manual_semantics_iteration_20",
+  "_reference_policy_options": ["manual_semantics_iteration_20", "shipped_listing_iteration_19", "undecided"],
+  "_reference_policy_note": "RESEARCHER DECISION REQUIRED before the first counted E2 trial. Recommended: manual_semantics_iteration_20 (resume from the iteration-20 design, as the manual states and as authorized on 2026-10-06). While undecided every trial scores needs_review.",
+  "references": {
+    "stage1": {
+      "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/stage1",
+      "history_csv": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/results/ex16_stage1_criterion_history.csv",
+      "summary": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/results/ex16_stage1_summary.json",
+      "final_exo": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/stage1/analyze_id_2_output_scenario_id_1/iteration20.exo"
+    },
+    "manual_semantics_iteration_20": {
+      "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/restart_corrected_21",
+      "history_csv": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/results/ex16_restart_corrected_21_criterion_history.csv",
+      "summary": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/results/ex16_restart_corrected_21_summary.json",
+      "final_exo": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/restart_corrected_21/analyze_id_2_output_scenario_id_1/iteration40.exo",
+      "restart_iteration_keyword": 21
+    },
+    "shipped_listing_iteration_19": {
+      "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/restart_shipped_20",
+      "history_csv": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/results/ex16_restart_shipped_20_criterion_history.csv",
+      "summary": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/results/ex16_restart_shipped_20_summary.json",
+      "final_exo": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/restart_shipped_20/analyze_id_2_output_scenario_id_1/iteration40.exo",
+      "restart_iteration_keyword": 20
+    }
+  },
+  "mesh": {"NX": 48, "NY": 24, "NZ": 24, "LX": 2.0, "LY": 1.0, "LZ": 1.0, "sidesets": []},
+  "generated_config_args": {
+    "stage1": "--max-iterations 20 --no-symmetry-sides --initial-density 0.15 --write-restart true --simp-min 1e-3 --simp-exp 3.0 --radius 0.15 --sticking 1.0 --volume-target 0.15",
+    "stage2": "--max-iterations 40 --no-symmetry-sides --simp-min 1e-3 --simp-exp 3.0 --radius 0.15 --sticking 1.0 --volume-target 0.15"
+  },
+  "stage1_iterations": 20,
+  "stage2_iterations": 40,
+  "resume_iteration": 20,
+  "tolerances": {
+    "final_compliance_rel_accept": 1e-6,
+    "final_compliance_rel_review": 1e-2,
+    "volume_fraction_abs_accept": 1e-6,
+    "density_max_abs_accept": 1e-6,
+    "density_max_abs_review": 0.05
+  }
+}

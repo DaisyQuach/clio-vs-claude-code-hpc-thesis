@@ -1,0 +1,30 @@
+## E3-SPC-v1 Symmetry-Plane Cantilever: half (z in [0,0.5]) of the 2 x 1 x 1 cantilever.
+## Domain x in [0,2], y in [0,1], z in [0,0.5]; corner at the origin; cut plane z = 0.5.
+## Structured HEX8 mesh, h = 1/24: 48 x 24 x 12 = 13,824 elements, 15,925 nodes.
+## Sets: block_1 (all elements), ns_fix (x = 0 face), ns_load (edge x = 2, y = 0), ss_sym (faces on z = 0.5).
+## Written for this trial from the frozen specification; the selection idiom follows the candidate Example 7 journal.
+reset
+#{len = 2.0}
+#{ht  = 1.0}
+#{wd  = 0.5}
+#{esize = 0.0416667}
+## --- geometry: half brick with its corner at the origin ---
+create brick x {len} y {ht} z {wd}
+move volume 1 x {len/2.0} y {ht/2.0} z {wd/2.0}
+## --- structured (mapped) hex mesh 48 x 24 x 12 ---
+volume 1 scheme map
+volume 1 size {esize}
+mesh volume 1
+block 1 volume 1
+block 1 name 'block_1'
+block 1 element type HEX8
+## --- fixed support: every node on the x = 0 face ---
+nodeset 1 add node in surface with x_coord < {esize/2.0}
+nodeset 1 name 'ns_fix'
+## --- line load: every node on the edge x = len, y = 0 (spans z in [0, wd]) ---
+nodeset 2 add node with x_coord > {len - esize/2.0} and with y_coord < {esize/2.0}
+nodeset 2 name 'ns_load'
+## --- symmetry (cut) plane: element faces on the surface z = wd ---
+sideset 1 add surface with z_coord > {wd - esize/2.0}
+sideset 1 name 'ss_sym'
+export mesh "mesh.exo" dimension 3 overwrite

@@ -1,0 +1,20 @@
+# E3 sandbox — everything mounted inside the sandbox (documentation of launch_e3_sandbox.sh; the script is authoritative).
+# mode  source (host)                                                   -> target (sandbox)              condition
+ro    /usr  (+ /bin /sbin /lib /lib64 as symlinks into /usr)            -> same                           always (OS)
+ro    /etc                                                              -> /etc                           always (OS config, passwd, resolv, profile.d, Lmod init)
+ro    /var/lib/sss/pipes                                                -> same                           if present (account lookups)
+ro    /uufs/chpc.utah.edu/sys                                           -> same                           always (CHPC Lmod, gcc/11.2.0, openmpi/5.0.3; no Morphorm/Cubit inside)
+new   /proc (new PID namespace), /dev (minimal), /tmp and /run (tmpfs), HOME=/tmp/e3home (tmpfs)
+ro    /uufs/notchpeak.peaks/sys                                         -> same                           --scheduler direct (Slurm client binaries and slurm.conf)
+ro    /var/run/munge                                                    -> /run/munge (+ /var/run link)   --scheduler direct (Slurm authentication)
+ro    <E3>/automation/environment/{load_morphorm_e3.sh,modulefiles,runtime}  -> same                    always (E3 loader, E3 modulefiles, E3-local runtime copies; not README/inventory)
+ro    <E3>/chpc_candidate_archive                                       -> same                           always
+ro    <E3>/globus_source_root                                           -> same                           only with --globus-posix-fallback (recorded researcher decision)
+rw    <E3>/<system>/trial_NN                                            -> same                           always (work/ jobs/ logs/ outputs/ staging-manifest/ provenance/)
+ro    <E3>/<system>/trial_NN/agent-inputs, manifest.yaml, README.md     -> same                           always (mounted over the rw trial dir)
+rw    node-local staging dir ($SLURM_TMPDIR/e3/<system>/<trial>)        -> same                           --staging-dir
+ro    private control-repository checkout at the pinned commit           -> same                           --control-dir
+rw    per-session Claude config dir (<E3>/.agent_runtime/<system>/<trial>/claude_config) -> same          --claude-config-dir
+ro    pinned Claude Code executable file ($HOME/.local/share/claude/versions/2.1.295) -> /opt/e3/bin/claude   --claude-bin
+# <E3> = /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8
+# Network: NOT unshared (the agent needs the Claude API, GitHub and, later, Globus).

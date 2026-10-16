@@ -1,0 +1,462 @@
+# Generated-configuration verification record (E3-SPC-v1 §4-§6, generated-configuration requirement) -- work/scripts/verify_generated_config.py
+{
+  "helmholtz.physics": {
+    "expected": "Helmholtz Filter",
+    "actual": "Helmholtz Filter",
+    "pass": true
+  },
+  "helmholtz.length_scale_present": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "helmholtz.length_scale_value_(0.15/(2*sqrt(3)))": {
+    "expected": 0.043301,
+    "actual": 0.043301,
+    "pass": true
+  },
+  "helmholtz.surface_length_scale_present": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "helmholtz.surface_length_scale_value_(boundary_sticking_penalty)": {
+    "expected": 1.0,
+    "actual": 1.0,
+    "pass": true
+  },
+  "helmholtz.symmetry_plane_sides_present": {
+    "expected": true,
+    "actual": false,
+    "pass": false
+  },
+  "helmholtz.symmetry_plane_sides_value": {
+    "expected": "{ss_sym}",
+    "actual": null,
+    "pass": false
+  },
+  "helmholtz.input_mesh": {
+    "expected": "mesh.exo",
+    "actual": "mesh.exo",
+    "pass": true
+  },
+  "helmholtz.block": {
+    "expected": "block_1",
+    "actual": "block_1",
+    "pass": true
+  },
+  "analyze.spatial_dimension": {
+    "expected": "3",
+    "actual": "3",
+    "pass": true
+  },
+  "analyze.input_mesh": {
+    "expected": "mesh.exo",
+    "actual": "mesh.exo",
+    "pass": true
+  },
+  "analyze.physics": {
+    "expected": "Mechanical",
+    "actual": "Mechanical",
+    "pass": true
+  },
+  "analyze.material.youngs_modulus": {
+    "expected": 1.0,
+    "actual": 1.0,
+    "pass": true
+  },
+  "analyze.material.poissons_ratio": {
+    "expected": 0.3,
+    "actual": 0.3,
+    "pass": true
+  },
+  "analyze.block_1_material": {
+    "expected": "material_1",
+    "actual": "material_1",
+    "pass": true
+  },
+  "analyze.domains_count": {
+    "expected": 1,
+    "actual": 1,
+    "pass": true
+  },
+  "analyze.objective.type": {
+    "expected": "Internal Elastic Energy",
+    "actual": "Internal Elastic Energy",
+    "pass": true
+  },
+  "analyze.objective.simp.type": {
+    "expected": "SIMP",
+    "actual": "SIMP",
+    "pass": true
+  },
+  "analyze.objective.simp.exponent": {
+    "expected": 3.0,
+    "actual": 3.0,
+    "pass": true
+  },
+  "analyze.objective.simp.minimum_value_(minimum_ersatz_material_value)": {
+    "expected": 0.001,
+    "actual": 0.001,
+    "pass": true
+  },
+  "analyze.residual.material_interpolation": {
+    "expected": "Single-Phase",
+    "actual": "Single-Phase",
+    "pass": true
+  },
+  "analyze.residual.simp.type": {
+    "expected": "SIMP",
+    "actual": "SIMP",
+    "pass": true
+  },
+  "analyze.residual.simp.exponent": {
+    "expected": 3.0,
+    "actual": 3.0,
+    "pass": true
+  },
+  "analyze.residual.simp.minimum_value": {
+    "expected": 0.001,
+    "actual": 0.001,
+    "pass": true
+  },
+  "analyze.concentrated_loads_count": {
+    "expected": 1,
+    "actual": 1,
+    "pass": true
+  },
+  "analyze.load.nodes": {
+    "expected": "ns_load",
+    "actual": "ns_load",
+    "pass": true
+  },
+  "analyze.load.dof_(1=y)": {
+    "expected": "1",
+    "actual": "1",
+    "pass": true
+  },
+  "analyze.load.value": {
+    "expected": -1.0,
+    "actual": -1.0,
+    "pass": true
+  },
+  "analyze.natural_bcs_(tractions)_count": {
+    "expected": 0,
+    "actual": 0,
+    "pass": true
+  },
+  "analyze.essential_bcs": {
+    "expected": [
+      [
+        "ns_fix",
+        "0",
+        "Fixed Value",
+        0.0
+      ],
+      [
+        "ns_fix",
+        "1",
+        "Fixed Value",
+        0.0
+      ],
+      [
+        "ns_fix",
+        "2",
+        "Fixed Value",
+        0.0
+      ],
+      [
+        "ss_sym",
+        "2",
+        "Fixed Value",
+        0.0
+      ]
+    ],
+    "actual": [
+      [
+        "ns_fix",
+        "0",
+        "Fixed Value",
+        0.0
+      ],
+      [
+        "ns_fix",
+        "1",
+        "Fixed Value",
+        0.0
+      ],
+      [
+        "ns_fix",
+        "2",
+        "Fixed Value",
+        0.0
+      ],
+      [
+        "ss_sym",
+        "2",
+        "Fixed Value",
+        0.0
+      ]
+    ],
+    "pass": true
+  },
+  "analyze.essential_bc_ns_fix_all_three_dofs": {
+    "expected": [
+      "0",
+      "1",
+      "2"
+    ],
+    "actual": [
+      "0",
+      "1",
+      "2"
+    ],
+    "pass": true
+  },
+  "analyze.essential_bc_ss_sym_dispz_only": {
+    "expected": [
+      "2"
+    ],
+    "actual": [
+      "2"
+    ],
+    "pass": true
+  },
+  "analyze.output_plottable": {
+    "expected": "{displacement_x, displacement_y, displacement_z}",
+    "actual": "{displacement_x, displacement_y, displacement_z}",
+    "pass": true
+  },
+  "interface.optimizer.package": {
+    "expected": "OC",
+    "actual": "OC",
+    "pass": true
+  },
+  "interface.optimizer.max_iterations": {
+    "expected": "50",
+    "actual": "50",
+    "pass": true
+  },
+  "interface.optimizer.problem_update_frequency": {
+    "expected": "1",
+    "actual": "1",
+    "pass": true
+  },
+  "interface.optimizer.update_problem_stage": {
+    "expected": "Update Problem",
+    "actual": "Update Problem",
+    "pass": true
+  },
+  "interface.constraint.normalized_target": {
+    "expected": "0.15",
+    "actual": "0.15",
+    "pass": true
+  },
+  "interface.constraint.reference": {
+    "expected": "Design Volume",
+    "actual": "Design Volume",
+    "pass": true
+  },
+  "interface.performers": {
+    "expected": [
+      [
+        "engine_1",
+        "engine"
+      ],
+      [
+        "analyze_2",
+        "analyze"
+      ],
+      [
+        "analyze_helmholtz",
+        "analyze"
+      ]
+    ],
+    "actual": [
+      [
+        "engine_1",
+        "engine"
+      ],
+      [
+        "analyze_2",
+        "analyze"
+      ],
+      [
+        "analyze_helmholtz",
+        "analyze"
+      ]
+    ],
+    "pass": true
+  },
+  "interface.objective_value_stage_performer": {
+    "expected": [
+      "analyze_2"
+    ],
+    "actual": [
+      "analyze_2"
+    ],
+    "pass": true
+  },
+  "interface.constraint_value_stage_performer": {
+    "expected": [
+      "engine_1"
+    ],
+    "actual": [
+      "engine_1"
+    ],
+    "pass": true
+  },
+  "interface.filter_applied_in_objective_stage": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "interface.engine_output_fields": {
+    "expected": [
+      "control",
+      "topology"
+    ],
+    "actual": [
+      "control",
+      "topology"
+    ],
+    "pass": true
+  },
+  "interface.output_stage_has_analyze_visualization": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "engine.initial_density_uniform": {
+    "expected": "Uniform",
+    "actual": "Uniform",
+    "pass": true
+  },
+  "engine.initial_density_value": {
+    "expected": 0.15,
+    "actual": 0.15,
+    "pass": true
+  },
+  "engine.discretization": {
+    "expected": "density",
+    "actual": "density",
+    "pass": true
+  },
+  "engine.update_problem_frequency": {
+    "expected": "1",
+    "actual": "1",
+    "pass": true
+  },
+  "engine.volume_constraint_operation_present": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "engine.aggregator_weights": {
+    "expected": [
+      "1"
+    ],
+    "actual": [
+      "1"
+    ],
+    "pass": true
+  },
+  "engine.aggregator_normalize_absent_(normalize_in_aggregator false)": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "engine.output_fields": {
+    "expected": [
+      "control",
+      "topology"
+    ],
+    "actual": [
+      "control",
+      "topology"
+    ],
+    "pass": true
+  },
+  "engine.output_max_iterations": {
+    "expected": "50",
+    "actual": "50",
+    "pass": true
+  },
+  "engine_input.mesh": {
+    "expected": "mesh.exo",
+    "actual": "mesh.exo",
+    "pass": true
+  },
+  "engine_input.blocks": {
+    "expected": [
+      "1"
+    ],
+    "actual": [
+      "1"
+    ],
+    "pass": true
+  },
+  "engine_input.output_file": {
+    "expected": "engine_output",
+    "actual": "engine_output",
+    "pass": true
+  },
+  "mpirun.ranks_per_performer": {
+    "expected": [
+      "1",
+      "1",
+      "1"
+    ],
+    "actual": [
+      "1",
+      "1",
+      "1"
+    ],
+    "pass": true
+  },
+  "mpirun.executables": {
+    "expected": [
+      "PlatoMain",
+      "analyze_MPMD",
+      "analyze_MPMD"
+    ],
+    "actual": [
+      "PlatoMain",
+      "analyze_MPMD",
+      "analyze_MPMD"
+    ],
+    "pass": true
+  },
+  "mpirun.configs": {
+    "expected": [
+      "analyze_2_input_deck.xml",
+      "analyze_helmholtz_input_deck.xml"
+    ],
+    "actual": [
+      "analyze_2_input_deck.xml",
+      "analyze_helmholtz_input_deck.xml"
+    ],
+    "pass": true
+  },
+  "mpirun.no_decomposition_(no decomp call)": {
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  "deck.max_iterations": {
+    "expected": "50",
+    "actual": "50",
+    "pass": true
+  },
+  "deck.sym_bc_location_type_sideset": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "_summary": {
+    "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_03/work/xmlgen_tests/A_filterblock",
+    "utc": "2026-10-10T06:46:35Z",
+    "all_pass": false,
+    "checks": 63
+  }
+}

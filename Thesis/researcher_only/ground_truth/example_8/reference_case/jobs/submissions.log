@@ -1,0 +1,4 @@
+submitted_utc	job_id	job_name	dependency	command
+2026-10-09T06:52:04Z	16154328	ex8_01_mesh		sbatch --parsable  /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_8/reference_case/jobs/ex8_01_mesh.sbatch
+2026-10-09T06:52:04Z	16154329	ex8_02_run_canonical	afterok:16154328	sbatch --parsable --dependency=afterok:16154328 /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_8/reference_case/jobs/ex8_02_run_canonical.sbatch
+2026-10-09T06:52:04Z	16154330	ex8_03_run_symmetry_honored_variant	afterok:16154328	sbatch --parsable --dependency=afterok:16154328 /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_8/reference_case/jobs/ex8_03_run_symmetry_honored_variant.sbatch

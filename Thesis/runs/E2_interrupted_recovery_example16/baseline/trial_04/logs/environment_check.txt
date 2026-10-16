@@ -1,0 +1,42 @@
+UTC: 2026-10-09T21:43:43Z
+HOST: notch351
+SLURM_JOB_ID(agent host)=16167161
+#!/usr/bin/env bash
+# Approved software interface for the Thesis study.  Source this in agent-host
+# shells and in every submitted Slurm script.  It delegates to the frozen,
+# read-only approved-runtime loader validated for the pilot study, so the runtime
+# identity (modulefile and inventory hashes) is unchanged.
+#   Morphorm is always loaded.  Coreform Cubit is loaded when THESIS_CUBIT_MODULE
+#   is set before sourcing (the frozen value for this study is cubit-edu/2026.8).
+# Safe to source: changes no shell options; returns non-zero on failure.
+: "${THESIS_CUBIT_MODULE:=cubit-edu/2026.8}"
+export THESIS_CUBIT_MODULE
+type module >/dev/null 2>&1 || source /etc/profile.d/modules.sh 2>/dev/null || true
+source /uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/scripts/load_approved_software.sh
+----- sourcing
+rc=0
+----- module list
+
+Currently Loaded Modules:
+  1) chpc/1.0   (S)   3) openmpi/5.0.3               5) cubit-edu/2026.8
+  2) gcc/11.2.0       4) morphorm/approved-runtime
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+ 
+
+----- which
+cubit          /uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_tools/coreform_cubit/launchers/2026.8/cubit
+XMLGenerator   /uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/XMLGenerator
+PlatoMain      /uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/PlatoMain
+analyze_MPMD   /uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/analyze_MPMD
+mpiexec        /uufs/chpc.utah.edu/sys/spack/v019/linux-rocky8-x86_64/gcc-11.2.0/openmpi-5.0.3-gjrgcotxcpanmyfade3xe7wjijuvnidx/bin/mpiexec
+python3        /uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/python/bin/python3
+sbatch         /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sbatch
+squeue         /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/squeue
+sacct          /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sacct
+scontrol       /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/scontrol
+----- python
+3.13.5 (main, Aug 24 2026, 14:18:48) [GCC 11.2.0]
+numpy 2.3.1 netCDF4 1.7.2

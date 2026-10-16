@@ -1,0 +1,63 @@
+# E3 sandbox validation record — harmless probe only (no model, no solver, no job submission)
+utc: 2026-10-10T00:53:47Z
+host: notchpeak1 (login node; no Slurm allocation)
+kernel: 4.18.0-553.170.1.el8_10.x86_64
+bwrap: bubblewrap 0.4.0  max_user_namespaces: 384706
+launcher_sha256: 1241c3796aa4666f38fab3279cb517f57c9afe5ffc098b3f77270e427b5a57d6
+probe_sha256: 5deb2c40a4729f631f09f245f0a21cf2097c1039fe895b48c734d185f8ed0bcb
+command: launch_e3_sandbox.sh --system baseline --trial-dir baseline/trial_01 --claude-bin $HOME/.local/share/claude/versions/2.1.295 --scheduler direct -- /bin/bash -s -- --with-loader < sandbox_probe.sh
+## probe output
+PASS in_sandbox E3_SANDBOX=1
+PASS trial_dir visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_01
+PASS trial_agent_inputs visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_01/agent-inputs
+PASS trial_work visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_01/work
+PASS candidate_archive visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/chpc_candidate_archive/MANIFEST.sha256
+PASS candidate_example_13 visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/chpc_candidate_archive/example_13/problem_card.yaml
+PASS environment_loader visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/automation/environment/load_morphorm_e3.sh
+PASS agent_inputs_readonly agent-inputs not writable
+PASS trial_work_writable work/ writable
+PASS researcher_only not visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/researcher_only
+PASS e3_setup not visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/setup
+PASS e3_automation_other not visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/automation/baseline
+PASS ground_truth not visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Morphorm_ground_truth
+PASS e1 not visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8
+PASS e2 not visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16
+PASS thesis_experiments not visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments
+PASS full_examples_tests not visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Morphorm_Full_Examples_Tests
+PASS morphorm_source_docs not visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Morphorm
+PASS morphorm_manuals_originals not visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/morphorm_manuals
+PASS thesis_researcher_only not visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only
+PASS legacy_agent_inputs not visible: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_01/agent_inputs
+PASS other_trials no other trial directory visible
+INFO listing_daisy Thesis 
+INFO listing_thesis_runs E3_disparate_storage_example8 
+INFO listing_e3_root automation baseline chpc_candidate_archive 
+PASS home_dirs no home directory other than the bind-mount scaffold for the E3 tree
+PASS sandbox_home HOME=/tmp/e3home (tmpfs)
+INFO pid1 /usr/bin/bwrap --unshare-user --unshare-pid --unshare-ipc --
+INFO process_count 5 processes visible
+INFO munge_socket visible (Slurm submission possible; submitted jobs run OUTSIDE the sandbox)
+INFO sbatch on PATH
+INFO ssh on PATH (network not unshared)
+PASS loader load_morphorm_e3.sh sourced; MORPHORM_RUNTIME=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/automation/environment/runtime/morphorm
+INFO resolve XMLGenerator -> /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/automation/environment/runtime/morphorm/bin/XMLGenerator
+INFO resolve PlatoMain -> /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/automation/environment/runtime/morphorm/bin/PlatoMain
+INFO resolve analyze_MPMD -> /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/automation/environment/runtime/morphorm/bin/analyze_MPMD
+INFO resolve mpiexec -> /uufs/chpc.utah.edu/sys/spack/v019/linux-rocky8-x86_64/gcc-11.2.0/openmpi-5.0.3-gjrgcotxcpanmyfade3xe7wjijuvnidx/bin/mpiexec
+INFO resolve python3 -> /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/automation/environment/runtime/morphorm/python/bin/python3
+INFO resolve cubit -> /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/automation/environment/runtime/coreform_cubit/launchers/2026.8/cubit
+PASS loader_path PATH has no ThesisExperiments entry
+probe_exit: 0
+## additional escape probes (read-only)
+INFO scheduler_query squeue authenticated from inside the sandbox (munge reachable): job submission would also be possible
+INFO ssh_to_login_node rc=255 (255 = refused: no keys, host-based signing unavailable in the user namespace)
+INFO pinned_claude_inside 2.1.295 (Claude Code)
+## scheduler none
+PASS sbatch not on PATH
+PASS munge socket not visible
+PASS slurm tree not visible
+## refusal checks (launcher must refuse; nothing started)
+  trial_02 (no agent-inputs, legacy agent_inputs): launch_e3_sandbox: trial dir has no agent-inputs/
+  researcher_only as control dir: launch_e3_sandbox: refused: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/researcher_only is inside denied root /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/researcher_only
+  Daisy root as staging dir: launch_e3_sandbox: refused: exposing /uufs/chpc.utah.edu/common/home/chet/Daisy would expose denied root /uufs/chpc.utah.edu/common/home/chet/Daisy/Morphorm_ground_truth
+  account home as config dir: launch_e3_sandbox: refused: $HOME is inside denied root $HOME

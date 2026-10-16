@@ -1,0 +1,127 @@
+# Run summary — trial E2-example16-baseline-04R (Session A: Stage 1 only)
+
+**STATUS: Stage 1 is COMPLETE and verified. Stage 2 has NOT been started.** No Stage-2 or continuation deck, job script, translation or job was created in this session (per `session_a_prompt.md`). Everything a later process needs to run Stage 2 is in the persistent files listed in §8.
+
+## 1. Trial identifier and assigned workflow
+
+- Trial identifier (`THESIS_TRIAL_ID`): `E2-example16-baseline-04R`
+- Frozen configuration: `FROZEN-EX16-v1` (agent_inputs hash `a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b`)
+- Workflow: full cantilever, two-stage restart (warm-start) minimum-compliance topology optimization (`agent_inputs/scientific_problem_specification.md`). Stage 1 = 20 OC iterations from uniform density 0.15 with restart-file writing; Stage 2 (not run here) = 40 further iterations resuming from the iteration-20 `control` field of the Stage-1 engine output.
+- Agent host: Slurm job 16168160 (notch274), account/partition `hochhalter-np`. Session start 2026-10-09T22:39Z (UTC).
+- Software: approved interface `source /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/common/scripts/load_approved_software.sh` (modules loaded: chpc/1.0, gcc/11.2.0, openmpi/5.0.3, morphorm/approved-runtime, cubit-edu/2026.8). Only `agent_inputs/manuals/*.pdf` were used as documentation (text extracted with `pdftotext` into `work/manual_text/` for reading).
+
+## 2. Mesh
+
+- Generator: approved Coreform Cubit 2026.8 in batch mode on the agent host. Command (2026-10-09T22:41:41Z → 22:41:48Z UTC, exit 0):
+  `cd work/mesh && cubit -batch -nographics -nojournal -input mesh.jou > cubit_run.log 2>&1`
+- Journal: `work/mesh/mesh.jou` → deliverable `outputs/mesh.jou`. Procedure: `brick x 2.0 y 1.0 z 1.0`, moved so the corner is at the origin; `volume 1 scheme map`; `curve all interval 24`; `curve with length > 1.5 interval 48`; `mesh volume 1`; `block 1 add volume 1`, name `block_1`, element type HEX8; `nodeset 1` = nodes with x < 1e-6, name `ns_fix`; `nodeset 2` = nodes with x > 1.999999 minus nodes with y > 1e-6, name `ns_load`; `export mesh ... dimension 3 overwrite`. The Cubit log contains only a benign licence message ("RLM session initialized ... No RLM logins were valid"); the export completed and exit code was 0.
+- Mesh file: `work/mesh/mesh.exo` → `outputs/mesh.exo` (SHA-256 `293783a20e5adbf44fe4b6962eb7448e1e90943b5fd61b76904a6d29b8259e61`); the identical file was copied into the run directory `work/stage1/run/mesh.exo` (same SHA-256, printed in the job stdout).
+- Verification (2026-10-09T22:42Z UTC) with the runtime's python3/netCDF4: `python3 -I work/scripts/verify_mesh.py work/mesh/mesh.exo > work/mesh/mesh_verification.json` → `outputs/mesh_verification.json`. All 17 checks pass:
+  - dimension 3; 27,648 elements; 30,625 nodes; one element block, id 1, name `block_1`, HEX8 (8 nodes/element), containing all 27,648 elements
+  - bounding box x∈[0,2], y∈[0,1], z∈[0,1]; 49×25×25 coordinate planes; uniform spacing h=1/24 (max deviation 6.7e-10); every element extent = h
+  - nodeset `ns_fix` (id 1): 625 nodes, all at x=0 (y,z span [0,1]); nodeset `ns_load` (id 2): 25 nodes at x=2, y=0, z spanning [0,1]; independent coordinate recounts give 625 and 25; no sidesets.
+  - First verification attempt reported the three *name* checks false because of a string-decoding bug in my script (masked netCDF padding rendered as dashes); the script was corrected and rerun; the mesh itself was never changed.
+
+## 3. Input deck and locked settings in the generated configuration
+
+- Stage-1 deck: `work/stage1/run/input_deck.i` → `outputs/stage1/input_deck.i` (SHA-256 `146eeeba5cced2c804390cf1de90022da37d1c39ee9df21c918523729b0e75bb`).
+- Translation: `cd work/stage1/run && XMLGenerator input_deck.i` (approved runtime). Attempt 1 at 22:43:03Z UTC (exit 0) and final attempt 2 at 22:44:38Z UTC (exit 0, zero warnings; log `outputs/stage1/generated_config/XMLGenerator_stdout.log`). Generated files used by the job: `interface.xml`, `engine_input_deck.xml`, `engine_operations.xml`, `analyze_2_input_deck.xml`, `analyze_2_operations.xml`, `analyze_helmholtz_input_deck.xml`, `analyze_helmholtz_operations.xml`, `mpirun.source` → `outputs/stage1/generated_config/`.
+- Decision/deviation note (translation): attempt 1 produced `<OutputFrequency>5</OutputFrequency>` in the engine `PlatoMainOutput` operation (XMLGenerator reported it was using the default 5 for `isosurface_output_frequency`), which would not guarantee the locked "saved at every iteration (21 states)". Tests in `work/stage1/xmlgen_test_*` showed that `output_frequency 1` in the output block only affects the analyze visualization, and that the study keyword `isosurface_output_frequency 1` sets the engine OutputFrequency to 1. The final deck therefore adds `output_frequency 1` (output block, documented default) and `isosurface_output_frequency 1` (study block; keyword name taken from XMLGenerator's own stdout, not from external material). All other generated files are byte-identical between attempt 1 and the final attempt (attempt-1 files kept in `work/stage1/generated_attempt1/`).
+- Verification of the generated configuration (2026-10-09T22:45:37Z UTC): `python3 -I work/scripts/verify_generated_config.py work/stage1/run 1` → `outputs/stage1/generated_config/generated_config_verification.json`; **58/58 checks pass**. Locked setting → where it appears:
+
+| Locked setting | Deck keyword(s) | Generated configuration evidence |
+|---|---|---|
+| Design domain / mesh | `begin mesh 1: name mesh.exo` | `Input Mesh = mesh.exo` in both analyze decks; `<mesh>mesh.exo</mesh>` in engine_input_deck.xml; block 1 → material 1 |
+| Material E=1.0, ν=0.3 on block_1 | `material 1` isotropic_elastic; `block 1 name block_1 material_id 1` | analyze_2_input_deck.xml: `Isotropic Linear Elastic` Youngs Modulus 1.0, Poissons Ratio 0.3; Domains/block_1 → material_1 |
+| Fixed support ns_fix ux=uy=uz=0 | `boundary_condition 1` fixed_value dispx dispy dispz 0 0 0 | `Essential Boundary Conditions`: Displacement X/Y/Z (Index 0/1/2), Sides ns_fix, Fixed Value 0.0 |
+| Load −1.0 in y per node of ns_load | `load 1` concentrated_load, nodeset ns_load, direction y, value −1.0 | `Concentrated Loads`: Dof 1, Value −1.0, Nodes ns_load; natural-BC list empty, no body load |
+| Objective: compliance, weighted sum, weight 1, analyze service | `criterion 1 mechanical_compliance`; `objective 1 weighted_sum criterion_ids 1 service_ids 2 scenario_ids 1 weights 1` | Criterion `My Objective` = Internal Elastic Energy on {block_1}; stage `Compute Objective Value` performed by analyze_2; Aggregator weight 1 |
+| Constraint volume ≤ 0.15 relative, less_than, engine service | `criterion 2 volume`; `constraint 1 criterion_id 2 relative_target 0.15 type less_than service_id 1` | interface.xml Optimizer/Constraint: NormalizedTargetValue 0.15, ReferenceValueName Design Volume; `ComputeVolume` operations in engine_operations.xml; constraint stage performed by engine_1 |
+| Density discretization, initial density 0.15 | `discretization density`, `initialize_method uniform`, `initial_density_value 0.15` | engine_operations.xml InitializeField Method Uniform Value 0.15; bounds Lower 0.0 / Upper 1.0 |
+| SIMP single phase, exponent 3.0, min 1e-3; criterion min ersatz 1e-3 | `material_interpolation 1` single_phase simp penalty_exponent 3.0 minimum_value 1e-3 (referenced by residual 1); criterion 1 `material_penalty_exponent 3.0`, `minimum_ersatz_material_value 1e-3` | analyze_2_input_deck.xml: Penalty Function SIMP, Exponent 3.0, Minimum Value 1e-3 under both `My Objective` and `Mechanical Residual`; Material Interpolation Model Single-Phase |
+| OC optimizer, default tolerances | `optimization_algorithm oc` | interface.xml Optimizer Package OC; OCControlStagnationTolerance 1e-4, OCObjectiveStagnationTolerance 1e-8, OCGradientTolerance 1e-8 |
+| normalize_in_aggregator false | `normalize_in_aggregator false` | Aggregator operation has no normalization element |
+| update_problem true on engine, frequency 1 | service 1 `update_problem true`, `update_problem_frequency 1`; study `update_problem_frequency 1` | engine_operations.xml `Update Problem` operation UpdateProblemFrequency 1; interface.xml ProblemUpdateFrequency 1 and UpdateProblemStage |
+| Helmholtz filter, radius 0.15, boundary sticking 1.0, no symmetry | `filter_type helmholtz`, `filter_radius_absolute 0.15`, `boundary_sticking_penalty 1.0` | analyze_helmholtz_input_deck.xml: Physics `Helmholtz Filter`, **Length Scale 0.043301 = 0.15/(2√3)** (the runtime's conversion of the absolute radius 0.15), **Surface Length Scale 1.0**; no symmetry sidesets; performer analyze_helmholtz |
+| Services engine + analyze, 1 processor each, single rank | service 1 engine / service 2 analyze, `number_processors 1` | mpirun.source: `-np 1` for all three performers (engine, analyze_2, analyze_helmholtz — the helmholtz performer is auto-generated by the runtime); no decomposition |
+| Output dispx dispy dispz; engine control+topology | `output 1 service_id 2 data dispx dispy dispz output_frequency 1` | analyze_2_input_deck.xml Plottable {displacement_x, displacement_y, displacement_z}; PlatoMainOutput inputs `topology` and `control` (Nodal Field) |
+| Iteration cap 20 | `max_iterations 20` | interface.xml Convergence/MaxIterations 20; PlatoMainOutput MaxIterations 20 |
+| Restart-file writing (Stage 1) | `write_restart_file true`, `isosurface_output_frequency 1` | engine_operations.xml PlatoMainOutput `WriteRestart true`, `OutputFrequency 1`; engine output file `engine_output` (exodus) |
+
+## 4. Execution
+
+Commands (all from the trial root; the approved interface was sourced in every shell and in the job script):
+1. `pdftotext -layout agent_inputs/manuals/*.pdf work/manual_text/*.txt` (manual reading only)
+2. `cubit -batch -nographics -nojournal -input mesh.jou` (in `work/mesh/`)
+3. `python3 -I work/scripts/verify_mesh.py work/mesh/mesh.exo`
+4. `cp work/mesh/mesh.exo work/stage1/run/mesh.exo`; `XMLGenerator input_deck.i` (in `work/stage1/run/`, twice as described in §3; plus three scratch translations in `work/stage1/xmlgen_test_*` used only to probe the output-frequency keywords)
+5. `python3 -I work/scripts/verify_generated_config.py work/stage1/run 1`
+6. `sbatch jobs/stage1_job_script.sbatch` → `Submitted batch job 16168225` at 2026-10-09T22:45:43Z UTC
+7. Polling with `squeue -j 16168225`; after completion `sacct -j 16168225 --format=JobID,JobName,State,ExitCode,Submit,Start,End,Elapsed,AllocCPUS,ReqMem,MaxRSS,NodeList -P > jobs/sacct_16168225.txt`; `scontrol show job 16168225 > jobs/scontrol_16168225.txt`
+8. `python3 -I work/scripts/verify_stage1_results.py work/stage1/run`
+9. Copy of deliverables to `outputs/` and `sha256sum` manifest (`outputs/SHA256SUMS.txt`), verified with `sha256sum -c`.
+
+Slurm jobs submitted in this trial (also in `jobs/job_ids.txt`):
+
+| Job ID | Script | Resources | State | Exit | Submit / Start / End (local sacct time, UTC−6) | Elapsed | Node | MaxRSS |
+|---|---|---|---|---|---|---|---|---|
+| 16168225 | `jobs/stage1_job_script.sbatch` (= `outputs/stage1/job_script.sbatch`) | account hochhalter-np, partition hochhalter-np, 1 node, 1 task × 8 CPUs, 32G, 02:00:00, no GPU | COMPLETED | 0:0 | 16:45:44 / 16:45:45 / 17:03:09 (= 22:45:44Z / 22:45:45Z / 23:03:09Z UTC) | 00:17:24 | notch274 | 2.2 GB |
+
+The job script sources the approved interface, prints `module list` (visible in `outputs/stage1/run_logs/slurm_16168225.out`), prints SHA-256 of every configuration file it uses, runs `bash mpirun.source` in `work/stage1/run/` (Morphorm stdout in `morphorm_stage1.log`), and exits with the mpirun exit code (0). Morphorm start 22:45:52Z, end 23:03:09Z UTC. The stderr file is empty. No job was cancelled or re-submitted. Morphorm was never run on the agent host.
+
+## 5. Completed stages and iteration counts
+
+- **Stage 1: COMPLETE.** Optimizer diagnostics (`outputs/stage1/morphorm_oc_optimizer_diagnostics.txt`) list iterations 0–20 (21 rows, F-count 1–21). Final line: `****** Optimization stopping due to exceeding maximum number of iterations. ******` (the optimizer stopped at the locked cap of 20). Objective F(X): 4.893235e+06 at iteration 0 → **2.360040e+05 at iteration 20**; constraint H1 ≈ 4e-13 at iteration 20 (volume constraint active); abs(dX) 0.2 (OC move limit). `opt_criteria_history.csv` lists the same 21 objective values.
+- Checkpoint verification (`outputs/stage1/run_logs/stage1_results_verification.json`, 14/14 checks pass): `engine_output.exo` holds **21 time steps** (`time_whole` = 1,2,…,21, i.e. time step k+1 ↔ optimization iteration k, k = 0…20) with nodal variables **`control`** and **`topology`**; node/element counts equal the mesh; state 0 `control` is uniformly 0.15 (locked initial density); all states finite and distinct. Per-state field statistics are in the JSON (e.g. iteration-20 control mean 0.16864, topology mean 0.14351, topology max 0.9267).
+- No separate `engine_restart.exo` was written by the runtime; with `WriteRestart true` the checkpoint is the engine output file `engine_output.exo`, as the specification defines.
+- Final analyze output: `analyze_id_2_output_scenario_id_1/iteration20.exo` (nodal fields Topology, displacement X/Y/Z) → `outputs/stage1/final_analyze_output.exo`.
+- **Stage 2: NOT STARTED** (per the session instruction). Note for the continuation: the iteration-20 design is the last (21st) time step of `outputs/stage1/engine_output.exo`, field `control`; Stage 1's compliance at iteration 20 is 2.360040e+05 (diagnostics) / 2.3600395811001546e+05 (`opt_criteria_history.csv`).
+
+## 6. Key output files and SHA-256 (full list in `outputs/SHA256SUMS.txt`)
+
+| Deliverable | SHA-256 |
+|---|---|
+| outputs/mesh.jou | f15dd042553b7fa2512c25c170c34cc33d55b35adf02e71ce91188c4429deacf |
+| outputs/mesh.exo | 293783a20e5adbf44fe4b6962eb7448e1e90943b5fd61b76904a6d29b8259e61 |
+| outputs/mesh_verification.json | bcdfdaf711d2eb943a5d0e52e17aa35ba27f20458b61fafb70753833ac953c49 |
+| outputs/stage1/input_deck.i | 146eeeba5cced2c804390cf1de90022da37d1c39ee9df21c918523729b0e75bb |
+| outputs/stage1/job_script.sbatch | b5f7aff1dc8fa22000e92a02bbf135d6eafb8d37a74e37753aeb509645cfe408 |
+| outputs/stage1/generated_config/interface.xml | 5a5069736df8b3ba8ff727c07ae73515f8803f069b460a3b24d7783dcb8ec669 |
+| outputs/stage1/generated_config/engine_input_deck.xml | 7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a |
+| outputs/stage1/generated_config/engine_operations.xml | 09dabcc015dd9e0ab88dbe54a8a2f0496ff19b9abfe94bf5c46107d6238fa40d |
+| outputs/stage1/generated_config/analyze_2_input_deck.xml | a6f7d5bf3d61607bec82781d3afad5231a493e602331ea7a3b54f7e9b3c162d5 |
+| outputs/stage1/generated_config/analyze_2_operations.xml | fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0 |
+| outputs/stage1/generated_config/analyze_helmholtz_input_deck.xml | c813b81a2c43cbac181b51c3ae12cad319473e7c2725afd29c2637fedec2dcbf |
+| outputs/stage1/generated_config/analyze_helmholtz_operations.xml | 402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854 |
+| outputs/stage1/generated_config/mpirun.source | 5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc |
+| outputs/stage1/morphorm_oc_optimizer_diagnostics.txt | 4aaeaa78e77e9f065e3e0ab91d0205a13cdf600a7c76d9f8fc492b06092772f1 |
+| **outputs/stage1/engine_output.exo (checkpoint, 21 states)** | **9f9616771441ca2de1d98bb44ccd81daedaa2b0bc305a2d0733d2402f6addee9** |
+| outputs/stage1/final_analyze_output.exo | 58a7704efef44e95fc192ed1f209381d0b8f419415a03ea0488720c67f597cac |
+| outputs/stage1/run_logs/slurm_16168225.out | 97bb2504951e7eff5e5592a5b2e1e747b15cf2e36d48aad2bd4ceea40dd80c05 |
+| outputs/stage1/run_logs/morphorm_stage1.log | 24f51bf3b88158d9283abd03eca2f99f5418a3726091ea5e77b1dfc81695f555 |
+
+The checkpoint in `outputs/stage1/engine_output.exo` is a byte-identical copy of `work/stage1/run/engine_output.exo` (same SHA-256); neither has been modified.
+
+## 7. Failures, retries, cancelled jobs, unresolved issues, deviations
+
+- No failed or cancelled jobs; one submission, one success.
+- Mesh verification script: first run mis-decoded names (my script bug, fixed; mesh unchanged). No mesh retry.
+- XMLGenerator was run twice on the final deck location (attempt 1 without, attempt 2 with the output-frequency keywords, see §3) plus three scratch probes; all exit 0. The engine output frequency was forced to 1 with `isosurface_output_frequency 1` so the locked "21 saved states" requirement is realized in the generated configuration; this keyword is not documented in the User Manual but was named by XMLGenerator's own INFO output. All other settings are exactly as locked; the filter radius 0.15 appears in the generated configuration as the runtime-converted length scale 0.043301 (= 0.15/(2√3)).
+- The runtime added a third performer (`analyze_helmholtz`, 1 rank) for the Helmholtz filter; this is automatic ("Morphorm wires up the required services automatically", User Manual §2.5.4) and consistent with "engine service and analyze service, one processor each".
+- Unresolved issues: none. Stage 2 intentionally not started.
+
+## 8. Final artifact paths (persistent, for the continuation process)
+
+- `outputs/mesh.jou`, `outputs/mesh.exo`, `outputs/mesh_verification.json`
+- `outputs/stage1/input_deck.i`, `outputs/stage1/job_script.sbatch`, `outputs/stage1/generated_config/` (8 generated files + XMLGenerator log + verification JSON)
+- `outputs/stage1/morphorm_oc_optimizer_diagnostics.txt`
+- `outputs/stage1/engine_output.exo` — **the Stage-1 checkpoint** (21 saved states, fields `control` and `topology`; iteration-20 design = last time step)
+- `outputs/stage1/final_analyze_output.exo` (iteration 20)
+- `outputs/stage1/run_logs/` (Slurm stdout/stderr, Morphorm log, performer logs, criteria histories, results-verification JSON, sacct, Cubit log)
+- `outputs/SHA256SUMS.txt` (covers every file under outputs/ except itself; regenerate after Stage 2)
+- `jobs/job_ids.txt` (16168225), `jobs/stage1_job_script.sbatch`, `jobs/sacct_16168225.txt`, `jobs/scontrol_16168225.txt`, `jobs/submission_timestamps.txt`
+- `logs/stage1_16168225.out`, `logs/stage1_16168225.err` (scheduler stdout/stderr originals)
+- `work/stage1/run/` (untouched Stage-1 run directory incl. all `analyze_id_2_output_scenario_id_1/iteration*.exo`), `work/stage1/generated_attempt1/`, `work/stage1/xmlgen_test_*/` (probe translations), `work/scripts/` (verification scripts), `work/mesh/`, `work/manual_text/`
+- `work/run_summary.md` (this file)
+
+**Stage 1 complete. Stage 2 not started.**

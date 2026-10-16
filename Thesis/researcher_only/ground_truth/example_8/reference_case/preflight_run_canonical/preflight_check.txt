@@ -1,0 +1,35 @@
+PASS helmholtz: Physics == Helmholtz Filter
+PASS helmholtz: Input Mesh == mesh
+PASS helmholtz: Length Scale == radius/(2*sqrt(3)) = 0.043301
+PASS helmholtz: Surface Length Scale == 1.0
+PASS helmholtz: no Symmetry Plane Sides
+PASS analyze: Physics == Mechanical
+PASS analyze: Input Mesh == mesh
+PASS analyze: Youngs Modulus == 1.0
+PASS analyze: Poissons Ratio == 0.3
+PASS analyze: residual penalty SIMP
+PASS analyze: residual SIMP Exponent == 3.0
+PASS analyze: residual SIMP Minimum Value == 0.001
+PASS analyze: objective == Internal Elastic Energy (compliance)
+PASS analyze: objective SIMP Exponent == 3.0
+PASS analyze: objective SIMP Minimum Value == 0.001
+PASS analyze: exactly one concentrated load
+PASS analyze: load Dof 1 (y), Value -1, Nodes ns_load
+PASS analyze: dispx/dispy/dispz = 0 on ns_fix
+PASS analyze: dispz = 0 on ss_sym
+PASS analyze: exactly 4 essential BCs
+PASS analyze: no natural (traction) BCs
+PASS analyze: output dispx dispy dispz
+PASS interface: Optimizer Package == OC
+PASS interface: MaxIterations == 50
+PASS interface: ProblemUpdateFrequency == 1
+PASS interface: volume NormalizedTargetValue == 0.15
+PASS interface: constraint ReferenceValueName == Design Volume
+PASS interface: bounds [0,1]
+PASS interface: performers engine_1, analyze_2, analyze_helmholtz
+PASS engine: PlatoMainOutput WriteRestart == false
+PASS engine: PlatoMainOutput MaxIterations == 50
+PASS engine: InitializeField Uniform 0.15
+PASS engine: UpdateProblemFrequency == 1
+PASS mpirun: three single-rank performers (PlatoMain, analyze, helmholtz)
+34/34 checks pass; all_checks_pass=True

@@ -1,0 +1,25 @@
+PASS tmpdir: TMPDIR=/scratch/local/u1282901/16173723 fs=xfs mode=755 owner_ok
+PASS tmpdir_fresh: empty at job start
+PASS tmpdir_write: write/read in $TMPDIR/e3_preflight
+PASS github_pin: clone + checkout 62954055b4e848f2155258c5b8c628eab97c8586
+PASS control_checksums: catalog/checksums.sha256 verifies at pin
+PASS prompt_hash: task_prompt.md at pin == baseline_e3_prompt.md == freeze (63f84f79301da3a5362a457017d3df4ede1342c5ca5bd122b069f83424e91c20)
+PASS globus_auth: whoami noninteractive
+PASS globus_collection: ls 6dcea62e-130d-47a9-8b77-80fba6f58693:/ -> documentation/ manuals/ target_materials/ MANIFEST.sha256 MANIFEST.tsv README.md 
+PASS source_manifests: collections verify; source MANIFEST.sha256 = d856bed27efea0561e35e01ce9e3202bf121c14e3d313b3ec34a4dafa9a8cc53
+PASS source_manifest_frozen: matches freeze
+PASS staging_helper: Globus transfer -> staging-inbox -> manifest hash check -> cp into $TMPDIR verified
+PASS helper_refusal: refuses '..' path
+PASS loader_hash: matches freeze
+PASS loader: sourced rc 0; cubit and XMLGenerator resolve (not executed)
+PASS claude_pin: 2.1.295 (Claude Code) sha256=4503bfe11a6c7fcc1e0b39b5e0d347c04248f750b03b0977b3ad6b531fe6f358
+PASS claude_flags: all headless flags in --help
+PASS claude_credentials_file: present (not read; headless auth is checked by the runner at launch)
+PASS automation_frozen: all frozen automation files match the freeze list
+PASS jq: jq-1.6
+PASS workspace_write: wrote /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/setup/baseline_execution/preflight/scratch/trial_root/preflight_write_probe.txt
+PASS trial_01_untouched: verify --planned PASS
+PASS trial_02_untouched: verify --planned PASS
+PASS trial_03_untouched: verify --planned PASS
+PASS trial_04_untouched: verify --planned PASS
+PASS trial_05_untouched: verify --planned PASS

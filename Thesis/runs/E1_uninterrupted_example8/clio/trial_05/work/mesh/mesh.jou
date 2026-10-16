@@ -1,0 +1,22 @@
+# EX8 half cantilever: brick x[0,2] y[0,1] z[0,0.5], structured HEX8, h=1/24
+reset
+brick x 2.0 y 1.0 z 0.5
+move volume 1 x 1.0 y 0.5 z 0.25 include_merged
+volume 1 scheme map
+volume 1 size 0.0416666666666667
+mesh volume 1
+block 1 add volume 1
+block 1 name "block_1"
+block 1 element type HEX8
+nodeset 1 add node with x_coord < 1e-6
+nodeset 1 name "ns_fix"
+nodeset 2 add node with x_coord > 1.999999 and y_coord < 1e-6
+nodeset 2 name "ns_load"
+sideset 1 add surface with z_coord > 0.49
+sideset 1 name "ss_sym"
+list block 1
+list nodeset 1
+list nodeset 2
+list sideset 1
+export mesh "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/clio/trial_05/work/mesh/mesh.exo" dimension 3 overwrite
+exit

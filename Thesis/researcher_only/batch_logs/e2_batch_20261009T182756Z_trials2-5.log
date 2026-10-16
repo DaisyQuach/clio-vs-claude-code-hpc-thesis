@@ -1,0 +1,56 @@
+[2026-10-09T18:27:56Z] trial_01 status=completed_unscored; not planned, skipping
+[2026-10-09T18:27:56Z] ---- e2-example16 trial 2 (counted) ----
+[2026-10-09T18:27:56Z] == E2-example16-baseline-02 (counted) ==
+PASS  pinned_binary                      /uufs/chpc.utah.edu/common/home/u1282901/.local/share/claude/versions/2.1.295 --version = 2.1.295
+PASS  help_flags                         all required flags present in --help of 2.1.295
+INFO  forbidden_flags_known              resume/continue/fork flags exist (--resume -r --continue -c --fork-session --teleport --from-pr --bg --background --cloud) and are never passed by the launcher
+PASS  output_format                      --output-format stream-json documented
+PASS  auth_status_cmd                    'auth status --json' available (no-model auth check)
+PASS  auth_logged_in                     auth status reports logged in
+PASS  credentials_file                   /uufs/chpc.utah.edu/common/home/u1282901/.claude/.credentials.json present (copied into each isolated session config dir)
+INFO  autoupdates_setting                ~/.claude.json autoUpdates=False; launcher also exports DISABLE_AUTOUPDATER=1
+PASS  cmd_sbatch                         /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sbatch
+PASS  cmd_sacct                          /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sacct
+PASS  cmd_squeue                         /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/squeue
+PASS  cmd_scontrol                       /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/scontrol
+PASS  cmd_sinfo                          /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sinfo
+PASS  cmd_uuidgen                        /usr/bin/uuidgen
+PASS  cmd_jq                             /usr/bin/jq
+PASS  partition                          hochhalter-np available
+INFO  slurm_contract                     account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00
+PASS  approved_software                  loader ok; runtime inventory hash matches frozen value
+PASS  frozen_e2-example16                FROZEN-EX16-v1 a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+PASS  claude_md_ancestors                no CLAUDE.md in ancestors of /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs
+PASS  agent_visible_leak                 no researcher-only references in frozen configurations
+
+preflight: PASS (pinned_binary_ok=1, dry_run=0, utc=2026-10-09T18:28:08Z)
+PASS      manifest_identity                        E2-example16-baseline-02 (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+PASS      status_planned                           status: planned
+PASS      empty_work                               work/ contains only .gitkeep
+PASS      empty_jobs                               jobs/ contains only .gitkeep
+PASS      empty_logs                               logs/ contains only .gitkeep
+PASS      empty_outputs                            outputs/ contains only .gitkeep
+PASS      null_started_utc                         started_utc: null
+PASS      null_finished_utc                        finished_utc: null
+PASS      null_agent_session_ids                   agent_session_ids: null
+PASS      null_workflow_job_ids                    workflow_job_ids: null
+PASS      null_scoring_decision                    scoring_decision: null
+PASS      null_curation_include_in_analysis        curation_include_in_analysis: null
+PASS      no_prior_outputs                         no meshes/decks/job scripts in the packet
+
+packet verification (planned): verified  fails=0 ambiguous=0
+[2026-10-09T18:28:09Z] submitting agent-host job for E2-example16-baseline-02/session_a (sbatch --wait)
+session d7cb8111-13a4-45e4-93ec-f40c98fc9f9c rc=1 timeout_hit=false transcript=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/session_evidence/E2-example16-baseline-02/session_a/transcript_d7cb8111-13a4-45e4-93ec-f40c98fc9f9c.jsonl
+[2026-10-09T18:29:55Z] Session A ended rc=1; running interlock
+[2026-10-09T18:29:55Z] WARNING: Stage-1 boundary artifact missing: outputs/stage1/engine_output.exo
+[2026-10-09T18:29:55Z] WARNING: Stage-1 boundary artifact missing: outputs/stage1/morphorm_oc_optimizer_diagnostics.txt
+[2026-10-09T18:29:55Z] WARNING: Stage-1 boundary artifact missing: work/run_summary.md
+[2026-10-09T18:29:55Z] copied session evidence: session_a
+[2026-10-09T18:29:56Z] evidence collected for E2-example16-baseline-02: sessions=d7cb8111-13a4-45e4-93ec-f40c98fc9f9c workflow_jobs=none agent_host_jobs=16163260
+[2026-10-09T18:29:56Z] FATAL: E2-example16-baseline-02: Stage-1 boundary not reached or ambiguous; Session B not launched (trial marked failed_stage1_boundary) 1
+[2026-10-09T18:29:56Z] FATAL: batch stopped: trial 2 ended with rc=1 (failed/ambiguous/blocked). Inspect before continuing. 1

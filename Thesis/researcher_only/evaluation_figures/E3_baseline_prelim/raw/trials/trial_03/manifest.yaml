@@ -1,0 +1,82 @@
+run_id: E3-example8-baseline-03
+status: planned
+experiment: E3
+experiment_selector: e3-example8
+workflow: frozen_example8
+paired_block: E3-03
+system: baseline
+frozen_configuration_id: FROZEN-EX8-v1
+frozen_configuration_sha256: cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+agent_inputs_sha256: cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+model_identifier: claude-fable-5-1
+agent_harness: claude-code
+agent_harness_version: "2.1.295"
+headless: true
+slurm_contract: "account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00"
+created_utc: 2026-10-09T12:18:31Z
+started_utc: null
+finished_utc: null
+agent_session_ids: null
+agent_host_job_ids: null
+workflow_job_ids: null
+evidence_sha256_manifest: null
+packet_verification: null
+curation_researcher_reviewed: null
+curation_include_in_analysis: null
+curation_notes: null
+scoring_decision: null
+scoring_scored_utc: null
+scoring_record: null
+
+# --- E3 distributed-context fields (appended 2026-10-10T02:19:05Z; original copy: setup/preexisting_state/baseline_trial_03_manifest.pre_e3dc.yaml) ---
+e3dc_trial_id: E3-baseline-trial_03
+e3dc_experiment: E3_disparate_storage_example8
+e3dc_system: baseline
+e3dc_task_specification_id: E3-SPC-v1
+e3dc_status: awaiting_scoring
+e3dc_created_utc: 2026-10-10T02:19:05Z
+e3dc_control_repo_url: "git@github.com:DaisyQuach/daisy-e3-distributed-context-control.git"
+e3dc_control_commit: 62954055b4e848f2155258c5b8c628eab97c8586
+e3dc_globus_mode: globus
+e3dc_staging_dir: "/scratch/local/u1282901/16173745/e3/baseline/E3-baseline-trial_03"
+e3dc_agent_executable: "$HOME/.local/share/claude/versions/2.1.295"
+e3dc_agent_version: "2.1.295"
+e3dc_model: claude-fable-5-1
+e3dc_prompt_sha256: 63f84f79301da3a5362a457017d3df4ede1342c5ca5bd122b069f83424e91c20
+e3dc_session_id: 00ef0819-2adf-412b-8d07-96bb9f8d5f7f
+e3dc_slurm_job_id: 16173745
+e3dc_started_utc: 2026-10-10T06:38:35Z
+e3dc_finished_utc: 2026-10-10T07:08:07Z
+e3dc_exit_status: 0
+e3dc_boundary_audit: PASS
+e3dc_sources_unchanged: true
+e3dc_scoring_decision: null
+e3dc_notes: null
+
+# --- E3 procedural-access fields (appended 2026-10-10T02:19:20Z; pre-update copy: setup/preexisting_state/procedural_access_update_pre/baseline/trial_03/manifest.yaml) ---
+e3proc_updated_utc: 2026-10-10T02:19:20Z
+e3proc_access_model: procedural_researcher_only
+e3proc_access_model_note: "same model as E1/E2: researcher-only material is excluded from the agent-visible packet and agents are instructed and audited not to access it; agents and their Slurm jobs run under the researcher's account, so this separation is procedural, not a technically enforced filesystem boundary"
+e3proc_sandbox_required: false
+e3proc_valid_agent_input_packet: agent-inputs/
+e3proc_legacy_agent_inputs_status: archived_outside_trial
+e3proc_legacy_agent_inputs_archive: setup/preexisting_state/legacy_baseline_trial03_agent_inputs/
+e3proc_legacy_agent_inputs_sha256_list: setup/preexisting_state/legacy_baseline_trial03_agent_inputs.sha256
+e3proc_legacy_agent_inputs_moved_utc: 2026-10-10T02:18:58Z
+e3proc_legacy_frozen_configuration_fields_apply: false
+e3proc_legacy_frozen_configuration_fields_note: "frozen_configuration_id/sha256 and agent_inputs_sha256 above describe the archived pre-E3 packet and are kept unchanged as history; they do not describe agent-inputs/"
+e3proc_counted_trial_ready: false
+e3proc_report: setup/E3_PROCEDURAL_ACCESS_UPDATE.md
+
+# --- E3 readiness-pilot fields (appended 2026-10-10T04:08:15Z; pre-append copy: setup/preexisting_state/readiness_pilot_manifests_pre/baseline/trial_03/manifest.yaml) ---
+e3ready_updated_utc: 2026-10-10T04:08:15Z
+e3ready_globus_mode: mandatory
+e3ready_globus_source_collection: 6dcea62e-130d-47a9-8b77-80fba6f58693   # daisy-e3-private-source (guest, read-only; discoverable-only visibility accepted)
+e3ready_globus_destination_collection: 7cf0baa1-8bd0-4e91-a1e6-c19042952a7c   # CHPC DMZ mapped collection, destination only, staging-inbox/ only
+e3ready_staging_inbox: staging-inbox/
+e3ready_node_local_root: "$TMPDIR (Slurm per-job /scratch/local/<account>/<jobid>); staging at $TMPDIR/e3/<system>/<trial_id>"
+e3ready_account_name_in_staging_path_accepted: true
+e3ready_control_commit_at_pilot: 62954055b4e848f2155258c5b8c628eab97c8586   # not frozen
+e3ready_packet_frozen: false
+e3ready_counted_trial_ready: false
+e3ready_report: setup/E3_READINESS_AFTER_PILOT.md

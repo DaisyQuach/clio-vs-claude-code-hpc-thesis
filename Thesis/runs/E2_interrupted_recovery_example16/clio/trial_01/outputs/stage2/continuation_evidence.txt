@@ -1,0 +1,40 @@
+# Continuation evidence -- FROZEN-EX16-v1, trial E2-example16-clio-01, Stage 2 (Slurm job 16237166)
+
+## Checkpoint and restart settings actually used
+- Checkpoint: outputs/stage1/engine_output.exo (Stage-1 engine output, job 16236766), SHA-256
+  9f9616771441ca2de1d98bb44ccd81daedaa2b0bc305a2d0733d2402f6addee9, 21 saved states = Exodus time steps 1..21
+  (time values 1.0..21.0) = optimization iterations 0..20; nodal fields control, topology.
+- Stage 2 read an exact copy: work/stage2/run/restart_input.exo (delivered as outputs/stage2/restart_input.exo),
+  cmp identical to the checkpoint, same SHA-256 (also printed by the job: RESTART_INPUT_SHA256 in run_logs/stage2_16237166.out).
+- Deck (outputs/stage2/input_deck.i, study block): initial_guess_file_name restart_input.exo;
+  initial_guess_field_name control; restart_iteration 21; max_iterations 40.
+- Generated configuration (outputs/stage2/generated_config/engine_operations.xml): InitializeField
+  Method FromFieldOnInputMesh, Name restart_input.exo, VariableName control, Iteration 21; PlatoMainOutput
+  RestartFieldName control, MaxIterations 40; interface.xml Optimizer/Convergence MaxIterations 40.
+- Index convention established: restart_iteration is the 1-based Exodus time-step number of the saved state
+  (time step 21 = iteration 20). Nothing was wrong on the first attempt; no correction or resubmission was needed.
+
+## Optimizer-diagnostics comparison
+- Stage 1 (outputs/stage1/morphorm_oc_optimizer_diagnostics.txt), last row:
+  Iter 20  F-count 21  F(X) 2.360040e+05  Norm(F') 1.191537e+04  H1(X) 3.964884e-13
+- Stage 2 (outputs/stage2/morphorm_oc_optimizer_diagnostics.txt), first row:
+  Iter 0   F-count 1   F(X) 2.360040e+05  Norm(F') 1.191537e+04  H1(X) 3.964884e-13
+- Full precision from the criteria histories: Stage-1 opt_criteria_history.csv last value 2.3600395811001546e+05;
+  Stage-2 opt_criteria_history.csv first value 2.3600395811001546e+05 (identical).
+- Bundled check diag_summary.py --compare-first-to 2.360040e+05: first_vs_given_rel_diff 0.0
+  (work/verify/stage2_first_objective_check.txt during the run, work/verify/stage2_diag_summary.txt after it).
+- For contrast, the Stage-1 iteration-19 compliance is 2.388394e+05, so the first Stage-2 value identifies the
+  iteration-20 state unambiguously.
+
+## Saved-field comparison (work/verify/stage2_control_field_compare.txt)
+- control field, Stage-1 engine_output.exo time step 21 (time 21.0) vs Stage-2 engine_output.exo time step 1
+  (time 1.0, the design Stage 2 started from): max|diff| = 0.000e+00, arrays identical (30625 nodes;
+  min 0, max 1, mean 0.168639 in both).
+- Same Stage-2 field vs Stage-1 time step 20 (iteration 19): max|diff| = 2.000e-01 -> step 20 was not the state read.
+- restart_input.exo time step 21 control == checkpoint time step 21 control (identical).
+
+## Stage-2 completion
+- 41 diagnostic rows, local iterations 0..40 (= overall iterations 20..60), last F(X) 2.135584e+05,
+  stop message: ****** Optimization stopping due to exceeding maximum number of iterations. ******
+- engine_output.exo: 41 saved states (time 1.0..41.0), fields control and topology.
+- final_analyze_output.exo = analyze iteration40.exo (local iteration 40 = overall iteration 60).

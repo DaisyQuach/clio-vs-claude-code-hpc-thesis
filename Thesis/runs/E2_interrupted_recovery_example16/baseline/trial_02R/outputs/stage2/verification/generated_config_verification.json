@@ -1,0 +1,347 @@
+{
+  "frozen_configuration_id": "FROZEN-EX16-v1",
+  "stage": 2,
+  "run_dir": "work/stage2/run",
+  "verified_utc": "2026-10-09T19:40:18Z",
+  "files_sha256": {
+    "analyze_2_input_deck.xml": "a6f7d5bf3d61607bec82781d3afad5231a493e602331ea7a3b54f7e9b3c162d5",
+    "analyze_2_operations.xml": "fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0",
+    "analyze_helmholtz_input_deck.xml": "c813b81a2c43cbac181b51c3ae12cad319473e7c2725afd29c2637fedec2dcbf",
+    "analyze_helmholtz_operations.xml": "402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854",
+    "engine_input_deck.xml": "7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a",
+    "engine_operations.xml": "de4341334d3c99814ea20139addc61561a25508268c3d2eebe97d80e819e9336",
+    "input_deck.i": "5300072ceaffa0c4dc3db41da1b073527917f0a59084d485855578b42b45ed19",
+    "interface.xml": "828a2e406e5fa536015b2f9327c2d0b01f0bcc627814a4baee8796e6cf2bd8ca",
+    "mpirun.source": "5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc"
+  },
+  "checks": {
+    "helmholtz: Physics = Helmholtz Filter": {
+      "pass": true,
+      "observed": "Helmholtz Filter"
+    },
+    "helmholtz: Length Scale = 0.15/(2*sqrt(3)) = 0.043301 (radius_absolute 0.15)": {
+      "pass": true,
+      "observed": 0.043301
+    },
+    "helmholtz: Surface Length Scale = 1.0 (boundary_sticking_penalty 1.0)": {
+      "pass": true,
+      "observed": 1.0
+    },
+    "helmholtz: no symmetry plane sidesets": {
+      "pass": true,
+      "observed": []
+    },
+    "helmholtz: Input Mesh = mesh.exo": {
+      "pass": true,
+      "observed": "mesh.exo"
+    },
+    "helmholtz: Spatial Dimension = 3": {
+      "pass": true,
+      "observed": "3"
+    },
+    "helmholtz: domain block_1": {
+      "pass": true,
+      "observed": "block_1"
+    },
+    "analyze: Physics = Mechanical": {
+      "pass": true,
+      "observed": "Mechanical"
+    },
+    "analyze: Spatial Dimension = 3": {
+      "pass": true,
+      "observed": "3"
+    },
+    "analyze: Input Mesh = mesh.exo": {
+      "pass": true,
+      "observed": "mesh.exo"
+    },
+    "analyze: domain block_1 -> material_1": {
+      "pass": true,
+      "observed": "material_1"
+    },
+    "material: isotropic linear elastic E = 1.0": {
+      "pass": true,
+      "observed": 1.0
+    },
+    "material: nu = 0.3": {
+      "pass": true,
+      "observed": 0.3
+    },
+    "objective criterion: compliance (Internal Elastic Energy)": {
+      "pass": true,
+      "observed": "Internal Elastic Energy"
+    },
+    "objective criterion: SIMP": {
+      "pass": true,
+      "observed": "SIMP"
+    },
+    "objective criterion: exponent 3.0": {
+      "pass": true,
+      "observed": "3.0"
+    },
+    "objective criterion: minimum ersatz value 1e-3": {
+      "pass": true,
+      "observed": "1e-3"
+    },
+    "objective criterion: domain block_1": {
+      "pass": true,
+      "observed": "{block_1}"
+    },
+    "residual: single-phase interpolation": {
+      "pass": true,
+      "observed": "Single-Phase"
+    },
+    "residual: linear response": {
+      "pass": true,
+      "observed": "Linear"
+    },
+    "residual: SIMP exponent 3.0": {
+      "pass": true,
+      "observed": "3.0"
+    },
+    "residual: SIMP minimum value 1e-3": {
+      "pass": true,
+      "observed": "1e-3"
+    },
+    "load: exactly one concentrated load": {
+      "pass": true,
+      "observed": [
+        "/Scenarios/Concentrated Loads/Concentrated Load with ID 0"
+      ]
+    },
+    "load: direction y (Dof 1)": {
+      "pass": true,
+      "observed": "1"
+    },
+    "load: value -1.0 per node": {
+      "pass": true,
+      "observed": "-1.0"
+    },
+    "load: nodeset ns_load": {
+      "pass": true,
+      "observed": "ns_load"
+    },
+    "load: no tractions / natural BCs": {
+      "pass": true,
+      "observed": []
+    },
+    "BC: exactly three essential BCs": {
+      "pass": true,
+      "observed": [
+        "/Scenarios/Essential Boundary Conditions/Displacement X with ID 1",
+        "/Scenarios/Essential Boundary Conditions/Displacement Y with ID 2",
+        "/Scenarios/Essential Boundary Conditions/Displacement Z with ID 3"
+      ]
+    },
+    "BC: indices 0,1,2 (u_x,u_y,u_z)": {
+      "pass": true,
+      "observed": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    "BC: all on ns_fix": {
+      "pass": true,
+      "observed": [
+        "ns_fix",
+        "ns_fix",
+        "ns_fix"
+      ]
+    },
+    "BC: all Fixed Value 0.0": {
+      "pass": true,
+      "observed": [
+        [
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "Fixed Value",
+          "0.0"
+        ]
+      ]
+    },
+    "output: dispx dispy dispz plottable": {
+      "pass": true,
+      "observed": "{displacement_x, displacement_y, displacement_z}"
+    },
+    "engine output: WriteRestart true": {
+      "pass": true,
+      "observed": "true"
+    },
+    "engine output: OutputFrequency 1 (every iteration saved)": {
+      "pass": true,
+      "observed": "1"
+    },
+    "engine output: MaxIterations 40": {
+      "pass": true,
+      "observed": "40"
+    },
+    "engine output: control and topology nodal fields written": {
+      "pass": true,
+      "observed": [
+        "control",
+        "topology"
+      ]
+    },
+    "stage 2: initial design read from a field on an input mesh (FromFieldOnInputMesh)": {
+      "pass": true,
+      "observed": "FromFieldOnInputMesh"
+    },
+    "stage 2: restart source file restart_input.exo": {
+      "pass": true,
+      "observed": "restart_input.exo"
+    },
+    "stage 2: restart field `control` (raw design variable, not `topology`)": {
+      "pass": true,
+      "observed": "control"
+    },
+    "stage 2: restart saved state <Iteration> = 21": {
+      "pass": true,
+      "observed": "21"
+    },
+    "stage 2: PlatoMainOutput RestartFieldName control": {
+      "pass": true,
+      "observed": "control"
+    },
+    "stage 2: restart_input.exo in run dir is byte-identical to the Stage-1 checkpoint outputs/stage1/engine_output.exo": {
+      "pass": true,
+      "observed": {
+        "restart_input.exo": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+        "checkpoint": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8"
+      }
+    },
+    "update problem operation present, frequency 1": {
+      "pass": true,
+      "observed": "1"
+    },
+    "constraint: volume computed by engine (ComputeVolume)": {
+      "pass": true,
+      "observed": "ComputeVolume"
+    },
+    "objective: weighted sum, single criterion, weight 1": {
+      "pass": true,
+      "observed": [
+        "1"
+      ]
+    },
+    "objective: normalize_in_aggregator false (no Normals in aggregator)": {
+      "pass": true,
+      "observed": "no Normals"
+    },
+    "optimizer: OC": {
+      "pass": true,
+      "observed": "OC"
+    },
+    "optimizer: MaxIterations 40": {
+      "pass": true,
+      "observed": "40"
+    },
+    "optimizer: default OC tolerances (1e-4, 1e-8, 1e-8)": {
+      "pass": true,
+      "observed": [
+        "1e-4",
+        "1e-8",
+        "1e-8"
+      ]
+    },
+    "optimizer: ProblemUpdateFrequency 1": {
+      "pass": true,
+      "observed": "1"
+    },
+    "constraint: exactly one": {
+      "pass": true,
+      "observed": 1
+    },
+    "constraint: NormalizedTargetValue 0.15 relative to Design Volume": {
+      "pass": true,
+      "observed": [
+        "0.15",
+        "Design Volume"
+      ]
+    },
+    "design variables: bounds [0,1]": {
+      "pass": true,
+      "observed": [
+        "0.0",
+        "1.0"
+      ]
+    },
+    "performers: engine_1 (engine), analyze_2 (analyze), analyze_helmholtz (analyze)": {
+      "pass": true,
+      "observed": [
+        [
+          "engine_1",
+          "engine"
+        ],
+        [
+          "analyze_2",
+          "analyze"
+        ],
+        [
+          "analyze_helmholtz",
+          "analyze"
+        ]
+      ]
+    },
+    "optimizer: filtered design name Topology, control name Control": {
+      "pass": true,
+      "observed": [
+        "Control",
+        "Topology"
+      ]
+    },
+    "stages: objective value/gradient via analyze_2 and Helmholtz filter": {
+      "pass": true,
+      "observed": [
+        "Design Volume",
+        "Initial Guess",
+        "Set Lower Bounds",
+        "Set Upper Bounds",
+        "Output To File",
+        "Update Problem",
+        "Compute Constraint Value 1",
+        "Compute Constraint Gradient 1",
+        "Compute Objective Value",
+        "Compute Objective Gradient"
+      ]
+    },
+    "engine: mesh mesh.exo, exodus": {
+      "pass": true,
+      "observed": [
+        "mesh.exo",
+        "exodus"
+      ]
+    },
+    "engine: output file engine_output (exodus)": {
+      "pass": true,
+      "observed": [
+        "engine_output",
+        "exodus"
+      ]
+    },
+    "mpirun.source: three single-rank performers (-np 1 each)": {
+      "pass": true,
+      "observed": [
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    "mpirun.source: PlatoMain + analyze_MPMD x2": {
+      "pass": true,
+      "observed": [
+        1,
+        2
+      ]
+    }
+  },
+  "all_checks_pass": true,
+  "n_checks": 60,
+  "n_pass": 60
+}

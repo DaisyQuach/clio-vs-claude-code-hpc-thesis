@@ -1,0 +1,27 @@
+2026-10-13T02:31:48-06:00 start trial E2-example16-clio-03; manuals converted with pdftotext -layout
+2026-10-13T08:32:55+00:00 mesh generation start
+2026-10-13T08:32:58+00:00 cubit -batch -nographics -nojournal -input mesh.jou exit=0
+2026-10-13T08:33:21+00:00 XMLGenerator input_deck.i (work/stage1)
+2026-10-13T08:33:22+00:00 XMLGenerator exit=0
+2026-10-13T08:33:22+00:00 exo_summary.py mesh verify exit=0 -> work/verify/mesh.json
+2026-10-13T08:34:29+00:00 xmlgen_tests A(output_frequency 1 in output block) B(isosurface_output_frequency 1 in study) translated
+2026-10-13T08:34:53+00:00 XMLGenerator input_deck.i (work/stage1, deck v2 with isosurface_output_frequency 1)
+2026-10-13T08:34:53+00:00 XMLGenerator v2 exit=0 
+2026-10-13T08:35:22+00:00 xmlgen_tests/C radius 0.30 -> length scale check
+2026-10-13T08:35:29+00:00 sbatch --parsable jobs/stage1_job.sbatch -> JOBID 16239127 (Stage 1)
+2026-10-13T08:46:55+00:00 job 16239127 COMPLETED 0:0 elapsed 00:10:37 node notch351
+2026-10-13T08:47:19+00:00 deliverables copied to outputs/, SHA256SUMS.txt written and checked
+2026-10-13T08:47:22+00:00 verification: diag 21 rows iter0-20 stop=max iterations; engine_output.exo 21 steps control+topology; iteration20.exo checked
+2026-10-13T08:51:10+00:00 work/run_summary.md written (Stage 1 complete, Stage 2 not started)
+2026-10-13T08:54:48+00:00 stage2 run dir created: restart_input.exo = copy of outputs/stage1/engine_output.exo; deck written (max_iterations 40, control, restart_iteration 21)
+2026-10-13T08:54:58+00:00 XMLGenerator input_deck.i (work/stage2)
+2026-10-13T08:54:59+00:00 XMLGenerator exit=0
+2026-10-13T08:55:17+00:00 xml_params.py stage2 exit=0 -> work/verify/stage2_xml_params.tsv
+2026-10-13T08:55:25+00:00 sbatch --parsable jobs/stage2_job.sbatch -> JOBID 16239273 (Stage 2, restart_iteration 21)
+2026-10-13T08:56:37+00:00 job 16239273 running on notch351; stage2 Iter0 F(X)=2.360040e+05 Norm=1.191537e+04 H1=3.964884e-13 == stage1 iter20 -> restart_iteration 21 reads iteration-20 control (seamless); continue
+2026-10-13T09:17:07+00:00 job 16239273 COMPLETED 0:0 elapsed 00:20:42 node notch351; sacct -> jobs/sacct_16239273.txt
+2026-10-13T09:17:08+00:00 verification: diag_summary stage2 (compare-first-to 2.360040e+05), exo_summary engine_output + iteration40.exo -> work/verify/stage2_*.json
+2026-10-13T09:17:25+00:00 field check: checkpoint control step21 vs stage2 engine_output step1 -> work/verify/stage2_field_continuation.json
+2026-10-13T09:17:39+00:00 field check: checkpoint control step21 vs stage2 engine_output step1 -> work/verify/stage2_field_continuation.json
+2026-10-13T09:18:04+00:00 stage2 deliverables copied to outputs/stage2/, continuation_evidence.json written, SHA256SUMS.txt regenerated and checked
+2026-10-13T09:20:41+00:00 work/run_summary.md updated (Session B addenda in sections 1-8); all locked deliverables present; manifest re-checked; Stage 2 complete, workflow finished

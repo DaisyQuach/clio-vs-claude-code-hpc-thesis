@@ -1,0 +1,94 @@
+# Direct grep verification of generated config in work/run2 (2026-10-13T05:43:53Z)
+## engine_operations.xml
+3:  <Function>PlatoMainOutput</Function>
+7:  <MaxIterations>50</MaxIterations>
+9:    <ArgumentName>topology</ArgumentName>
+13:    <ArgumentName>control</ArgumentName>
+18:  <Function>InitializeField</Function>
+19:  <Name>Initialize Field</Name>
+25:    <ArgumentName>Initialized Field</ArgumentName>
+29:  <Function>SetLowerBounds</Function>
+41:  <Function>SetUpperBounds</Function>
+53:  <Function>CopyField</Function>
+63:  <Function>CopyValue</Function>
+73:  <Function>DesignVolume</Function>
+80:  <Function>ComputeVolume</Function>
+84:    <ArgumentName>Topology</ArgumentName>
+98:  <Function>ComputeVolume</Function>
+102:    <ArgumentName>Topology</ArgumentName>
+116:  <Function>Update Problem</Function>
+118:  <UpdateProblemFrequency>1</UpdateProblemFrequency>
+122:  <Function>Aggregator</Function>
+## interface.xml (optimizer, update problem, normalization)
+446:  <Package>OC</Package>
+451:    <ProblemUpdateFrequency>1</ProblemUpdateFrequency>
+454:    <MaxIterations>50</MaxIterations>
+456:  <UpdateProblemStage>
+458:  </UpdateProblemStage>
+482:    <NormalizedTargetValue>0.15</NormalizedTargetValue>
+## analyze_2_input_deck.xml (load, BCs, output)
+16:          <Parameter name="Minimum Value" type="double" value="1e-3" />
+27:          <Parameter name="Minimum Value" type="double" value="1e-3" />
+53:      <ParameterList name="Concentrated Load with ID 0">
+54:        <Parameter name="Dof" type="int" value="1" />
+55:        <Parameter name="Value" type="double" value="-1.0" />
+56:        <Parameter name="Nodes" type="string" value="ns_load" />
+61:      <ParameterList name="Displacement X with ID 1">
+62:        <Parameter name="Type" type="string" value="Fixed Value" />
+63:        <Parameter name="Index" type="int" value="0" />
+64:        <Parameter name="Sides" type="string" value="ns_fix" />
+65:        <Parameter name="Value" type="double" value="0.0" />
+67:      <ParameterList name="Displacement Y with ID 2">
+68:        <Parameter name="Type" type="string" value="Fixed Value" />
+69:        <Parameter name="Index" type="int" value="1" />
+70:        <Parameter name="Sides" type="string" value="ns_fix" />
+71:        <Parameter name="Value" type="double" value="0.0" />
+73:      <ParameterList name="Displacement Z with ID 3">
+74:        <Parameter name="Type" type="string" value="Fixed Value" />
+75:        <Parameter name="Index" type="int" value="2" />
+76:        <Parameter name="Sides" type="string" value="ns_fix" />
+77:        <Parameter name="Value" type="double" value="0.0" />
+79:      <ParameterList name="Displacement Z with ID 4">
+80:        <Parameter name="Type" type="string" value="Fixed Value" />
+81:        <Parameter name="Index" type="int" value="2" />
+82:        <Parameter name="Sides" type="string" value="ss_sym" />
+83:        <Parameter name="Value" type="double" value="0.0" />
+87:      <Parameter name="Plottable" type="Array(string)" value="{displacement_x, displacement_y, displacement_z}" />
+## engine_input_deck.xml
+<?xml version="1.0"?>
+<mesh>
+  <type>unstructured</type>
+  <format>exodus</format>
+  <ignore_node_map>true</ignore_node_map>
+  <ignore_element_map>true</ignore_element_map>
+  <mesh>mesh.exo</mesh>
+  <block>
+    <index>1</index>
+    <material>1</material>
+    <integration>
+      <type>gauss</type>
+      <order>2</order>
+    </integration>
+  </block>
+</mesh>
+<output>
+  <file>engine_output</file>
+  <format>exodus</format>
+</output>
+## run1 vs run2 diff: only analyze_helmholtz_input_deck.xml differs
+18a19
+>       <Parameter name="Symmetry Plane Sides" type="Array(string)" value="{ss_sym}" />
+work/run2/engine_operations.xml:22:    <Value>0.15</Value>
+work/run2/interface.xml:482:    <NormalizedTargetValue>0.15</NormalizedTargetValue>
+<Operation>
+  <Function>InitializeField</Function>
+  <Name>Initialize Field</Name>
+  <Method>Uniform</Method>
+  <Uniform>
+    <Value>0.15</Value>
+  </Uniform>
+  <Output>
+    <ArgumentName>Initialized Field</ArgumentName>
+  </Output>
+</Operation>
+<Operation>

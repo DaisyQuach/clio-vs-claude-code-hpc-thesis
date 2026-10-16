@@ -1,0 +1,13 @@
+reset
+brick x 2 y 1 z 0.5
+move volume 1 x 1 y 0.5 z 0.25 include_merged
+list volume 1
+list surface all
+list curve all
+volume 1 size 0.0416666666666667
+volume 1 scheme map
+mesh volume 1
+list surface with x_coord < 0.001
+list surface with z_coord > 0.499
+list curve with x_coord > 1.999 and y_coord < 0.001
+list node with x_coord > 1.999 and y_coord < 0.001

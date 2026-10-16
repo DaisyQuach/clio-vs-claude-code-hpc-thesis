@@ -1,0 +1,34 @@
+{
+  "spec_id": "ACCEPT-EX8-v1",
+  "workflow": "frozen_example8",
+  "frozen_configuration_id": "FROZEN-EX8-v1",
+  "reference_policy": "symmetry_honored_variant",
+  "_reference_policy_options": ["symmetry_honored_variant", "canonical_shipped_deck", "undecided"],
+  "_reference_policy_note": "RESEARCHER DECISION REQUIRED before the first counted E1 trial. Recommended: symmetry_honored_variant (the frozen specification requires the filter symmetry plane to be present in the generated configuration). While undecided every trial scores needs_review.",
+  "references": {
+    "symmetry_honored_variant": {
+      "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_8/reference_case/run_symmetry_honored_variant",
+      "history_csv": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_8/reference_case/results/ex8_symmetry_honored_variant_criterion_history.csv",
+      "summary": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_8/reference_case/results/ex8_symmetry_honored_variant_summary.json",
+      "final_exo": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_8/reference_case/run_symmetry_honored_variant/analyze_id_2_output_scenario_id_1/iteration50.exo",
+      "expect_symmetry_sides": true
+    },
+    "canonical_shipped_deck": {
+      "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_8/reference_case/run_canonical",
+      "history_csv": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_8/reference_case/results/ex8_canonical_criterion_history.csv",
+      "summary": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_8/reference_case/results/ex8_canonical_summary.json",
+      "final_exo": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_8/reference_case/run_canonical/analyze_id_2_output_scenario_id_1/iteration50.exo",
+      "expect_symmetry_sides": false
+    }
+  },
+  "mesh": {"NX": 48, "NY": 24, "NZ": 12, "LX": 2.0, "LY": 1.0, "LZ": 0.5, "sidesets": ["ss_sym"]},
+  "generated_config_args": "--max-iterations 50 --sym-bc-sideset ss_sym --initial-density 0.15 --write-restart false --simp-min 1e-3 --simp-exp 3.0 --radius 0.15 --sticking 1.0 --volume-target 0.15",
+  "iterations": 50,
+  "tolerances": {
+    "final_compliance_rel_accept": 1e-6,
+    "final_compliance_rel_review": 1e-2,
+    "volume_fraction_abs_accept": 1e-6,
+    "density_max_abs_accept": 1e-6,
+    "density_max_abs_review": 0.05
+  }
+}

@@ -1,0 +1,29 @@
+run_id: E1-example8-baseline-04R
+status: failed
+experiment: E1
+experiment_selector: e1-example8
+workflow: frozen_example8
+paired_block: E1-04
+system: baseline
+frozen_configuration_id: FROZEN-EX8-v1
+frozen_configuration_sha256: cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+agent_inputs_sha256: cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+model_identifier: claude-fable-5-1
+agent_harness: claude-code
+agent_harness_version: "2.1.295"
+headless: true
+slurm_contract: "account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00"
+created_utc: 2026-10-09T17:54:27Z
+started_utc: 2026-10-09T18:19:44Z
+finished_utc: 2026-10-09T18:25:22Z
+agent_session_ids: "4c7b3b9c-14a7-4a15-ae29-060de1f8f612"
+agent_host_job_ids: "16163192"
+workflow_job_ids: ""
+evidence_sha256_manifest: logs/evidence_SHA256SUMS.txt
+packet_verification: logs/packet_verification.json
+curation_researcher_reviewed: null
+curation_include_in_analysis: false
+curation_notes: "agent session aborted by the provider model limit ('You've reached your Fable limit'); non-agent cause; excluded; to be replaced by a fresh R packet after the limit resets"
+scoring_decision: null
+scoring_scored_utc: null
+scoring_record: null

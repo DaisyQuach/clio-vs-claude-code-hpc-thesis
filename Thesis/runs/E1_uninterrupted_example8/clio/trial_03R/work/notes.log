@@ -1,0 +1,19 @@
+2026-10-13T04:42:12Z start trial=E1-example8-clio-03R packet_read
+2026-10-13T04:44:45Z mesh_generation_start cmd='cubit -batch -nographics -nojournal -input work/mesh/mesh.jou'
+2026-10-13T04:44:47Z cubit exit=0
+2026-10-13T04:45:19Z mesh_verification exo_summary.py
+2026-10-13T04:45:20Z exo_summary exit=0
+2026-10-13T04:45:39Z deck_translation_start cmd='XMLGenerator input_deck.i' dir=work/run/attempt1
+2026-10-13T04:45:39Z XMLGenerator exit=0
+2026-10-13T04:46:34Z decision: filter-block form dropped symmetry_plane_location_names in generated analyze_helmholtz_input_deck.xml (attempt1); re-translate with legacy study-level filter keywords (attempt2)
+2026-10-13T04:46:34Z deck_translation_start cmd='XMLGenerator input_deck.i' dir=work/run/attempt2
+2026-10-13T04:46:35Z XMLGenerator exit=0
+2026-10-13T04:46:59Z generated_config_verification xml_params.py attempt2
+2026-10-13T04:47:00Z xml_params exit=1
+2026-10-13T04:47:28Z job_submission sbatch --parsable jobs/morphorm_ex8.sbatch rc=0 jobid=16226389
+2026-10-13T05:05:55Z job 16226389 finished COMPLETED 0:0 elapsed 00:16:46 node notch274
+2026-10-13T05:05:55Z diag_summary.py exit recorded work/verify/diag_summary.json
+2026-10-13T05:06:26Z delivery_start copying accepted run (attempt2, job 16226389) to outputs/
+2026-10-13T05:06:27Z delivery_done SHA256SUMS.txt verified with sha256sum -c
+2026-10-13T05:06:27Z job_ids.txt: 16226389 
+2026-10-13T05:08:35Z run_summary.md written

@@ -1,0 +1,21 @@
+# FROZEN-EX16-v1 cantilever design domain: brick [0,2]x[0,1]x[0,1], corner at origin
+# structured HEX8 mesh, h = 1/24, 48 x 24 x 24 = 27648 elements, 30625 nodes
+reset
+brick x 2.0 y 1.0 z 1.0
+move volume 1 x 1.0 y 0.5 z 0.5 include_merged
+volume 1 scheme map
+volume 1 size 0.0416666666666667
+mesh volume 1
+# single element block with every element
+block 1 add volume 1
+block 1 name "block_1"
+block 1 element type HEX8
+# nodeset ns_fix: all nodes on face x = 0
+nodeset 1 add node with x_coord < 1e-6
+nodeset 1 name "ns_fix"
+# nodeset ns_load: all nodes on edge x = 2, y = 0, spanning z in [0,1]
+nodeset 2 add node with x_coord > 1.999999 and y_coord < 1e-6
+nodeset 2 name "ns_load"
+set exodus netcdf4 off
+set large exodus file off
+export mesh "mesh.exo" dimension 3 overwrite

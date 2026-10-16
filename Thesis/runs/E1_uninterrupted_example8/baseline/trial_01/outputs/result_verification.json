@@ -1,0 +1,44 @@
+{
+  "run_dir": "work/run2",
+  "utc": "2026-10-09T12:39:23Z",
+  "diagnostics_rows": 51,
+  "first_iter": 0,
+  "last_iter": 50,
+  "stopping_message": "****** Optimization stopping due to exceeding maximum number of iterations. ******",
+  "final_objective_F": 104470.1,
+  "final_constraint_H1": -1.628697e-13,
+  "final_analyze_file": "work/run2/analyze_id_2_output_scenario_id_1/iteration50.exo",
+  "final_analyze_nodal_vars": [
+    "Topology",
+    "displacement X",
+    "displacement Y",
+    "displacement Z"
+  ],
+  "final_analyze_elem_vars": [
+    "My Objective"
+  ],
+  "final_analyze_time": 50.0,
+  "max_abs_dispZ_on_symmetry_plane": 0.0,
+  "max_abs_disp_on_ns_fix": 0.0,
+  "max_abs_dispZ_overall": 2141.725451948709,
+  "min_dispY_overall": -21941.17299464446,
+  "dispY_at_ns_load_mean": -16072.329310870698,
+  "volume_fraction_from_topology_iter50": 0.14999999999959,
+  "engine_output_time_steps": 51,
+  "engine_output_nodal_vars": [
+    "control",
+    "topology"
+  ],
+  "checks": {
+    "diagnostics: iterations 0..50 present (51 rows), last iteration == 50": true,
+    "diagnostics: stop reason is maximum number of iterations (no early convergence)": true,
+    "final analyze output = iteration50.exo exists with Topology + displacement X/Y/Z": true,
+    "final analyze output time step == 50": true,
+    "symmetry BC honoured: |u_z| on z=0.5 nodes == 0": true,
+    "fixed BC honoured: |u| on ns_fix == 0": true,
+    "load direction consistent: u_y at ns_load negative": true,
+    "volume constraint active/feasible: |H1| < 1e-6 and volume fraction ~ 0.15 (within 2%)": true,
+    "engine_output.exo has control and topology, >= 50 time steps": true
+  },
+  "ALL_CHECKS_PASS": true
+}

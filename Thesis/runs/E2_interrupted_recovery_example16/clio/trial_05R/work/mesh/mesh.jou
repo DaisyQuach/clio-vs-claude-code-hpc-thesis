@@ -1,0 +1,17 @@
+# Frozen workflow EX16 (FROZEN-EX16-v1): cantilever design domain [0,2]x[0,1]x[0,1]
+# Structured HEX8 mesh, h = 1/24, 48 x 24 x 24 elements, one block 'block_1', nodesets ns_fix (x=0 face), ns_load (edge x=2,y=0)
+reset
+brick x 2.0 y 1.0 z 1.0
+move volume 1 x 1.0 y 0.5 z 0.5 include_merged
+volume 1 scheme map
+curve with length > 1.5 interval 48
+curve with length < 1.5 interval 24
+mesh volume 1
+block 1 add volume 1
+block 1 name "block_1"
+block 1 element type HEX8
+nodeset 1 add surface with x_coord < 0.001
+nodeset 1 name "ns_fix"
+nodeset 2 add curve with x_coord > 1.999 and y_coord < 0.001
+nodeset 2 name "ns_load"
+export mesh "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/clio/trial_05R/work/mesh/mesh.exo" dimension 3 overwrite

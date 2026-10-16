@@ -1,0 +1,83 @@
+{
+  "file": "topology_mech_ex8.exo",
+  "num_nodes": 15925,
+  "num_elem": 13824,
+  "num_el_blk": 1,
+  "block_names": [
+    "block_1"
+  ],
+  "element_type": "HEX8",
+  "bbox": {
+    "x": [
+      0.0,
+      2.0
+    ],
+    "y": [
+      0.0,
+      1.0
+    ],
+    "z": [
+      0.0,
+      0.5
+    ]
+  },
+  "nodesets": {
+    "ns_fix": {
+      "size": 325,
+      "x": [
+        0.0,
+        0.0
+      ],
+      "y": [
+        0.0,
+        1.0
+      ],
+      "z": [
+        0.0,
+        0.5
+      ]
+    },
+    "ns_load": {
+      "size": 13,
+      "x": [
+        2.0,
+        2.0
+      ],
+      "y": [
+        0.0,
+        0.0
+      ],
+      "z": [
+        0.0,
+        0.5
+      ]
+    }
+  },
+  "sidesets": {
+    "ss_sym": {
+      "size": 1152
+    }
+  },
+  "expected": {
+    "NX": 48,
+    "NY": 24,
+    "NZ": 12,
+    "LX": 2.0,
+    "LY": 1.0,
+    "LZ": 0.5,
+    "sidesets": [
+      "ss_sym"
+    ]
+  },
+  "checks": {
+    "num_elem == NX*NY*NZ": true,
+    "num_nodes == (NX+1)(NY+1)(NZ+1)": true,
+    "single block 'block_1'": true,
+    "element type HEX8": true,
+    "bbox == [0,LX]x[0,LY]x[0,LZ]": true,
+    "ns_fix: (NY+1)(NZ+1) nodes on x=0": true,
+    "ns_load: NZ+1 nodes on x=LX, y=0": true,
+    "sideset ss_sym: NX*NY faces": true
+  },
+  "all_checks_pass": true
+}

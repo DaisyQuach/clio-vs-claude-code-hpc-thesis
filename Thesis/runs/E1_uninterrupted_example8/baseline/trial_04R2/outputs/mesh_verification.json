@@ -1,0 +1,252 @@
+{
+  "file": "mesh.exo",
+  "utc": "2026-10-09T21:45:37Z",
+  "checks": [
+    {
+      "check": "num_dim",
+      "pass": true,
+      "got": 3,
+      "expected": 3
+    },
+    {
+      "check": "num_nodes",
+      "pass": true,
+      "got": 15925,
+      "expected": 15925
+    },
+    {
+      "check": "num_elem",
+      "pass": true,
+      "got": 13824,
+      "expected": 13824
+    },
+    {
+      "check": "num_el_blk",
+      "pass": true,
+      "got": 1,
+      "expected": 1
+    },
+    {
+      "check": "bounding_box",
+      "pass": true,
+      "got": [
+        0.0,
+        2.0,
+        0.0,
+        1.0,
+        0.0,
+        0.5
+      ],
+      "expected": [
+        0.0,
+        2.0,
+        0.0,
+        1.0,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "check": "unique_x_coords",
+      "pass": true,
+      "got": [
+        49,
+        0.0416666659999998,
+        0.0416666670000001
+      ],
+      "expected": [
+        49,
+        0.041666666666666664,
+        0.041666666666666664
+      ]
+    },
+    {
+      "check": "unique_y_coords",
+      "pass": true,
+      "got": [
+        25,
+        0.041666666,
+        0.041666667000000004
+      ],
+      "expected": [
+        25,
+        0.041666666666666664,
+        0.041666666666666664
+      ]
+    },
+    {
+      "check": "unique_z_coords",
+      "pass": true,
+      "got": [
+        13,
+        0.041666666,
+        0.041666667000000004
+      ],
+      "expected": [
+        13,
+        0.041666666666666664,
+        0.041666666666666664
+      ]
+    },
+    {
+      "check": "block_names",
+      "pass": true,
+      "got": [
+        "block_1"
+      ],
+      "expected": [
+        "block_1"
+      ]
+    },
+    {
+      "check": "block1_elem_type",
+      "pass": true,
+      "got": [
+        "HEX8",
+        8
+      ],
+      "expected": [
+        "HEX8",
+        8
+      ]
+    },
+    {
+      "check": "block1_num_elem",
+      "pass": true,
+      "got": 13824,
+      "expected": 13824
+    },
+    {
+      "check": "element_edge_lengths_h",
+      "pass": true,
+      "got": [
+        0.041666666666665186,
+        0.04166666666666807
+      ],
+      "expected": [
+        0.041666666666666664,
+        0.041666666666666664
+      ]
+    },
+    {
+      "check": "nodeset_names",
+      "pass": true,
+      "got": [
+        "ns_fix",
+        "ns_load"
+      ],
+      "expected": [
+        "ns_fix",
+        "ns_load"
+      ]
+    },
+    {
+      "check": "ns_fix_count",
+      "pass": true,
+      "got": 325,
+      "expected": 325
+    },
+    {
+      "check": "ns_fix_on_x0",
+      "pass": true,
+      "got": 0.0,
+      "expected": 0.0
+    },
+    {
+      "check": "ns_fix_complete",
+      "pass": true,
+      "got": 325,
+      "expected": 325
+    },
+    {
+      "check": "ns_load_count",
+      "pass": true,
+      "got": 13,
+      "expected": 13
+    },
+    {
+      "check": "ns_load_on_edge",
+      "pass": true,
+      "got": [
+        0.0,
+        0.0
+      ],
+      "expected": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "check": "ns_load_z_span",
+      "pass": true,
+      "got": [
+        0.0,
+        0.5
+      ],
+      "expected": [
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "check": "ns_load_complete",
+      "pass": true,
+      "got": 13,
+      "expected": 13
+    },
+    {
+      "check": "sideset_names",
+      "pass": true,
+      "got": [
+        "ss_sym"
+      ],
+      "expected": [
+        "ss_sym"
+      ]
+    },
+    {
+      "check": "ss_sym_count",
+      "pass": true,
+      "got": 1152,
+      "expected": 1152
+    },
+    {
+      "check": "ss_sym_faces_on_z0.5",
+      "pass": true,
+      "got": 0.0,
+      "expected": 0.0
+    },
+    {
+      "check": "ss_sym_covers_plane",
+      "pass": true,
+      "got": 1152,
+      "expected": 1152
+    }
+  ],
+  "all_pass": true,
+  "summary": {
+    "num_dim": 3,
+    "num_nodes": 15925,
+    "num_elem": 13824,
+    "num_el_blk": 1,
+    "block_names": [
+      "block_1"
+    ],
+    "elem_type": "HEX8",
+    "bounding_box_xmin_xmax_ymin_ymax_zmin_zmax": [
+      0.0,
+      2.0,
+      0.0,
+      1.0,
+      0.0,
+      0.5
+    ],
+    "nodesets": {
+      "ns_fix": 325,
+      "ns_load": 13
+    },
+    "sidesets": {
+      "ss_sym": 1152
+    }
+  }
+}

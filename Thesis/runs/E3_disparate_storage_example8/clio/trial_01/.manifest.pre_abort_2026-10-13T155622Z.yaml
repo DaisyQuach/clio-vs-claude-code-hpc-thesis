@@ -1,0 +1,69 @@
+# E3 trial manifest (researcher-owned; agents never edit). Flat keys; null = not yet recorded.
+e3dc_trial_id: E3-clio-trial_01
+e3dc_experiment: E3_disparate_storage_example8
+e3dc_system: clio
+e3dc_task_specification_id: E3-SPC-v1
+e3dc_status: planned
+e3dc_created_utc: 2026-10-10T00:11:06Z
+e3dc_control_repo_url: "git@github.com:DaisyQuach/daisy-e3-distributed-context-control.git"
+e3dc_control_commit: 62954055b4e848f2155258c5b8c628eab97c8586
+e3dc_globus_mode: globus
+e3dc_staging_dir: null
+e3dc_agent_executable: null
+e3dc_agent_version: null
+e3dc_model: null
+e3dc_prompt_sha256: null
+e3dc_session_id: null
+e3dc_slurm_job_id: null
+e3dc_started_utc: null
+e3dc_finished_utc: null
+e3dc_exit_status: null
+e3dc_boundary_audit: null
+e3dc_sources_unchanged: null
+e3dc_scoring_decision: null
+e3dc_notes: null
+
+# --- E3 procedural-access fields (appended 2026-10-10T02:19:20Z; pre-update copy: setup/preexisting_state/procedural_access_update_pre/clio/trial_01/manifest.yaml) ---
+e3proc_updated_utc: 2026-10-10T02:19:20Z
+e3proc_access_model: procedural_researcher_only
+e3proc_access_model_note: "same model as E1/E2: researcher-only material is excluded from the agent-visible packet and agents are instructed and audited not to access it; agents and their Slurm jobs run under the researcher's account, so this separation is procedural, not a technically enforced filesystem boundary"
+e3proc_sandbox_required: false
+e3proc_valid_agent_input_packet: agent-inputs/
+e3proc_legacy_agent_inputs_status: none_present
+e3proc_counted_trial_ready: false
+e3proc_report: setup/E3_PROCEDURAL_ACCESS_UPDATE.md
+
+# --- E3 readiness-pilot fields (appended 2026-10-10T04:08:15Z; pre-append copy: setup/preexisting_state/readiness_pilot_manifests_pre/clio/trial_01/manifest.yaml) ---
+e3ready_updated_utc: 2026-10-10T04:08:15Z
+e3ready_globus_mode: mandatory
+e3ready_globus_source_collection: 6dcea62e-130d-47a9-8b77-80fba6f58693   # daisy-e3-private-source (guest, read-only; discoverable-only visibility accepted)
+e3ready_globus_destination_collection: 7cf0baa1-8bd0-4e91-a1e6-c19042952a7c   # CHPC DMZ mapped collection, destination only, staging-inbox/ only
+e3ready_staging_inbox: staging-inbox/
+e3ready_node_local_root: "$TMPDIR (Slurm per-job /scratch/local/<account>/<jobid>); staging at $TMPDIR/e3/<system>/<trial_id>"
+e3ready_account_name_in_staging_path_accepted: true
+e3ready_control_commit_at_pilot: 62954055b4e848f2155258c5b8c628eab97c8586   # not frozen
+e3ready_packet_frozen: false
+e3ready_counted_trial_ready: false
+e3ready_report: setup/E3_READINESS_AFTER_PILOT.md
+
+# --- E3 CLIO deployment fields (appended 2026-10-10T04:57:52Z; pre-append copy: setup/preexisting_state/clio_manifests_pre/clio/trial_01/manifest.yaml) ---
+e3clio_deployment: setup/CLIO_DEPLOYMENT.md
+e3clio_runbook: setup/CLIO_RUNBOOK.md
+e3clio_instance_policy: "dedicated E3 CLIO server per trial in a fresh 8-CPU/32-GB allocation; no MCP servers; fresh state"
+e3clio_approval_mode: bypass
+e3clio_desktop_role: "control/observation only; any message, answer or grant during the trial invalidates it"
+e3clio_session_limit_seconds: 6600
+e3clio_globus_source_collection: 6dcea62e-130d-47a9-8b77-80fba6f58693
+e3clio_access_model: procedural_researcher_only
+e3clio_counted_trial_ready: false
+
+# --- E3 CLIO v2 fields (appended 2026-10-11T23:47:33Z; pre-append copy: clio/_pre_update_20261011/trial_01/manifest.yaml) ---
+e3clio2_updated_utc: 2026-10-11T23:47:33Z
+e3clio2_runner: automation/clio/run_clio_e3_trial_v2.sh
+e3clio2_shared_config: Thesis/automation/clio/clio_trial_config.env
+e3clio2_deployment: "fresh per-trial CLIO deployment built inside the trial allocation by Thesis/automation/clio/launch_clio_session.sh (supersedes the manual start_e3_clio_server.sh step)"
+e3clio2_blueprint: null
+e3clio2_claude_cli_version: null
+e3clio2_runtime_tuning: null
+e3clio2_usage_summary: null
+e3clio2_counted_trial_ready: false

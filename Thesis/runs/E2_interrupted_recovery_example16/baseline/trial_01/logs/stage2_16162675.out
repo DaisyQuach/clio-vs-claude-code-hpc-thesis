@@ -1,0 +1,61 @@
+=== Stage 2 job 16162675 on notch351
+=== UTC job start: 2026-10-09T17:49:52Z
+=== approved software interface
+=== module list
+
+Currently Loaded Modules:
+  1) chpc/1.0   (S)   3) openmpi/5.0.3               5) cubit-edu/2026.8
+  2) gcc/11.2.0       4) morphorm/approved-runtime
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+ 
+
+=== executables
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/PlatoMain
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/analyze_MPMD
+/uufs/chpc.utah.edu/sys/spack/v019/linux-rocky8-x86_64/gcc-11.2.0/openmpi-5.0.3-gjrgcotxcpanmyfade3xe7wjijuvnidx/bin/mpiexec
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/XMLGenerator
+=== run directory: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/baseline/trial_01/work/stage2/attempt1_restart20
+=== SHA-256 of inputs used by this job
+7b547b28d287fee232af3c5a80152ae9930d0bddba7540baaf6ecb62b2d4d571  input_deck.i
+bdeceb5a251e3c82f75258cd2e83e7e9b9136d298635869042c7af5eaeee0fdc  mesh.exo
+58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8  restart_input.exo
+ce3472f6107d147906912492c2272117eb09b082d9984e38d7eef95b1f080288  interface.xml
+7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a  engine_input_deck.xml
+f76858b008ba66b7defb6581b737027f0b59666081dbb7258a98ec25b66d5d24  engine_operations.xml
+a6f7d5bf3d61607bec82781d3afad5231a493e602331ea7a3b54f7e9b3c162d5  analyze_2_input_deck.xml
+fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0  analyze_2_operations.xml
+c813b81a2c43cbac181b51c3ae12cad319473e7c2725afd29c2637fedec2dcbf  analyze_helmholtz_input_deck.xml
+402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854  analyze_helmholtz_operations.xml
+5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc  mpirun.source
+=== restart settings in the generated configuration (engine_operations.xml)
+21:  <Method>FromFieldOnInputMesh</Method>
+22:  <FromFieldOnInputMesh>
+23-    <Name>restart_input.exo</Name>
+24-    <VariableName>control</VariableName>
+25-    <Iteration>20</Iteration>
+26:  </FromFieldOnInputMesh>
+27-</Operation>
+28-<Operation>
+29-  <Function>SetLowerBounds</Function>
+30-  <Name>Compute Lower Bounds</Name>
+31-  <UseCase>solid</UseCase>
+engine_operations.xml:7:  <MaxIterations>40</MaxIterations>
+engine_operations.xml:8:  <RestartFieldName>control</RestartFieldName>
+interface.xml:454:    <MaxIterations>40</MaxIterations>
+=== mpirun.source
+mpiexec --oversubscribe -np 1 -x PLATO_PERFORMER_ID=0 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=engine_operations.xml \
+PlatoMain engine_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=1 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=analyze_2_operations.xml \
+analyze_MPMD --input-config=analyze_2_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=2 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=analyze_helmholtz_operations.xml \
+analyze_MPMD --input-config=analyze_helmholtz_input_deck.xml \
+=== UTC Morphorm start: 2026-10-09T17:49:55Z

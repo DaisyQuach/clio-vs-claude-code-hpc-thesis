@@ -1,0 +1,29 @@
+run_id: E2-example16-baseline-04
+status: failed_stage1_boundary
+experiment: E2
+experiment_selector: e2-example16
+workflow: frozen_example16
+paired_block: E2-04
+system: baseline
+frozen_configuration_id: FROZEN-EX16-v1
+frozen_configuration_sha256: a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+agent_inputs_sha256: a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+model_identifier: claude-fable-5-1
+agent_harness: claude-code
+agent_harness_version: "2.1.295"
+headless: true
+slurm_contract: "account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00"
+created_utc: 2026-10-09T12:18:30Z
+started_utc: 2026-10-09T21:41:57Z
+finished_utc: 2026-10-09T22:02:38Z
+agent_session_ids: "ffbc2d92-ec35-4a66-bda4-69270ad79a28"
+agent_host_job_ids: "16167161"
+workflow_job_ids: "16167280"
+evidence_sha256_manifest: logs/evidence_SHA256SUMS.txt
+packet_verification: null
+curation_researcher_reviewed: null
+curation_include_in_analysis: false
+curation_notes: "Session A ended by provider session limit at turn 52 before the Stage-1 boundary; non-agent cause; excluded; replaced by trial_04R"
+scoring_decision: null
+scoring_scored_utc: null
+scoring_record: null

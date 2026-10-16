@@ -1,0 +1,5 @@
+2026-10-09T23:53:49Z trial 4R: status=completed_unscored decision=accepted
+2026-10-10T00:26:59Z trial 05: status=paused_after_session_a decision=null (resumed after runner loss; rc=4)
+2026-10-10T00:26:59Z chain finished
+2026-10-10T01:09:38Z correction: the two 00:26:59Z lines above came from recovery job 16168670, which refused (rc 4) because the original runner was still alive and had already launched Session B (job 16169529). Trial 05 is still in progress; the original runner will append its result.
+2026-10-10T01:23:22Z trial 05: status=completed_unscored decision=accepted (runner completed Session B; scored by researcher after the chain wrapper shell was lost)

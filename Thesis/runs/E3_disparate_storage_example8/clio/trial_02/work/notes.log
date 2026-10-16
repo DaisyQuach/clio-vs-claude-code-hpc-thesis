@@ -1,0 +1,29 @@
+2026-10-13T16:01:00Z start: trial=E3-clio-trial_02 staging=/scratch/local/u1282901/16244752/e3/clio/E3-clio-trial_02 control_commit=62954055b4e848f2155258c5b8c628eab97c8586
+./.gitignore: FAILED open or read
+2026-10-13T16:01:31Z control checksum check: all files PASS except ./.gitignore absent from snapshot (not provided in agent-inputs/control)
+2026-10-13T16:01:31Z globus_stage_file documentation/curated_permitted_materials/software_contract.md
+2026-10-13T16:01:32Z staged candidate archive text files (png figures not staged)
+2026-10-13T16:02:11Z globus_stage_file documentation/curated_permitted_materials/compute_resources.md
+2026-10-13T16:02:32Z globus_stage_file manuals/Morphorm_User_Manual.pdf
+2026-10-13T16:03:02Z globus_stage_file README.md
+2026-10-13T16:03:11Z globus_stage_file documentation/curated_readme.md
+2026-10-13T16:03:19Z globus_stage_file documentation/version_provenance.yaml
+2026-10-13T16:03:27Z globus_stage_file documentation/MANIFEST_README.md
+2026-10-13T16:03:35Z globus_stage_file target_materials/symmetry_plane_cantilever/README.md
+2026-10-13T16:04:05Z globus_stage_file target_materials/symmetry_plane_cantilever/problem_specification.md
+2026-10-13T16:04:14Z globus_stage_file target_materials/symmetry_plane_cantilever/permitted_starting_materials/README.md
+2026-10-13T16:04:58Z pdftotext user manual -> work/manual/user_manual.txt
+2026-10-13T16:05:50Z cubit -batch -nographics -nojournal -input mesh.jou (cwd work/mesh)
+2026-10-13T16:05:52Z cubit exit 0
+2026-10-13T16:06:16Z exo_summary mesh check rc=0 -> work/verify/mesh.json
+2026-10-13T16:07:00Z XMLGenerator input_deck.i in work/run01
+2026-10-13T16:07:00Z XMLGenerator exit 0
+2026-10-13T16:07:41Z run01 generated analyze_helmholtz_input_deck.xml has Length Scale 0.043301 and Surface Length Scale 1.0 but NO symmetry-plane sideset -> re-translate with legacy study-level filter keywords (manual Table 2.5.12)
+2026-10-13T16:07:44Z XMLGenerator input_deck.i in work/run02
+2026-10-13T16:07:45Z XMLGenerator exit 0
+2026-10-13T16:08:09Z xml_params run02 rc=0 -> work/verify/xml_params_run02.txt (Symmetry Plane Sides present)
+2026-10-13T16:08:27Z submitted job 16245034 script jobs/morphorm_run02.sbatch (run dir work/run02)
+2026-10-13T16:27:03Z job 16245034 COMPLETED exit 0:0 elapsed 00:18:04 node notch204
+2026-10-13T16:27:30Z symmetry/fixed BC check on iteration50.exo -> work/verify/symmetry_bc_check_iteration50.txt
+2026-10-13T16:27:45Z deliverables copied to outputs/ and hashed (outputs/SHA256SUMS.txt); returned_files.tsv header only (no staged file was returned byte-for-byte)
+2026-10-13T16:29:32Z wrote work/run_summary.md

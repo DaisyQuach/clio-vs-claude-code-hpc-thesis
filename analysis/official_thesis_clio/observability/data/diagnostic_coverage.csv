@@ -1,0 +1,631 @@
+experiment,system,run,qid,question,score,evidence
+E1,baseline,baseline 01,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E1,baseline,baseline 01,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E1,baseline,baseline 01,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E1,baseline,baseline 01,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E1,baseline,baseline 01,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E1,baseline,baseline 01,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E1,baseline,baseline 01,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E1,baseline,baseline 01,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E1,baseline,baseline 01,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E1,baseline,baseline 01,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E1,baseline,baseline 01,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E1,baseline,baseline 01,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E1,baseline,baseline 01,Q13,Runtime health and degraded integrations,0,stderr only
+E1,baseline,baseline 01,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E1,baseline,baseline 02,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E1,baseline,baseline 02,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E1,baseline,baseline 02,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E1,baseline,baseline 02,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E1,baseline,baseline 02,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E1,baseline,baseline 02,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E1,baseline,baseline 02,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E1,baseline,baseline 02,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E1,baseline,baseline 02,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E1,baseline,baseline 02,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E1,baseline,baseline 02,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E1,baseline,baseline 02,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E1,baseline,baseline 02,Q13,Runtime health and degraded integrations,0,stderr only
+E1,baseline,baseline 02,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E1,baseline,baseline 03,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E1,baseline,baseline 03,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E1,baseline,baseline 03,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E1,baseline,baseline 03,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E1,baseline,baseline 03,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E1,baseline,baseline 03,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E1,baseline,baseline 03,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E1,baseline,baseline 03,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E1,baseline,baseline 03,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E1,baseline,baseline 03,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E1,baseline,baseline 03,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E1,baseline,baseline 03,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E1,baseline,baseline 03,Q13,Runtime health and degraded integrations,0,stderr only
+E1,baseline,baseline 03,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E1,baseline,baseline 05,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E1,baseline,baseline 05,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E1,baseline,baseline 05,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E1,baseline,baseline 05,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E1,baseline,baseline 05,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E1,baseline,baseline 05,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E1,baseline,baseline 05,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E1,baseline,baseline 05,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E1,baseline,baseline 05,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E1,baseline,baseline 05,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E1,baseline,baseline 05,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E1,baseline,baseline 05,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E1,baseline,baseline 05,Q13,Runtime health and degraded integrations,0,stderr only
+E1,baseline,baseline 05,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E1,baseline,baseline 04R2,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E1,baseline,baseline 04R2,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E1,baseline,baseline 04R2,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E1,baseline,baseline 04R2,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E1,baseline,baseline 04R2,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E1,baseline,baseline 04R2,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E1,baseline,baseline 04R2,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E1,baseline,baseline 04R2,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E1,baseline,baseline 04R2,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E1,baseline,baseline 04R2,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E1,baseline,baseline 04R2,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E1,baseline,baseline 04R2,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E1,baseline,baseline 04R2,Q13,Runtime health and degraded integrations,0,stderr only
+E1,baseline,baseline 04R2,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E1,clio,CLIO 01,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E1,clio,CLIO 01,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E1,clio,CLIO 01,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E1,clio,CLIO 01,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E1,clio,CLIO 01,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E1,clio,CLIO 01,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E1,clio,CLIO 01,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E1,clio,CLIO 01,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E1,clio,CLIO 01,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E1,clio,CLIO 01,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E1,clio,CLIO 01,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E1,clio,CLIO 01,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E1,clio,CLIO 01,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E1,clio,CLIO 01,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E1,clio_no_audit,CLIO 01,Q1,Per-call token usage including cache writes,1,inherited transcript
+E1,clio_no_audit,CLIO 01,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E1,clio_no_audit,CLIO 01,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E1,clio_no_audit,CLIO 01,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E1,clio_no_audit,CLIO 01,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E1,clio_no_audit,CLIO 01,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E1,clio_no_audit,CLIO 01,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E1,clio_no_audit,CLIO 01,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E1,clio_no_audit,CLIO 01,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E1,clio_no_audit,CLIO 01,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E1,clio_no_audit,CLIO 01,Q11,Reasoning volume per model call,0,
+E1,clio_no_audit,CLIO 01,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E1,clio_no_audit,CLIO 01,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E1,clio_no_audit,CLIO 01,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E1,clio,CLIO 02,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E1,clio,CLIO 02,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E1,clio,CLIO 02,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E1,clio,CLIO 02,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E1,clio,CLIO 02,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E1,clio,CLIO 02,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E1,clio,CLIO 02,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E1,clio,CLIO 02,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E1,clio,CLIO 02,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E1,clio,CLIO 02,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E1,clio,CLIO 02,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E1,clio,CLIO 02,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E1,clio,CLIO 02,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E1,clio,CLIO 02,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E1,clio_no_audit,CLIO 02,Q1,Per-call token usage including cache writes,1,inherited transcript
+E1,clio_no_audit,CLIO 02,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E1,clio_no_audit,CLIO 02,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E1,clio_no_audit,CLIO 02,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E1,clio_no_audit,CLIO 02,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E1,clio_no_audit,CLIO 02,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E1,clio_no_audit,CLIO 02,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E1,clio_no_audit,CLIO 02,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E1,clio_no_audit,CLIO 02,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E1,clio_no_audit,CLIO 02,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E1,clio_no_audit,CLIO 02,Q11,Reasoning volume per model call,0,
+E1,clio_no_audit,CLIO 02,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E1,clio_no_audit,CLIO 02,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E1,clio_no_audit,CLIO 02,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E1,clio,CLIO 03R,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E1,clio,CLIO 03R,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E1,clio,CLIO 03R,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E1,clio,CLIO 03R,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E1,clio,CLIO 03R,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E1,clio,CLIO 03R,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E1,clio,CLIO 03R,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E1,clio,CLIO 03R,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E1,clio,CLIO 03R,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E1,clio,CLIO 03R,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E1,clio,CLIO 03R,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E1,clio,CLIO 03R,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E1,clio,CLIO 03R,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E1,clio,CLIO 03R,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E1,clio_no_audit,CLIO 03R,Q1,Per-call token usage including cache writes,1,inherited transcript
+E1,clio_no_audit,CLIO 03R,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E1,clio_no_audit,CLIO 03R,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E1,clio_no_audit,CLIO 03R,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E1,clio_no_audit,CLIO 03R,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E1,clio_no_audit,CLIO 03R,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E1,clio_no_audit,CLIO 03R,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E1,clio_no_audit,CLIO 03R,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E1,clio_no_audit,CLIO 03R,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E1,clio_no_audit,CLIO 03R,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E1,clio_no_audit,CLIO 03R,Q11,Reasoning volume per model call,0,
+E1,clio_no_audit,CLIO 03R,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E1,clio_no_audit,CLIO 03R,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E1,clio_no_audit,CLIO 03R,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E1,clio,CLIO 04,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E1,clio,CLIO 04,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E1,clio,CLIO 04,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E1,clio,CLIO 04,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E1,clio,CLIO 04,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E1,clio,CLIO 04,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E1,clio,CLIO 04,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E1,clio,CLIO 04,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E1,clio,CLIO 04,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E1,clio,CLIO 04,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E1,clio,CLIO 04,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E1,clio,CLIO 04,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E1,clio,CLIO 04,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E1,clio,CLIO 04,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E1,clio_no_audit,CLIO 04,Q1,Per-call token usage including cache writes,1,inherited transcript
+E1,clio_no_audit,CLIO 04,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E1,clio_no_audit,CLIO 04,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E1,clio_no_audit,CLIO 04,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E1,clio_no_audit,CLIO 04,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E1,clio_no_audit,CLIO 04,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E1,clio_no_audit,CLIO 04,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E1,clio_no_audit,CLIO 04,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E1,clio_no_audit,CLIO 04,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E1,clio_no_audit,CLIO 04,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E1,clio_no_audit,CLIO 04,Q11,Reasoning volume per model call,0,
+E1,clio_no_audit,CLIO 04,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E1,clio_no_audit,CLIO 04,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E1,clio_no_audit,CLIO 04,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E1,clio,CLIO 05,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E1,clio,CLIO 05,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E1,clio,CLIO 05,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E1,clio,CLIO 05,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E1,clio,CLIO 05,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E1,clio,CLIO 05,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E1,clio,CLIO 05,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E1,clio,CLIO 05,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E1,clio,CLIO 05,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E1,clio,CLIO 05,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E1,clio,CLIO 05,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E1,clio,CLIO 05,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E1,clio,CLIO 05,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E1,clio,CLIO 05,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E1,clio_no_audit,CLIO 05,Q1,Per-call token usage including cache writes,1,inherited transcript
+E1,clio_no_audit,CLIO 05,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E1,clio_no_audit,CLIO 05,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E1,clio_no_audit,CLIO 05,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E1,clio_no_audit,CLIO 05,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E1,clio_no_audit,CLIO 05,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E1,clio_no_audit,CLIO 05,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E1,clio_no_audit,CLIO 05,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E1,clio_no_audit,CLIO 05,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E1,clio_no_audit,CLIO 05,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E1,clio_no_audit,CLIO 05,Q11,Reasoning volume per model call,0,
+E1,clio_no_audit,CLIO 05,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E1,clio_no_audit,CLIO 05,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E1,clio_no_audit,CLIO 05,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E2,baseline,baseline 01,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E2,baseline,baseline 01,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E2,baseline,baseline 01,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E2,baseline,baseline 01,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E2,baseline,baseline 01,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E2,baseline,baseline 01,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E2,baseline,baseline 01,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E2,baseline,baseline 01,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E2,baseline,baseline 01,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E2,baseline,baseline 01,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E2,baseline,baseline 01,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E2,baseline,baseline 01,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E2,baseline,baseline 01,Q13,Runtime health and degraded integrations,0,stderr only
+E2,baseline,baseline 01,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E2,baseline,baseline 02R,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E2,baseline,baseline 02R,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E2,baseline,baseline 02R,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E2,baseline,baseline 02R,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E2,baseline,baseline 02R,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E2,baseline,baseline 02R,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E2,baseline,baseline 02R,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E2,baseline,baseline 02R,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E2,baseline,baseline 02R,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E2,baseline,baseline 02R,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E2,baseline,baseline 02R,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E2,baseline,baseline 02R,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E2,baseline,baseline 02R,Q13,Runtime health and degraded integrations,0,stderr only
+E2,baseline,baseline 02R,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E2,baseline,baseline 03,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E2,baseline,baseline 03,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E2,baseline,baseline 03,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E2,baseline,baseline 03,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E2,baseline,baseline 03,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E2,baseline,baseline 03,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E2,baseline,baseline 03,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E2,baseline,baseline 03,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E2,baseline,baseline 03,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E2,baseline,baseline 03,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E2,baseline,baseline 03,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E2,baseline,baseline 03,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E2,baseline,baseline 03,Q13,Runtime health and degraded integrations,0,stderr only
+E2,baseline,baseline 03,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E2,baseline,baseline 04R,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E2,baseline,baseline 04R,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E2,baseline,baseline 04R,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E2,baseline,baseline 04R,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E2,baseline,baseline 04R,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E2,baseline,baseline 04R,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E2,baseline,baseline 04R,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E2,baseline,baseline 04R,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E2,baseline,baseline 04R,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E2,baseline,baseline 04R,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E2,baseline,baseline 04R,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E2,baseline,baseline 04R,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E2,baseline,baseline 04R,Q13,Runtime health and degraded integrations,0,stderr only
+E2,baseline,baseline 04R,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E2,baseline,baseline 05,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E2,baseline,baseline 05,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E2,baseline,baseline 05,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E2,baseline,baseline 05,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E2,baseline,baseline 05,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E2,baseline,baseline 05,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E2,baseline,baseline 05,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E2,baseline,baseline 05,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E2,baseline,baseline 05,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E2,baseline,baseline 05,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E2,baseline,baseline 05,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E2,baseline,baseline 05,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E2,baseline,baseline 05,Q13,Runtime health and degraded integrations,0,stderr only
+E2,baseline,baseline 05,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E2,clio,CLIO 01,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E2,clio,CLIO 01,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E2,clio,CLIO 01,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E2,clio,CLIO 01,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E2,clio,CLIO 01,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E2,clio,CLIO 01,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E2,clio,CLIO 01,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E2,clio,CLIO 01,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E2,clio,CLIO 01,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E2,clio,CLIO 01,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E2,clio,CLIO 01,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E2,clio,CLIO 01,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E2,clio,CLIO 01,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E2,clio,CLIO 01,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E2,clio_no_audit,CLIO 01,Q1,Per-call token usage including cache writes,1,inherited transcript
+E2,clio_no_audit,CLIO 01,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E2,clio_no_audit,CLIO 01,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E2,clio_no_audit,CLIO 01,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E2,clio_no_audit,CLIO 01,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E2,clio_no_audit,CLIO 01,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E2,clio_no_audit,CLIO 01,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E2,clio_no_audit,CLIO 01,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E2,clio_no_audit,CLIO 01,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E2,clio_no_audit,CLIO 01,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E2,clio_no_audit,CLIO 01,Q11,Reasoning volume per model call,0,
+E2,clio_no_audit,CLIO 01,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E2,clio_no_audit,CLIO 01,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E2,clio_no_audit,CLIO 01,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E2,clio,CLIO 02,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E2,clio,CLIO 02,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E2,clio,CLIO 02,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E2,clio,CLIO 02,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E2,clio,CLIO 02,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E2,clio,CLIO 02,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E2,clio,CLIO 02,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E2,clio,CLIO 02,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E2,clio,CLIO 02,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E2,clio,CLIO 02,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E2,clio,CLIO 02,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E2,clio,CLIO 02,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E2,clio,CLIO 02,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E2,clio,CLIO 02,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E2,clio_no_audit,CLIO 02,Q1,Per-call token usage including cache writes,1,inherited transcript
+E2,clio_no_audit,CLIO 02,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E2,clio_no_audit,CLIO 02,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E2,clio_no_audit,CLIO 02,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E2,clio_no_audit,CLIO 02,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E2,clio_no_audit,CLIO 02,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E2,clio_no_audit,CLIO 02,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E2,clio_no_audit,CLIO 02,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E2,clio_no_audit,CLIO 02,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E2,clio_no_audit,CLIO 02,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E2,clio_no_audit,CLIO 02,Q11,Reasoning volume per model call,0,
+E2,clio_no_audit,CLIO 02,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E2,clio_no_audit,CLIO 02,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E2,clio_no_audit,CLIO 02,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E2,clio,CLIO 03,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E2,clio,CLIO 03,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E2,clio,CLIO 03,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E2,clio,CLIO 03,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E2,clio,CLIO 03,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E2,clio,CLIO 03,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E2,clio,CLIO 03,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E2,clio,CLIO 03,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E2,clio,CLIO 03,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E2,clio,CLIO 03,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E2,clio,CLIO 03,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E2,clio,CLIO 03,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E2,clio,CLIO 03,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E2,clio,CLIO 03,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E2,clio_no_audit,CLIO 03,Q1,Per-call token usage including cache writes,1,inherited transcript
+E2,clio_no_audit,CLIO 03,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E2,clio_no_audit,CLIO 03,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E2,clio_no_audit,CLIO 03,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E2,clio_no_audit,CLIO 03,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E2,clio_no_audit,CLIO 03,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E2,clio_no_audit,CLIO 03,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E2,clio_no_audit,CLIO 03,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E2,clio_no_audit,CLIO 03,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E2,clio_no_audit,CLIO 03,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E2,clio_no_audit,CLIO 03,Q11,Reasoning volume per model call,0,
+E2,clio_no_audit,CLIO 03,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E2,clio_no_audit,CLIO 03,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E2,clio_no_audit,CLIO 03,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E2,clio,CLIO 04,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E2,clio,CLIO 04,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E2,clio,CLIO 04,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E2,clio,CLIO 04,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E2,clio,CLIO 04,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E2,clio,CLIO 04,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E2,clio,CLIO 04,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E2,clio,CLIO 04,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E2,clio,CLIO 04,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E2,clio,CLIO 04,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E2,clio,CLIO 04,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E2,clio,CLIO 04,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E2,clio,CLIO 04,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E2,clio,CLIO 04,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E2,clio_no_audit,CLIO 04,Q1,Per-call token usage including cache writes,1,inherited transcript
+E2,clio_no_audit,CLIO 04,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E2,clio_no_audit,CLIO 04,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E2,clio_no_audit,CLIO 04,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E2,clio_no_audit,CLIO 04,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E2,clio_no_audit,CLIO 04,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E2,clio_no_audit,CLIO 04,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E2,clio_no_audit,CLIO 04,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E2,clio_no_audit,CLIO 04,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E2,clio_no_audit,CLIO 04,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E2,clio_no_audit,CLIO 04,Q11,Reasoning volume per model call,0,
+E2,clio_no_audit,CLIO 04,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E2,clio_no_audit,CLIO 04,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E2,clio_no_audit,CLIO 04,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E2,clio,CLIO 05R,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E2,clio,CLIO 05R,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E2,clio,CLIO 05R,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E2,clio,CLIO 05R,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E2,clio,CLIO 05R,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E2,clio,CLIO 05R,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E2,clio,CLIO 05R,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E2,clio,CLIO 05R,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E2,clio,CLIO 05R,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E2,clio,CLIO 05R,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E2,clio,CLIO 05R,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E2,clio,CLIO 05R,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E2,clio,CLIO 05R,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E2,clio,CLIO 05R,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E2,clio_no_audit,CLIO 05R,Q1,Per-call token usage including cache writes,1,inherited transcript
+E2,clio_no_audit,CLIO 05R,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E2,clio_no_audit,CLIO 05R,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E2,clio_no_audit,CLIO 05R,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E2,clio_no_audit,CLIO 05R,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E2,clio_no_audit,CLIO 05R,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E2,clio_no_audit,CLIO 05R,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E2,clio_no_audit,CLIO 05R,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E2,clio_no_audit,CLIO 05R,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E2,clio_no_audit,CLIO 05R,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E2,clio_no_audit,CLIO 05R,Q11,Reasoning volume per model call,0,
+E2,clio_no_audit,CLIO 05R,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E2,clio_no_audit,CLIO 05R,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E2,clio_no_audit,CLIO 05R,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E3,baseline,baseline 01,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E3,baseline,baseline 01,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E3,baseline,baseline 01,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E3,baseline,baseline 01,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E3,baseline,baseline 01,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E3,baseline,baseline 01,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E3,baseline,baseline 01,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E3,baseline,baseline 01,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E3,baseline,baseline 01,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E3,baseline,baseline 01,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E3,baseline,baseline 01,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E3,baseline,baseline 01,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E3,baseline,baseline 01,Q13,Runtime health and degraded integrations,0,stderr only
+E3,baseline,baseline 01,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E3,baseline,baseline 03,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E3,baseline,baseline 03,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E3,baseline,baseline 03,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E3,baseline,baseline 03,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E3,baseline,baseline 03,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E3,baseline,baseline 03,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E3,baseline,baseline 03,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E3,baseline,baseline 03,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E3,baseline,baseline 03,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E3,baseline,baseline 03,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E3,baseline,baseline 03,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E3,baseline,baseline 03,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E3,baseline,baseline 03,Q13,Runtime health and degraded integrations,0,stderr only
+E3,baseline,baseline 03,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E3,baseline,baseline 04,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E3,baseline,baseline 04,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E3,baseline,baseline 04,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E3,baseline,baseline 04,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E3,baseline,baseline 04,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E3,baseline,baseline 04,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E3,baseline,baseline 04,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E3,baseline,baseline 04,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E3,baseline,baseline 04,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E3,baseline,baseline 04,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E3,baseline,baseline 04,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E3,baseline,baseline 04,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E3,baseline,baseline 04,Q13,Runtime health and degraded integrations,0,stderr only
+E3,baseline,baseline 04,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E3,baseline,baseline 05,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E3,baseline,baseline 05,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E3,baseline,baseline 05,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E3,baseline,baseline 05,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E3,baseline,baseline 05,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E3,baseline,baseline 05,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E3,baseline,baseline 05,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E3,baseline,baseline 05,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E3,baseline,baseline 05,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E3,baseline,baseline 05,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E3,baseline,baseline 05,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E3,baseline,baseline 05,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E3,baseline,baseline 05,Q13,Runtime health and degraded integrations,0,stderr only
+E3,baseline,baseline 05,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E3,baseline,baseline 06,Q1,Per-call token usage including cache writes,1,transcript assistant.message.usage.cache_creation_input_tokens
+E3,baseline,baseline 06,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,no reset concept or field (compaction would appear as a system event)
+E3,baseline,baseline 06,Q3,"Start and end time of every tool call, including parallel calls",1,tool_use timestamp + one tool_result user entry per call (own timestamp)
+E3,baseline,baseline 06,Q4,Liveness of a long-running tool while it runs,1,stream tool_progress heartbeats (elapsed_time_seconds)
+E3,baseline,baseline 06,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",0.5,result.json terminal_reason/is_error per session; tool errors only as tool_result text
+E3,baseline,baseline 06,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",0.5,"stream system/init: model, permissionMode, version, tools, per_turn_effort_active (no effort level, no timeouts)"
+E3,baseline,baseline 06,Q7,Causal links: which model step issued which tool call,1,tool_use.id <-> tool_result.tool_use_id; parentUuid chain
+E3,baseline,baseline 06,Q8,Which skills / domain knowledge the agent loaded,0.5,derivable only from tool calls in the transcript (no skill event)
+E3,baseline,baseline 06,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results
+E3,baseline,baseline 06,Q10,Provider rate-limit / quota state during the run,1,"stream rate_limit_event (status, utilization, resetsAt)"
+E3,baseline,baseline 06,Q11,Reasoning volume per model call,1,stream system/thinking_tokens
+E3,baseline,baseline 06,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,not recorded
+E3,baseline,baseline 06,Q13,Runtime health and degraded integrations,0,stderr only
+E3,baseline,baseline 06,Q14,Which call created or changed each output file,0.5,Write/Edit tool inputs name the file; shell-written files only derivable from commands
+E3,clio,CLIO 03,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E3,clio,CLIO 03,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E3,clio,CLIO 03,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E3,clio,CLIO 03,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E3,clio,CLIO 03,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E3,clio,CLIO 03,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E3,clio,CLIO 03,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E3,clio,CLIO 03,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E3,clio,CLIO 03,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E3,clio,CLIO 03,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E3,clio,CLIO 03,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E3,clio,CLIO 03,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E3,clio,CLIO 03,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E3,clio,CLIO 03,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E3,clio_no_audit,CLIO 03,Q1,Per-call token usage including cache writes,1,inherited transcript
+E3,clio_no_audit,CLIO 03,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E3,clio_no_audit,CLIO 03,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E3,clio_no_audit,CLIO 03,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E3,clio_no_audit,CLIO 03,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E3,clio_no_audit,CLIO 03,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E3,clio_no_audit,CLIO 03,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E3,clio_no_audit,CLIO 03,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E3,clio_no_audit,CLIO 03,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E3,clio_no_audit,CLIO 03,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E3,clio_no_audit,CLIO 03,Q11,Reasoning volume per model call,0,
+E3,clio_no_audit,CLIO 03,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E3,clio_no_audit,CLIO 03,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E3,clio_no_audit,CLIO 03,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E3,clio,CLIO 04,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E3,clio,CLIO 04,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E3,clio,CLIO 04,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E3,clio,CLIO 04,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E3,clio,CLIO 04,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E3,clio,CLIO 04,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E3,clio,CLIO 04,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E3,clio,CLIO 04,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E3,clio,CLIO 04,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E3,clio,CLIO 04,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E3,clio,CLIO 04,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E3,clio,CLIO 04,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E3,clio,CLIO 04,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E3,clio,CLIO 04,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E3,clio_no_audit,CLIO 04,Q1,Per-call token usage including cache writes,1,inherited transcript
+E3,clio_no_audit,CLIO 04,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E3,clio_no_audit,CLIO 04,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E3,clio_no_audit,CLIO 04,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E3,clio_no_audit,CLIO 04,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E3,clio_no_audit,CLIO 04,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E3,clio_no_audit,CLIO 04,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E3,clio_no_audit,CLIO 04,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E3,clio_no_audit,CLIO 04,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E3,clio_no_audit,CLIO 04,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E3,clio_no_audit,CLIO 04,Q11,Reasoning volume per model call,0,
+E3,clio_no_audit,CLIO 04,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E3,clio_no_audit,CLIO 04,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E3,clio_no_audit,CLIO 04,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E3,clio,CLIO 05,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E3,clio,CLIO 05,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E3,clio,CLIO 05,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E3,clio,CLIO 05,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E3,clio,CLIO 05,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E3,clio,CLIO 05,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E3,clio,CLIO 05,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E3,clio,CLIO 05,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E3,clio,CLIO 05,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E3,clio,CLIO 05,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E3,clio,CLIO 05,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E3,clio,CLIO 05,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E3,clio,CLIO 05,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E3,clio,CLIO 05,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E3,clio_no_audit,CLIO 05,Q1,Per-call token usage including cache writes,1,inherited transcript
+E3,clio_no_audit,CLIO 05,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E3,clio_no_audit,CLIO 05,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E3,clio_no_audit,CLIO 05,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E3,clio_no_audit,CLIO 05,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E3,clio_no_audit,CLIO 05,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E3,clio_no_audit,CLIO 05,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E3,clio_no_audit,CLIO 05,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E3,clio_no_audit,CLIO 05,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E3,clio_no_audit,CLIO 05,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E3,clio_no_audit,CLIO 05,Q11,Reasoning volume per model call,0,
+E3,clio_no_audit,CLIO 05,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E3,clio_no_audit,CLIO 05,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E3,clio_no_audit,CLIO 05,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E3,clio,CLIO 06,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E3,clio,CLIO 06,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E3,clio,CLIO 06,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E3,clio,CLIO 06,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E3,clio,CLIO 06,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E3,clio,CLIO 06,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E3,clio,CLIO 06,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E3,clio,CLIO 06,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E3,clio,CLIO 06,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E3,clio,CLIO 06,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E3,clio,CLIO 06,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E3,clio,CLIO 06,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E3,clio,CLIO 06,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E3,clio,CLIO 06,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E3,clio_no_audit,CLIO 06,Q1,Per-call token usage including cache writes,1,inherited transcript
+E3,clio_no_audit,CLIO 06,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E3,clio_no_audit,CLIO 06,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E3,clio_no_audit,CLIO 06,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E3,clio_no_audit,CLIO 06,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E3,clio_no_audit,CLIO 06,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E3,clio_no_audit,CLIO 06,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E3,clio_no_audit,CLIO 06,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E3,clio_no_audit,CLIO 06,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E3,clio_no_audit,CLIO 06,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E3,clio_no_audit,CLIO 06,Q11,Reasoning volume per model call,0,
+E3,clio_no_audit,CLIO 06,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E3,clio_no_audit,CLIO 06,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E3,clio_no_audit,CLIO 06,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E3,clio,CLIO 07,Q1,Per-call token usage including cache writes,1,audit provider.call_usage.usage_cache_creation_input_tokens (+ inherited transcript)
+E3,clio,CLIO 07,Q2,Typed reason for each prompt-cache reset / full-context re-send,1,"audit provider.stateful.reason (first_call, session_evicted, ...)"
+E3,clio,CLIO 07,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E3,clio,CLIO 07,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E3,clio,CLIO 07,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E3,clio,CLIO 07,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E3,clio,CLIO 07,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E3,clio,CLIO 07,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E3,clio,CLIO 07,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E3,clio,CLIO 07,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E3,clio,CLIO 07,Q11,Reasoning volume per model call,1,audit provider.batch_response.reasoning_len
+E3,clio,CLIO 07,Q12,Whether each call's prompt prefix matched the previous one (cache stability),1,audit provider.call_started.prefix_2k/16k_sha256
+E3,clio,CLIO 07,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E3,clio,CLIO 07,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"
+E3,clio_no_audit,CLIO 07,Q1,Per-call token usage including cache writes,1,inherited transcript
+E3,clio_no_audit,CLIO 07,Q2,Typed reason for each prompt-cache reset / full-context re-send,0,
+E3,clio_no_audit,CLIO 07,Q3,"Start and end time of every tool call, including parallel calls",1,trace tool.call.started / tool.call.completed per call_id
+E3,clio_no_audit,CLIO 07,Q4,Liveness of a long-running tool while it runs,1,SSE tool.call.progress events while the tool runs (OFFICIAL: SSE stream kept)
+E3,clio_no_audit,CLIO 07,Q5,"Typed reason when a tool call or turn fails (timeout, watchdog, provider error)",1,trace turn.failed / llm.response.failed / tool.call.completed status (e3a: provider_timeout)
+E3,clio_no_audit,CLIO 07,Q6,"Effective configuration read back from the running system (model, permissions, effort, agent definition, timeouts)",1,"API: session model/approval/metadata, attached blueprint + version, /v1/settings/runtime (timeouts)"
+E3,clio_no_audit,CLIO 07,Q7,Causal links: which model step issued which tool call,1,trace react.step.completed + call_id; provenance spans with parent_id
+E3,clio_no_audit,CLIO 07,Q8,Which skills / domain knowledge the agent loaded,1,trace skill.loaded
+E3,clio_no_audit,CLIO 07,Q9,"Slurm jobs the agent submitted, attributed to the session",0.5,derivable by parsing sbatch output in tool results (CLIO has no job-attribution field; our runner's agent_jobs came from the jobs file)
+E3,clio_no_audit,CLIO 07,Q10,Provider rate-limit / quota state during the run,0,not recorded (CLIO consumes the CLI stream and does not keep it; a limit that stops a turn is recorded as turn.failed)
+E3,clio_no_audit,CLIO 07,Q11,Reasoning volume per model call,0,
+E3,clio_no_audit,CLIO 07,Q12,Whether each call's prompt prefix matched the previous one (cache stability),0,
+E3,clio_no_audit,CLIO 07,Q13,Runtime health and degraded integrations,1,API /v1/health integrations + audit *_degraded rows
+E3,clio_no_audit,CLIO 07,Q14,Which call created or changed each output file,0.5,"trace artifact.transform.recorded per tool call, but shell transforms record 0 used / 0 generated"

@@ -1,0 +1,61 @@
+{
+  "trial_id": "E3-baseline-trial_03",
+  "trial_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_03",
+  "mode": "counted",
+  "test_mode": false,
+  "executable": "$HOME/.local/share/claude/versions/2.1.295",
+  "executable_version": "2.1.295",
+  "executable_sha256": "4503bfe11a6c7fcc1e0b39b5e0d347c04248f750b03b0977b3ad6b531fe6f358",
+  "model": "claude-fable-5-1",
+  "model_settings": "harness defaults (no temperature/token/effort overrides); settings.json model pinned",
+  "prompt_sha256": "63f84f79301da3a5362a457017d3df4ede1342c5ca5bd122b069f83424e91c20",
+  "control_repo_url": "git@github.com:DaisyQuach/daisy-e3-distributed-context-control.git",
+  "control_commit": "62954055b4e848f2155258c5b8c628eab97c8586",
+  "globus_mode": "globus",
+  "access_model": "procedural_researcher_only",
+  "sandbox_used": false,
+  "staging_dir": "/scratch/local/u1282901/16173745/e3/baseline/E3-baseline-trial_03",
+  "claude_config_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/baseline/E3-baseline-trial_03/claude_config",
+  "session_id": "00ef0819-2adf-412b-8d07-96bb9f8d5f7f",
+  "timeout_seconds": 6600,
+  "argv_flags": [
+    "--print",
+    "--verbose",
+    "--output-format",
+    "stream-json",
+    "--model",
+    "claude-fable-5-1",
+    "--dangerously-skip-permissions",
+    "--session-id",
+    "00ef0819-2adf-412b-8d07-96bb9f8d5f7f",
+    "--disable-slash-commands",
+    "--no-chrome",
+    "--",
+    "<baseline_e3_prompt.md>"
+  ],
+  "environment": {
+    "DISABLE_AUTOUPDATER": "1",
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CONFIG_DIR": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/baseline/E3-baseline-trial_03/claude_config",
+    "E3_TRIAL_ID": "E3-baseline-trial_03",
+    "E3_TRIAL_ROOT": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_03",
+    "E3_STAGING_DIR": "/scratch/local/u1282901/16173745/e3/baseline/E3-baseline-trial_03",
+    "inherited_CLAUDE_vars": "scrubbed"
+  },
+  "never_used": [
+    "--resume",
+    "--continue",
+    "--fork-session"
+  ],
+  "checks": [
+    "access_model INFO procedural_researcher_only: prohibited by prompt/protocol and audited; not technically enforced (no sandbox)",
+    "allocation PASS job 16173745, node-local root $TMPDIR on notch274",
+    "claude_pinned PASS $HOME/.local/share/claude/versions/2.1.295 = 2.1.295",
+    "headless_flags PASS all required flags present in --help",
+    "control_repo PASS git@github.com:DaisyQuach/daisy-e3-distributed-context-control.git readable noninteractively",
+    "globus PASS collection 6dcea62e-130d-47a9-8b77-80fba6f58693 listable noninteractively (3.43.0)",
+    "sources PASS collections verify against manifests; archive write-protected",
+    "workspace PASS fresh"
+  ]
+}

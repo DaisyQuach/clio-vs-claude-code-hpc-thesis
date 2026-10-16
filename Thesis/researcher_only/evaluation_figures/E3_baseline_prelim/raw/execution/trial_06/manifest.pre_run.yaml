@@ -1,0 +1,31 @@
+# E3 trial manifest (researcher-owned; agents never edit). Flat keys; null = not yet recorded.
+e3dc_trial_id: E3-baseline-trial_06
+e3dc_experiment: E3_disparate_storage_example8
+e3dc_system: baseline
+e3dc_task_specification_id: E3-SPC-v1
+e3dc_status: planned
+e3dc_created_utc: 2026-10-10T14:57:16Z
+e3dc_control_repo_url: null
+e3dc_control_commit: null
+e3dc_globus_mode: null
+e3dc_staging_dir: null
+e3dc_agent_executable: null
+e3dc_agent_version: null
+e3dc_model: null
+e3dc_prompt_sha256: null
+e3dc_session_id: null
+e3dc_slurm_job_id: null
+e3dc_started_utc: null
+e3dc_finished_utc: null
+e3dc_exit_status: null
+e3dc_boundary_audit: null
+e3dc_sources_unchanged: null
+e3dc_scoring_decision: null
+e3dc_notes: null
+
+# --- E3 replacement-attempt fields (appended 2026-10-10T14:58Z by the researcher-side controller) ---
+e3rep_attempt_label: 02R
+e3rep_replaces_attempt: baseline/trial_02 (Slurm 16173744; terminal_state audit_failed; retained unchanged)
+e3rep_reason: "trial_02 session ended on 'OAuth session expired and could not be refreshed' (no deliverables) and its frozen audit FAILed on reads of the session's own persisted tool-result file; researcher requested a replacement attempt"
+e3rep_configuration: E3-BASELINE-FREEZE-v1 (unchanged; freeze sha256 e13d2fd6846a2a8814a821c17808575a500073b7e17e434ec4b4d300a868ec35)
+e3rep_directory_note: "the frozen runner accepts only baseline/trial_NN, so the replacement uses the new directory trial_06"

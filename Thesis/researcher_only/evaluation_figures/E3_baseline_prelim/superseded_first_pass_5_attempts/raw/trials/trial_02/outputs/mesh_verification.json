@@ -1,0 +1,162 @@
+{
+  "utc": "2026-10-10T06:14:05Z",
+  "file": "mesh.exo",
+  "checks": {
+    "num_dim": {
+      "pass": true,
+      "got": 3,
+      "expected": 3
+    },
+    "num_nodes": {
+      "pass": true,
+      "got": 15925,
+      "expected": 15925
+    },
+    "num_elem": {
+      "pass": true,
+      "got": 13824,
+      "expected": 13824
+    },
+    "num_el_blk": {
+      "pass": true,
+      "got": 1,
+      "expected": 1
+    },
+    "bounding_box": {
+      "pass": true,
+      "got": [
+        [
+          0.0,
+          2.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "expected": [
+        [
+          0.0,
+          2.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ]
+    },
+    "grid_divisions": {
+      "pass": true,
+      "got": [
+        49,
+        25,
+        13
+      ],
+      "expected": [
+        49,
+        25,
+        13
+      ]
+    },
+    "element_size_h": {
+      "pass": true,
+      "got": [
+        0.041666666666666664,
+        0.041666666666666664,
+        0.041666666666666664
+      ],
+      "expected": 0.041666666666666664
+    },
+    "block_name": {
+      "pass": true,
+      "got": [
+        "block_1"
+      ],
+      "expected": [
+        "block_1"
+      ]
+    },
+    "elem_type": {
+      "pass": true,
+      "got": [
+        "HEX8",
+        8
+      ],
+      "expected": [
+        "HEX8",
+        8
+      ]
+    },
+    "block1_num_elem": {
+      "pass": true,
+      "got": 13824,
+      "expected": 13824
+    },
+    "nodeset_names": {
+      "pass": true,
+      "got": [
+        "ns_fix",
+        "ns_load"
+      ],
+      "expected": [
+        "ns_fix",
+        "ns_load"
+      ]
+    },
+    "ns_fix_size": {
+      "pass": true,
+      "got": 325,
+      "expected": 325
+    },
+    "ns_fix_on_x0": {
+      "pass": true,
+      "got": 0.0,
+      "expected": "x = 0"
+    },
+    "ns_load_size": {
+      "pass": true,
+      "got": 13,
+      "expected": 13
+    },
+    "ns_load_on_edge": {
+      "pass": true,
+      "got": [
+        2.0,
+        2.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5
+      ],
+      "expected": "x = 2, y = 0, z spans [0, 0.5]"
+    },
+    "sideset_names": {
+      "pass": true,
+      "got": [
+        "ss_sym"
+      ],
+      "expected": [
+        "ss_sym"
+      ]
+    },
+    "ss_sym_size": {
+      "pass": true,
+      "got": 1152,
+      "expected": 1152
+    },
+    "ss_sym_faces_on_z0.5": {
+      "pass": true,
+      "got": 0.0,
+      "expected": "all face nodes at z = 0.5"
+    }
+  },
+  "all_pass": true
+}

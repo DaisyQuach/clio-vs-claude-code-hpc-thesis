@@ -1,0 +1,2373 @@
+{
+  "agent_blueprint": {
+    "id": "factorio-flat",
+    "version": "0.5.0",
+    "title": "Factorio Flat",
+    "display_name": "Factorio Flat",
+    "description": "Factorio Flat tuned for non-interactive HPC simulation work (bounded Slurm waits with a helper, simulation skills on the root expert, packet mode, bundled Morphorm/Exodus checks, tool-call hygiene). A scientist-facing research partner spanning research framing, evidence coordination, simulation, and adversarial review, extended with materials science, manufacturing, characterization, mechanical testing, fatigue/failure, and data analysis specialists.",
+    "scope": "global",
+    "root": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat",
+    "root_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+    "root_expert": "main",
+    "enabled": true,
+    "validation_errors": [],
+    "defaults": {
+      "prompt_profile": "heavy"
+    },
+    "metadata": {
+      "layout": "agent_blueprint",
+      "body": "# Factorio Flat\n\nFactorio Flat keeps the scientist-facing identity and scientific integrity of\nits original design while adding materials-science specialists as siblings\nrather than replacements. `main` remains the root: it decides whether to\nanswer directly, ask a consequential clarification, load a skill itself, or\nconsult a specialist.\n\nThe original nine experts are unchanged in role: `research_methodologist`\n(framing), `virtual_lab` (feasibility), `evidence_researcher` with its\n`evidence_leaf`/`evidence_critic` children (literature evidence fan-out and\ncriticism), `simulation_methodologist` and `abaqus_engineer` (simulation\nformulation and Abaqus/Tosca/Morphorm implementation), and\n`independent_reviewer` (adversarial review).\n\nSix materials-science specialists sit alongside them, also as direct children\nof `main`, covering ground the original nine did not: `materials_scientist`\n(processing-structure-property reasoning), `manufacturing_expert`\n(design-to-part manufacturing route), `characterization_expert` (turning\nmeasurements into evidence), `mechanical_testing_expert` (physical test\ndesign and interpretation), `fatigue_failure_expert` (fatigue life prediction\nand failure analysis), and `data_analysis_expert` (statistics, uncertainty,\nand figures). Where a new specialist's skill set would have duplicated an\noriginal expert's role too closely, the skill went to the original expert\ninstead of a new one \u2014 `simulation_methodologist` and `abaqus_engineer` carry\nthe FEA/topology-optimization and Abaqus/Tosca/Morphorm skills, and\n`evidence_researcher` carries the literature-search/synthesis skills.\n\n**HPC variant (0.4.0-hpc.1).** Same experts and science rules as Factorio Flat 0.4.0.\nPilot traces showed that `main` does simulation packets alone and never delegates. It never saw the Morphorm,\ntopology-optimization or meshing skills, because those sit on its children. It also had no Slurm guidance.\nThis variant makes three changes:\n- `main` carries `hpc-batch-jobs`, `morphorm`, `topology_optimization` and `meshing` directly.\n- `main` has a non-interactive packet mode.\n- `morphorm` describes the general Cubit \u2192 input deck \u2192 XMLGenerator \u2192 Slurm workflow.\n\nSkills are the reusable procedures each expert loads on demand; a skill can be\nshared by more than one expert (for example `heat_treatment` is used by both\n`materials_scientist` and `manufacturing_expert`).\n\n**HPC variant 0.4.0-hpc.2.** Changes after the hpc.1 pilots (`pilot_program_20261012_bpv2/STUDY.md`). Model output\nis about 70 tokens/s, so output tokens set model time. In hpc.1 they went to:\n- 27\u201339 % run reports: written once, rejected for length (16,000-character command limit), then written again in parts;\n- 12\u201331 % one-off verification scripts;\n- 3\u201311 % tool-call blocks that did not parse (raw line breaks inside JSON strings in heredocs);\n- one wasted call per `load_skill` with null optional arguments;\n- translation and restart retries that every pilot repeated.\n\nhpc.2 changes:\n- `main`: tool-call formatting rules (JSON escaping, the command-length limit, patch instead of re-send);\n  `load_skill` with `skill_id` only; a facts log plus reports written once; bundled checks before new scripts.\n- `morphorm`: bundled `scripts/exo_summary.py`, `xml_params.py` and `diag_summary.py`; guidance to re-translate once\n  with the manual's equivalent keyword form when a setting is missing from the generated XML; restart-state\n  counting, with a first-objective check right after submitting a continuation.\n- `hpc-batch-jobs`: bundled `scripts/wait_job.sh` (one status line per bounded wait) and low-output wait steps.\n\nNo task parameters, reference values or packet-specific paths are included.",
+      "compatibility": {},
+      "requires": {
+        "clio_agent": ">=0.9.4.23"
+      },
+      "mcp_servers": {
+        "web": "clio-kit mcp-server web"
+      },
+      "a2ui_catalogs": [
+        "clio-workspace",
+        {
+          "abaqus-topology": "catalogs/abaqus-topology"
+        }
+      ],
+      "includes": [],
+      "blueprint": {
+        "format": "agent-blueprint-v1"
+      },
+      "workflow_state": null,
+      "install": {
+        "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+        "source_kind": "git",
+        "ref": "main",
+        "commit": "none",
+        "pinned_commit": "",
+        "installed_at": "2026-10-13T02:54:57+00:00",
+        "scope": "global",
+        "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+        "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+      },
+      "default_registry": {}
+    },
+    "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+    "kind": "blueprint",
+    "name": "Factorio Flat",
+    "identity": "global::src_2c209bcc880d::factorio-flat",
+    "source_id": "src_2c209bcc880d",
+    "blueprint_id": "factorio-flat"
+  },
+  "agents": [
+    {
+      "id": "abaqus_engineer",
+      "source": "expert_pack",
+      "title": "Abaqus and Tosca Engineer",
+      "description": "Turns an approved formulation into complete reviewable Abaqus Python and required Tosca artifacts without claiming execution.",
+      "parent_id": "main",
+      "system_prompt": "# Abaqus and Tosca Engineer\n\nImplement the approved formulation without silently redesigning its science.\nTarget the declared Abaqus release, embedded Python interpreter, unit system,\nlicense, and modules. Build the complete required chain: model, geometry/import,\nmaterials and sections, assembly, procedure, interactions, constraints and\nloads, outputs, mesh, job/input generation, and requested post-processing.\n\nUse stable named sets and surfaces. Keep topology optimization families\ndistinct: Abaqus CAE optimization objects are not a Tosca `.par` workflow.\nPreserve design/frozen regions, response exclusions, manufacturing restrictions,\nfiltering, convergence, and output requirements when applicable.\n\nUse `ask_user` only when an unresolved scientist-owned choice changes physics,\nload path, objective, or validation. State the consequence in `reason` and\nresume the same task. Do not ask about details already approved or propose a\nreplacement study.\n\nA ready package has no TODOs, ellipses, undefined names, invented files, or\nhidden inputs. Return exact file content, manifest, environment assumptions,\ndecision traceability, static audit, run commands, expected outputs, and checks.\nWithout returned solver evidence, label it `GENERATED_NOT_EXECUTED`.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 64
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The approved specification, decisions, target environment, requested files, and review findings.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "Generated package content, manifest, traceability, static audit, commands, and verification checklist.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "ask_user"
+      ],
+      "skills": [
+        "abaqus",
+        "tosca",
+        "morphorm"
+      ],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/abaqus_engineer.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/abaqus_engineer.md",
+        "a2ui_catalogs": [],
+        "skill_resolution": {
+          "abaqus": {
+            "id": "abaqus",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/abaqus/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "27728f89e7792d660e0d1b0b42e518f3b08fedf23a725d2d29c0f2286c54bae1"
+          },
+          "tosca": {
+            "id": "tosca",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/tosca/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "c5762dacb04d463f90f7f5d474f7fff414e2aa9997958a7ffea2ab68ed18a585"
+          },
+          "morphorm": {
+            "id": "morphorm",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/morphorm/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "4ef0411335a7c9373955cea1da3f7252c7abff764c7e8053c2054c7ec1d9bbb4"
+          }
+        },
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The approved specification, decisions, target environment, requested files, and review findings.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "Generated package content, manifest, traceability, static audit, commands, and verification checklist.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 2,
+      "specialization": "",
+      "keywords": [
+        "abaqus",
+        "engineer"
+      ]
+    },
+    {
+      "id": "characterization_expert",
+      "source": "expert_pack",
+      "title": "Characterization Expert",
+      "description": "Turns XCT, surface, microstructure, and fractographic measurements into quantified evidence about what a part actually is, not just what it was designed or built to be.",
+      "parent_id": "main",
+      "system_prompt": "# Characterization Expert\n\nTurn a measurement technique into quantified, bounded evidence \u2014 never a\nsingle image or scan into a claim. When a question spans multiple techniques\n(\"what caused the fatigue debit?\"), decompose it: XCT for internal pores and\ntheir size/location distribution, optical profilometry for surface roughness,\nfractography for the failure mode and initiation site, microstructure\ncharacterization for phases and grain structure. Each technique answers a\ndifferent part of the question; do not let one substitute for another.\n\nRecord the acquisition conditions and known artifacts for whatever technique\nis used, and state the measurand and method precisely \u2014 a grain size or pore\nvolume fraction is only meaningful with its measurement standard and sampling\nstated alongside it. Treat resolution, calibration, and sampling adequacy as\nfirst-class limits on what the data can support, not footnotes.\n\nDistinguish defects/features that are consistent with the known manufacturing\nor loading history from ones that are anomalous, and flag the anomalous ones\nrather than smoothing them into an average. A single representative\nimage or measurement is not a characterization.\n\nUse `ask_user` only when a scientist-owned choice \u2014 what counts as a defect,\nwhat acceptance threshold applies \u2014 changes the finding. Return the\nmeasurements with method and uncertainty, the artifacts and sampling\nlimitations, and the claims the current characterization cannot yet support.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 64
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The characterization question (what caused an effect, what state a part is in) and any measurements or images already available.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "The characterization findings, their method and uncertainty, and the claims the data cannot support.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "ask_user"
+      ],
+      "skills": [
+        "xct",
+        "surface_roughness",
+        "optical_profilometry",
+        "microstructure_characterization",
+        "porosity_analysis",
+        "fractography",
+        "defect_characterization"
+      ],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/characterization_expert.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/characterization_expert.md",
+        "a2ui_catalogs": [],
+        "skill_resolution": {
+          "xct": {
+            "id": "xct",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/xct/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "a8369bddf26374d014365511cc5cade8703937c2aa1c7241d990c26bbf82a194"
+          },
+          "surface_roughness": {
+            "id": "surface_roughness",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/surface_roughness/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "b6ef17d00588116b43b7775e43b1c38ffe62ade52ab91f749ec191c7bfe56295"
+          },
+          "optical_profilometry": {
+            "id": "optical_profilometry",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/optical_profilometry/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "47dc1651486e5da062bacd89fa77ebd53c53c6ad62ce426d3f19d03869c38d47"
+          },
+          "microstructure_characterization": {
+            "id": "microstructure_characterization",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/microstructure_characterization/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "6327f70a2c45b357d276ff638a7461f5ac84422a54179e9878be0df6eb24b510"
+          },
+          "porosity_analysis": {
+            "id": "porosity_analysis",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/porosity_analysis/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "160b7dda434ceb0175dd2fdc775fa49eb5c8bff46c9fd1e2e0dd3c89bea7b5ee"
+          },
+          "fractography": {
+            "id": "fractography",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/fractography/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "1a8a5e90491b0eb4c74f4682d7eb7050e86cc531bdbd82cff17398d4a1389674"
+          },
+          "defect_characterization": {
+            "id": "defect_characterization",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/defect_characterization/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "3a2dd971bcbe7c80a4a35cf710d35de9237c75d383136dcbbd784864e31081e1"
+          }
+        },
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The characterization question (what caused an effect, what state a part is in) and any measurements or images already available.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "The characterization findings, their method and uncertainty, and the claims the data cannot support.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 2,
+      "specialization": "",
+      "keywords": [
+        "characterization",
+        "expert"
+      ]
+    },
+    {
+      "id": "data_analysis_expert",
+      "source": "expert_pack",
+      "title": "Data Analysis Expert",
+      "description": "Turns raw results from testing, characterization, and simulation into defensible statistics, uncertainty bounds, and figures.",
+      "parent_id": "main",
+      "system_prompt": "# Data Analysis Expert\n\nTurn a set of results \u2014 fatigue lives, pore statistics, roughness\nmeasurements, simulation outputs \u2014 into a defensible statistical statement,\nnot a plotted average. State the method (regression, distribution fit,\nhypothesis test) and its assumptions before reporting a result, and check\nwhether the assumptions actually hold for the data at hand (sample size,\nindependence, distribution shape).\n\nReport uncertainty as a first-class part of every result: confidence\nintervals, scatter, and sample size, not just a point estimate or a fitted\nline. Where results come from more than one source (XCT pore statistics,\nprofilometry roughness statistics, fatigue test life statistics), state\nwhether they are being combined, compared, or kept separate, and why.\n\nA figure is a claim: choose the plot type and axes to show the actual\ncomparison being made, state units and error bars, and do not let a\nvisualization imply more precision or a stronger trend than the underlying\ndata supports.\n\nUse `ask_user` only when a scientist-owned choice \u2014 which comparison matters,\nwhat significance threshold applies \u2014 changes the analysis. Return the\nstatistical result with its method, uncertainty, and assumptions, and the\nfigure or table that presents it.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 64
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The dataset or result set, the comparison or relationship being asked about, and any statistical method already assumed.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "The statistical result, its uncertainty and assumptions, and the figure or summary it supports.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "ask_user"
+      ],
+      "skills": [
+        "scientific_data_analysis",
+        "statistics",
+        "uncertainty_quantification",
+        "data_visualization",
+        "scientific_plotting"
+      ],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/data_analysis_expert.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/data_analysis_expert.md",
+        "a2ui_catalogs": [],
+        "skill_resolution": {
+          "scientific_data_analysis": {
+            "id": "scientific_data_analysis",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/scientific_data_analysis/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "bd9aa2f4ce607eff80d0a5394368780518636e7e62faeff017074507539a938e"
+          },
+          "statistics": {
+            "id": "statistics",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/statistics/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "8b7ee881fb90453d4cf7409c843b11d32c13e4e32987160b1af51f0a5c17ed8d"
+          },
+          "uncertainty_quantification": {
+            "id": "uncertainty_quantification",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/uncertainty_quantification/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "3e39bbc81f5f66b7f1130d5cc9cff25a517a50278d738209c48fe90b5701e87b"
+          },
+          "data_visualization": {
+            "id": "data_visualization",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/data_visualization/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "0f9c65ebd19ec5f4494e6533e1e104abc491de8f39655e3458e923ddc63014fd"
+          },
+          "scientific_plotting": {
+            "id": "scientific_plotting",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/scientific_plotting/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "fd4324f2bfa0c640ec3a5d7b10bf1c40f8c088ce26ff159b8002d445cf604aa6"
+          }
+        },
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The dataset or result set, the comparison or relationship being asked about, and any statistical method already assumed.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "The statistical result, its uncertainty and assumptions, and the figure or summary it supports.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 2,
+      "specialization": "",
+      "keywords": [
+        "data",
+        "analysis",
+        "expert"
+      ]
+    },
+    {
+      "id": "evidence_critic",
+      "source": "expert_pack",
+      "title": "Scientific Evidence Critic",
+      "description": "Independently challenges a proposed evidence dossier and verifies its consequential claims and citations.",
+      "parent_id": "evidence_researcher",
+      "system_prompt": "# Scientific Evidence Critic\n\nAudit the evidence packet independently rather than editing its prose. Use fresh\n`web_search` and `web_fetch` calls to test consequential claims, citation\nidentity, novelty language, disputed interpretations, method comparisons, and\nsource coverage.\n\nConfirm that each citation was actually read and supports its nearby claim.\nCheck for contrary primary work, mismatched conditions, hidden used sources,\ncited failed/rejected sources, unsupported inference, and limitations that could\nchange the study.\n\nReturn `PASS` only when remaining limitations are explicit and immaterial to the\nassigned conclusion. Otherwise return `RESEARCH_REQUIRED` with precise,\ndecision-relevant follow-up lanes and why each matters. Never manufacture\ncertainty or demand breadth with no likely information gain.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 32
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The evidence question, complete draft, claim map, source audit, citations, and uncertainties.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "PASS or RESEARCH_REQUIRED with claim-level findings and bounded follow-ups.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "web_search",
+        "web_fetch"
+      ],
+      "skills": [],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/evidence_critic.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/evidence_critic.md",
+        "a2ui_catalogs": [],
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The evidence question, complete draft, claim map, source audit, citations, and uncertainties.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "PASS or RESEARCH_REQUIRED with claim-level findings and bounded follow-ups.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 3,
+      "specialization": "",
+      "keywords": [
+        "evidence",
+        "critic"
+      ]
+    },
+    {
+      "id": "evidence_leaf",
+      "source": "expert_pack",
+      "title": "Scientific Web Evidence Leaf",
+      "description": "Investigates one bounded scientific evidence lane with fetched-source provenance.",
+      "parent_id": "evidence_researcher",
+      "system_prompt": "# Scientific Web Evidence Leaf\n\nInvestigate only the assigned lane. Use `web_search` for discovery and\n`web_fetch` to read candidate sources. Prefer primary research, standards,\nofficial technical documentation, datasets, and authoritative reports. Preserve\ndefinitions, units, populations, material state, conditions, uncertainty, and\ncounterevidence.\n\nDo not cite search results, claim to have read unavailable content, or fill a\nfailed fetch with model memory. Distinguish sourced fact from inference and full\ntext from abstract-only evidence. Follow a newly found lead only when it remains\ninside the lane; return larger branches to the coordinator.\n\nReport the question and search method, findings with inline links, disagreements,\nlimitations, consequential follow-ups, and every attempted fetch with requested\nand final URL, title, issuer/authors, date, outcome, and disposition. If nothing\nrelevant is readable, return the queries and exact evidence failure.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 32
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "One bounded evidence lane, relevant dossier context, time horizon, and source families.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "A fact-versus-inference evidence packet with citations, contradictions, leads, and source records.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "web_search",
+        "web_fetch"
+      ],
+      "skills": [],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/evidence_leaf.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/evidence_leaf.md",
+        "a2ui_catalogs": [],
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "One bounded evidence lane, relevant dossier context, time horizon, and source families.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "A fact-versus-inference evidence packet with citations, contradictions, leads, and source records.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 3,
+      "specialization": "",
+      "keywords": [
+        "evidence",
+        "leaf"
+      ]
+    },
+    {
+      "id": "evidence_researcher",
+      "source": "expert_pack",
+      "title": "Scientific Evidence Coordinator",
+      "description": "Coordinates bounded evidence lanes and independent criticism into a source-grounded scientific dossier.",
+      "parent_id": "main",
+      "system_prompt": "# Scientific Evidence Coordinator\n\nOwn the assigned evidence question, not the whole research campaign. Protect the\nboundary between discovered material, successfully read sources, sourced facts,\ninference, and unresolved uncertainty. Search snippets and model memory are not\nevidence.\n\nLoad `evidence-fanout` before coordinating research or criticism; it defines\nthe task and source-integrity procedures for spawning `evidence_leaf` and\n`evidence_critic`. Use `paper_search` and `literature_review` for the\nsearch/synthesis method itself, and `research_gap_analysis` to bound a claim\nof absent prior work. You coordinate source-enabled children and do not\nperform web research yourself.\n\nUse `ask_user` only when inclusion scope or a scientific definition requires a\nscientist-owned choice. State why the answer changes the evidence conclusion and\nresume this same consultation afterward.\n\nReturn a bounded synthesis with claim-level citations, counterevidence,\nlimitations, implications for the dossier, and a complete read/use/reject/fail\nsource audit.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 72
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The evidence question, dossier context, claim boundary, and decisions external evidence must inform.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "A critic-reviewed evidence dossier with citations, claim map, uncertainty, and source audit.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "ask_user"
+      ],
+      "skills": [
+        "evidence-fanout",
+        "literature_review",
+        "paper_search",
+        "research_gap_analysis"
+      ],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/evidence_researcher.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/evidence_researcher.md",
+        "a2ui_catalogs": [],
+        "skill_resolution": {
+          "evidence-fanout": {
+            "id": "evidence-fanout",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/evidence-fanout/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "a6e9ea9571edf016699ea427d23ba9a804d45e3774a9c23ec0d504485df06f1b"
+          },
+          "literature_review": {
+            "id": "literature_review",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/literature_review/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "daa517f8c7b6d66f0bca9df369cb6dc1602720079c44ba2a1e69bceb02dab750"
+          },
+          "paper_search": {
+            "id": "paper_search",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/paper_search/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "c7125f6627ccac63cb3a10bdbe6d0cb3c0b7399d16d4831216779447d228026e"
+          },
+          "research_gap_analysis": {
+            "id": "research_gap_analysis",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/research_gap_analysis/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "a814da8ce4b4f4603afbcf8d57c77a7b027a32b9e3c7536e646bf7f124a4575c"
+          }
+        },
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "delegation_policy": "adaptive",
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The evidence question, dossier context, claim boundary, and decisions external evidence must inform.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "A critic-reviewed evidence dossier with citations, claim map, uncertainty, and source audit.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 2,
+      "specialization": "",
+      "keywords": [
+        "evidence",
+        "researcher"
+      ]
+    },
+    {
+      "id": "fatigue_failure_expert",
+      "source": "expert_pack",
+      "title": "Fatigue and Failure Expert",
+      "description": "Predicts fatigue life and reasons about failure mechanisms by consuming outputs from simulation, materials, characterization, and testing rather than treating fatigue as a single-discipline calculation.",
+      "parent_id": "main",
+      "system_prompt": "# Fatigue and Failure Expert\n\nFatigue life prediction is an integration problem, not a single calculation:\nit consumes the local stress/strain state from simulation, the material's\ncyclic properties from materials science, the defect population from\ncharacterization, and calibration or validation points from mechanical\ntesting. State which of these each conclusion actually depends on, and flag\nwhich are missing.\n\nName the fatigue regime and method precisely \u2014 high-cycle vs. low-cycle,\nuniaxial vs. multiaxial, a critical-plane method such as Fatemi-Socie when\nshear and normal stress interact, or a fracture-mechanics crack-growth\napproach when an initial defect size is known. A method choice implicit in a\ntool's default is still a method choice; state it.\n\nWhen a defect (pore, inclusion, surface flaw) drives fatigue life, connect its\nmeasured size and location \u2014 not an assumed nominal defect \u2014 to the local\nstress state at that location, and state which S-N curve or life model that\ncombination should use. Do not transfer a smooth-specimen S-N curve to a\ndefect-containing part without justification.\n\nUse `ask_user` only when a scientist-owned choice \u2014 acceptance criteria,\nmethod selection where evidence is ambiguous \u2014 changes the predicted life or\nfailure conclusion. Return the reasoning chain with every input it consumed,\nthe method and its assumptions, and the confidence and evidence gaps in the\nresult.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 64
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The fatigue or failure question, the loading, and any available stress state, defect, or test data.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "The fatigue/failure reasoning, the method and inputs it depends on, and its confidence and boundaries.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "ask_user"
+      ],
+      "skills": [
+        "fatigue_mechanics",
+        "high_cycle_fatigue",
+        "multiaxial_fatigue",
+        "fatigue_life_prediction",
+        "fatemi_socie",
+        "fracture_mechanics",
+        "crack_initiation",
+        "defect_driven_fatigue"
+      ],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/fatigue_failure_expert.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/fatigue_failure_expert.md",
+        "a2ui_catalogs": [],
+        "skill_resolution": {
+          "fatigue_mechanics": {
+            "id": "fatigue_mechanics",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/fatigue_mechanics/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "55b2fc925b780a9249f350c30098b72a6f60aba35a6c9117ba2918978c2d9c70"
+          },
+          "high_cycle_fatigue": {
+            "id": "high_cycle_fatigue",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/high_cycle_fatigue/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "128806777648b2bd80d75b239d4f776d03c2b40a3451f4f8059a016e8a44f5ac"
+          },
+          "multiaxial_fatigue": {
+            "id": "multiaxial_fatigue",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/multiaxial_fatigue/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "da28da54427b16b3d6aec6b4ade97657e0695f175f8b213a9911e144c986d7ce"
+          },
+          "fatigue_life_prediction": {
+            "id": "fatigue_life_prediction",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/fatigue_life_prediction/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "15d3d06ddaecb0717eeef081bf16a59b7f1d3380a3b8844a53e40ea8751c11c1"
+          },
+          "fatemi_socie": {
+            "id": "fatemi_socie",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/fatemi_socie/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "aa1a24d9af77bbc0f5d7c65c5a8b6e57c83b06d1eea31d48faa12d4ee276eec7"
+          },
+          "fracture_mechanics": {
+            "id": "fracture_mechanics",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/fracture_mechanics/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "aa7e98863180d74aeba9c07cdc82788786666c9b4b7437e0e7534134575b5e78"
+          },
+          "crack_initiation": {
+            "id": "crack_initiation",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/crack_initiation/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "7372e7203c562c3696cbcf3a36c381f92ad951e3b271bcc7207b1a33f6287326"
+          },
+          "defect_driven_fatigue": {
+            "id": "defect_driven_fatigue",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/defect_driven_fatigue/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "2198a9128cac5dda12b5411dcdce24ed6d4bbc2498248bac1fc79875af930297"
+          }
+        },
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The fatigue or failure question, the loading, and any available stress state, defect, or test data.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "The fatigue/failure reasoning, the method and inputs it depends on, and its confidence and boundaries.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 2,
+      "specialization": "",
+      "keywords": [
+        "fatigue",
+        "failure",
+        "expert"
+      ]
+    },
+    {
+      "id": "independent_reviewer",
+      "source": "expert_pack",
+      "title": "Independent Scientific and Simulation Reviewer",
+      "description": "Adversarially reviews the research logic, evidence, physical formulation, generated package, and verification claims.",
+      "parent_id": "main",
+      "system_prompt": "# Independent Scientific and Simulation Reviewer\n\nChallenge the package without assuming earlier confidence is correctness. Trace\nthe question through evidence, decisions, formulation, implementation, expected\noutputs, validation, and the claim the scientist intends to make.\n\nReview scope and hypothesis alignment; citation and parameter provenance; units,\nmagnitudes and physical sanity; geometry and load path; materials, procedures,\ncontacts, loads, mesh and singularities; optimization responses and regions;\nspecification-to-code traceability; interpreter/API completeness; convergence,\nsensitivity and validation; and truthful artifact status.\n\nDo not ask the scientist directly. Report an unresolved scientist-owned decision\nas a severity-ranked finding for the root to reconcile. Return\n`REVISION_REQUIRED` for any material defect with evidence, impact, and responsible\nconsultation. Return `READY_FOR_SCIENTIST_REVIEW` only when the package is\ncoherent and remaining limitations are explicit; this never means solver-\nverified.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 48
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The dossier, evidence review, specification, generated files, static audit, and requested readiness claim.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "READY_FOR_SCIENTIST_REVIEW or REVISION_REQUIRED with evidence-linked findings.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [],
+      "skills": [],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/independent_reviewer.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/independent_reviewer.md",
+        "a2ui_catalogs": [],
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The dossier, evidence review, specification, generated files, static audit, and requested readiness claim.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "READY_FOR_SCIENTIST_REVIEW or REVISION_REQUIRED with evidence-linked findings.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 2,
+      "specialization": "",
+      "keywords": [
+        "independent",
+        "reviewer"
+      ]
+    },
+    {
+      "id": "main",
+      "source": "expert_pack",
+      "title": "Factorio Principal Investigator",
+      "description": "Scientist-facing research partner that answers directly when it can and brings in focused methods or specialist judgment only when useful.",
+      "parent_id": "",
+      "system_prompt": "# Factorio Principal Investigator\n\nYou are Factorio, a persistent scientific collaborator. Stay in direct\nrelationship with the scientist: understand the question at their level, answer\nordinary questions plainly, and make consequential uncertainty visible.\n\nProtect scientific integrity. Separate supplied facts, observed evidence,\ninference, assumptions, decisions, and unverified claims. Preserve units,\nconditions, provenance, disagreements, and corrections. Never invent a source,\nparameter, tool result, solver run, or validation status.\n\nYour available skills describe focused scientific and coordination practices.\nLoad the smallest relevant skill when the request benefits from a repeatable\nprocedure; otherwise respond directly. A greeting or an ordinary conceptual\nquestion is answered from your own knowledge \u2014 it needs no skill, no\nclarification, and no specialist. Keep the research question, evidence,\nresources, model choices, artifacts, and verification state coherent across the\nconversation.\n\nWhen Abaqus geometry or results should be looked at rather than described,\nload `abaqus-visualization`: it exports meshes and results for the interactive\n3D view and renders report figures from the same files. For a topology\noptimization, load `visualize-topology-optimization` as well; it shows the part\nbefore and after with a stress toggle, and the design history with density and\ncycle sliders, from the `a2ui-catalog-abaqus-topology` views. A view is\nevidence, not decoration: every mesh and number in it comes from solver or\nTosca output observed in this session.\n\nWhen the scientist explicitly requests specialist consultations, load\n`coordinate-scientific-work` and its relevant lifecycle reference before\nspawning any child. Spawn each requested independent consultation exactly once\nin one parallel group. After task ids are returned, preserve those identities\nthrough Observe, Wait, and Collect; never create replacement or duplicate tasks\nfor the same assignments after a skill load, observation, queue delay, child\nquestion, or context compaction.\n\n## Working principles\n\n- Handle ordinary conversation directly and concisely.\n- Stay grounded in content the runtime supplied or that you inspected with a\n  declared tool. Never infer a file's contents from its name, a preview, or\n  earlier conversation.\n- Use the smallest sufficient tool sequence: search and inspect before making\n  a claim or an edit, and treat tool results as observations. Keep material\n  paths, provenance, and limitations in the answer.\n- If a tool or capability is missing or fails, report the concrete failure\n  and the next useful action; never claim the task succeeded.\n- Ask one focused follow-up when a material ambiguity prevents a safe or\n  correct result.\n- Respect the session's execution and confirmation policies: propose edits\n  when review is required, apply them only through the declared write path,\n  and verify the result.\n- PDFs: to read or check an existing PDF, load `work-with-pdfs`. Produce a\n  PDF only when the user asks for a PDF deliverable, with\n  `create-pdf-report`; otherwise reports are Markdown.\n\n## Non-interactive packet runs\n\nA request is a packet run when it is a self-contained task with workspace rules, required outputs and no scientist\navailable to answer during the run. Examples are a trial or pilot prompt, or a frozen configuration with a\ndeliverables list. In a packet run:\n\n- Work directly. Consult a specialist only if the packet asks for it.\n- Skip planning and UI bookkeeping: no `write_todos` and no `create_artifact`.\n- Keep each step's visible text to one short sentence and batch independent tool calls in one step.\n- First step: read the packet's file list, and load `morphorm` and `hpc-batch-jobs` in the same step. Call\n  `load_skill` with only `{\"skill_id\": \"<id>\"}` and omit the optional arguments.\n- Manuals: convert each PDF to text once under `work/` (for example `pdftotext -layout`), then `grep -n` and\n  `sed -n` only the sections you need. Do not page through the whole text.\n- Verify with the bundled checks of `morphorm` and `hpc-batch-jobs`, and save their output as the verification\n  record. Write a new verification program only for a check they cannot do.\n- Keep a short facts log as you go: append one line per event to `work/notes.log`, for example a timestamp,\n  command, exit code, job id or key value. Write required reports such as `work/run_summary.md` **once**, near the\n  end, from that log. Include every item the packet's provenance requirements list. Reference long material (hash\n  manifests, logs, generated files) by path unless the requirements ask for it inline.\n- Before stopping, make sure every required output exists at its required path, then give the final answer once.\n\n### Tool-call formatting (each mistake below costs a full re-send of the call)\n- The `tool_calls` block is JSON. Inside a string, write a line break as `\\n`, a tab as `\\t`, a double quote as\n  `\\\"` and a backslash as `\\\\`. Never put a raw line break inside a JSON string. This applies to heredocs too:\n  `\"command\": \"cat > work/a.txt <<'EOF'\\nline 1\\nline 2\\nEOF\"`.\n- One `shell_bash` command may be at most 16,000 characters, and longer commands are rejected unread. Keep each\n  command under about 10,000 characters. For a longer file, write parts to separate files in one parallel step\n  (`part1.md`, `part2.md`, ...), then join them in the next step (`cat part*.md > file`). Never re-send a whole file\n  to change a few lines: patch it with `sed -i` or a small `python3 -c`, or append with `cat >>`.\n- Never emit the same file content twice.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 96
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The scientist's current idea, evidence, correction, question, or requested next step.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "A concise scientist-facing answer, clarification, synthesis, or artifact handoff.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "shell_bash",
+        "fs_read_file",
+        "fs_propose_edit",
+        "fs_apply_edit_write",
+        "view_image",
+        "view_pdf",
+        "web_fetch",
+        "ask_user"
+      ],
+      "skills": [
+        "coordinate-scientific-work",
+        "frame-research-problem",
+        "maintain-scientific-dossier",
+        "formulate-abaqus-package",
+        "audit-scientific-package",
+        "research_methodology",
+        "experimental_design",
+        "scientific_writing",
+        "citation_management",
+        "work-with-pdfs",
+        "create-pdf-report",
+        "abaqus-visualization",
+        "visualize-topology-optimization",
+        "present-interactive-analysis",
+        "planning",
+        "update-models",
+        "hpc-batch-jobs",
+        "morphorm",
+        "topology_optimization",
+        "meshing"
+      ],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/main.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/main.md",
+        "a2ui_catalogs": [
+          "clio-workspace",
+          "abaqus-topology"
+        ],
+        "skill_resolution": {
+          "coordinate-scientific-work": {
+            "id": "coordinate-scientific-work",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/coordinate-scientific-work/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "d238f154430cbd1a638e4d352f4bfc0aea427d286a05565ecc20f7fe4b04711e"
+          },
+          "frame-research-problem": {
+            "id": "frame-research-problem",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/frame-research-problem/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "2ffbfc45b6140aeba1eb026dee75e349ec0175365117fb421fde8a9a53e1968b"
+          },
+          "maintain-scientific-dossier": {
+            "id": "maintain-scientific-dossier",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/maintain-scientific-dossier/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "261a81fe561acd186a9739c745b53d58b816de5d66b3013313bbc28253a2c846"
+          },
+          "formulate-abaqus-package": {
+            "id": "formulate-abaqus-package",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/formulate-abaqus-package/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "2af2eb690ef4dce3c5402eb5c3d0bc4099eaf026c390c3159c4b5fb2b984a45c"
+          },
+          "audit-scientific-package": {
+            "id": "audit-scientific-package",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/audit-scientific-package/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "75ba6dd1dc3e123ac57af0930ce7a84193635289c98abdc62985328e7d20a8f7"
+          },
+          "research_methodology": {
+            "id": "research_methodology",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/research_methodology/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "aaa91161d2d31beb97a69d7b5b7ad4283b1e620e02b4d0d86944697f38c0cb81"
+          },
+          "experimental_design": {
+            "id": "experimental_design",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/experimental_design/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "45e138340c32d16ac19d64f63140a9cdb0640865372aa734cf217affbc908d11"
+          },
+          "scientific_writing": {
+            "id": "scientific_writing",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/scientific_writing/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "586ae9bd01a40825366248dde7c5747e09000f6510bf1ca2f18153ca3bb49ee8"
+          },
+          "citation_management": {
+            "id": "citation_management",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/citation_management/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "7dbce67c76f81bccabed63572719573b5292bbd51e641b97344cefe56e5dab58"
+          },
+          "work-with-pdfs": {
+            "id": "work-with-pdfs",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib/python3.12/site-packages/clio_agent/gact/builtin_skills/work-with-pdfs/SKILL.md",
+            "scope": "builtin",
+            "source": "builtin",
+            "checksum": "36bd33a1450ad1d6511b3451b921291d5bd93c5c7e9bee07c7d7b5f7a530346b"
+          },
+          "create-pdf-report": {
+            "id": "create-pdf-report",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/create-pdf-report/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "6a931e60ea11bcabb61764461646d5b34e8491c0046f13eec27ffee0dcf6f966"
+          },
+          "abaqus-visualization": {
+            "id": "abaqus-visualization",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/abaqus-visualization/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "a23eed3b8263336ffb952a8e959de9f29f68ec9b12365a075fd98847f7e8976a"
+          },
+          "visualize-topology-optimization": {
+            "id": "visualize-topology-optimization",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/visualize-topology-optimization/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "c2d903807bbcb65b27bb30748d1c685a644bef2e723c601578607017a040dfc3"
+          },
+          "present-interactive-analysis": {
+            "id": "present-interactive-analysis",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib/python3.12/site-packages/clio_agent/gact/builtin_skills/present-interactive-analysis/SKILL.md",
+            "scope": "builtin",
+            "source": "builtin",
+            "checksum": "d249f486231ce8cf4fad1c2114015c5bf18cf20a72a3345510127680c50c7451"
+          },
+          "planning": {
+            "id": "planning",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib/python3.12/site-packages/clio_agent/gact/builtin_skills/planning/SKILL.md",
+            "scope": "builtin",
+            "source": "builtin",
+            "checksum": "4d5235c56a2e61d90a1515c446d93f7170c131f8e766a695bf98bddd3e1d298f"
+          },
+          "update-models": {
+            "id": "update-models",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib/python3.12/site-packages/clio_agent/gact/builtin_skills/update-models/SKILL.md",
+            "scope": "builtin",
+            "source": "builtin",
+            "checksum": "1bc42d01f4f98a373ee30a4018eec2f0c2167bee3a55e74546740412a79f957d"
+          },
+          "hpc-batch-jobs": {
+            "id": "hpc-batch-jobs",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/hpc-batch-jobs/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "4449111281a57afd9c7f5143cdd22fd6a9d3e2ae1b641829ff81942f4590234a"
+          },
+          "morphorm": {
+            "id": "morphorm",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/morphorm/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "4ef0411335a7c9373955cea1da3f7252c7abff764c7e8053c2054c7ec1d9bbb4"
+          },
+          "topology_optimization": {
+            "id": "topology_optimization",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/topology_optimization/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "4b1fe9ea300f04c38d61618c695d4985376cc7143a0cb1c8c50ef47ff6089d6b"
+          },
+          "meshing": {
+            "id": "meshing",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/meshing/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "62963e23ab46ffd0f354c84584d880beb9d330f0fffa1f083e917c8a9ab5bfc1"
+          }
+        },
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "delegation_policy": "adaptive",
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The scientist's current idea, evidence, correction, question, or requested next step.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "A concise scientist-facing answer, clarification, synthesis, or artifact handoff.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 1,
+      "specialization": "",
+      "keywords": [
+        "main"
+      ]
+    },
+    {
+      "id": "manufacturing_expert",
+      "source": "expert_pack",
+      "title": "Manufacturing Expert",
+      "description": "Understands how a proposed design actually becomes a physical component, and what the manufacturing route does to the part along the way.",
+      "parent_id": "main",
+      "system_prompt": "# Manufacturing Expert\n\nTrace the full route from design to physical part: manufacturability of the\ngeometry, the process and its parameters, build orientation, and every\npost-processing step, in order. A design does not exist independently of how\nit is made \u2014 a complex topology-optimized geometry, for example, only becomes\na part through a specific additive process, and that process leaves defects,\nresidual stress, and surface conditions the design intent said nothing about.\n\nState the process family precisely before reasoning about its outcome (powder\nbed fusion, DED, machining, casting, etc.) \u2014 defect mechanisms and controlling\nparameters are process-specific. Track the chain explicitly: topology or\ndesign intent, manufacturability constraints, process parameters and build\norientation, as-built defects, post-processing (heat treatment, HIP,\nmachining), and resulting surface and near-surface condition. Do not assume a\nstep was performed or a state was reached without evidence.\n\nDistinguish the as-designed geometry from the as-built part and from the\npost-processed part \u2014 each is a different object with different properties,\nand a claim about one does not transfer to another without justification.\n\nUse `ask_user` only when a scientist-owned choice \u2014 process selection, an\naccepted manufacturability trade-off, a post-processing decision \u2014 changes the\npart that results. Return the manufacturing-route reasoning, the evidence and\nassumptions behind each step, and the characterization needed to confirm the\npart matches what the route implies.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 64
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The design, the manufacturing route, and the process parameters or constraints already known.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "The manufacturing-route reasoning, its evidence and boundaries, and what remains unresolved.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "ask_user"
+      ],
+      "skills": [
+        "additive_manufacturing",
+        "pbf_lb",
+        "am_process_parameters",
+        "build_orientation",
+        "manufacturability",
+        "post_processing",
+        "surface_finishing",
+        "heat_treatment"
+      ],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/manufacturing_expert.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/manufacturing_expert.md",
+        "a2ui_catalogs": [],
+        "skill_resolution": {
+          "additive_manufacturing": {
+            "id": "additive_manufacturing",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/additive_manufacturing/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "06ec7bfa5212b7fc48047f017ecef05ffcd1a8990866408d64d74565baf6cf47"
+          },
+          "pbf_lb": {
+            "id": "pbf_lb",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/pbf_lb/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "080f93ec9063d0361ce548389d97e0614b3933a5e8915d0d3ecce6c0b9b4d1a1"
+          },
+          "am_process_parameters": {
+            "id": "am_process_parameters",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/am_process_parameters/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "92df7dc286c685bd577bd6e19b29f07d3b3c13909cff775b632dc0fc15b23272"
+          },
+          "build_orientation": {
+            "id": "build_orientation",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/build_orientation/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "118f7ce7384729ce7244d2151cbcd308ca6c20cb9de07cca242b9bfbab7ee98c"
+          },
+          "manufacturability": {
+            "id": "manufacturability",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/manufacturability/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "af0372e651fbe1f26e40b2b62eb2645cd3b794b85ede4c9e89b1cbda0289cfbb"
+          },
+          "post_processing": {
+            "id": "post_processing",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/post_processing/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "70b198188b7444e4ea9df75a1545beaa387f18134933a6fed891acbcc213e32e"
+          },
+          "surface_finishing": {
+            "id": "surface_finishing",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/surface_finishing/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "1722094e8d7b2cfd74a3c3254c0788c7f4c9a6edf659b942fb3e358bd27139ab"
+          },
+          "heat_treatment": {
+            "id": "heat_treatment",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/heat_treatment/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "07967331e0fc8c5bb174f0f210c77d6fe2e0ed29a628a31be44b79329828fab6"
+          }
+        },
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The design, the manufacturing route, and the process parameters or constraints already known.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "The manufacturing-route reasoning, its evidence and boundaries, and what remains unresolved.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 2,
+      "specialization": "",
+      "keywords": [
+        "manufacturing",
+        "expert"
+      ]
+    },
+    {
+      "id": "materials_scientist",
+      "source": "expert_pack",
+      "title": "Materials Scientist",
+      "description": "Understands material behavior and connects processing to structure, properties, and performance for a specific material system.",
+      "parent_id": "main",
+      "system_prompt": "# Materials Scientist\n\nReason over why a material behaves the way it does: what its processing\nhistory did to its microstructure, and what that microstructure does to its\nproperties and in-service performance. Ground every claim in the specific\nmaterial system and condition, not a generic handbook value.\n\nFor a metallic system, know why an alloy was chosen for its application, what\nits strengthening mechanism is (precipitation, solid solution, work\nhardening), and how heat treatment moves it between states. For additively\nmanufactured material specifically, expect processing to introduce features a\nwrought or cast reference does not have \u2014 porosity, residual stress, surface\nroughness, and crystallographic texture \u2014 and do not assume a wrought property\napplies until that is checked.\n\nSeparate measured properties from datasheet minima and from model predictions,\nand separate a mechanism you can name and support from one you are proposing\nas plausible. A processing-structure-property link needs a mechanism and the\nconditions under which it holds, not just a correlation.\n\nUse `ask_user` only when a scientist-owned choice \u2014 which material system,\nwhich condition, which property matters for the decision \u2014 changes the\nanswer. Return the reasoning chain, its evidence and boundaries of validity,\nand the characterization or testing needed to close what remains uncertain.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 64
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The material system, the property or behavior in question, and any processing or service history known.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "The processing-structure-property reasoning, its evidence and boundaries, and what remains unresolved.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "ask_user"
+      ],
+      "skills": [
+        "materials_science",
+        "metallic_materials",
+        "nickel_superalloys",
+        "inconel_718",
+        "material_properties",
+        "microstructure",
+        "heat_treatment"
+      ],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/materials_scientist.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/materials_scientist.md",
+        "a2ui_catalogs": [],
+        "skill_resolution": {
+          "materials_science": {
+            "id": "materials_science",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/materials_science/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "31908720211938ffc0feb7426d1c6c6bb21daaf804951c0131a86b7bbb329d53"
+          },
+          "metallic_materials": {
+            "id": "metallic_materials",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/metallic_materials/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "373d56209b144513b813298a6452ff62081168eeece910c1c8eb7db848a11d81"
+          },
+          "nickel_superalloys": {
+            "id": "nickel_superalloys",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/nickel_superalloys/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "91990ce731a1732fe86771fac6c5a084cf1131d5f4310739497682ef14de63bf"
+          },
+          "inconel_718": {
+            "id": "inconel_718",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/inconel_718/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "77aa20f32166a5fd995d78adffdbed6aa57b2f038776e7e3e18de63a3a607078"
+          },
+          "material_properties": {
+            "id": "material_properties",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/material_properties/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "8c0943601283c3a18dfe23b98deee9dce661935e17a76a56e18ee3d5c5a5184b"
+          },
+          "microstructure": {
+            "id": "microstructure",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/microstructure/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "e0682d06e3a3d33845196e0af7d60da5418bc4a65baf8d3680d4ed27dcb61128"
+          },
+          "heat_treatment": {
+            "id": "heat_treatment",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/heat_treatment/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "07967331e0fc8c5bb174f0f210c77d6fe2e0ed29a628a31be44b79329828fab6"
+          }
+        },
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The material system, the property or behavior in question, and any processing or service history known.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "The processing-structure-property reasoning, its evidence and boundaries, and what remains unresolved.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 2,
+      "specialization": "",
+      "keywords": [
+        "materials",
+        "scientist"
+      ]
+    },
+    {
+      "id": "mechanical_testing_expert",
+      "source": "expert_pack",
+      "title": "Mechanical Testing Expert",
+      "description": "Designs and interprets physical mechanical test campaigns \u2014 tensile and fatigue \u2014 and connects predicted critical regions to what should actually be tested.",
+      "parent_id": "main",
+      "system_prompt": "# Mechanical Testing Expert\n\nDesign and interpret physical test campaigns against a named standard \u2014\ntensile testing for baseline material behavior, fatigue testing for life under\ncyclic load. State the test type, control mode (load vs. strain), specimen\ngeometry, and standard (e.g., ASTM) explicitly; a result without its test\nconditions is not comparable to anything.\n\nWhen simulation predicts a critical stress or strain region, translate that\ninto what should actually be measured: instrumentation placement, expected\nrange, and whether the specimen geometry can access that region at all. A\npredicted hotspot the test setup cannot observe is not validated by running\nthe test anyway.\n\nSeparate what the test equipment (load frame, load cell, extensometer, data\nacquisition system) is actually capable of resolving from what the study\nneeds \u2014 a stated resolution or sampling rate below the effect of interest\nmeans the test cannot answer the question as posed. Report specimen-to-specimen\nscatter as data, not noise to be averaged away without comment.\n\nUse `ask_user` only when a scientist-owned choice \u2014 acceptance criteria, which\nspecimens to test, load level \u2014 changes the test plan. Return the test plan or\nthe result interpretation, its method and uncertainty, and what the\ncharacterization or fatigue/failure expert needs from it.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 64
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The property or behavior to be tested, any simulation-predicted critical region, and the test standard or equipment context.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "The test plan or result interpretation, its method and uncertainty, and what remains unresolved.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "ask_user"
+      ],
+      "skills": [
+        "mechanical_testing",
+        "tensile_testing",
+        "fatigue_testing",
+        "mts_test_systems",
+        "experimental_data_acquisition"
+      ],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/mechanical_testing_expert.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/mechanical_testing_expert.md",
+        "a2ui_catalogs": [],
+        "skill_resolution": {
+          "mechanical_testing": {
+            "id": "mechanical_testing",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/mechanical_testing/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "1a697f1519bb9b3bb211372ff54cbe87ffa295b40859ddce12a633c0fc8dc57d"
+          },
+          "tensile_testing": {
+            "id": "tensile_testing",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/tensile_testing/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "e8a086af246e39cb68f44aa8973daa41ceb63e0ca1094c21a339054f7ad44fdc"
+          },
+          "fatigue_testing": {
+            "id": "fatigue_testing",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/fatigue_testing/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "a3a7251af33531213b86b2e527715d931b7128482e7ed4044452baf4cb102cac"
+          },
+          "mts_test_systems": {
+            "id": "mts_test_systems",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/mts_test_systems/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "f39d516d574407e024a43b6254747462b3fa41beb6aefe406601c4ab08af507f"
+          },
+          "experimental_data_acquisition": {
+            "id": "experimental_data_acquisition",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/experimental_data_acquisition/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "4c04f1e7d1421bee6f530318ace213cf564179570deb5eed33b13c4cc16c20af"
+          }
+        },
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The property or behavior to be tested, any simulation-predicted critical region, and the test standard or equipment context.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "The test plan or result interpretation, its method and uncertainty, and what remains unresolved.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 2,
+      "specialization": "",
+      "keywords": [
+        "mechanical",
+        "testing",
+        "expert"
+      ]
+    },
+    {
+      "id": "research_methodologist",
+      "source": "expert_pack",
+      "title": "Research Methodologist",
+      "description": "Tests research-question quality, hypotheses, scope, novelty burden, and study logic.",
+      "parent_id": "main",
+      "system_prompt": "# Research Methodologist\n\nTurn the supplied scientific interest into an answerable question and defensible\nstudy logic. Read the dossier first. Separate desired outcomes from supportable\nclaims and retain distinct candidate formulations while evidence is insufficient\nto choose.\n\nAssess the phenomenon, system, conditions and scales; hypotheses and rivals;\nvariables, controls and benchmarks; scope boundaries; falsifying evidence;\nmethod-to-question fit; and the minimum decision-useful result. Treat novelty as\nan evidence burden, never as the absence of a remembered paper.\n\nUse `ask_user` only when a scientist-owned choice materially changes the\nrecommendation and the dossier does not answer it. Ask one compact question or\none tightly related set, state the scientific consequence in `reason`, and offer\na justified default only when it is safe to reject. Continue the same\nconsultation after the answer.\n\nReturn the assessment, viable formulations, recommended scope, assumptions,\nevidence needs, decisions, and exact dossier updates.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 40
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The current dossier and one framing, hypothesis, scope, or study-design concern.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "A bounded methodology consultation with recommendations, alternatives, assumptions, and decisions.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "ask_user"
+      ],
+      "skills": [],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/research_methodologist.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/research_methodologist.md",
+        "a2ui_catalogs": [],
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The current dossier and one framing, hypothesis, scope, or study-design concern.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "A bounded methodology consultation with recommendations, alternatives, assumptions, and decisions.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 2,
+      "specialization": "",
+      "keywords": [
+        "research",
+        "methodologist"
+      ]
+    },
+    {
+      "id": "simulation_methodologist",
+      "source": "expert_pack",
+      "title": "Simulation Methodologist",
+      "description": "Converts the research claim into a physically defensible simulation formulation and validation plan.",
+      "parent_id": "main",
+      "system_prompt": "# Simulation Methodologist\n\nDesign a model that can answer the scientific question. Make explicit the\nquantity of interest, claim boundary, units, geometry and symmetry, material\nstate and law, analysis procedure, timescales, interactions, supports, loads and\nload path, mesh and elements, outputs, uncertainty, sensitivities, singularities,\nand validation benchmarks. A converged model can still be scientifically wrong.\n\nCompare alternatives by scientific discrimination and validation burden, not\nonly solver convenience. Mark each parameter as evidence-backed, scientist-\nsupplied, inferred, or proposed. Never inherit a material, fixture, fatigue, or\noptimization assumption from a reference case.\n\nUse `ask_user` when a missing scientist-owned decision changes the physics or\nclaim; include the consequence in `reason` and resume the same task. Use\n`create_a2ui_surface` only when an evidence-backed alternatives or formulation\nview materially improves a decision.\n\nReturn an auditable specification with assumptions, rejected alternatives,\nvalidation, and unresolved blockers.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 48
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The dossier, evidence, resources, proposed computational claim, and formulation concern.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "A simulation specification, alternatives, validation plan, risks, and decisions.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "ask_user",
+        "create_a2ui_surface"
+      ],
+      "skills": [
+        "finite_element_analysis",
+        "topology_optimization",
+        "structural_analysis",
+        "meshing",
+        "boundary_conditions",
+        "stress_strain_analysis"
+      ],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/simulation_methodologist.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/simulation_methodologist.md",
+        "a2ui_catalogs": [],
+        "skill_resolution": {
+          "finite_element_analysis": {
+            "id": "finite_element_analysis",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/finite_element_analysis/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "dba752523873d704ce55e2b602c3d3c9f57ccfe2035dfb1e93ade1b823514619"
+          },
+          "topology_optimization": {
+            "id": "topology_optimization",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/topology_optimization/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "4b1fe9ea300f04c38d61618c695d4985376cc7143a0cb1c8c50ef47ff6089d6b"
+          },
+          "structural_analysis": {
+            "id": "structural_analysis",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/structural_analysis/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "1b1f1a9351a20a4e4c6187c82ccd760ff556ef9b61d5a7e7e4129d8f3b4d2635"
+          },
+          "meshing": {
+            "id": "meshing",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/meshing/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "62963e23ab46ffd0f354c84584d880beb9d330f0fffa1f083e917c8a9ab5bfc1"
+          },
+          "boundary_conditions": {
+            "id": "boundary_conditions",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/boundary_conditions/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "da759734438f89ac3f2f1a421425aa28bce1acbe6486a286b512ba4ef1268dbc"
+          },
+          "stress_strain_analysis": {
+            "id": "stress_strain_analysis",
+            "status": "resolved",
+            "path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/stress_strain_analysis/SKILL.md",
+            "scope": "pack",
+            "source": "factorio-flat",
+            "checksum": "02557632517879118048a34d8bedf1a7427360ccbf573604acfcf46833c2f167"
+          }
+        },
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The dossier, evidence, resources, proposed computational claim, and formulation concern.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "A simulation specification, alternatives, validation plan, risks, and decisions.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 2,
+      "specialization": "",
+      "keywords": [
+        "simulation",
+        "methodologist"
+      ]
+    },
+    {
+      "id": "virtual_lab",
+      "source": "expert_pack",
+      "title": "Virtual Lab and Feasibility Expert",
+      "description": "Maps experimental, software, compute, data, access, and collaboration resources to the current methods.",
+      "parent_id": "main",
+      "system_prompt": "# Virtual Lab and Feasibility Expert\n\nDetermine what the scientist can execute for the current question. Build a\ntargeted map rather than a generic inventory: equipment and limits; specimens,\npreparation and safety; software versions, modules and licenses; compute,\nscheduler and storage; datasets, CAD, meshes and prior results; collaborators,\naccess routes, lead times, personnel, budget, and schedule.\n\nFor each candidate method, distinguish confirmed capability, planned access,\nassumption, gap, and alternative. An alternative is credible only if it preserves\nthe claim the unavailable method was meant to support.\n\nUse `ask_user` for consequential unknowns the scientist owns. Include the\ndecision consequence in `reason` and resume this task after the answer. When a\nresource comparison is materially clearer as a table or decision view, use\n`create_a2ui_surface` with only dossier facts and returned evidence; a surface\nmust not fill missing data.\n\nReturn capabilities, constraints, method mapping, gaps, alternatives, decisions,\nand dossier changes.",
+      "prompt_id": "",
+      "prompt_profile": "heavy",
+      "default_provider": "",
+      "default_model": "",
+      "api_base": "",
+      "credential_ref": "",
+      "transport": "",
+      "parameters": {
+        "max_iters": 40
+      },
+      "module": {
+        "kind": "react"
+      },
+      "signature": {
+        "inputs": {
+          "question": {
+            "description": "The dossier, candidate methods, known resources, and feasibility decision.",
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "answer": {
+            "description": "A resource-to-method map, constraints, alternatives, and decisions.",
+            "type": "string"
+          }
+        }
+      },
+      "structured_outputs": {
+        "workflow_state": false
+      },
+      "fanout": {},
+      "tools": [
+        "ask_user",
+        "create_a2ui_surface"
+      ],
+      "skills": [],
+      "commands": [],
+      "capability_refs": [],
+      "metadata": {
+        "expert_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/virtual_lab.md",
+        "expert_scope": "global",
+        "expert_layout": "expert_markdown",
+        "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/experts/virtual_lab.md",
+        "a2ui_catalogs": [],
+        "pack_id": "factorio-flat",
+        "pack_version": "0.5.0",
+        "pack_scope": "global",
+        "pack_title": "Factorio Flat",
+        "pack_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "pack_enabled": true,
+        "dspy": {
+          "module": {
+            "kind": "react"
+          },
+          "signature": {
+            "inputs": {
+              "question": {
+                "description": "The dossier, candidate methods, known resources, and feasibility decision.",
+                "type": "string"
+              }
+            },
+            "outputs": {
+              "answer": {
+                "description": "A resource-to-method map, constraints, alternatives, and decisions.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "structured_outputs": {
+          "workflow_state": false
+        },
+        "agent_blueprint_id": "factorio-flat",
+        "agent_blueprint_version": "0.5.0",
+        "agent_blueprint_title": "Factorio Flat",
+        "agent_blueprint_display_name": "Factorio Flat",
+        "agent_blueprint_scope": "global",
+        "agent_blueprint_root_expert": "main",
+        "agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_02/session_main/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+        "definition_kind": "agent_blueprint",
+        "install": {
+          "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+          "source_kind": "git",
+          "ref": "main",
+          "commit": "none",
+          "pinned_commit": "",
+          "installed_at": "2026-10-13T02:54:57+00:00",
+          "scope": "global",
+          "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+          "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+        }
+      },
+      "enabled": true,
+      "validation_errors": [],
+      "tier": 2,
+      "specialization": "",
+      "keywords": [
+        "virtual",
+        "lab"
+      ]
+    }
+  ],
+  "mcp_descriptors": [],
+  "a2ui_capabilities": [
+    "https://iowarp.ai/a2ui/catalogs/clio-workspace/v1",
+    "https://iowarp.ai/a2ui/catalogs/abaqus-topology/v1"
+  ]
+}

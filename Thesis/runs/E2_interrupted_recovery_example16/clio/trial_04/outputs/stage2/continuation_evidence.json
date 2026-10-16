@@ -1,0 +1,53 @@
+{
+  "frozen_configuration_id": "FROZEN-EX16-v1",
+  "trial_id": "E2-example16-clio-04",
+  "checkpoint": {
+    "file": "outputs/stage1/engine_output.exo",
+    "sha256": "9f9616771441ca2de1d98bb44ccd81daedaa2b0bc305a2d0733d2402f6addee9",
+    "saved_states": 21,
+    "exodus_time_values": "1.0 .. 21.0 (time step k holds iteration k-1)",
+    "nodal_fields": ["control", "topology"]
+  },
+  "stage2_restart_settings": {
+    "initial_guess_file_name": "restart_input.exo",
+    "restart_input_sha256": "9f9616771441ca2de1d98bb44ccd81daedaa2b0bc305a2d0733d2402f6addee9",
+    "restart_input_identical_to_checkpoint": true,
+    "initial_guess_field_name": "control",
+    "restart_iteration": 21,
+    "restart_iteration_meaning": "Exodus time step index in the checkpoint (1-based); time step 21 holds the Stage-1 iteration-20 design",
+    "generated_config": "outputs/stage2/generated_config/engine_operations.xml: InitializeField Method FromFieldOnInputMesh, Name restart_input.exo, VariableName control, Iteration 21; PlatoMainOutput RestartFieldName control, MaxIterations 40",
+    "max_iterations": 40
+  },
+  "compliance_comparison": {
+    "stage1_iteration20_FX": 2.360040e+05,
+    "stage1_iteration20_FX_full_precision_from_opt_criteria_history": 2.3600395811001546e+05,
+    "stage2_iteration0_FX": 2.360040e+05,
+    "stage2_iteration0_FX_full_precision_from_opt_criteria_history": 2.3600395811001546e+05,
+    "relative_difference": 0.0,
+    "stage1_iteration20_NormFprime": 1.191537e+04,
+    "stage2_iteration0_NormFprime": 1.191537e+04,
+    "stage1_iteration20_H1": 3.964884e-13,
+    "stage2_iteration0_H1": 3.964884e-13,
+    "stage1_iteration19_FX_for_contrast": 2.388394e+05,
+    "sources": ["outputs/stage1/morphorm_oc_optimizer_diagnostics.txt", "outputs/stage2/morphorm_oc_optimizer_diagnostics.txt", "outputs/stage1/opt_criteria_history.csv", "outputs/stage2/opt_criteria_history.csv", "work/verify/stage2_first_objective_check.json", "work/verify/stage2_diag.json"]
+  },
+  "saved_field_comparison": {
+    "max_abs_diff_control_stage2_engine_step1_vs_stage1_engine_step21_iteration20": 0.0,
+    "max_abs_diff_control_stage2_engine_step1_vs_stage1_engine_step20_iteration19": 0.2,
+    "max_abs_diff_topology_stage2_engine_step1_vs_stage1_engine_step21": 0.0,
+    "max_abs_diff_Topology_stage2_analyze_iteration0_vs_stage1_engine_topology_step21": 0.0,
+    "max_abs_diff_topology_stage1_engine_step21_vs_stage1_final_analyze_iteration20": 0.0,
+    "sources": ["work/verify/stage2_field_continuity.json", "work/verify/stage2_checkpoint_field_check.json"]
+  },
+  "stage2_result": {
+    "job_id": 16239713,
+    "iteration_rows": 41,
+    "first_iter": 0,
+    "last_iter": 40,
+    "overall_iteration_reached": 60,
+    "last_FX": 2.135584e+05,
+    "stopping_message": "****** Optimization stopping due to exceeding maximum number of iterations. ******",
+    "engine_output_saved_states": 41
+  },
+  "conclusion": "Seamless restart confirmed: Stage 2 first evaluated compliance equals Stage 1 compliance at iteration 20 to all printed digits, and the Stage-2 initial control field is bit-identical to the Stage-1 iteration-20 control field. No restart setting had to be corrected."
+}

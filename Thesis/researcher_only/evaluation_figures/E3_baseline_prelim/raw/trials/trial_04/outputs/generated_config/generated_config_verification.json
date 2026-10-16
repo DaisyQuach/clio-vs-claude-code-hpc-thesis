@@ -1,0 +1,108 @@
+{
+  "utc": "2026-10-10T07:18:44Z",
+  "run_directory": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_04/work/run",
+  "files": [
+    "analyze_2_input_deck.xml",
+    "analyze_2_operations.xml",
+    "analyze_helmholtz_input_deck.xml",
+    "analyze_helmholtz_operations.xml",
+    "engine_input_deck.xml",
+    "engine_operations.xml",
+    "interface.xml",
+    "mpirun.source"
+  ],
+  "helmholtz_parameters": {
+    "Length Scale": "0.043301",
+    "Surface Length Scale": "1.0",
+    "Symmetry Plane Sides": "{ss_sym}"
+  },
+  "essential_boundary_conditions": {
+    "Displacement X with ID 1": {
+      "Type": "Fixed Value",
+      "Index": "0",
+      "Sides": "ns_fix",
+      "Value": "0"
+    },
+    "Displacement Y with ID 2": {
+      "Type": "Fixed Value",
+      "Index": "1",
+      "Sides": "ns_fix",
+      "Value": "0"
+    },
+    "Displacement Z with ID 3": {
+      "Type": "Fixed Value",
+      "Index": "2",
+      "Sides": "ns_fix",
+      "Value": "0"
+    },
+    "Displacement Z with ID 4": {
+      "Type": "Fixed Value",
+      "Index": "2",
+      "Sides": "ss_sym",
+      "Value": "0"
+    }
+  },
+  "concentrated_loads": {
+    "Concentrated Load with ID 0/Dof": "1",
+    "Concentrated Load with ID 0/Value": "-1.0",
+    "Concentrated Load with ID 0/Nodes": "ns_load"
+  },
+  "checks": {
+    "helmholtz_physics": true,
+    "helmholtz_length_scale_present": true,
+    "helmholtz_length_scale_equals_0.15_over_2sqrt3": true,
+    "helmholtz_surface_length_scale_present": true,
+    "helmholtz_surface_length_scale_1.0": true,
+    "helmholtz_symmetry_plane_sides_present": true,
+    "helmholtz_symmetry_plane_is_ss_sym": true,
+    "helmholtz_mesh": true,
+    "helmholtz_domain_block_1": true,
+    "analyze_physics_mechanical_linear": true,
+    "analyze_mesh": true,
+    "material_E_1.0": true,
+    "material_nu_0.3": true,
+    "material_assigned_to_block_1": true,
+    "simp_residual_type_SIMP": true,
+    "simp_residual_exponent_3.0": true,
+    "simp_residual_minimum_1e-3": true,
+    "simp_objective_criterion_type_SIMP": true,
+    "simp_objective_criterion_exponent_3.0": true,
+    "simp_objective_criterion_minimum_1e-3": true,
+    "single_phase_interpolation": true,
+    "objective_internal_elastic_energy_on_block_1": true,
+    "exactly_one_concentrated_load": true,
+    "load_on_ns_load": true,
+    "load_dof_y": true,
+    "load_value_-1.0": true,
+    "no_natural_boundary_conditions": true,
+    "no_body_loads": true,
+    "ebc_count_4": true,
+    "ebc_ns_fix_x": true,
+    "ebc_ns_fix_y": true,
+    "ebc_ns_fix_z": true,
+    "ebc_ss_sym_z_only": true,
+    "analyze_output_dispx_dispy_dispz": true,
+    "optimizer_OC": true,
+    "max_iterations_50": true,
+    "oc_default_tolerances": true,
+    "update_problem_frequency_1": true,
+    "constraint_normalized_target_0.15_vs_design_volume": true,
+    "bounds_0_1": true,
+    "performers_engine_analyze_helmholtz": true,
+    "volume_constraint_evaluated_by_engine": true,
+    "compliance_objective_evaluated_by_analyze": true,
+    "filter_applied_to_control_before_objective": true,
+    "engine_outputs_topology_and_control": true,
+    "weighted_sum_single_weight_1": true,
+    "aggregator_no_normalization_element": true,
+    "initial_density_uniform_0.15": true,
+    "discretization_density": true,
+    "engine_output_max_iterations_50_no_restart": true,
+    "update_problem_operation_frequency_1": true,
+    "analyze_visualization_every_iteration": true,
+    "three_performers_one_rank_each": true,
+    "no_decomposition_tool_in_launch": true,
+    "engine_is_PlatoMain_with_engine_input_deck": true
+  },
+  "result": "PASS"
+}

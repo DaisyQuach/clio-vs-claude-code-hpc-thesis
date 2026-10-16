@@ -1,0 +1,23 @@
+2026-10-13T01:19:48-06:00 start trial=E2-example16-clio-02; read agent_inputs; manuals converted to work/manuals_txt
+2026-10-13T01:21:11-06:00 cubit mesh.jou rc above; see work/mesh/cubit.log
+2026-10-13T01:21:35-06:00 XMLGenerator input_deck.i in work/stage1 rc above
+2026-10-13T01:21:35-06:00 exo_summary mesh verify -> work/verify/mesh.json
+2026-10-13T01:22:51-06:00 probe translations work/try2_legacyfilter work/try3_legacy_outfreq
+2026-10-13T01:23:15-06:00 probe work/try4_isofreq isosurface_output_frequency 1
+2026-10-13T01:23:45-06:00 accepted Stage-1 deck+translation in work/stage1_run; verify -> work/verify/stage1_generated_config.tsv; attempt1 (filter block, engine OutputFrequency 5) kept as work/stage1_attempt1_filterblock_superseded
+2026-10-13T01:24:08-06:00 probe work/try5_minval_probe: material_interpolation minimum_value propagation
+2026-10-13T01:24:26-06:00 probe work/try6_residual_interp: material_interpolation_id on residual
+2026-10-13T01:24:46-06:00 wrote jobs/stage1_job_script.sbatch
+2026-10-13T01:24:59-06:00 sbatch --parsable jobs/stage1_job_script.sbatch rc=0 jobid=16237845
+2026-10-13T01:43:09-06:00 job 16237845 COMPLETED 0:0 elapsed 00:17:24 node notch274
+2026-10-13T01:43:40-06:00 deliverables copied to outputs/stage1; outputs/SHA256SUMS.txt written and checked
+2026-10-13T01:45:22-06:00 wrote work/run_summary.md (Stage 1 complete, Stage 2 not started)
+2026-10-13T07:49:24Z session B start trial=E2-example16-clio-02; re-verified Stage 1: sha256sum -c OK, checkpoint cmp identical, diag 21 rows iter0..20 last F=2.360040e+05 stop at cap, engine_output.exo 21 time steps control/topology
+2026-10-13T07:49:51Z work/stage2_run created; restart_input.exo = cmp-identical copy of outputs/stage1/engine_output.exo; draft Stage-2 deck written (restart_iteration 21 = time step holding iteration 20, to be verified)
+2026-10-13T07:50:07Z probe work/try7_restart20_probe restart_iteration 20 (translation only, not submitted)
+2026-10-13T07:50:07Z XMLGenerator in work/stage2_run (restart_iteration 21)
+2026-10-13T07:50:38Z sbatch --parsable jobs/stage2_job_script.sbatch rc=0 jobid=16238332
+2026-10-13T07:52:14Z job 16238332 RUNNING notch274; Stage-2 first objective 2.360040e+05 == Stage-1 iter-20 objective (restart_iteration 21 = correct state); diag_summary --compare-first-to saved work/verify/stage2_first_objective_check.json
+2026-10-13T08:25:22Z job 16238332 COMPLETED 0:0 elapsed 00:33:26 node notch274; Stage-2 diag 41 rows iter0..40, last F=2.135584e+05, stop at cap; engine_output.exo 41 states; iteration40.exo final analyze; restart field comparison control max_abs_diff 0.0 vs Stage-1 iter 20
+2026-10-13T08:25:50Z outputs/stage2 delivered; continuation_evidence.json written; SHA256SUMS.txt regenerated and checked
+2026-10-13T08:27:55Z work/run_summary.md updated with Session B (Stage 2 complete); Session A copy kept at work/run_summary_sessionA_stage1_only.md

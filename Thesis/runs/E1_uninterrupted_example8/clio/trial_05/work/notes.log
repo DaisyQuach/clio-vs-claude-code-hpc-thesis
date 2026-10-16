@@ -1,0 +1,14 @@
+2026-10-13T05:40:26Z start trial=E1-example8-clio-05; manuals converted with pdftotext -layout to work/manuals/
+2026-10-13T05:41:51Z cubit mesh start
+2026-10-13T05:41:54Z cubit -batch -nographics -nojournal -input mesh.jou exit=0
+2026-10-13T05:42:09Z exo_summary.py mesh.exo -> work/verify/mesh.json rc=0
+2026-10-13T05:42:32Z XMLGenerator input_deck.i in work/run1 start
+2026-10-13T05:42:33Z XMLGenerator exit=0
+2026-10-13T05:43:17Z XMLGenerator v2 (legacy study-level filter keywords) in work/run2 start; reason: run1 filter-block form lost symmetry_plane_location_names
+2026-10-13T05:43:17Z XMLGenerator v2 exit=0
+2026-10-13T05:43:40Z xml_params.py work/run2 -> work/verify/generated_config_params.tsv
+2026-10-13T05:44:12Z sbatch --parsable jobs/morphorm_ex8.sbatch -> job 16234356 rc=0
+2026-10-13T06:01:44Z job 16234356 COMPLETED ExitCode 0:0 Elapsed 00:16:50 node notch274
+2026-10-13T06:02:06Z exo_summary iteration50.exo/engine_output.exo -> work/verify/*.json; diag_summary -> work/verify/diagnostics.json
+2026-10-13T06:02:18Z deliverables copied to outputs/; SHA256SUMS.txt written and checked
+2026-10-13T06:09:30Z work/run_summary.md written from notes.log and verification records

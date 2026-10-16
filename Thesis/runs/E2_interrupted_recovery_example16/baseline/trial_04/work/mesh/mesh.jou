@@ -1,0 +1,27 @@
+## FROZEN-EX16-v1 Stage-1 mesh journal (Coreform Cubit 2026.8, batch, no graphics)
+## Design domain: brick x in [0,2], y in [0,1], z in [0,1]; HEX8 mapped mesh, h = 1/24
+## 48 x 24 x 24 = 27,648 elements, 30,625 nodes; one block "block_1";
+## nodeset "ns_fix" = face x=0 (625 nodes); nodeset "ns_load" = edge x=2,y=0 (25 nodes)
+reset
+set exodus netcdf4 off
+brick x 2.0 y 1.0 z 1.0
+## brick is centred at the origin; translate so the corner sits at the origin
+move volume 1 x 1.0 y 0.5 z 0.5 include_merged
+## exact interval counts: curves of length 2 (x-direction) get 48 intervals, all others 24
+curve with length > 1.5 interval 48
+curve with length < 1.5 interval 24
+volume 1 scheme map
+mesh volume 1
+block 1 add volume 1
+block 1 name "block_1"
+block 1 element type HEX8
+## fixed face: the only surface whose centroid has x = 0
+nodeset 1 add surface with x_coord < 0.001
+nodeset 1 name "ns_fix"
+## loaded edge: the only curve whose centroid has x = 2 and y = 0
+nodeset 2 add curve with x_coord > 1.999 and y_coord < 0.001
+nodeset 2 name "ns_load"
+list block 1
+list nodeset 1
+list nodeset 2
+export mesh "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/baseline/trial_04/work/mesh/mesh.exo" dimension 3 overwrite

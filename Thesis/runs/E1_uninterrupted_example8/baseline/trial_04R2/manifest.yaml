@@ -1,0 +1,29 @@
+run_id: E1-example8-baseline-04R2
+status: completed_unscored
+experiment: E1
+experiment_selector: e1-example8
+workflow: frozen_example8
+paired_block: E1-04
+system: baseline
+frozen_configuration_id: FROZEN-EX8-v1
+frozen_configuration_sha256: cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+agent_inputs_sha256: cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+model_identifier: claude-fable-5-1
+agent_harness: claude-code
+agent_harness_version: "2.1.295"
+headless: true
+slurm_contract: "account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00"
+created_utc: 2026-10-09T21:40:40Z
+started_utc: 2026-10-09T21:41:57Z
+finished_utc: 2026-10-09T22:02:29Z
+agent_session_ids: "88c5f641-63d1-4e29-b3c7-6bfdd11d9620"
+agent_host_job_ids: "16167163"
+workflow_job_ids: "16167268"
+evidence_sha256_manifest: logs/evidence_SHA256SUMS.txt
+packet_verification: logs/packet_verification.json
+curation_researcher_reviewed: null
+curation_include_in_analysis: true
+curation_notes: "provider session limit ended the process after the last successful tool call; deliverables and evidence complete; exact match to reference; counted by researcher decision (RESEARCHER_DECISIONS.md); scorer needs_review only due to exit code 1"
+scoring_decision: accepted
+scoring_scored_utc: 2026-10-09T22:37:58Z
+scoring_record: researcher_only/scores/E1-example8-baseline-04R2/score_with_override.json

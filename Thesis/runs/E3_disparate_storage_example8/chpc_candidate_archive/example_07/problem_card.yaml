@@ -1,0 +1,48 @@
+# Problem card — E3 candidate package example_07 (regenerated 2026-10-10T00:39:27Z by E3 remediation; logical source identifiers)
+package_id: example_07
+source_example_number: 7
+source_identifier: MORPHORM-CANDIDATE-EX07
+source_identifier_note: "logical identifier assigned by E3; it is not a filesystem path and not the original location"
+title: "Full 3-D cantilever with a Helmholtz (PDE) filter and boundary-sticking penalty"
+classification: "distinct workflow"
+scientific_role: "Minimum-compliance optimization of a full 2 x 1 x 1 cantilever (structured HEX8, 48 x 24 x 24 per the journal), fixed on x = 0, transverse concentrated line load (direction y, -1 per node) on the edge x = 2, y = 0; E = 1.0, nu = 0.3; SIMP minimum value 1e-3; weighted-sum compliance objective; relative volume constraint 0.15 evaluated by the engine service; Helmholtz filter radius_absolute 0.15 with boundary_sticking_penalty 1.0; OC, 50 iterations, update_problem with frequency 1. A legitimate full-domain workflow that demonstrates the Helmholtz filter's boundary treatment; it models the whole domain and declares no symmetry plane."
+self_contained: "yes: the journal generates the mesh the deck reads; no other example's files or outputs are needed"
+shipped_from: "Morphorm Examples Manual, topology optimization / mechanical, Example 7 (manual-shipped input deck and journal)"
+authenticity: "files are byte-identical copies of the original example files (SHA-256 verified at copy time)"
+contains_completed_results: false
+source_file_identifiers:
+  - MORPHORM-CANDIDATE-EX07/problem_figure
+  - MORPHORM-CANDIDATE-EX07/input_deck
+  - MORPHORM-CANDIDATE-EX07/journal
+included_files:
+  - path: selected_source_materials/problem_geometry_figure.png
+    source_file_identifier: MORPHORM-CANDIDATE-EX07/problem_figure
+    role: "problem-statement geometry/mesh figure (no result)"
+    file_type: "PNG image"
+    size_bytes: 697847
+    sha256: cf38e2f0eaadd07ecee27762e25679afdb59306d9f744ff8ac835c04e71b812a
+  - path: selected_source_materials/topology_mech_ex7.i
+    source_file_identifier: MORPHORM-CANDIDATE-EX07/input_deck
+    role: "candidate input deck (Example 7, as shipped)"
+    file_type: "Morphorm input deck (text)"
+    size_bytes: 1704
+    sha256: 3ed36cc28ba7773a9cd7b7f4aece6e927f70ede4dddec72ea07222d24ffddf46
+  - path: selected_source_materials/topology_mech_ex7.jou
+    source_file_identifier: MORPHORM-CANDIDATE-EX07/journal
+    role: "candidate mesh-generation journal (Example 7, as shipped)"
+    file_type: "Coreform Cubit journal (text)"
+    size_bytes: 1075
+    sha256: 2e5d0201ac23aea4533c007d44dd593713aae9533d73f800ec921034c70409ae
+omitted_result_categories:
+  - "completed final Exodus outputs (engine_output.exo, analyze outputs, per-iteration output directories)"
+  - "input/meshed Exodus files (regenerate from the journal where a journal is included)"
+  - "completed topology renderings and optimized-geometry figures"
+  - "final accepted result summaries and run READMEs"
+  - "numerical objective/compliance/constraint histories (optimizer diagnostics, criterion CSVs)"
+  - "solver, Cubit and Slurm logs"
+  - "generated runtime configuration (XMLGenerator output) of completed runs"
+  - "researcher validation material and scoring records"
+hashes:
+  selected_source_materials/problem_geometry_figure.png: cf38e2f0eaadd07ecee27762e25679afdb59306d9f744ff8ac835c04e71b812a
+  selected_source_materials/topology_mech_ex7.i: 3ed36cc28ba7773a9cd7b7f4aece6e927f70ede4dddec72ea07222d24ffddf46
+  selected_source_materials/topology_mech_ex7.jou: 2e5d0201ac23aea4533c007d44dd593713aae9533d73f800ec921034c70409ae

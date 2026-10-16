@@ -1,0 +1,40 @@
+run_id: E2-example16-clio-05R
+status: completed_unscored
+experiment: E2
+experiment_selector: e2-example16
+workflow: frozen_example16
+paired_block: E2-05
+system: clio
+frozen_configuration_id: FROZEN-EX16-v1
+frozen_configuration_sha256: a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+agent_inputs_sha256: a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+model_identifier: claude-fable-5-1
+agent_harness: clio-agent
+agent_harness_version: "0.9.5b5.post2"
+headless: true
+slurm_contract: "account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00"
+created_utc: 2026-10-13T14:34:20Z
+started_utc: 2026-10-13T14:35:26Z
+finished_utc: 2026-10-13T15:49:15Z
+agent_session_ids: "sess_00fdfff665fa,sess_b6e001e2e9ff"
+agent_host_job_ids: "16242417,16242923"
+workflow_job_ids: "16242485,16243174"
+evidence_sha256_manifest: logs/evidence_SHA256SUMS.txt
+packet_verification: logs/packet_verification.json
+curation_researcher_reviewed: null
+curation_include_in_analysis: null
+curation_notes: null
+scoring_decision: accepted
+scoring_scored_utc: 2026-10-13T15:51:09Z
+scoring_record: researcher_only/scores/E2-example16-clio-05R/score.json
+clio_core_version: "iowarp-core 2.2.1"
+clio_desktop_version: "not-connected-during-trials"
+clio_claude_cli_version: "2.1.295"
+clio_blueprint_id: "factorio-flat"
+clio_blueprint_version: "0.5.0"
+clio_effort: "default"
+clio_approval_mode: "bypass"
+clio_runtime_tuning: "idle_ttl=3600 mcp_call_timeout=3600 turn_timeout=5400"
+clio_session_ids: "sess_00fdfff665fa,sess_b6e001e2e9ff"
+clio_config_sha256: 2519d7cd3c18baac2f08bfeedb374814991f1ee850b3bb3c83574846ced5a611
+clio_supplement_verification: logs/clio_supplement_verification.json

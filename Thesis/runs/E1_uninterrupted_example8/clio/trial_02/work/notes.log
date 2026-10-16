@@ -1,0 +1,12 @@
+2026-10-12T21:32:14-06:00 start trial=E1-example8-clio-02
+2026-10-12T21:32:40-06:00 pdftotext manuals -> work/manual/ exit=0
+2026-10-12T21:34:37-06:00 cubit -batch -nographics -nojournal -input work/mesh/mesh.jou exit=0
+2026-10-12T21:34:49-06:00 exo_summary.py mesh.exo --expect ... exit=0 -> work/verify/mesh.json
+2026-10-12T21:35:10-06:00 XMLGenerator input_deck.i (work/run) exit=0
+2026-10-12T21:35:34-06:00 DECISION: filter-block form omitted symmetry_plane_location_names from analyze_helmholtz_input_deck.xml; re-translate with legacy study-level filter keywords in work/run_legacy
+2026-10-12T21:35:38-06:00 XMLGenerator input_deck.i (work/run_legacy) exit=0
+2026-10-12T21:35:51-06:00 xml_params.py work/run_legacy ... exit=1 -> work/verify/xml_params.txt
+2026-10-12T21:36:26-06:00 sbatch --parsable jobs/morphorm_ex8.sbatch exit=0 jobid=16220209 run_dir=work/run_legacy
+2026-10-12T21:56:04-06:00 job 16220209 COMPLETED ExitCode=0:0 Elapsed=00:18:35 node=notch273
+2026-10-12T21:56:21-06:00 deliverables copied to outputs/ ; SHA256SUMS.txt written
+2026-10-12T21:59:15-06:00 work/run_summary.md written

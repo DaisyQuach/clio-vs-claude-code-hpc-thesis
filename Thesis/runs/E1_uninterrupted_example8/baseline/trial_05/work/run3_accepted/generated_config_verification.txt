@@ -1,0 +1,63 @@
+EX8 generated-configuration verification record (FROZEN-EX8-v1)
+utc_timestamp: 2026-10-09T17:08:41Z
+run_dir: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_05/work/run3_accepted
+
+check                                                                                                   got                                     expected result
+helmholtz: Physics                                                                         Helmholtz Filter                             Helmholtz Filter PASS
+helmholtz: Length Scale present                                                                        True                                         True PASS
+helmholtz: Length Scale == 0.15/(2*sqrt(3)) (radius 0.15)                                              True                                         True PASS
+helmholtz: Surface Length Scale present                                                                True                                         True PASS
+helmholtz: Surface Length Scale == 1.0 (sticking penalty 1.0)                                           1.0                                          1.0 PASS
+helmholtz: Symmetry Plane Sides present                                                                True                                         True PASS
+helmholtz: Symmetry Plane Sides contains ss_sym                                                        True                                         True PASS
+helmholtz: Input Mesh                                                                              mesh.exo                                     mesh.exo PASS
+helmholtz: domain block_1                                                                           block_1                                      block_1 PASS
+analyze: Spatial Dimension                                                                                3                                            3 PASS
+analyze: Input Mesh                                                                                mesh.exo                                     mesh.exo PASS
+analyze: Physics Mechanical                                                                      Mechanical                                   Mechanical PASS
+analyze: domain block_1                                                                             block_1                                      block_1 PASS
+analyze: Youngs Modulus 1.0                                                                             1.0                                          1.0 PASS
+analyze: Poissons Ratio 0.3                                                                             0.3                                          0.3 PASS
+analyze: residual interpolation Single-Phase                                                   Single-Phase                                 Single-Phase PASS
+analyze: residual SIMP type                                                                            SIMP                                         SIMP PASS
+analyze: residual SIMP exponent 3.0                                                                     3.0                                          3.0 PASS
+analyze: residual SIMP minimum 1e-3                                                                   0.001                                        0.001 PASS
+analyze: objective criterion type                                                   Internal Elastic Energy                      Internal Elastic Energy PASS
+analyze: criterion SIMP exponent 3.0                                                                    3.0                                          3.0 PASS
+analyze: criterion minimum ersatz 1e-3                                                                0.001                                        0.001 PASS
+analyze: exactly one concentrated load                                                                    1                                            1 PASS
+analyze: load Dof 1 (y)                                                                                   1                                            1 PASS
+analyze: load Value -1.0                                                                               -1.0                                         -1.0 PASS
+analyze: load Nodes ns_load                                                                         ns_load                                      ns_load PASS
+analyze: no natural BCs (tractions)                                                                       0                                            0 PASS
+analyze: essential BC set                                      [('ns_fix', '0', 'Fixed Value', 0.0), ('ns_f [('ns_fix', '0', 'Fixed Value', 0.0), ('ns_f PASS
+analyze: output dispx dispy dispz                              ['displacement_x', 'displacement_y', 'displa ['displacement_x', 'displacement_y', 'displa PASS
+interface: performers                                          [('engine_1', 'engine'), ('analyze_2', 'anal [('engine_1', 'engine'), ('analyze_2', 'anal PASS
+interface: optimizer package OC                                                                          OC                                           OC PASS
+interface: MaxIterations 50                                                                              50                                           50 PASS
+interface: OC control stagnation tol default 1e-4                                                      1e-4                                         1e-4 PASS
+interface: OC objective stagnation tol default 1e-8                                                    1e-8                                         1e-8 PASS
+interface: OC gradient tol default 1e-8                                                                1e-8                                         1e-8 PASS
+interface: ProblemUpdateFrequency 1                                                                       1                                            1 PASS
+interface: UpdateProblemStage defined                                                        Update Problem                               Update Problem PASS
+interface: constraint NormalizedTargetValue 0.15                                                       0.15                                         0.15 PASS
+interface: constraint reference Design Volume                                                 Design Volume                                Design Volume PASS
+interface: filtered variable name Topology                                                         Topology                                     Topology PASS
+interface: constraint value computed by engine_1                                                       True                                         True PASS
+interface: objective value computed by analyze_2                                                       True                                         True PASS
+interface: objective stage applies Helmholtz filter                                                    True                                         True PASS
+interface: engine output fields control+topology                                    ['control', 'topology']                      ['control', 'topology'] PASS
+engine ops: Initialize Field Uniform                                                                Uniform                                      Uniform PASS
+engine ops: initial density 0.15                                                                       0.15                                         0.15 PASS
+engine ops: Update Problem frequency 1                                                                    1                                            1 PASS
+engine ops: PlatoMainOutput MaxIterations 50                                                             50                                           50 PASS
+engine ops: discretization density (bounds)                                                         density                                      density PASS
+engine ops: aggregator weight 1                                                                       ['1']                                        ['1'] PASS
+engine ops: aggregator normalization not enabled                                                      False                                        False PASS
+mpirun: three single-rank performers                                                        ['1', '1', '1']                              ['1', '1', '1'] PASS
+mpirun: PlatoMain + 2x analyze_MPMD                                                                  (1, 2)                                       (1, 2) PASS
+mpirun: no decomposition (no decomp/epu step)                                                         False                                        False PASS
+engine deck: mesh mesh.exo                                                                             True                                         True PASS
+engine deck: output engine_output                                                                      True                                         True PASS
+
+OVERALL: PASS (56/56 checks passed)

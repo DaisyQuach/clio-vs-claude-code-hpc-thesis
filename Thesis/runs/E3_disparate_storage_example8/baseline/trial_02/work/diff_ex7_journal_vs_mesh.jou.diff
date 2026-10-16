@@ -1,0 +1,40 @@
+--- work/candidate_originals/example_07/topology_mech_ex7.jou	2026-10-04 00:18:16.725054433 -0600
++++ work/mesh/mesh.jou	2026-10-10 00:13:15.701913656 -0600
+@@ -1,16 +1,17 @@
+-## 3D cantilever for the Helmholtz-filter topology-optimization example
+-## (Wallin, Ivarsson, Amir & Tortorelli, Struct Multidisc Optim 62:1299-1311, sec 4.2).
+-## Domain 2 x 1 x 1, fixed on the x = 0 face, transverse line load along the
+-## bottom-right edge (x = 2, y = 0). Structured HEX8 mesh.
++## E3-SPC-v1 Symmetry-Plane Cantilever: half (z in [0, 0.5]) of the 2 x 1 x 1 cantilever.
++## Adapted from candidate package example_07 (topology_mech_ex7.jou, full-domain 48 x 24 x 24
++## Helmholtz cantilever): width halved to 0.5 (12 elements), and the cut plane z = 0.5 added
++## as sideset "ss_sym". Fixed on the x = 0 face, transverse line load on the edge x = 2, y = 0.
++## Structured (mapped) HEX8 mesh, element size h = 1/24.
+ reset
+ #{len = 2.0}
+ #{ht  = 1.0}
+-#{wd  = 1.0}
++#{wd  = 0.5}
+ #{esize = 0.0416667}
+-## --- geometry: brick with the back-bottom-left corner at the origin ---
++## --- geometry: brick with its back-bottom-left corner at the origin ---
+ create brick x {len} y {ht} z {wd}
+ move volume 1 x {len/2.0} y {ht/2.0} z {wd/2.0}
+-## --- structured hex mesh (48 x 24 x 24) ---
++## --- structured hex mesh (48 x 24 x 12) ---
+ volume 1 scheme map
+ volume 1 size {esize}
+ mesh volume 1
+@@ -20,7 +21,10 @@
+ ## --- fixed support: the x = 0 face (all displacements) ---
+ nodeset 1 add node in surface with x_coord < {esize/2.0}
+ nodeset 1 name "ns_fix"
+-## --- transverse line load: bottom-right edge (x = len, y = 0), spanning z ---
++## --- transverse line load: edge x = len, y = 0, spanning z in [0, wd] ---
+ nodeset 2 add node with x_coord > {len - esize/2.0} and with y_coord < {esize/2.0}
+ nodeset 2 name "ns_load"
+-export mesh "topology_mech_ex7.exo" dimension 3 overwrite
++## --- symmetry (cut) plane: the z = wd face as a sideset ---
++sideset 1 add surface with z_coord > {wd - esize/2.0}
++sideset 1 name "ss_sym"
++export mesh "mesh.exo" dimension 3 overwrite

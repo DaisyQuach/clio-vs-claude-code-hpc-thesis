@@ -1,0 +1,47 @@
+EX8 mesh verification record (FROZEN-EX8-v1)
+utc_timestamp: 2026-10-09T17:06:01Z
+mesh_file: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_05/work/mesh/mesh.exo
+mesh_sha256: df667f9063f7f20483dcf137fb5280c25686f79cca75aaf8b46ce5ba0da3f7c4
+bounding_box: x[0.000000000,2.000000000] y[0.000000000,1.000000000] z[0.000000000,0.500000000]
+element_type: HEX8; blocks: ['block_1']; nodesets: ['ns_fix', 'ns_load'] sizes [325, 13]; sidesets: ['ss_sym']
+
+check                                                                     got                     expected result
+num_dim                                                                     3                            3 PASS
+num_nodes                                                               15925                        15925 PASS
+num_elem                                                                13824                        13824 PASS
+num_el_blk                                                                  1                            1 PASS
+num_node_sets                                                               2                            2 PASS
+num_side_sets                                                               1                            1 PASS
+bbox_xmin~0                                                              True                         True PASS
+bbox_xmax~2                                                              True                         True PASS
+bbox_ymin~0                                                              True                         True PASS
+bbox_ymax~1                                                              True                         True PASS
+bbox_zmin~0                                                              True                         True PASS
+bbox_zmax~0.5                                                            True                         True PASS
+unique_x_count(49)                                                         49                           49 PASS
+unique_y_count(25)                                                         25                           25 PASS
+unique_z_count(13)                                                         13                           13 PASS
+uniform_spacing_x                                                        True                         True PASS
+uniform_spacing_y                                                        True                         True PASS
+uniform_spacing_z                                                        True                         True PASS
+block_names                                                       ['block_1']                  ['block_1'] PASS
+block1_elem_type_HEX8                                                    True                         True PASS
+block1_num_elem                                                         13824                        13824 PASS
+block1_nodes_per_elem                                                       8                            8 PASS
+nodeset_names                                           ['ns_fix', 'ns_load']        ['ns_fix', 'ns_load'] PASS
+ns_fix_count                                                              325                          325 PASS
+ns_fix_all_x0                                                            True                         True PASS
+ns_fix_complete(all x=0 nodes)                                            325                          325 PASS
+ns_load_count                                                              13                           13 PASS
+ns_load_all_x2_y0                                                        True                         True PASS
+ns_load_complete(all x=2,y=0 nodes)                                        13                           13 PASS
+ns_load_z_span                                                     [0.0, 0.5]                   [0.0, 0.5] PASS
+sideset_names                                                      ['ss_sym']                   ['ss_sym'] PASS
+ss_sym_face_count                                                        1152                         1152 PASS
+ss_sym_all_faces_on_z0.5                                                 True                         True PASS
+ss_sym_unique_elements                                                   1152                         1152 PASS
+ss_sym_complete(elements with a face on z=0.5)                           1152                         1152 PASS
+all_elem_volumes_h^3                                                     True                         True PASS
+total_volume_1.0                                                         True                         True PASS
+
+OVERALL: PASS (37/37 checks passed)

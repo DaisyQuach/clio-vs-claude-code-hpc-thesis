@@ -1,0 +1,7 @@
+You are running headless, with no human available, inside a prepared trial workspace. Your working directory is the trial root. The trial identifier is given in the environment variable THESIS_TRIAL_ID. You have no record of any earlier process.
+
+Read every file in agent_inputs/ first. The manuals in agent_inputs/manuals/ are the only permitted documentation.
+
+Inspect only this trial workspace: the frozen materials in agent_inputs/ and the persistent files in work/, jobs/, logs/ and outputs/. From that evidence alone, determine what part of the required workflow in agent_inputs/scientific_problem_specification.md has already been completed and verified, locate whatever persistent evidence is needed to continue it correctly, and continue the required workflow to completion without unnecessarily repeating completed work and without discarding existing artifacts. Use the frozen resources in compute_resources.md and the approved software interface in software_contract.md for every submitted job. Place every remaining deliverable at its locked path under outputs/, regenerate the SHA-256 manifest, and update work/run_summary.md with everything you did and found, as required by provenance_requirements.md.
+
+Do not seek or use external reference meshes, decks, completed runs, numerical outputs or scoring criteria. Do not modify anything outside this trial root. If something blocks you, preserve the state, record the blocking condition in work/run_summary.md and stop.

@@ -1,0 +1,22 @@
+2026-10-13T17:51:04Z start trial=E3-clio-trial_04 staging=/scratch/local/u1282901/16247644/e3/clio/E3-clio-trial_04
+2026-10-13T17:51:04Z control snapshot commit=62954055b4e848f2155258c5b8c628eab97c8586 sha256sum -c catalog/checksums.sha256 => 0
+2026-10-13T17:51:04Z candidate archive listed and manifest verified
+2026-10-13T17:51:14Z globus ls --recursive private source exit=0
+2026-10-13T17:51:34Z note: control checksum list names ./.gitignore which is not in the snapshot; all other 23 files PASS
+2026-10-13T17:52:16Z globus_stage software_contract.md done
+2026-10-13T17:52:36Z staged example_07 deck+journal from archive
+2026-10-13T17:52:44Z globus staged user manual exit=0
+2026-10-13T17:52:48Z globus staged 7 small private-source files
+2026-10-13T17:54:11Z cubit mesh generation start
+2026-10-13T17:54:13Z cubit exit=0 mesh.exo
+2026-10-13T17:54:27Z exo_summary mesh.exo exit=0 -> work/verify/mesh.json
+2026-10-13T17:54:50Z XMLGenerator input_deck.i start
+2026-10-13T17:54:51Z XMLGenerator exit=0
+2026-10-13T17:55:33Z attempt1 (filter block form): symmetry_plane_location_names absent from analyze_helmholtz_input_deck.xml; kept in work/run_attempt1_filter_block; re-translating with study-level keywords
+2026-10-13T17:55:37Z XMLGenerator attempt2 exit=0
+2026-10-13T17:56:25Z sbatch jobs/morphorm_spc_run.sbatch -> job 16247887
+2026-10-13T17:56:58Z wrote provenance/artifact_selections.md
+2026-10-13T18:07:01Z job 16247887 COMPLETED 0:0; sacct -> jobs/sacct_16247887.txt
+2026-10-13T18:07:30Z verified diagnostics (51 rows, iter 0..50, max-iteration stop), engine_output.exo (51 steps, control+topology), iteration50.exo
+2026-10-13T18:07:45Z deliverables placed in outputs/ and SHA256SUMS.txt written
+2026-10-13T18:10:01Z wrote work/run_summary.md

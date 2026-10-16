@@ -1,0 +1,207 @@
+WARNING | ⚑ RESIDENT-LEDGER metrics seeded via streaming corpus walk (bounded memory, O(corpus) boot time); index-only rollup is owner-gated (design 1.13/§3.1)
+WARNING | fetched_catalog: reason=catalog_unavailable_offline name=claude-code-models url=https://raw.githubusercontent.com/iowarp/clio-agent/main/catalogs/claude-code-models.json fetch=fetch_disabled
+INFO:     Started server process [831743]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:17998 (Press CTRL+C to quit)
+INFO:     127.0.0.1:43550 - "GET /v1/health HTTP/1.1" 200 OK
+WARNING | reason=clio_core_search_indexer_absent config=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_03/session_main/clio_home/data/cte/hosts/notch204/cte.yaml problem=no clio_cte_indexer chimod declared; ARCMemory.search_segment_scopes will return zero hits against clio-core >=2.2.0 (the chimod's binary is absent from the published 2.2.1 wheels -- not fixable in clio-agent config) upstream=https://github.com/iowarp/clio-core/issues/905#issuecomment-5826003299
+WARNING | relay first discovery reason=relay_tools_not_configured federation=ABSENT
+WARNING | ⚑ MCP-CACHE mcp_cache_prune_skipped_live peers=3 (uv(pid=37865; clio_agent.gact), python(pid=38811; clio_agent.gact), clio_run(pid=39090; clio_run)) — boot prune deferred
+INFO:     127.0.0.1:43560 - "GET /v1/health HTTP/1.1" 200 OK
+WARNING | relay tool surface degraded reason=relay_tools_not_configured
+INFO:     127.0.0.1:43564 - "GET /v1/health HTTP/1.1" 200 OK
+[clio-agent-gact] agent ready.
+INFO:     127.0.0.1:45422 - "GET /v1/health HTTP/1.1" 200 OK
+/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/fastapi/openapi/utils.py:303: UserWarning: Duplicate Operation ID collabora_file_info_v1_internal_document_editors_collabora_wopi_files__working_copy_id__get for function collabora_file_info at /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/routes/documents.py
+  warnings.warn(message, stacklevel=1)
+/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/fastapi/openapi/utils.py:303: UserWarning: Duplicate Operation ID collabora_contents_v1_internal_document_editors_collabora_wopi_files__working_copy_id__contents_get for function collabora_contents at /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/routes/documents.py
+  warnings.warn(message, stacklevel=1)
+INFO:     127.0.0.1:45430 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45444 - "GET /v1/settings/runtime HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45446 - "GET /v1/capabilities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45450 - "GET /v1/session-defaults HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45452 - "GET /v1/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45456 - "GET /v1/agent-blueprints/factorio-flat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45470 - "POST /v1/workspaces HTTP/1.1" 201 Created
+INFO:     127.0.0.1:45478 - "POST /v1/sessions HTTP/1.1" 200 OK
+WARNING | relay tool surface degraded reason=relay_tools_not_configured
+WARNING | ⚑ TOOLS workspace_fleet_restarted root=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/clio/trial_03 reason=grant_applied_live
+INFO:     127.0.0.1:45488 - "POST /v1/sessions/sess_92f1bbdaf3ef/agent-blueprint HTTP/1.1" 200 OK
+WARNING | relay tool surface degraded reason=relay_tools_not_configured
+INFO:     127.0.0.1:45500 - "GET /v1/sessions/sess_92f1bbdaf3ef/agent-blueprint HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45510 - "PATCH /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45524 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45540 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45554 - "GET /v1/sessions/sess_92f1bbdaf3ef/events HTTP/1.1" 200 OK
+WARNING | ARC store read 'get' issued from loop thread MainThread (name='sess_92f1bbdaf3ef___events~m~gen'): a store_read_on_loop_thread stall; move the caller off the loop (further reads of this op audit-only)
+INFO:     127.0.0.1:33386 - "POST /v1/sessions/sess_92f1bbdaf3ef/messages HTTP/1.1" 200 OK
+Checked 110 packages in 83ms
+{"cache_dir": "/uufs/chpc.utah.edu/common/home/u1282901/.cache/clio-kit/uv-cache", "event": "uv_cache_prune", "ok": true, "ran": true, "reason": "pruned", "schema_version": "clio-kit.cache-event.v1"}
+{"cache_root": "/uufs/chpc.utah.edu/common/home/u1282901/.cache/clio-kit", "event": "cache_budget_measurement", "ran": false, "reason": "budget_unconfigured", "schema_version": "clio-kit.cache-event.v1"}
+[10/13/26 11:18:13] INFO     Starting MCP server 'web' with     transport.py:242
+                             transport 'stdio'                                  
+WARNING | ⚑ TOOLS mcp_server_identity_unavailable server=web reason=launcher_has_no_identity (listing keeps its TTL)
+WARNING | ⚑ TOOLS mcp_listing_cached namespace=web tools=3
+WARNING | ⚑ TOOLSET-INVENTORY custom_agent_tool_unavailable agent_id=main tool=fs_apply_edit_write detail=fs_apply_edit_write -- degraded, not bricked
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=1 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:40464 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ SKILLS agent main loaded skill morphorm (/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_03/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/morphorm/SKILL.md)
+WARNING | ⚑ SKILLS agent main loaded skill hpc-batch-jobs (/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_03/session_main/clio_home/config/agent-blueprints/factorio-flat/skills/hpc-batch-jobs/SKILL.md)
+Checked 110 packages in 39ms
+{"cache_dir": "/uufs/chpc.utah.edu/common/home/u1282901/.cache/clio-kit/uv-cache", "event": "uv_cache_prune", "ok": true, "ran": true, "reason": "pruned", "schema_version": "clio-kit.cache-event.v1"}
+{"cache_root": "/uufs/chpc.utah.edu/common/home/u1282901/.cache/clio-kit", "event": "cache_budget_measurement", "ran": false, "reason": "budget_unconfigured", "schema_version": "clio-kit.cache-event.v1"}
+[10/13/26 11:18:29] INFO     Starting MCP server 'web' with     transport.py:242
+                             transport 'stdio'                                  
+INFO:     127.0.0.1:37688 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ TOOLS shell output spilled reason=shell_output_spilled stream=stdout path=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_03/session_main/clio_home/state/workspaces/4eb49348862f1ab72c8742e2/tool-output/sess_92f1bbdaf3ef/sh_20261013T111840_51194465.stdout.txt total_bytes=11737 total_lines=143
+INFO:     127.0.0.1:53620 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=4 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:50782 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48922 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42740 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=5 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:55210 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41050 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ TOOLS shell output spilled reason=shell_output_spilled stream=stdout path=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_03/session_main/clio_home/state/workspaces/4eb49348862f1ab72c8742e2/tool-output/sess_92f1bbdaf3ef/sh_20261013T112008_5bf25fc7.stdout.txt total_bytes=26025 total_lines=364
+INFO:     127.0.0.1:40520 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44106 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39978 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52946 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ TOOLS shell output spilled reason=shell_output_spilled stream=stdout path=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_03/session_main/clio_home/state/workspaces/4eb49348862f1ab72c8742e2/tool-output/sess_92f1bbdaf3ef/sh_20261013T112112_c6568990.stdout.txt total_bytes=13916 total_lines=548
+INFO:     127.0.0.1:49080 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38398 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53306 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56854 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48908 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38286 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32800 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45078 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51902 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60246 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59776 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54182 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36856 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49582 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39178 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52260 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46218 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46886 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=11 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:47326 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42130 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=12 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:57912 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40992 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51578 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44828 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=14 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:47458 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44794 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40778 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=15 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:51522 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=16 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:44812 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54188 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=17 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:37424 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52786 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=18 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:40096 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37422 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59726 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47222 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45348 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59114 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41112 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37006 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45018 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57504 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49840 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59820 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37018 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43208 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44852 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47444 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33326 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42718 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59960 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35402 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46838 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43894 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59012 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38500 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47826 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36814 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43908 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56002 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43590 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46284 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37424 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49270 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33100 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38860 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42700 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47492 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49690 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39422 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48858 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36700 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57864 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33118 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51896 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46660 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60138 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55598 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34218 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49616 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41834 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56008 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59474 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39690 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38406 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56178 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55144 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46156 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49798 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52992 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=22 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:41602 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57068 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ TOOLS shell output spilled reason=shell_output_spilled stream=stdout path=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/.agent_runtime/clio/E3-clio-trial_03/session_main/clio_home/state/workspaces/4eb49348862f1ab72c8742e2/tool-output/sess_92f1bbdaf3ef/sh_20261013T114411_6394bafc.stdout.txt total_bytes=9730 total_lines=76
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=23 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:37268 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35142 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47874 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33922 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55394 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55362 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40378 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54014 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48924 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=25 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:58528 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50186 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+WARNING | ⚑ CLAUDE-CODE-THINKING provider_thinking_redacted call=26 est_tokens=50 — the CLI omitted the CoT text (thinking display 'omitted'); send display='summarized' in the SDK thinking config to receive it
+INFO:     127.0.0.1:42074 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60408 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43740 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43754 - "GET /v1/sessions/sess_92f1bbdaf3ef HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43758 - "GET /v1/sessions/sess_92f1bbdaf3ef/export?mode=transcript HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60970 - "GET /v1/sessions/sess_92f1bbdaf3ef/export?mode=full HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49358 - "GET /v1/sessions/sess_92f1bbdaf3ef/messages?limit=100000&include_system=true HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49370 - "GET /v1/sessions/sess_92f1bbdaf3ef/trace HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49380 - "GET /v1/sessions/sess_92f1bbdaf3ef/interactions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49394 - "GET /v1/sessions/sess_92f1bbdaf3ef/questions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49406 - "GET /v1/sessions/sess_92f1bbdaf3ef/attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49420 - "GET /v1/sessions/sess_92f1bbdaf3ef/agent-tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49426 - "GET /v1/sessions/sess_92f1bbdaf3ef/provenance/execution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49430 - "GET /v1/sessions/sess_92f1bbdaf3ef/agent-blueprint HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49444 - "GET /v1/permissions HTTP/1.1" 200 OK
+Fatal error in message reader: Command failed with exit code 143 (exit code: 143)
+Error output: Check stderr output for details
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [831743]

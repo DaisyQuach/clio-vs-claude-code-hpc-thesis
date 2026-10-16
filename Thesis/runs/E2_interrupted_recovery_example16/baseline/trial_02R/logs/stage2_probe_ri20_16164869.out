@@ -1,0 +1,70 @@
+TRIAL_ID=E2-example16-baseline-02R  STAGE=2-probe  RESTART_ITERATION=20
+JOB_START_UTC=2026-10-09T19:39:07Z
+SLURM_JOB_ID=16164869  NODE=notch351  CPUS=8  MEM=32768
+PWD=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/baseline/trial_02R/work/stage2/probe_runs/ri20
+---- module list ----
+
+Currently Loaded Modules:
+  1) chpc/1.0   (S)   3) openmpi/5.0.3               5) cubit-edu/2026.8
+  2) gcc/11.2.0       4) morphorm/approved-runtime
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+ 
+
+---- input files (sha256) ----
+a03cc207ff0aa6153efa6a6f494f266661839e12c8a6f48de62d8d8b73cd24ef  input_deck.i
+f909589b0e29bc5e99d52bd578c755e7a5f3cf8c2e88883b13994cbdfbe032f8  mesh.exo
+58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8  restart_input.exo
+390736205788c3a5a3c1e6231626469f9fa8b0b6c62791cf06be7f52e6b57509  interface.xml
+7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a  engine_input_deck.xml
+063a70f5a691c8c0d3548e20719bc7f8f207a4290ecb9131cf3d2ed5438e2fb2  engine_operations.xml
+a6f7d5bf3d61607bec82781d3afad5231a493e602331ea7a3b54f7e9b3c162d5  analyze_2_input_deck.xml
+fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0  analyze_2_operations.xml
+c813b81a2c43cbac181b51c3ae12cad319473e7c2725afd29c2637fedec2dcbf  analyze_helmholtz_input_deck.xml
+402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854  analyze_helmholtz_operations.xml
+5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc  mpirun.source
+MORPHORM_START_UTC=2026-10-09T19:39:11Z
+MORPHORM_END_UTC=2026-10-09T19:40:16Z
+MORPHORM_RC=0
+---- optimizer diagnostics ----
+Iter   F-count          F(X)        Norm(F')         H1(X)         abs(dX)        abs(dF)
+0         1        2.388394e+05   1.207748e+04   4.834189e-13   1.000000e+00  1.797693e+308
+1         2        2.360040e+05   1.191537e+04   3.964884e-13   2.000000e-01   2.835402e+03
+
+
+****** Optimization stopping due to exceeding maximum number of iterations. ******
+
+---- tail of morphorm_probe.log ----
+Operation: (analyze_2) Compute Objective Value
+Operation: (engine_1) Aggregate Data
+Operation: (analyze_helmholtz) Filter Control
+Operation: (engine_1) Compute Constraint Value 1
+Operation: (engine_1) Copy Value
+Operation: (analyze_2) Visualization
+Operation: (engine_1) PlatoMainOutput
+Operation: (analyze_helmholtz) Filter Control
+Operation: (analyze_2) Compute Objective Gradient
+Operation: (engine_1) Aggregate Data
+Operation: (analyze_helmholtz) Filter Gradient
+Operation: (analyze_helmholtz) Filter Control
+Operation: (engine_1) Compute Constraint Gradient 1
+Operation: (analyze_helmholtz) Filter Gradient
+Operation: (engine_1) Update Problem
+Operation: (analyze_helmholtz) Filter Control
+Operation: (analyze_2) Compute Objective Value
+Operation: (engine_1) Aggregate Data
+Operation: (analyze_helmholtz) Filter Control
+Operation: (engine_1) Compute Constraint Value 1
+Operation: (engine_1) Copy Value
+Operation: (analyze_2) Visualization
+Operation: (engine_1) PlatoMainOutput
+Operation: (analyze_helmholtz) Filter Control
+Operation: (analyze_2) Compute Objective Gradient
+Operation: (engine_1) Aggregate Data
+Operation: (analyze_helmholtz) Filter Gradient
+Operation: (analyze_helmholtz) Filter Control
+Operation: (engine_1) Compute Constraint Gradient 1
+Operation: (analyze_helmholtz) Filter Gradient
+JOB_END_UTC=2026-10-09T19:40:16Z

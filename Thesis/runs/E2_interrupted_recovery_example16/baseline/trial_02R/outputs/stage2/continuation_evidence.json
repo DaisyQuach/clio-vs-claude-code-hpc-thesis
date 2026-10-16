@@ -1,0 +1,235 @@
+{
+  "frozen_configuration_id": "FROZEN-EX16-v1",
+  "verified_utc": "2026-10-09T20:02:40Z",
+  "stage1_run_dir": "work/stage1/run",
+  "stage2_run_dir": "work/stage2/run",
+  "restart_settings_in_deck": {
+    "initial_guess_file_name": "restart_input.exo",
+    "initial_guess_field_name": "control",
+    "restart_iteration": "21",
+    "max_iterations": "40"
+  },
+  "restart_settings_in_generated_config": {
+    "Method": "FromFieldOnInputMesh",
+    "file": "restart_input.exo",
+    "field": "control",
+    "Iteration": 21
+  },
+  "checkpoint": {
+    "file": "work/stage2/run/restart_input.exo",
+    "sha256": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+    "time_steps": 21,
+    "time_step_to_iteration": "time step k+1 holds optimizer iteration k (steps 1..21 = iterations 0..20)"
+  },
+  "compliance": {
+    "stage1_iter20_diag": 236004.0,
+    "stage2_iter0_diag": 236004.0,
+    "stage1_last_csv": 236003.95811001546,
+    "stage2_first_csv": 236003.95811001546,
+    "stage1_history_diag": [
+      4893235.0,
+      871530.5,
+      915324.7,
+      593294.8,
+      715791.7,
+      571681.4,
+      616109.1,
+      522066.0,
+      447016.9,
+      389351.6,
+      348140.2,
+      317963.9,
+      295732.2,
+      279478.3,
+      267479.5,
+      258523.7,
+      251677.3,
+      246406.4,
+      242260.1,
+      238839.4,
+      236004.0
+    ],
+    "stage2_history_diag": [
+      236004.0,
+      233639.9,
+      231619.5,
+      229874.6,
+      228414.1,
+      227141.6,
+      226038.7,
+      225073.1,
+      224224.8,
+      223453.7,
+      222730.4,
+      222092.7,
+      221508.8,
+      220963.6,
+      220436.6,
+      219924.8,
+      219444.2,
+      218985.3,
+      218540.1,
+      218144.5,
+      217779.6,
+      217451.6,
+      217141.5,
+      216837.7,
+      216548.6,
+      216273.5,
+      216002.6,
+      215735.8,
+      215495.8,
+      215261.2,
+      215053.7,
+      214865.9,
+      214684.2,
+      214510.9,
+      214347.7,
+      214201.5,
+      214065.4,
+      213930.9,
+      213806.0,
+      213684.3,
+      213558.4
+    ]
+  },
+  "stage2_iterations_completed": 40,
+  "overall_iteration_reached": 60,
+  "field_comparison": {
+    "stage2_step1_control_vs_checkpoint_step21": 0.0,
+    "stage2_step1_control_vs_checkpoint_step20": 0.20000000000000007,
+    "stage2_step1_topology_vs_checkpoint_step21": 0.0
+  },
+  "probes": {
+    "probe_ri20": {
+      "run_dir": "work/stage2/probe_runs/ri20",
+      "restart_iteration": 20,
+      "first_F": 238839.4,
+      "matches_stage1_iteration": [
+        19
+      ],
+      "rows": [
+        {
+          "iter": 0,
+          "F": 238839.4,
+          "normF": 12077.48,
+          "H1": 4.834189e-13
+        },
+        {
+          "iter": 1,
+          "F": 236004.0,
+          "normF": 11915.37,
+          "H1": 3.964884e-13
+        }
+      ]
+    },
+    "probe_ri21": {
+      "run_dir": "work/stage2/probe_runs/ri21",
+      "restart_iteration": 21,
+      "first_F": 236004.0,
+      "matches_stage1_iteration": [
+        20
+      ],
+      "rows": [
+        {
+          "iter": 0,
+          "F": 236004.0,
+          "normF": 11915.37,
+          "H1": 3.964884e-13
+        },
+        {
+          "iter": 1,
+          "F": 233639.9,
+          "normF": 11778.18,
+          "H1": -4.506673e-13
+        }
+      ]
+    }
+  },
+  "checks": {
+    "stage 2 reads the `control` field (not `topology`)": {
+      "pass": true,
+      "observed": {
+        "Method": "FromFieldOnInputMesh",
+        "file": "restart_input.exo",
+        "field": "control",
+        "Iteration": 21
+      }
+    },
+    "stage 2 reads restart_input.exo = byte-identical copy of the Stage-1 checkpoint": {
+      "pass": true,
+      "observed": {
+        "restart_input.exo": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+        "stage1 engine_output.exo": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8"
+      }
+    },
+    "first Stage-2 compliance (local iter 0) == Stage-1 iteration-20 compliance (diagnostics, 7 significant digits)": {
+      "pass": true,
+      "observed": {
+        "stage1_iter20_F": 236004.0,
+        "stage2_iter0_F": 236004.0,
+        "stage1_iterations_with_equal_F": [
+          20
+        ]
+      }
+    },
+    "Stage-1 iteration matched by the first Stage-2 compliance is 20 only": {
+      "pass": true,
+      "observed": [
+        20
+      ]
+    },
+    "first Stage-2 objective == last Stage-1 objective (full precision, opt_criteria_history.csv, rel diff <= 1e-12)": {
+      "pass": true,
+      "observed": {
+        "stage1_last": 236003.95811001546,
+        "stage2_first": 236003.95811001546,
+        "rel_diff": 0.0
+      }
+    },
+    "first Stage-2 Norm(F') and H1 equal Stage-1 iteration-20 values": {
+      "pass": true,
+      "observed": {
+        "stage1_iter20": {
+          "iter": 20,
+          "F": 236004.0,
+          "normF": 11915.37,
+          "H1": 3.964884e-13
+        },
+        "stage2_iter0": {
+          "iter": 0,
+          "F": 236004.0,
+          "normF": 11915.37,
+          "H1": 3.964884e-13
+        }
+      }
+    },
+    "checkpoint has 21 saved states; restart <Iteration> points at the last one (time step 21 = optimizer iteration 20)": {
+      "pass": true,
+      "observed": {
+        "checkpoint_time_steps": 21,
+        "Iteration": 21
+      }
+    },
+    "Stage-2 initial `control` (engine output step 1) == checkpoint `control` at time step 21 (iteration 20), max|diff| == 0": {
+      "pass": true,
+      "observed": {
+        "max_abs_diff_vs_step21": 0.0,
+        "max_abs_diff_vs_step20_for_contrast": 0.20000000000000007
+      }
+    },
+    "Stage-2 initial `topology` == checkpoint `topology` at time step 21 (filter reproduces the same filtered density)": {
+      "pass": true,
+      "observed": {
+        "max_abs_diff": 0.0
+      }
+    },
+    "the saved state named by <Iteration> is the iteration-20 control field": {
+      "pass": true,
+      "observed": 21
+    }
+  },
+  "all_checks_pass": true,
+  "n_pass": 10,
+  "n_checks": 10
+}

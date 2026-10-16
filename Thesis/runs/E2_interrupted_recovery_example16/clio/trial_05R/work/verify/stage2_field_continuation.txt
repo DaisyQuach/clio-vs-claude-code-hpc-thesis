@@ -1,0 +1,10 @@
+stage1 fields ['control', 'topology'] steps 21 stage2 fields ['control', 'topology'] steps 41 restart_input steps 21
+control stage1_state21(iter20) vs stage2_state1(local iter0): max|diff|=0.000e+00 identical= True
+control restart_input state21 vs stage1 state21: identical= True
+control   (control check) stage1 state19(iter18) vs stage2 state1: max|diff|=3.765e-01
+control   (control check) stage1 state20(iter19) vs stage2 state1: max|diff|=2.000e-01
+topology stage1_state21(iter20) vs stage2_state1(local iter0): max|diff|=0.000e+00 identical= True
+topology restart_input state21 vs stage1 state21: identical= True
+topology   (control check) stage1 state19(iter18) vs stage2 state1: max|diff|=9.411e-02
+topology   (control check) stage1 state20(iter19) vs stage2 state1: max|diff|=4.743e-02
+stage1 state21 control mean 0.168639  stage2 state1 control mean 0.168639  stage2 state41 control mean 0.166562

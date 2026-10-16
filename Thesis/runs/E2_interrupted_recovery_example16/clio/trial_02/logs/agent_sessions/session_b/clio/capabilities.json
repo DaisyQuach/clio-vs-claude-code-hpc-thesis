@@ -1,0 +1,359 @@
+{
+  "contract_version": "0.2",
+  "backend": {
+    "name": "clio-agent-gact",
+    "version": "0.9.5b5.post2",
+    "vendor": "iowarp",
+    "homepage": "https://github.com/iowarp/clio-agent"
+  },
+  "capabilities": {
+    "x_clio_document_artifacts": {
+      "protocol_version": "0.1.0",
+      "profiles": [
+        "markdown",
+        "pdf",
+        "latex",
+        "html-static",
+        "ooxml-word",
+        "ooxml-sheet",
+        "ooxml-slides",
+        "odf-text",
+        "odf-sheet",
+        "odf-slides"
+      ],
+      "anchors": [
+        "text-quote",
+        "pdf-quad",
+        "dom",
+        "sheet-range",
+        "slide-shape",
+        "native-comment",
+        "source-map"
+      ],
+      "review_parts": true,
+      "floating_comments": true,
+      "immutable_revisions": true,
+      "native_working_copies": true,
+      "native_comment_trigger": "@clio",
+      "embedded_editors": [
+        "onlyoffice",
+        "collabora"
+      ],
+      "static_html_scripts": "blocked",
+      "executable_html_transition": "live-web"
+    },
+    "workspaces": true,
+    "sessions": true,
+    "subagents": true,
+    "mcp": true,
+    "lsp": false,
+    "files": true,
+    "diffs": true,
+    "permissions": true,
+    "providers": true,
+    "commands": true,
+    "voice": false,
+    "scheduled_sessions": true,
+    "hooks": true,
+    "session_tasks": true,
+    "metrics": true,
+    "session_branching": true,
+    "session_sharing": true,
+    "session_export": true,
+    "session_summary": false,
+    "attachments_upload": false,
+    "multimodal_image_parts": true,
+    "cost_tracking": true,
+    "thinking_blocks": true,
+    "edit_modes": true,
+    "plan_mode": true,
+    "search_messages": true,
+    "agent_write": true,
+    "skills_extraction": true,
+    "agent_routing": true,
+    "memory": true,
+    "structured_errors": true,
+    "integration_health": true,
+    "tool_telemetry": true,
+    "x_clio_cancellation": "best_effort",
+    "x_clio_executor_cancellation": true,
+    "x_clio_text_streaming": "best_effort_live",
+    "x_clio_synthetic_posthoc_streaming": false,
+    "x_clio_stream_fallback_reasons": {
+      "native_model_inputs_dropped": {
+        "category": "capability_gap",
+        "synthetic_posthoc": false,
+        "live_streaming": true,
+        "recovery_actions": [
+          "select_an_agent_whose_forward_accepts_images",
+          "remove_the_attachment",
+          "retry"
+        ],
+        "description": "The turn carried native image/PDF model inputs but the executing agent's forward accepts no such parameter, so they were not delivered to the model. The text still streamed; the attachment did not ride the request."
+      },
+      "sync_execution_path": {
+        "category": "non_streamed_execution",
+        "synthetic_posthoc": true,
+        "live_streaming": false,
+        "recovery_actions": [
+          "continue_without_live_streaming",
+          "reconfigure"
+        ],
+        "description": "The answer arrived as one batch part: no live answer deltas this turn."
+      },
+      "mcp_result_downgraded_to_complete": {
+        "category": "mcp_result_tolerance",
+        "synthetic_posthoc": true,
+        "live_streaming": false,
+        "recovery_actions": [
+          "continue_with_complete_result",
+          "upgrade_mcp_server"
+        ],
+        "description": "An MCP result explicitly carried a resultType this tasks-off client does not support, so it was downgraded to complete. An absent resultType is normal completeness and does not emit this reason."
+      },
+      "mcp_capability_refused": {
+        "category": "mcp_capability_refusal",
+        "json_rpc_code": -32021,
+        "synthetic_posthoc": true,
+        "live_streaming": false,
+        "recovery_actions": [
+          "enable_required_client_capability",
+          "retry"
+        ],
+        "description": "The MCP server refused a request requiring an absent client capability."
+      },
+      "mcp_protocol_refused": {
+        "category": "mcp_protocol_refusal",
+        "json_rpc_code": -32022,
+        "synthetic_posthoc": true,
+        "live_streaming": false,
+        "recovery_actions": [
+          "negotiate_supported_protocol_version",
+          "retry"
+        ],
+        "description": "The MCP server refused the negotiated protocol version."
+      },
+      "mcp_wire_cancellation_unavailable": {
+        "category": "mcp_transport_limitation",
+        "synthetic_posthoc": true,
+        "live_streaming": false,
+        "recovery_actions": [
+          "continue_with_cooperative_cancellation",
+          "upgrade_mcp_transport"
+        ],
+        "description": "The MCP transport did not settle after its in-flight call task was cancelled, so CLIO surfaced typed cooperative cancellation without claiming the server stopped."
+      },
+      "mcp_input_required_rounds_exceeded": {
+        "category": "mcp_result_tolerance",
+        "synthetic_posthoc": true,
+        "live_streaming": false,
+        "recovery_actions": [
+          "raise_input_required_max_rounds",
+          "fix_mcp_server",
+          "retry"
+        ],
+        "description": "The modern-era MRTR loop (InputRequiredResult -> retry with inputResponses) exceeded its config-resolved tools.mcp.input_required_max_rounds bound without reaching a terminal result; the tool call surfaced a typed degrade."
+      }
+    },
+    "x_clio_direct_delete_permissions": true,
+    "x_clio_prompt_registry": true,
+    "x_clio_expert_packs": true,
+    "x_clio_agent_blueprints": true,
+    "x_clio_user_questions": true,
+    "x_clio_interactions": true,
+    "x_clio_retry_attempts": true,
+    "x_clio_context_frames": true,
+    "x_clio_semantic_events": true,
+    "x_clio_context_references": {
+      "enabled": true,
+      "version": "1",
+      "part_type": "context_ref",
+      "kinds": [
+        "agent_run",
+        "artifact",
+        "context_frame",
+        "diff",
+        "evidence_source",
+        "plan",
+        "session",
+        "workspace_file"
+      ],
+      "search_kinds": [
+        "agent_run",
+        "artifact",
+        "context_frame",
+        "diff",
+        "evidence_source",
+        "plan",
+        "resource",
+        "session",
+        "workspace_file"
+      ],
+      "search_route": "/v1/workspaces/{workspace_id}/references",
+      "part_type_by_kind": {
+        "agent_run": "context_ref",
+        "artifact": "context_ref",
+        "context_frame": "context_ref",
+        "diff": "context_ref",
+        "evidence_source": "context_ref",
+        "plan": "context_ref",
+        "session": "context_ref",
+        "workspace_file": "context_ref",
+        "resource": "resource_ref"
+      },
+      "alternate_mechanisms": {
+        "agents": {
+          "mechanism": "message_request_field",
+          "field": "agent",
+          "route": "POST /v1/sessions/{session_id}/messages",
+          "detail": "Selecting the agent for a turn is the request's own agent field; it is not an attachable reference and has no context_ref kind."
+        }
+      },
+      "revision_pinned_kinds": [
+        "workspace_file",
+        "resource",
+        "artifact",
+        "evidence_source",
+        "context_frame",
+        "diff",
+        "plan"
+      ]
+    },
+    "x_clio_artifacts": true,
+    "x_clio_child_activity_projection": {
+      "include_children": true,
+      "session_lineage": true,
+      "typed_edges": [
+        "delegated",
+        "executes_in",
+        "contains",
+        "used",
+        "generated",
+        "responded_to"
+      ]
+    },
+    "x_clio_semantic_trace_backend": "jsonl",
+    "x_clio_semantic_trace_detail": "semantic",
+    "x_clio_hook_backend": "declarative",
+    "x_clio_hook_events": {
+      "AfterModel": 0,
+      "BeforeModel": 0,
+      "PostToolBatch": 0,
+      "PostToolUse": 0,
+      "PreCompact": 0,
+      "PreToolUse": 0,
+      "SemanticEvent": 0,
+      "SessionEnd": 0,
+      "SessionStart": 0,
+      "Stop": 0,
+      "SubagentStart": 0,
+      "SubagentStop": 0,
+      "UserPromptSubmit": 0
+    },
+    "x_clio_capability_gaps": {
+      "voice": {
+        "status": "unsupported",
+        "advertised": false,
+        "category": "future_capability",
+        "description": "Voice input/output is reserved for future CLIO work and is not wired to audio capture, transcription, or playback today.",
+        "client_behavior": "render_disabled",
+        "recovery_actions": [
+          "use_text_input",
+          "hide_or_disable_voice_controls"
+        ],
+        "related_endpoints": [
+          "/v1/sessions/{sid}/voice/transcribe"
+        ]
+      },
+      "lsp": {
+        "status": "unsupported",
+        "advertised": false,
+        "category": "future_capability",
+        "description": "Language-server integration is outside the current CLIO GACT surface; file and diff workflows are available instead.",
+        "client_behavior": "render_disabled",
+        "recovery_actions": [
+          "use_files_and_diffs",
+          "hide_or_disable_lsp_controls"
+        ],
+        "related_endpoints": [
+          "/v1/lsp/*"
+        ]
+      },
+      "optimizer_command": {
+        "status": "unavailable",
+        "advertised": true,
+        "category": "deferred_command",
+        "reason": "optimizer_not_implemented",
+        "tracking_issue": "https://github.com/iowarp/clio-agent/issues/633",
+        "description": "The optimizer is a planned CLIO research surface and is not implemented yet; optimization runs are tracked in https://github.com/iowarp/clio-agent/issues/633.",
+        "client_behavior": "render_disabled",
+        "recovery_actions": [
+          "render_optimize_disabled",
+          "retry_after_optimizer_support_lands"
+        ],
+        "related_commands": [
+          "/optimize"
+        ],
+        "related_endpoints": [
+          "/v1/sessions/{sid}/commands/optimize"
+        ]
+      }
+    },
+    "x_clio_task_record_store": {
+      "durable": true,
+      "reason": null
+    },
+    "x_clio_message_delivery": true,
+    "x_clio_pending_steers": true,
+    "x_clio_queued_messages": true,
+    "x_clio_resources": {
+      "enabled": true,
+      "max_bytes": 262144000,
+      "converters": [
+        {
+          "id": "clio-web-search-docling",
+          "priority": 100,
+          "configured": false,
+          "endpoint": ""
+        }
+      ],
+      "degradations": []
+    }
+  },
+  "transports": {
+    "events_sse": true,
+    "events_websocket": false
+  },
+  "auth": {
+    "schemes": [
+      "trust_socket"
+    ],
+    "current": "trust_socket"
+  },
+  "extensions": [],
+  "relay": {
+    "configured": false,
+    "host": null,
+    "reason": "relay_tools_not_configured",
+    "details": {
+      "missing": [
+        "api_token",
+        "http_url",
+        "mcp_url"
+      ]
+    }
+  },
+  "versions": {
+    "clio_agent": "0.9.5b5.post2",
+    "backend_build": "0.9.5b5.post2",
+    "python": "3.12.14",
+    "gact_contract": "0.2",
+    "marketplace": {
+      "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+      "ref": "main",
+      "pinned_commit": "unknown",
+      "installed_commit": "740b9860cbb1ef621f44c5e23db0b6fa84b7815f",
+      "source_id": "src_2c209bcc880d"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+PASS dir_agent-inputs: present
+PASS dir_work: present
+PASS dir_staging-manifest: present
+PASS dir_staging-inbox: present
+PASS dir_jobs: present
+PASS dir_logs: present
+PASS dir_outputs: present
+PASS dir_provenance: present
+PASS manifest: E3 fields present
+PASS exists:outputs/mesh.jou: ok
+PASS exists:outputs/mesh.exo: ok
+PASS exists:outputs/input_deck.i: ok
+PASS exists:outputs/job_script.sbatch: ok
+PASS exists:outputs/morphorm_oc_optimizer_diagnostics.txt: ok
+PASS exists:outputs/engine_output.exo: ok
+PASS exists:outputs/final_analyze_output.exo: ok
+PASS exists:outputs/SHA256SUMS.txt: ok
+PASS exists:jobs/job_ids.txt: ok
+PASS exists:work/run_summary.md: ok
+PASS exists:provenance/sources_searched.tsv: ok
+PASS exists:provenance/artifact_selections.md: ok
+PASS exists:staging-manifest/staged_files.tsv: ok
+PASS exists:provenance/node_local_placement.txt: ok
+PASS exists:provenance/control_and_source_versions.txt: ok
+PASS exists:logs/session/session_record.json: ok
+PASS exists:provenance/boundary_audit.txt: ok
+PASS exists:logs/session/export.json: ok
+PASS exists:logs/session/messages.json: ok
+PASS mesh_verification: present
+PASS output_dirs: generated_config/ run_logs/
+PASS outputs_sha256: verifies
+PASS staged_hashes: source==staged for all rows
+PASS staged_sources: all staged from catalogued collections
+PASS private_source_via_globus: every private-source row staged by Globus
+PASS clio_single_user_message: only the dispatched prompt
+PASS boundary_audit: PASS
+PASS sources_unchanged: no FAIL recorded
+PASS action_required: none
+verdict: PASS

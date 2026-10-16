@@ -1,0 +1,91 @@
+{
+ "file": "mesh.exo",
+ "utc": "2026-10-10T07:45:58Z",
+ "sha256": "243b45446f2ff64c48dcafc7dd64de96151d39c3e5bc413470aac964769923fb",
+ "num_dim": 3,
+ "num_nodes": 15925,
+ "num_elem": 13824,
+ "num_el_blk": 1,
+ "bbox": {
+  "x": [
+   0.0,
+   2.0
+  ],
+  "y": [
+   0.0,
+   1.0
+  ],
+  "z": [
+   0.0,
+   0.5
+  ]
+ },
+ "blocks": [
+  {
+   "id": 1,
+   "name": "block_1",
+   "elem_type": "HEX8",
+   "num_elem": 13824,
+   "nodes_per_elem": 8
+  }
+ ],
+ "nodesets": [
+  {
+   "id": 1,
+   "name": "ns_fix",
+   "num_nodes": 325,
+   "all_on_x0": true,
+   "expected": 325
+  },
+  {
+   "id": 2,
+   "name": "ns_load",
+   "num_nodes": 13,
+   "all_on_edge_x2_y0": true,
+   "z_range": [
+    0.0,
+    0.5
+   ],
+   "expected": 13
+  }
+ ],
+ "sidesets": [
+  {
+   "id": 1,
+   "name": "ss_sym",
+   "num_faces": 1152,
+   "all_faces_on_z0p5": true,
+   "expected": 1152
+  }
+ ],
+ "grid": {
+  "nx_nodes": 49,
+  "ny_nodes": 25,
+  "nz_nodes": 13,
+  "dx": 0.041666666666666664,
+  "dy": 0.041666666666666664,
+  "dz": 0.041666666666666664,
+  "dx_spread": 1.0000000000287557e-06,
+  "dy_spread": 1.0000000000287557e-06,
+  "dz_spread": 1.0000000000287557e-06
+ },
+ "checks": {
+  "num_elem==13824": true,
+  "num_nodes==15925": true,
+  "one_block_named_block_1": true,
+  "block_is_HEX8": true,
+  "block_has_all_elements": true,
+  "bbox_x_0_2": true,
+  "bbox_y_0_1": true,
+  "bbox_z_0_0.5": true,
+  "grid_49x25x13_nodes": true,
+  "uniform_h_1/24": true,
+  "ns_fix_325_on_x0": true,
+  "ns_load_13_on_edge": true,
+  "ss_sym_1152_on_z0p5": true,
+  "nodeset_names": true,
+  "sideset_names": true,
+  "num_dim==3": true
+ },
+ "ALL_CHECKS_PASS": true
+}

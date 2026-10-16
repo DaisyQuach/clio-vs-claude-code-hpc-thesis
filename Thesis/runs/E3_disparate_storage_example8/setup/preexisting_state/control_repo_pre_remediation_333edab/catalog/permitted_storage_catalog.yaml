@@ -1,0 +1,36 @@
+# E3 permitted storage catalog. These are the ONLY storage locations a trial may read.
+# No credentials are stored here. Endpoint aliases are used in all provenance records.
+catalog_version: 1
+task_specification_id: E3-SPC-v1
+collections:
+  - alias: e3-control
+    kind: private GitHub repository (this repository)
+    access_method: "git, read-only, noninteractive; a snapshot at the pinned commit is provided in agent-inputs/control/"
+    location: "git@github.com:DaisyQuach/daisy-e3-distributed-context-control.git"
+    pinned_commit_record: agent-inputs/CONTROL_COMMIT.txt
+    top_level: [task/, catalog/, protocol/, scripts/]
+    material_categories: [task statement, frozen task specification, required deliverables, storage catalog, artifact cards, protocol, record-keeping helpers]
+  - alias: e3-private-source
+    kind: private research collection (Globus-ready; read-only)
+    access_method: "Globus collection (registration pending, see agent-inputs/trial_context.md); on-cluster read-only POSIX path below"
+    globus_collection_id: null
+    posix_root: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/globus_source_root
+    manifest: MANIFEST.sha256
+    manifest_sha256: 44735ea762399004a7975a895c25ac28bc7dada8cd7e92d6d96f6aaa293a465c
+    top_level: [manuals/, documentation/, target_materials/]
+    material_categories: [software manuals, approved software interface, compute-resource contract, version provenance, task specification, problem-statement figure]
+  - alias: e3-chpc-candidate-archive
+    kind: CHPC read-only archive of curated example packages
+    access_method: "read-only POSIX path"
+    posix_root: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/chpc_candidate_archive
+    manifest: MANIFEST.sha256
+    manifest_sha256: a17ef59bc95725f60fc409f8918fd7e59ba9e4e6ba92facf57623004640adb79
+    top_level: [example_01/, example_02/, example_07/, example_16_restart/]
+    material_categories: [authentic related Morphorm example workflows, input decks, Cubit journals, problem-statement figures, problem cards, provenance records]
+artifact_cards:
+  - catalog/artifact_cards/example_01.yaml
+  - catalog/artifact_cards/example_02.yaml
+  - catalog/artifact_cards/example_07.yaml
+  - catalog/artifact_cards/example_16_restart.yaml
+  - catalog/artifact_cards/symmetry_plane_target.yaml
+not_permitted: "every location not listed under collections (see protocol/access_rules.md)"

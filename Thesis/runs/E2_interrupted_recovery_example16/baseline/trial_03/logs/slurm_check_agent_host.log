@@ -1,0 +1,18 @@
+UTC: 2026-10-09T20:21:52Z
+SLURM_JOB_ID=16165551
+JOBID NAME STATE TIME TIME_LIMIT PARTITION NODELIST(REASON)
+16068366 cws-daisy RUNNING 1-13:41:22 14-00:00:00 hochhalter-np notch204
+16165551 agent_E2-example16-baseline-03_session_a RUNNING 2:17 2:00:00 hochhalter-np notch351
+16068475 cws-clioruntime RUNNING 3-15:20:05 14-00:00:00 hochhalter-np notch274
+16068048 clio-desktop-alloc RUNNING 3-15:34:20 14-00:00:00 hochhalter-np notch274
+16068040 clio-agent-daisy RUNNING 3-15:34:33 14-00:00:00 hochhalter-np notch204
+--- partition
+PARTITION AVAIL TIMELIMIT NODES STATE NODELIST
+hochhalter-np up 14-00:00:00 5 mixed notch[204,272-274,351]
+--- my allocation
+   Priority=83334 Nice=0 Account=hochhalter-np QOS=hochhalter-np
+   JobState=RUNNING Reason=None Dependency=(null)
+   RunTime=00:02:17 TimeLimit=02:00:00 TimeMin=N/A
+   StartTime=2026-10-09T14:19:35 EndTime=2026-10-09T16:19:35 Deadline=N/A
+   Partition=hochhalter-np AllocNode:Sid=notchpeak2:299634
+   NumNodes=1 NumCPUs=8 NumTasks=1 CPUs/Task=8 ReqB:S:C:T=0:0:*:*

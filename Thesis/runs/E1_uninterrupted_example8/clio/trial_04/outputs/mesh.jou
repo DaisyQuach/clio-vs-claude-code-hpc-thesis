@@ -1,0 +1,21 @@
+# Cubit journal: half cantilever design domain, frozen workflow EX8 (FROZEN-EX8-v1)
+# Domain: x in [0,2.0], y in [0,1.0], z in [0,0.5]; structured HEX8, h = 1/24
+reset
+brick x 2.0 y 1.0 z 0.5
+volume 1 move x 1.0 y 0.5 z 0.25
+volume 1 size 0.041666666666667
+volume 1 scheme map
+mesh volume 1
+block 1 add volume 1
+block 1 name "block_1"
+block 1 element type HEX8
+# ns_fix: all nodes on the face x = 0
+nodeset 1 add node with x_coord < 1e-6
+nodeset 1 name "ns_fix"
+# ns_load: all nodes on the edge x = 2, y = 0 (spans z in [0,0.5])
+nodeset 2 add node with x_coord > 1.999999 and y_coord < 1e-6
+nodeset 2 name "ns_load"
+# ss_sym: all element faces on the cut plane z = 0.5
+sideset 1 add surface with z_coord > 0.499999
+sideset 1 name "ss_sym"
+export mesh "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/clio/trial_04/work/mesh/mesh.exo" dimension 3 overwrite

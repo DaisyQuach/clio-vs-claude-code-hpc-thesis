@@ -1,0 +1,43 @@
+# Mesh verification record (FROZEN-EX16-v1), exo_summary.py with --expect against every locked mesh value
+# generated 2026-10-13T06:17:50Z from work/mesh/mesh.exo (cubit -batch -nographics -nojournal -input mesh.jou, rc=0)
+{
+ "file": "work/mesh/mesh.exo",
+ "num_nodes": 30625,
+ "num_elem": 27648,
+ "num_dim": 3,
+ "bbox_min": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "bbox_max": [
+  2.0,
+  1.0,
+  1.0
+ ],
+ "blocks": [
+  {
+   "name": "block_1",
+   "type": "HEX8",
+   "elems": 27648,
+   "nodes_per_elem": 8
+  }
+ ],
+ "nodesets": {
+  "ns_fix": 625,
+  "ns_load": 25
+ },
+ "sidesets": {},
+ "time_steps": 0,
+ "nodal_vars": [],
+ "elem_vars": [],
+ "expect_failures": [],
+ "expect_ok": true
+}
+
+# Nodeset coordinate / spacing check (netCDF4):
+ns_fix n= 625 x=[0,0] y=[0,1] z=[0,1]
+ns_load n= 25 x=[2,2] y=[0,0] z=[0,1]
+unique x count 49 dx 0.04166599999999998 0.04166700000000001
+unique y count 25 dy 0.04166599999999998 0.04166700000000001
+unique z count 25 dz 0.04166599999999998 0.04166700000000001

@@ -1,0 +1,31 @@
+## E3-SPC-v1 Symmetry-Plane Cantilever: half of the 2 x 1 x 1 cantilever (z in [0, 0.5]).
+## Adapted from the candidate Example 7 journal (full-domain Helmholtz cantilever,
+## e3-chpc-candidate-archive/example_07/selected_source_materials/topology_mech_ex7.jou):
+## width halved to 0.5, and the cut plane z = 0.5 collected as sideset "ss_sym".
+## Fixed face x = 0 (nodeset "ns_fix"), transverse line load along the edge x = 2, y = 0 (nodeset "ns_load").
+## Structured (mapped) HEX8 mesh, 48 x 24 x 12, uniform element size 1/24.
+reset
+#{len = 2.0}
+#{ht  = 1.0}
+#{wd  = 0.5}
+#{esize = 0.0416667}
+## --- geometry: brick with its corner at the origin, x in [0,2], y in [0,1], z in [0,0.5] ---
+create brick x {len} y {ht} z {wd}
+move volume 1 x {len/2.0} y {ht/2.0} z {wd/2.0}
+## --- structured hex mesh (48 x 24 x 12) ---
+volume 1 scheme map
+volume 1 size {esize}
+mesh volume 1
+block 1 volume 1
+block 1 name 'block_1'
+block 1 element type HEX8
+## --- fixed support: the x = 0 face (all displacements) ---
+nodeset 1 add node in surface with x_coord < {esize/2.0}
+nodeset 1 name "ns_fix"
+## --- transverse line load: bottom-right edge (x = len, y = 0), spanning z in [0, wd] ---
+nodeset 2 add node with x_coord > {len - esize/2.0} and with y_coord < {esize/2.0}
+nodeset 2 name "ns_load"
+## --- symmetry (cut) plane z = wd = 0.5: all element faces on that surface ---
+sideset 1 add surface with z_coord > {wd - esize/2.0}
+sideset 1 name "ss_sym"
+export mesh "mesh.exo" dimension 3 overwrite

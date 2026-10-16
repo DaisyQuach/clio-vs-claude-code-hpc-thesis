@@ -1,0 +1,174 @@
+TRIAL_ID=E2-example16-baseline-02R  STAGE=2
+JOB_START_UTC=2026-10-09T19:40:27Z
+SLURM_JOB_ID=16164881  NODE=notch351  CPUS=8  MEM=32768
+PWD=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/baseline/trial_02R/work/stage2/run
+---- module list ----
+
+Currently Loaded Modules:
+  1) chpc/1.0   (S)   3) openmpi/5.0.3               5) cubit-edu/2026.8
+  2) gcc/11.2.0       4) morphorm/approved-runtime
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+ 
+
+---- executables ----
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/PlatoMain
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/analyze_MPMD
+/uufs/chpc.utah.edu/sys/spack/v019/linux-rocky8-x86_64/gcc-11.2.0/openmpi-5.0.3-gjrgcotxcpanmyfade3xe7wjijuvnidx/bin/mpiexec
+---- input files (sha256) ----
+5300072ceaffa0c4dc3db41da1b073527917f0a59084d485855578b42b45ed19  input_deck.i
+f909589b0e29bc5e99d52bd578c755e7a5f3cf8c2e88883b13994cbdfbe032f8  mesh.exo
+58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8  restart_input.exo
+828a2e406e5fa536015b2f9327c2d0b01f0bcc627814a4baee8796e6cf2bd8ca  interface.xml
+7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a  engine_input_deck.xml
+de4341334d3c99814ea20139addc61561a25508268c3d2eebe97d80e819e9336  engine_operations.xml
+a6f7d5bf3d61607bec82781d3afad5231a493e602331ea7a3b54f7e9b3c162d5  analyze_2_input_deck.xml
+fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0  analyze_2_operations.xml
+c813b81a2c43cbac181b51c3ae12cad319473e7c2725afd29c2637fedec2dcbf  analyze_helmholtz_input_deck.xml
+402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854  analyze_helmholtz_operations.xml
+5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc  mpirun.source
+---- restart settings in generated configuration ----
+  <FromFieldOnInputMesh>
+    <Name>restart_input.exo</Name>
+    <VariableName>control</VariableName>
+    <Iteration>21</Iteration>
+  </FromFieldOnInputMesh>
+</Operation>
+---- mpirun.source ----
+mpiexec --oversubscribe -np 1 -x PLATO_PERFORMER_ID=0 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=engine_operations.xml \
+PlatoMain engine_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=1 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=analyze_2_operations.xml \
+analyze_MPMD --input-config=analyze_2_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=2 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=analyze_helmholtz_operations.xml \
+analyze_MPMD --input-config=analyze_helmholtz_input_deck.xml \
+MORPHORM_START_UTC=2026-10-09T19:40:31Z
+MORPHORM_END_UTC=2026-10-09T20:01:44Z
+MORPHORM_RC=0
+---- run directory after Morphorm ----
+total 40736
+drwxr-xr-x 3 u1282901 hochhalter     4096 Oct  9 13:40 .
+drwxr-xr-x 5 u1282901 hochhalter      171 Oct  9 13:40 ..
+-rw-r----- 1 u1282901 hochhalter   172163 Oct  9 14:01 analyze_2_1
+-rw-r--r-- 1 u1282901 hochhalter     4106 Oct  9 13:40 analyze_2_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      864 Oct  9 13:40 analyze_2_operations.xml
+-rw-r----- 1 u1282901 hochhalter   338762 Oct  9 14:01 analyze_helmholtz_2
+-rw-r--r-- 1 u1282901 hochhalter      940 Oct  9 13:40 analyze_helmholtz_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      473 Oct  9 13:40 analyze_helmholtz_operations.xml
+drwxr-xr-x 2 u1282901 hochhalter     4096 Oct  9 14:01 analyze_id_2_output_scenario_id_1
+-rw-r----- 1 u1282901 hochhalter      306 Oct  9 14:01 engine_1_0
+-rw-r--r-- 1 u1282901 hochhalter      433 Oct  9 13:40 engine_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter     3566 Oct  9 13:40 engine_operations.xml
+-rw-r--r-- 1 u1282901 hochhalter 22183456 Oct  9 14:01 engine_output.exo
+-rw-r--r-- 1 u1282901 hochhalter        0 Oct  9 13:40 engine_restart.exo
+-rw-r--r-- 1 u1282901 hochhalter     4207 Oct  9 13:40 input_deck.i
+-rw-r--r-- 1 u1282901 hochhalter    14337 Oct  9 13:40 interface.xml
+-rw-r--r-- 1 u1282901 hochhalter  1974608 Oct  9 13:39 mesh.exo
+-rw-r--r-- 1 u1282901 hochhalter     3979 Oct  9 14:01 morphorm_oc_optimizer_diagnostics.txt
+-rw-r--r-- 1 u1282901 hochhalter    30103 Oct  9 14:01 morphorm_stage2.log
+-rw-r--r-- 1 u1282901 hochhalter      536 Oct  9 13:40 mpirun.source
+-rw-r--r-- 1 u1282901 hochhalter      999 Oct  9 14:01 opt_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 12383296 Oct  9 13:39 restart_input.exo
+-rw-r--r-- 1 u1282901 hochhalter     5007 Oct  9 13:40 xmlgenerator.log
+-rw-r--r-- 1 u1282901 hochhalter       74 Oct  9 13:40 xmlgenerator_timestamps.txt
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 13:44 iteration7.exo
+-rw-r--r-- 1 u1282901 hochhalter     231 Oct  9 13:44 iteration8_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 13:44 iteration8.exo
+-rw-r--r-- 1 u1282901 hochhalter     255 Oct  9 13:45 iteration9_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 13:45 iteration9.exo
+---- tail of morphorm_stage2.log ----
+Operation: (engine_1) PlatoMainOutput
+Operation: (analyze_helmholtz) Filter Control
+Operation: (analyze_2) Compute Objective Gradient
+Operation: (engine_1) Aggregate Data
+Operation: (analyze_helmholtz) Filter Gradient
+Operation: (analyze_helmholtz) Filter Control
+Operation: (engine_1) Compute Constraint Gradient 1
+Operation: (analyze_helmholtz) Filter Gradient
+Operation: (engine_1) Update Problem
+Operation: (analyze_helmholtz) Filter Control
+Operation: (analyze_2) Compute Objective Value
+Operation: (engine_1) Aggregate Data
+Operation: (analyze_helmholtz) Filter Control
+Operation: (engine_1) Compute Constraint Value 1
+Operation: (engine_1) Copy Value
+Operation: (analyze_2) Visualization
+Operation: (engine_1) PlatoMainOutput
+Operation: (analyze_helmholtz) Filter Control
+Operation: (analyze_2) Compute Objective Gradient
+Operation: (engine_1) Aggregate Data
+Operation: (analyze_helmholtz) Filter Gradient
+Operation: (analyze_helmholtz) Filter Control
+Operation: (engine_1) Compute Constraint Gradient 1
+Operation: (analyze_helmholtz) Filter Gradient
+Operation: (engine_1) Update Problem
+Operation: (analyze_helmholtz) Filter Control
+Operation: (analyze_2) Compute Objective Value
+Operation: (engine_1) Aggregate Data
+Operation: (analyze_helmholtz) Filter Control
+Operation: (engine_1) Compute Constraint Value 1
+Operation: (engine_1) Copy Value
+Operation: (analyze_2) Visualization
+Operation: (engine_1) PlatoMainOutput
+Operation: (analyze_helmholtz) Filter Control
+Operation: (analyze_2) Compute Objective Gradient
+Operation: (engine_1) Aggregate Data
+Operation: (analyze_helmholtz) Filter Gradient
+Operation: (analyze_helmholtz) Filter Control
+Operation: (engine_1) Compute Constraint Gradient 1
+Operation: (analyze_helmholtz) Filter Gradient
+---- optimizer diagnostics ----
+Iter   F-count          F(X)        Norm(F')         H1(X)         abs(dX)        abs(dF)
+0         1        2.360040e+05   1.191537e+04   3.964884e-13   1.000000e+00  1.797693e+308
+1         2        2.336399e+05   1.177818e+04  -4.506673e-13   2.000000e-01   2.364093e+03
+2         3        2.316195e+05   1.165895e+04  -4.360123e-13   2.000000e-01   2.020358e+03
+3         4        2.298746e+05   1.155578e+04   2.124134e-13   2.000000e-01   1.744923e+03
+4         5        2.284141e+05   1.147254e+04   2.711997e-13   2.000000e-01   1.460455e+03
+5         6        2.271416e+05   1.140011e+04   2.969569e-13   2.000000e-01   1.272541e+03
+6         7        2.260387e+05   1.133536e+04  -1.487144e-13   2.000000e-01   1.102891e+03
+7         8        2.250731e+05   1.127976e+04   3.175238e-13   1.555621e-01   9.656008e+02
+8         9        2.242248e+05   1.123279e+04  -1.203482e-13   1.847492e-01   8.483363e+02
+9        10        2.234537e+05   1.118896e+04   1.928457e-13   1.926200e-01   7.710246e+02
+10        11        2.227304e+05   1.114692e+04  -3.524958e-14   2.000000e-01   7.232928e+02
+11        12        2.220927e+05   1.110909e+04  -2.020328e-13   1.641812e-01   6.377130e+02
+12        13        2.215088e+05   1.107647e+04  -9.947598e-14   1.405073e-01   5.839586e+02
+13        14        2.209636e+05   1.104695e+04   1.443567e-13   1.311001e-01   5.451269e+02
+14        15        2.204366e+05   1.101718e+04  -2.292611e-14   1.580819e-01   5.270078e+02
+15        16        2.199248e+05   1.098730e+04  -1.108835e-13   1.599610e-01   5.118479e+02
+16        17        2.194442e+05   1.095866e+04   4.396483e-14   1.604995e-01   4.806035e+02
+17        18        2.189853e+05   1.093082e+04  -1.255385e-13   1.696667e-01   4.588389e+02
+18        19        2.185401e+05   1.090369e+04   8.062995e-14   1.717086e-01   4.452043e+02
+19        20        2.181445e+05   1.088082e+04  -1.151579e-13   1.541819e-01   3.956264e+02
+20        21        2.177796e+05   1.085986e+04  -8.462675e-14   1.614316e-01   3.649084e+02
+21        22        2.174516e+05   1.084165e+04   4.024558e-15   1.419827e-01   3.280063e+02
+22        23        2.171415e+05   1.082409e+04  -7.790990e-14   1.495410e-01   3.101390e+02
+23        24        2.168377e+05   1.080731e+04  -1.438849e-13   1.626397e-01   3.037956e+02
+24        25        2.165486e+05   1.079175e+04   9.500734e-14   1.297112e-01   2.890489e+02
+25        26        2.162735e+05   1.077678e+04   6.389334e-14   1.550216e-01   2.751670e+02
+26        27        2.160026e+05   1.076235e+04  -1.497136e-13   1.263009e-01   2.708164e+02
+27        28        2.157358e+05   1.074781e+04   8.551493e-14   1.402343e-01   2.668712e+02
+28        29        2.154958e+05   1.073460e+04  -7.338574e-14   1.460445e-01   2.399340e+02
+29        30        2.152612e+05   1.072141e+04  -6.211698e-14   1.427667e-01   2.346131e+02
+30        31        2.150537e+05   1.071042e+04  -1.998401e-15   1.238027e-01   2.074961e+02
+31        32        2.148659e+05   1.070106e+04  -8.165690e-14   1.317296e-01   1.878387e+02
+32        33        2.146842e+05   1.069215e+04   8.792966e-14   1.267673e-01   1.816668e+02
+33        34        2.145109e+05   1.068327e+04   6.106227e-14   1.250863e-01   1.733262e+02
+34        35        2.143477e+05   1.067479e+04   1.572076e-13   1.403816e-01   1.632126e+02
+35        36        2.142015e+05   1.066705e+04   1.052214e-13   1.172985e-01   1.462157e+02
+36        37        2.140654e+05   1.065962e+04   1.174894e-13   1.209566e-01   1.361021e+02
+37        38        2.139309e+05   1.065222e+04  -1.436351e-13   1.295442e-01   1.344118e+02
+38        39        2.138060e+05   1.064555e+04  -2.015055e-14   1.323652e-01   1.249730e+02
+39        40        2.136843e+05   1.063922e+04  -5.684342e-14   1.081651e-01   1.217100e+02
+40        41        2.135584e+05   1.063277e+04  -7.552292e-14   1.281498e-01   1.258486e+02
+
+
+****** Optimization stopping due to exceeding maximum number of iterations. ******
+
+JOB_END_UTC=2026-10-09T20:01:44Z

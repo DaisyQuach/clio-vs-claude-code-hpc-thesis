@@ -1,0 +1,31 @@
+{
+ "file": "analyze_id_2_output_scenario_id_1/iteration50.exo",
+ "nodal_vars": [
+  "Topology",
+  "displacement X",
+  "displacement Y",
+  "displacement Z"
+ ],
+ "elem_vars": [
+  "My Objective"
+ ],
+ "time_steps": [
+  50.0
+ ],
+ "n_fix_nodes": 325,
+ "n_sym_nodes": 1225,
+ "n_load_nodes": 13,
+ "max_abs_u_on_x0": 0.0,
+ "max_abs_uz_on_z0.5 (ss_sym)": 0.0,
+ "max_abs_uz_on_z0 (free face, for contrast)": 2141.725451948709,
+ "max_abs_uz_overall": 2141.725451948709,
+ "max_abs_ux_uy_on_z0.5 (should be nonzero: only uz fixed)": 15808.823158021218,
+ "uy_on_load_edge_min_max": [
+  -21941.17299464446,
+  -14770.732355402026
+ ],
+ "pass_fix": true,
+ "pass_sym_uz0": true,
+ "pass_load_dir_negative_y": true,
+ "all_pass": true
+}

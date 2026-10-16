@@ -1,0 +1,40 @@
+run_id: E1-example8-clio-03
+status: failed
+experiment: E1
+experiment_selector: e1-example8
+workflow: frozen_example8
+paired_block: E1-03
+system: clio
+frozen_configuration_id: FROZEN-EX8-v1
+frozen_configuration_sha256: cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+agent_inputs_sha256: cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+model_identifier: claude-fable-5-1
+agent_harness: clio-agent
+agent_harness_version: "0.9.5b5.post2"
+headless: true
+slurm_contract: "account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00"
+created_utc: 2026-10-11T23:39:09Z
+started_utc: 2026-10-13T04:02:20Z
+finished_utc: 2026-10-13T04:29:30Z
+agent_session_ids: "sess_bccf0e1e9839"
+agent_host_job_ids: "16222463"
+workflow_job_ids: "16223098"
+evidence_sha256_manifest: logs/evidence_SHA256SUMS.txt
+packet_verification: logs/packet_verification.json
+curation_researcher_reviewed: null
+curation_include_in_analysis: false
+curation_notes: "CLIO server version probe of the pinned CLI shim failed transiently on notch272 ([Errno 14] Bad address, clio-server log), so CLIO fell back to ~/.local/bin/claude (2.1.296) instead of the pin 2.1.295; only the CLI pin checks failed; infrastructure (non-agent) cause; excluded; replaced by trial_03R; packet kept unchanged"
+scoring_decision: null
+scoring_scored_utc: null
+scoring_record: null
+clio_core_version: "iowarp-core 2.2.1"
+clio_desktop_version: "not-connected-during-trials"
+clio_claude_cli_version: "2.1.296"
+clio_blueprint_id: "factorio-flat"
+clio_blueprint_version: "0.5.0"
+clio_effort: "default"
+clio_approval_mode: "bypass"
+clio_runtime_tuning: "idle_ttl=3600 mcp_call_timeout=3600 turn_timeout=5400"
+clio_session_ids: "sess_bccf0e1e9839"
+clio_config_sha256: 2519d7cd3c18baac2f08bfeedb374814991f1ee850b3bb3c83574846ced5a611
+clio_supplement_verification: logs/clio_supplement_verification.json

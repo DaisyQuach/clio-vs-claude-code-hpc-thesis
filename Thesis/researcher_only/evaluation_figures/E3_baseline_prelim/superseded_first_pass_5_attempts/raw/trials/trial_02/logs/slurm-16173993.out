@@ -1,0 +1,90 @@
+UTC job start: 2026-10-10T06:20:27Z
+SLURM_JOB_ID=16173993 host=notch274 cpus=8
+--- module list ---
+
+Currently Loaded Modules:
+  1) chpc/1.0   (S)   3) openmpi/5.0.3               5) cubit-edu/2026.8
+  2) gcc/11.2.0       4) morphorm/approved-runtime
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+ 
+
+-------------------
+PlatoMain=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/automation/environment/runtime/morphorm/bin/PlatoMain
+analyze_MPMD=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/automation/environment/runtime/morphorm/bin/analyze_MPMD
+mpiexec=/uufs/chpc.utah.edu/sys/spack/v019/linux-rocky8-x86_64/gcc-11.2.0/openmpi-5.0.3-gjrgcotxcpanmyfade3xe7wjijuvnidx/bin/mpiexec
+run dir: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_02/work/run
+83dd4b7fa357f00daeef10d3e8293385d0c82d392dc2b8e351fc6132b20e8161  input_deck.i
+afa0ae333c959a659b8bfe95a96de8464ad0c3298941120194c0dbe3dadc314d  mesh.exo
+2f545669f80885d182291e9aad47d74baf8403082364f79f67542f653a616885  interface.xml
+9bc13ac9c61c0d8b3c7c73b5c0bce38e31c7d35b53e45483c2fd5238bea222e8  analyze_2_input_deck.xml
+e0b190ab3e8c71334d7b7ec5f0567dbcdae40f7a371b943a553d6eb54fae5436  analyze_helmholtz_input_deck.xml
+7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a  engine_input_deck.xml
+c5b07640e3f1427a5f763631a2f7f9c3ec1ea54e97160106efe598afc0c67c1b  engine_operations.xml
+fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0  analyze_2_operations.xml
+402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854  analyze_helmholtz_operations.xml
+5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc  mpirun.source
+UTC morphorm start: 2026-10-10T06:20:30Z
+UTC morphorm end: 2026-10-10T06:37:10Z exit=0
+--- run directory listing ---
+total 20584
+drwxr-xr-x 3 u1282901 hochhalter     4096 Oct 10 00:20 .
+drwxr-xr-x 8 u1282901 hochhalter     4096 Oct 10 00:21 ..
+-rw-r----- 1 u1282901 hochhalter   213703 Oct 10 00:37 analyze_2_1
+-rw-r--r-- 1 u1282901 hochhalter     4424 Oct 10 00:18 analyze_2_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      864 Oct 10 00:18 analyze_2_operations.xml
+-rw-r----- 1 u1282901 hochhalter   420922 Oct 10 00:37 analyze_helmholtz_2
+-rw-r--r-- 1 u1282901 hochhalter     1026 Oct 10 00:18 analyze_helmholtz_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      473 Oct 10 00:18 analyze_helmholtz_operations.xml
+drwxr-xr-x 2 u1282901 hochhalter     8192 Oct 10 00:37 analyze_id_2_output_scenario_id_1
+-rw-r----- 1 u1282901 hochhalter      306 Oct 10 00:37 engine_1_0
+-rw-r--r-- 1 u1282901 hochhalter      433 Oct 10 00:18 engine_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter     3473 Oct 10 00:18 engine_operations.xml
+-rw-r--r-- 1 u1282901 hochhalter 14073528 Oct 10 00:37 engine_output.exo
+-rw-r--r-- 1 u1282901 hochhalter     6920 Oct 10 00:20 generated_config_verification.json
+-rw-r--r-- 1 u1282901 hochhalter     2011 Oct 10 00:18 input_deck.i
+-rw-r--r-- 1 u1282901 hochhalter    14338 Oct 10 00:18 interface.xml
+-rw-r--r-- 1 u1282901 hochhalter     2072 Oct 10 00:20 job_script.sbatch
+-rw-r--r-- 1 u1282901 hochhalter  1052996 Oct 10 00:13 mesh.exo
+-rw-r--r-- 1 u1282901 hochhalter     4909 Oct 10 00:37 morphorm_oc_optimizer_diagnostics.txt
+-rw-r--r-- 1 u1282901 hochhalter     1447 Oct 10 00:20 morphorm_run.log
+-rw-r--r-- 1 u1282901 hochhalter      536 Oct 10 00:18 mpirun.source
+-rw-r--r-- 1 u1282901 hochhalter     1239 Oct 10 00:37 opt_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter     5856 Oct 10 00:18 xmlgenerator.log
+-rw-r--r-- 1 u1282901 hochhalter 1699564 Oct 10 00:23 iteration7.exo
+-rw-r--r-- 1 u1282901 hochhalter     231 Oct 10 00:23 iteration8_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 1699564 Oct 10 00:23 iteration8.exo
+-rw-r--r-- 1 u1282901 hochhalter     255 Oct 10 00:23 iteration9_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 1699564 Oct 10 00:23 iteration9.exo
+--- tail of morphorm_run.log ---
+
+####################################################################################
+#                                                                                  #
+#                                                                                  #
+#  888b     d888                           888                                     #
+#  8888b   d8888                           888                                     #
+#  88888b.d88888                           888                                     #
+#  888Y88888P888  .d88b.  888d888 88888b.  88888b.   .d88b.  888d888 88888b.d88b.  #
+#  888 Y888P 888 d88''88b 888P'   888 '88b 888 '88b d88''88b 888P'   888 '888 '88b #
+#  888  Y8P  888 888  888 888     888  888 888  888 888  888 888     888  888  888 #
+#  888   '   888 Y88..88P 888     888 d88P 888  888 Y88..88P 888     888  888  888 #
+#  888       888  'Y88P'  888     88888P'  888  888  'Y88P'  888     888  888  888 #
+#                                 888                                              #
+#                                 888  REALTIME ENGINEERING FOR FASTER INNOVATION  #
+#                                 888                                              #
+#                                      Questions? contact info@morphorm.com        #
+#                                                                                  #
+####################################################################################
+
+--- tail of optimizer diagnostics ---
+47        48        1.046864e+05   7.052259e+03   1.356693e-13   1.406687e-01   8.276790e+01
+48        49        1.046076e+05   7.045502e+03  -1.567080e-13   1.471005e-01   7.878162e+01
+49        50        1.045363e+05   7.039483e+03   8.021361e-15   1.138896e-01   7.131218e+01
+50        51        1.044701e+05   7.033815e+03  -1.628697e-13   1.142971e-01   6.611695e+01
+
+
+****** Optimization stopping due to exceeding maximum number of iterations. ******
+
+UTC job end: 2026-10-10T06:37:10Z

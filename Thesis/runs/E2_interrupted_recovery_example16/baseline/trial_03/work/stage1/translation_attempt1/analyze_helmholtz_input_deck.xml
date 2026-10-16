@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ParameterList name="Problem">
+  <Parameter name="Spatial Dimension" type="int" value="3" />
+  <Parameter name="Input Mesh" type="string" value="mesh.exo" />
+  <ParameterList name="Scenarios">
+    <Parameter name="Physics" type="string" value="Helmholtz Filter" />
+    <Parameter name="PDE Constraint" type="string" value="Hyperbolic" />
+    <ParameterList name="Spatial Model">
+      <ParameterList name="Domains">
+        <ParameterList name="block_1">
+          <Parameter name="Element Block" type="string" value="block_1" />
+          <Parameter name="Material Model" type="string" value="material_1" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Parameters">
+      <Parameter name="Length Scale" type="double" value="0.043301" />
+      <Parameter name="Surface Length Scale" type="double" value="1.0" />
+    </ParameterList>
+  </ParameterList>
+</ParameterList>

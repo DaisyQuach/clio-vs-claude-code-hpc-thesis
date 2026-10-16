@@ -1,0 +1,186 @@
+RLM session initializedWARNING: No RLM logins were valid: -1
+Looking at product: Coreform Cubit
+status: ValidStudent
+Logged in via encrypted credentialsLogged in with new licensing
+
+                   CCCCC    UU   UU   BBBBBB    IIII   TTTTTT
+                  CC   CC   UU   UU   BB   BB    II      TT
+                  CC        UU   UU   BB   BB    II      TT
+                  CC        UU   UU   BBBBBB     II      TT
+                  CC        UU   UU   BB   BB    II      TT
+                  CC   CC   UU   UU   BB   BB    II      TT
+                   CCCCC     UUUUU    BBBBBB    IIII     TT  R
+
+                            MESH GENERATION TOOLKIT        
+                                      FOR                   
+                   PRE-PROCESSING OF FINITE ELEMENT ANALYSES
+
+               User community forum: https://forum.coreform.com
+
+
+                 Coreform Cubit 2026.8 64-Bit Build fdca55e4
+                               VTK Version 9.4.2
+                              ACIS Version 36.0.1.0
+                            Exodus API Version 8.25
+                            MeshGems Version 2026 1.0.0
+               Coreform Cubit Copyright 2013-2026 Coreform Inc.
+              Revised Fri Aug 21 12:16:25 2026 -0600
+                        Running 10/09/2026 05:57:05 PM
+
+                 CUBIT includes MeshGems by Spatial Inc.
+                  CUBIT includes ACIS software by Spatial Inc.
+                  CUBIT includes LP Solve by Michel Berkelaar.
+                       CUBIT includes VTK by Kitware Inc.
+           CUBIT includes Exodus II, based on netCDF by UCAR/Unidata.
+            CUBIT includes VERDICT, by Sandia National Laboratories.
+          CUBIT includes MESQUITE, by Argonne National Laboratory and
+                         Sandia National Laboratories.
+
+Machine type is Linux 4.18.0-553.170.1.el8_10.x86_64
+Machine name is notch274
+Working Directory: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/baseline/trial_05/work/mesh/
+
+No Graphics System
+
+********** Now playing mesh.jou **********
+
+Finished Command: reset
+
+Successfully created brick volume 1 
+Finished Command: brick x 2 y 1 z 1
+
+ Moved Body 1:  x 1.000000e+00  y 5.000000e-01  z 5.000000e-01
+Finished Command: move volume 1 x 1 y 0.5 z 0.5 include_merged
+
+Calculating Auto Size
+0   |    |    |    |    50   |    |    |    |  100
+**************************************************
+Finished Command: curve all interval 24
+
+Finished Command: curve with x_coord > 0.5 and x_coord < 1.5 interval 48
+
+Finished Command: volume 1 scheme map
+
+Matching intervals successful.
+Morph mesher is not enabled in this Cubit build.
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Volume 1 meshing completed using scheme: map
+Generated 27648 hexes
+Finished Command: mesh volume 1
+
+Higher order nodes:
+Adding nodes 
+0   |    |    |    |    50   |    |    |    |  100
+
+Added Volume 1 to block 1
+Finished Command: block 1 add volume 1
+
+Set name of block 1 to "block_1"
+Finished Command: block 1 name "block_1"
+
+Finished Command: block 1 element type HEX8
+
+Added Surface 4 to nodeset 1
+Finished Command: nodeset 1 add surface with x_coord < 0.001
+
+Finished Command: nodeset 1 name "ns_fix"
+
+Added Curve 10 to nodeset 2
+Finished Command: nodeset 2 add curve with x_coord > 1.999 and y_coord < 0.001
+
+Finished Command: nodeset 2 name "ns_load"
+
+  Block 1
+	Block Name: block_1
+	Element Type: HEX8
+	Material: none
+	Block 1 contains 0 exported elements.
+
+	Number of block attributes: 0
+	Number of element attributes: 0
+	Number of variables : 0
+
+
+
+  Owned Entities:
+	______Name______  Type        Id Mesh_Elements
+	        Volume 1  Volume       1         27648
+
+Finished Command: list block 1
+
+  Nodeset 1:
+	Nodeset Name: ns_fix
+	NodeSet 1 contains 0 exported nodes.
+  Owned Entities:
+	______Name______  Type        Id Nodes
+	       Surface 4  Surface      4           625
+
+  The total number of nodes is 625
+
+	Number of variables : 0
+
+Finished Command: list nodeset 1
+
+  Nodeset 2:
+	Nodeset Name: ns_load
+	NodeSet 2 contains 0 exported nodes.
+  Owned Entities:
+	______Name______  Type        Id Nodes
+	        Curve 10  Curve       10            25
+
+  The total number of nodes is 25
+
+	Number of variables : 0
+
+Finished Command: list nodeset 2
+
+
+Using ExodusII API version 8.25 and DB version 8.25 to export "mesh.exo".
+Writing Exodus file
+0   |    |    |    |    50   |    |    |    |  100
+**************************************************
+
+
+Executive Exodus summary:
+  Number of dimensions     = 3
+  Number of element blocks = 1
+  Number of sidesets       = 0
+  Number of nodesets       = 2
+  Number of bc sets        = 1
+  Number of elements       = 27648
+  Number of nodes          = 30625
+
+Finished writing mesh.exo
+Finished Command: export mesh "mesh.exo" dimension 3 overwrite
+
+Higher order nodes:
+Adding nodes 
+0   |    |    |    |    50   |    |    |    |  100
+
+...deleting 27648 hexes from database...
+...deleting 5760 faces from database...
+...deleting 11520 edges from database...
+...deleting 30625 nodes from database...

@@ -1,0 +1,223 @@
+{
+  "trial": "E2-example16-baseline-03",
+  "frozen_configuration_id": "FROZEN-EX16-v1",
+  "mesh_file": "mesh.exo",
+  "mesh_sha256": "ceeed3bbaca41c84f1d568fdde66c4d810a685467fe83a27351dca70d851fcaf",
+  "verified_utc": "2026-10-09T20:23:44.381682+00:00",
+  "mesher": "Coreform Cubit 2026.8 (cubit-edu/2026.8) batch, journal mesh.jou",
+  "summary": {
+    "num_elem": 27648,
+    "num_nodes": 30625,
+    "num_el_blk": 1,
+    "block_names": [
+      "block_1"
+    ],
+    "elem_type": "HEX8",
+    "num_node_sets": 2,
+    "nodeset_names": [
+      "ns_fix",
+      "ns_load"
+    ],
+    "nodeset_sizes": {
+      "ns_fix": 625,
+      "ns_load": 25
+    },
+    "num_side_sets": 0,
+    "bounding_box_xmin_xmax_ymin_ymax_zmin_zmax": [
+      0.0,
+      2.0,
+      0.0,
+      1.0,
+      0.0,
+      1.0
+    ],
+    "h": 0.041666666666666664
+  },
+  "checks": [
+    {
+      "check": "num_dim",
+      "pass": true,
+      "got": 3,
+      "expected": 3
+    },
+    {
+      "check": "num_elem",
+      "pass": true,
+      "got": 27648,
+      "expected": 27648
+    },
+    {
+      "check": "num_nodes",
+      "pass": true,
+      "got": 30625,
+      "expected": 30625
+    },
+    {
+      "check": "num_el_blk",
+      "pass": true,
+      "got": 1,
+      "expected": 1
+    },
+    {
+      "check": "num_node_sets",
+      "pass": true,
+      "got": 2,
+      "expected": 2
+    },
+    {
+      "check": "num_side_sets",
+      "pass": true,
+      "got": 0,
+      "expected": 0
+    },
+    {
+      "check": "bounding_box",
+      "pass": true,
+      "got": [
+        0.0,
+        2.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "expected": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "check": "block1_elem_type",
+      "pass": true,
+      "got": "HEX8",
+      "expected": "HEX8"
+    },
+    {
+      "check": "block1_num_elem",
+      "pass": true,
+      "got": 27648,
+      "expected": 27648
+    },
+    {
+      "check": "block1_nodes_per_elem",
+      "pass": true,
+      "got": 8,
+      "expected": 8
+    },
+    {
+      "check": "block1_name",
+      "pass": true,
+      "got": "block_1",
+      "expected": "block_1"
+    },
+    {
+      "check": "all_nodes_on_h_lattice",
+      "pass": true,
+      "got": {
+        "max_snap_error": 1.1102230246251565e-15
+      },
+      "expected": "every coordinate is an integer multiple of h (tol 1e-9)"
+    },
+    {
+      "check": "unique_x_planes",
+      "pass": true,
+      "got": 49,
+      "expected": 49
+    },
+    {
+      "check": "unique_y_planes",
+      "pass": true,
+      "got": 25,
+      "expected": 25
+    },
+    {
+      "check": "unique_z_planes",
+      "pass": true,
+      "got": 25,
+      "expected": 25
+    },
+    {
+      "check": "all_hex_edges_equal_h",
+      "pass": true,
+      "got": {
+        "max_abs_dev_from_h": 1.4779844015322396e-15,
+        "h": 0.041666666666666664
+      },
+      "expected": "all 12 edges of every element = 1/24"
+    },
+    {
+      "check": "nodeset_names",
+      "pass": true,
+      "got": [
+        "ns_fix",
+        "ns_load"
+      ],
+      "expected": [
+        "ns_fix",
+        "ns_load"
+      ]
+    },
+    {
+      "check": "ns_fix_count",
+      "pass": true,
+      "got": 625,
+      "expected": 625
+    },
+    {
+      "check": "ns_fix_all_on_x0",
+      "pass": true,
+      "got": 0.0,
+      "expected": "x = 0 for every node"
+    },
+    {
+      "check": "ns_fix_contains_every_x0_node",
+      "pass": true,
+      "got": 625,
+      "expected": 625
+    },
+    {
+      "check": "ns_load_count",
+      "pass": true,
+      "got": 25,
+      "expected": 25
+    },
+    {
+      "check": "ns_load_all_on_x2_y0",
+      "pass": true,
+      "got": {
+        "max|x-2|": 0.0,
+        "max|y|": 0.0
+      },
+      "expected": "x = 2 and y = 0 for every node"
+    },
+    {
+      "check": "ns_load_z_spans_0_to_1",
+      "pass": true,
+      "got": [
+        0.0,
+        1.0
+      ],
+      "expected": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "check": "ns_load_contains_every_edge_node",
+      "pass": true,
+      "got": 25,
+      "expected": 25
+    },
+    {
+      "check": "domain_volume_from_counts",
+      "pass": true,
+      "got": 1.9999999999999996,
+      "expected": 2.0
+    }
+  ],
+  "ALL_CHECKS_PASS": true
+}

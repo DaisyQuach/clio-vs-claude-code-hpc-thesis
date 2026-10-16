@@ -1,0 +1,29 @@
+run_id: E1-example8-baseline-01
+status: completed_unscored
+experiment: E1
+experiment_selector: e1-example8
+workflow: frozen_example8
+paired_block: E1-01
+system: baseline
+frozen_configuration_id: FROZEN-EX8-v1
+frozen_configuration_sha256: cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+agent_inputs_sha256: cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+model_identifier: claude-fable-5-1
+agent_harness: claude-code
+agent_harness_version: "2.1.295"
+headless: true
+slurm_contract: "account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00"
+created_utc: 2026-10-09T12:18:27Z
+started_utc: 
+finished_utc: 
+agent_session_ids: "ade52d08-5ad7-4c0d-b68e-c1e4eb6e67cc"
+agent_host_job_ids: "16158724"
+workflow_job_ids: "16159074"
+evidence_sha256_manifest: logs/evidence_SHA256SUMS.txt
+packet_verification: logs/packet_verification.json
+curation_researcher_reviewed: "2026-10-10"
+curation_include_in_analysis: true
+curation_notes: "session_record.json reconstructed from raw evidence after launcher jq bug (logs/agent_sessions/session_main/RECORD_REPAIR_NOTE.md); first verification kept as logs/packet_verification.first_attempt_launcher_bug.json"
+scoring_decision: accepted
+scoring_scored_utc: 2026-10-09T12:45:44Z
+scoring_record: researcher_only/scores/E1-example8-baseline-01/score.json

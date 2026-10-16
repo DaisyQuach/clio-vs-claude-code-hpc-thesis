@@ -1,0 +1,17 @@
+2026-10-13T03:25:43-06:00 start trial E2-example16-clio-04; read agent_inputs; pdftotext manuals -> work/manuals
+2026-10-13T09:26:59Z cubit mesh.jou rc=0 -> work/mesh/mesh.exo (27648 elem, 30625 nodes); exo_summary verify -> work/verify/mesh.json
+2026-10-13T09:28:54Z scratch translations (work/scratch_xml): legacy==block XML identical; bsp 0.5 propagates; isosurface_output_frequency 1 -> engine OutputFrequency 1. Decision: add isosurface_output_frequency 1 to Stage-1 deck. Re-translated in clean work/stage1/run (attempt1 kept at work/stage1/run_attempt1_translation_only)
+2026-10-13T09:29:33Z normalize_in_aggregator check: false -> no Normals block; true adds Normals (work/scratch_xml/normtrue). Verification records: work/verify/
+2026-10-13T09:29:33Z submitted stage1 job 16239529 script=jobs/stage1_job_script.sbatch run_dir=work/stage1/run
+2026-10-13T09:41:19Z job 16239529 COMPLETED 0:0 elapsed 00:10:52; diag 21 rows iter0-20 stop at cap; engine_output.exo 21 steps control+topology; delivered to outputs/ and SHA256SUMS.txt written
+2026-10-13T09:43:14Z wrote work/run_summary.md; Stage 1 complete, Stage 2 not started; session ends
+2026-10-13T09:46:43Z session B start; re-verify Stage 1 state before Stage 2
+2026-10-13T09:47:35Z scratch translations work/scratch_xml/restart20 and restart21 (XMLGenerator only)
+2026-10-13T09:48:08Z stage2 deck work/stage2/input_deck.i (restart_iteration 21, max_iterations 40, control field, restart_input.exo=copy of checkpoint); XMLGenerator in work/stage2/run rc=0
+2026-10-13T09:48:21Z submitted stage2 job 16239713 script=jobs/stage2_job_script.sbatch run_dir=work/stage2/run restart_iteration=21
+2026-10-13T09:48:42Z saved-field check -> work/verify/stage2_checkpoint_field_check.json
+2026-10-13T09:49:54Z job 16239713 RUNNING on notch351; stage2 first F(X)=2.360040e+05 == stage1 iter20 F(X) (diag_summary --compare-first-to) -> restart_iteration 21 reads iteration-20 state; continue
+2026-10-13T10:09:54Z job 16239713 COMPLETED 0:0 elapsed 00:20:34; sacct -> jobs/sacct_16239713.txt
+2026-10-13T10:10:20Z field continuity check -> work/verify/stage2_field_continuity.json
+2026-10-13T10:10:53Z delivered outputs/stage2/*, continuation_evidence.json; regenerated outputs/SHA256SUMS.txt (50 entries, sha256sum -c all OK)
+2026-10-13T10:14:41Z wrote work/run_summary.md (consolidated; Session A text preserved as Appendix A and in work/run_summary_sessionA.md); Stage 1 and Stage 2 complete; session B ends

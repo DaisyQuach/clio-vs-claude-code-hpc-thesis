@@ -1,0 +1,558 @@
+{
+  "stage": 2,
+  "directory": "work/stage2",
+  "verified_utc": "2026-10-09T20:57:07.829701+00:00",
+  "generated_files_sha256": {
+    "analyze_2_input_deck.xml": "a6f7d5bf3d61607bec82781d3afad5231a493e602331ea7a3b54f7e9b3c162d5",
+    "analyze_2_operations.xml": "fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0",
+    "analyze_helmholtz_input_deck.xml": "c813b81a2c43cbac181b51c3ae12cad319473e7c2725afd29c2637fedec2dcbf",
+    "analyze_helmholtz_operations.xml": "402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854",
+    "engine_input_deck.xml": "7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a",
+    "engine_operations.xml": "de4341334d3c99814ea20139addc61561a25508268c3d2eebe97d80e819e9336",
+    "interface.xml": "ce3472f6107d147906912492c2272117eb09b082d9984e38d7eef95b1f080288",
+    "mpirun.source": "5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc"
+  },
+  "checks": [
+    {
+      "setting": "helmholtz length scale = 0.15/(2*sqrt(3)) (radius_absolute 0.15)",
+      "pass": true,
+      "found": 0.043301,
+      "locked": 0.04330127018922193,
+      "file": "analyze_helmholtz_input_deck.xml"
+    },
+    {
+      "setting": "helmholtz surface length scale (boundary_sticking_penalty 1.0)",
+      "pass": true,
+      "found": 1.0,
+      "locked": 1.0,
+      "file": "analyze_helmholtz_input_deck.xml"
+    },
+    {
+      "setting": "helmholtz physics",
+      "pass": true,
+      "found": "Helmholtz Filter",
+      "locked": "Helmholtz Filter",
+      "file": "analyze_helmholtz_input_deck.xml"
+    },
+    {
+      "setting": "no symmetry plane in helmholtz deck",
+      "pass": true,
+      "found": false,
+      "locked": false,
+      "file": "analyze_helmholtz_input_deck.xml"
+    },
+    {
+      "setting": "helmholtz mesh",
+      "pass": true,
+      "found": "mesh.exo",
+      "locked": "mesh.exo",
+      "file": "analyze_helmholtz_input_deck.xml"
+    },
+    {
+      "setting": "physics mechanical",
+      "pass": true,
+      "found": "Mechanical",
+      "locked": "Mechanical",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "spatial dimension 3",
+      "pass": true,
+      "found": "3",
+      "locked": "3",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "mesh file",
+      "pass": true,
+      "found": "mesh.exo",
+      "locked": "mesh.exo",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "youngs modulus 1.0",
+      "pass": true,
+      "found": "1.0",
+      "locked": "1.0",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "poissons ratio 0.3",
+      "pass": true,
+      "found": "0.3",
+      "locked": "0.3",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "material model isotropic linear elastic",
+      "pass": true,
+      "found": true,
+      "locked": true,
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "single element block block_1 -> material_1",
+      "pass": true,
+      "found": [
+        "block_1",
+        "material_1"
+      ],
+      "locked": [
+        "block_1",
+        "material_1"
+      ],
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "objective criterion = compliance (Internal Elastic Energy)",
+      "pass": true,
+      "found": "Internal Elastic Energy",
+      "locked": "Internal Elastic Energy",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "criterion SIMP exponent 3.0",
+      "pass": true,
+      "found": "3.0",
+      "locked": "3.0",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "criterion minimum_ersatz_material_value 1e-3",
+      "pass": true,
+      "found": "1e-3",
+      "locked": "1e-3",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "residual material interpolation single-phase SIMP",
+      "pass": true,
+      "found": [
+        "Single-Phase",
+        "SIMP"
+      ],
+      "locked": [
+        "Single-Phase",
+        "SIMP"
+      ],
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "residual SIMP exponent 3.0",
+      "pass": true,
+      "found": "3.0",
+      "locked": "3.0",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "residual SIMP minimum value 1e-3",
+      "pass": true,
+      "found": "1e-3",
+      "locked": "1e-3",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "residual response linear",
+      "pass": true,
+      "found": "Linear",
+      "locked": "Linear",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "exactly one concentrated load",
+      "pass": true,
+      "found": 1,
+      "locked": 1,
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "load dof = y (index 1)",
+      "pass": true,
+      "found": "1",
+      "locked": "1",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "load value -1.0 per node",
+      "pass": true,
+      "found": "-1.0",
+      "locked": "-1.0",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "load nodeset ns_load",
+      "pass": true,
+      "found": "ns_load",
+      "locked": "ns_load",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "no natural (traction/pressure) BCs",
+      "pass": true,
+      "found": "empty list",
+      "locked": "empty",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "no body loads",
+      "pass": true,
+      "found": false,
+      "locked": false,
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "fixed support ux=uy=uz=0 on ns_fix (Fixed Value)",
+      "pass": true,
+      "found": {
+        "indices": [
+          "0",
+          "1",
+          "2"
+        ],
+        "sides": [
+          "ns_fix",
+          "ns_fix",
+          "ns_fix"
+        ],
+        "values": [
+          "0.0",
+          "0.0",
+          "0.0"
+        ],
+        "types": [
+          "Fixed Value",
+          "Fixed Value",
+          "Fixed Value"
+        ]
+      },
+      "locked": {
+        "indices": [
+          "0",
+          "1",
+          "2"
+        ],
+        "sides": [
+          "ns_fix",
+          "ns_fix",
+          "ns_fix"
+        ],
+        "values": [
+          "0.0",
+          "0.0",
+          "0.0"
+        ]
+      },
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "analyze output dispx dispy dispz",
+      "pass": true,
+      "found": "{displacement_x, displacement_y, displacement_z}",
+      "locked": "{displacement_x, displacement_y, displacement_z}",
+      "file": "analyze_2_input_deck.xml"
+    },
+    {
+      "setting": "engine mesh",
+      "pass": true,
+      "found": "mesh.exo",
+      "locked": "mesh.exo",
+      "file": "engine_input_deck.xml"
+    },
+    {
+      "setting": "engine output file engine_output",
+      "pass": true,
+      "found": "engine_output",
+      "locked": "engine_output",
+      "file": "engine_input_deck.xml"
+    },
+    {
+      "setting": "restart-file writing enabled (WriteRestart)",
+      "pass": true,
+      "found": "true",
+      "locked": "true",
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "engine output every iteration (OutputFrequency 1)",
+      "pass": true,
+      "found": "1",
+      "locked": "1",
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "engine output MaxIterations",
+      "pass": true,
+      "found": "40",
+      "locked": "40",
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "engine output fields topology + control",
+      "pass": true,
+      "found": [
+        true,
+        true
+      ],
+      "locked": [
+        true,
+        true
+      ],
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "stage 2 initial guess read from a field on a file (FromFieldOnInputMesh)",
+      "pass": true,
+      "found": "FromFieldOnInputMesh",
+      "locked": "FromFieldOnInputMesh",
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "stage 2 restart source file = restart_input.exo (copy of the Stage-1 checkpoint)",
+      "pass": true,
+      "found": "restart_input.exo",
+      "locked": "restart_input.exo",
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "stage 2 restart field = control (not topology)",
+      "pass": true,
+      "found": "control",
+      "locked": "control",
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "stage 2 restart saved state = iteration 20 (end of Stage 1)",
+      "pass": true,
+      "found": "21",
+      "locked": "21",
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "stage 2 has no uniform initialization",
+      "pass": true,
+      "found": false,
+      "locked": false,
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "stage 2 engine output restart field name = control",
+      "pass": true,
+      "found": "control",
+      "locked": "control",
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "restart file present in run directory and identical to the Stage-1 checkpoint",
+      "pass": true,
+      "found": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+      "locked": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+      "file": "run directory"
+    },
+    {
+      "setting": "Initial Guess stage wires Initialized Field -> Control (interface)",
+      "pass": true,
+      "found": true,
+      "locked": true,
+      "file": "interface.xml"
+    },
+    {
+      "setting": "update problem frequency 1 (engine operation)",
+      "pass": true,
+      "found": "1",
+      "locked": "1",
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "volume constraint computed by engine (ComputeVolume)",
+      "pass": true,
+      "found": true,
+      "locked": true,
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "aggregator weight 1, no normalization (normalize_in_aggregator false)",
+      "pass": true,
+      "found": {
+        "weight": "1",
+        "normalization_present": false
+      },
+      "locked": {
+        "weight": "1",
+        "normalization_present": false
+      },
+      "file": "engine_operations.xml"
+    },
+    {
+      "setting": "optimizer OC",
+      "pass": true,
+      "found": "OC",
+      "locked": "OC",
+      "file": "interface.xml"
+    },
+    {
+      "setting": "max_iterations",
+      "pass": true,
+      "found": "40",
+      "locked": "40",
+      "file": "interface.xml"
+    },
+    {
+      "setting": "OC default tolerances (1e-4, 1e-8, 1e-8)",
+      "pass": true,
+      "found": [
+        "1e-4",
+        "1e-8",
+        "1e-8"
+      ],
+      "locked": [
+        "1e-4",
+        "1e-8",
+        "1e-8"
+      ],
+      "file": "interface.xml"
+    },
+    {
+      "setting": "problem update frequency 1 (optimizer)",
+      "pass": true,
+      "found": "1",
+      "locked": "1",
+      "file": "interface.xml"
+    },
+    {
+      "setting": "update problem stage wired",
+      "pass": true,
+      "found": true,
+      "locked": true,
+      "file": "interface.xml"
+    },
+    {
+      "setting": "volume constraint relative target 0.15 of design volume",
+      "pass": true,
+      "found": [
+        "0.15",
+        "Design Volume"
+      ],
+      "locked": [
+        "0.15",
+        "Design Volume"
+      ],
+      "file": "interface.xml"
+    },
+    {
+      "setting": "exactly one constraint",
+      "pass": true,
+      "found": 1,
+      "locked": 1,
+      "file": "interface.xml"
+    },
+    {
+      "setting": "density bounds [0,1]",
+      "pass": true,
+      "found": [
+        "0.0",
+        "1.0"
+      ],
+      "locked": [
+        "0.0",
+        "1.0"
+      ],
+      "file": "interface.xml"
+    },
+    {
+      "setting": "filtered variable Topology (helmholtz applied in stages)",
+      "pass": true,
+      "found": [
+        "Topology",
+        4
+      ],
+      "locked": [
+        "Topology",
+        ">=4"
+      ],
+      "file": "interface.xml"
+    },
+    {
+      "setting": "performers: engine_1(engine), analyze_2(analyze), analyze_helmholtz(analyze)",
+      "pass": true,
+      "found": [
+        [
+          "engine_1",
+          "engine"
+        ],
+        [
+          "analyze_2",
+          "analyze"
+        ],
+        [
+          "analyze_helmholtz",
+          "analyze"
+        ]
+      ],
+      "locked": [
+        [
+          "engine_1",
+          "engine"
+        ],
+        [
+          "analyze_2",
+          "analyze"
+        ],
+        [
+          "analyze_helmholtz",
+          "analyze"
+        ]
+      ],
+      "file": "interface.xml"
+    },
+    {
+      "setting": "objective value computed by analyze_2, aggregated by engine",
+      "pass": true,
+      "found": true,
+      "locked": true,
+      "file": "interface.xml"
+    },
+    {
+      "setting": "constraint value computed by engine_1",
+      "pass": true,
+      "found": true,
+      "locked": true,
+      "file": "interface.xml"
+    },
+    {
+      "setting": "single-rank performers (-np 1 each)",
+      "pass": true,
+      "found": [
+        "1",
+        "1",
+        "1"
+      ],
+      "locked": [
+        "1",
+        "1",
+        "1"
+      ],
+      "file": "mpirun.source"
+    },
+    {
+      "setting": "no mesh decomposition (decomp not invoked)",
+      "pass": true,
+      "found": false,
+      "locked": false,
+      "file": "mpirun.source"
+    },
+    {
+      "setting": "executables PlatoMain + analyze_MPMD x2",
+      "pass": true,
+      "found": [
+        1,
+        2
+      ],
+      "locked": [
+        1,
+        2
+      ],
+      "file": "mpirun.source"
+    }
+  ],
+  "ALL_CHECKS_PASS": true
+}

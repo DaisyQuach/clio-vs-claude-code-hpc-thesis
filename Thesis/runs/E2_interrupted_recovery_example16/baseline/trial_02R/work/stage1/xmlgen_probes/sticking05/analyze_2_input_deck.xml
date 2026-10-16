@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<ParameterList name="Problem">
+  <Parameter name="Spatial Dimension" type="int" value="3" />
+  <Parameter name="Input Mesh" type="string" value="mesh.exo" />
+  <ParameterList name="Scenarios">
+    <Parameter name="Physics" type="string" value="Mechanical" />
+    <Parameter name="PDE Constraint" type="string" value="Elliptic" />
+    <ParameterList name="Criteria">
+      <ParameterList name="My Objective">
+        <Parameter name="Type" type="string" value="Scalar Function" />
+        <Parameter name="Scalar Function Type" type="string" value="Internal Elastic Energy" />
+        <Parameter name="Domains" type="Array(string)" value="{block_1}" />
+        <ParameterList name="Penalty Function">
+          <Parameter name="Type" type="string" value="SIMP" />
+          <Parameter name="Exponent" type="double" value="3.0" />
+          <Parameter name="Minimum Value" type="double" value="1e-3" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Residual">
+      <ParameterList name="Mechanical Residual">
+        <Parameter name="Material Interpolation Model" type="string" value="Single-Phase" />
+        <Parameter name="Response" type="string" value="Linear" />
+        <ParameterList name="Penalty Function">
+          <Parameter name="Type" type="string" value="SIMP" />
+          <Parameter name="Exponent" type="double" value="3.0" />
+          <Parameter name="Minimum Value" type="double" value="1e-3" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Linear Solver">
+      <ParameterList name="Solver Options">
+        <Parameter name="Solver Package" type="string" value="tacho" />
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Spatial Model">
+      <ParameterList name="Domains">
+        <ParameterList name="block_1">
+          <Parameter name="Element Block" type="string" value="block_1" />
+          <Parameter name="Material Model" type="string" value="material_1" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Material Models">
+      <ParameterList name="material_1">
+        <ParameterList name="Isotropic Linear Elastic">
+          <Parameter name="Youngs Modulus" type="double" value="1.0" />
+          <Parameter name="Poissons Ratio" type="double" value="0.3" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Concentrated Loads">
+      <ParameterList name="Concentrated Load with ID 0">
+        <Parameter name="Dof" type="int" value="1" />
+        <Parameter name="Value" type="double" value="-1.0" />
+        <Parameter name="Nodes" type="string" value="ns_load" />
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Mechanical Natural Boundary Conditions" />
+    <ParameterList name="Essential Boundary Conditions">
+      <ParameterList name="Displacement X with ID 1">
+        <Parameter name="Type" type="string" value="Fixed Value" />
+        <Parameter name="Index" type="int" value="0" />
+        <Parameter name="Sides" type="string" value="ns_fix" />
+        <Parameter name="Value" type="double" value="0.0" />
+      </ParameterList>
+      <ParameterList name="Displacement Y with ID 2">
+        <Parameter name="Type" type="string" value="Fixed Value" />
+        <Parameter name="Index" type="int" value="1" />
+        <Parameter name="Sides" type="string" value="ns_fix" />
+        <Parameter name="Value" type="double" value="0.0" />
+      </ParameterList>
+      <ParameterList name="Displacement Z with ID 3">
+        <Parameter name="Type" type="string" value="Fixed Value" />
+        <Parameter name="Index" type="int" value="2" />
+        <Parameter name="Sides" type="string" value="ns_fix" />
+        <Parameter name="Value" type="double" value="0.0" />
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Output">
+      <Parameter name="Plottable" type="Array(string)" value="{displacement_x, displacement_y, displacement_z}" />
+    </ParameterList>
+  </ParameterList>
+</ParameterList>

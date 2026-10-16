@@ -1,0 +1,37 @@
+PASS dir_agent-inputs: present
+PASS dir_work: present
+PASS dir_staging-manifest: present
+PASS dir_staging-inbox: present
+PASS dir_jobs: present
+PASS dir_logs: present
+PASS dir_outputs: present
+PASS dir_provenance: present
+PASS manifest: E3 fields present
+PASS exists:outputs/mesh.jou: ok
+PASS exists:outputs/mesh.exo: ok
+FAIL exists:outputs/input_deck.i: missing
+FAIL exists:outputs/job_script.sbatch: missing
+FAIL exists:outputs/morphorm_oc_optimizer_diagnostics.txt: missing
+FAIL exists:outputs/engine_output.exo: missing
+FAIL exists:outputs/final_analyze_output.exo: missing
+FAIL exists:outputs/SHA256SUMS.txt: missing
+PASS exists:jobs/job_ids.txt: ok
+FAIL exists:work/run_summary.md: missing
+PASS exists:provenance/sources_searched.tsv: ok
+PASS exists:provenance/artifact_selections.md: ok
+PASS exists:staging-manifest/staged_files.tsv: ok
+PASS exists:provenance/node_local_placement.txt: ok
+PASS exists:provenance/control_and_source_versions.txt: ok
+PASS exists:logs/session/session_record.json: ok
+PASS exists:provenance/boundary_audit.txt: ok
+PASS exists:logs/session/stream.jsonl: ok
+PASS mesh_verification: present
+FAIL output_dirs: generated_config/ or run_logs/ missing
+FAIL outputs_sha256: does not verify
+PASS staged_hashes: source==staged for all rows
+PASS staged_sources: all staged from catalogued collections
+PASS private_source_via_globus: every private-source row staged by Globus
+FAIL boundary_audit: FAIL
+PASS sources_unchanged: no FAIL recorded
+PASS action_required: none
+verdict: FAIL (10)

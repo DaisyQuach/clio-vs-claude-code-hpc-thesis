@@ -1,0 +1,29 @@
+Continuation evidence - FROZEN-EX16-v1, trial E2-example16-clio-05R (Session B)
+==================================================================================
+Checkpoint read by Stage 2 : outputs/stage2/restart_input.exo = byte-exact copy of outputs/stage1/engine_output.exo
+                             SHA-256 58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8 (both files)
+                             21 saved states (Exodus time steps 1..21, time values 1.0..21.0) holding Stage-1 iterations 0..20
+Restart field             : control (raw design variable), deck keyword initial_guess_field_name control
+                             -> generated engine_operations.xml: InitializeField Method=FromFieldOnInputMesh, Name=restart_input.exo,
+                                VariableName=control, Iteration=21
+Saved state used          : deck keyword restart_iteration 21 = Exodus time step 21 = the 21st (last) saved state = Stage-1 iteration 20.
+                             The manual (User Manual 2.5.10) defines restart_iteration as the "iteration (time step)" in the initial
+                             guess file; the file's time steps are 1-based, so iteration 20 is time step 21. Verified empirically below.
+
+Optimizer-diagnostics comparison (bundled diag_summary.py, work/verify/stage2_diag_summary.json, stage2_first_objective_check.json):
+  Stage 1, iteration 20 (last row)  : F(X) = 2.360040e+05, Norm(F') = 1.191537e+04, H1(X) = 3.964884e-13
+  Stage 2, local iteration 0 (first): F(X) = 2.360040e+05, Norm(F') = 1.191537e+04, H1(X) = 3.964884e-13
+  first_vs_given_rel_diff = 0.0 (exact match of the first Stage-2 compliance with the Stage-1 iteration-20 compliance)
+  Neighbouring Stage-1 values that would indicate a wrong state: iteration 19 F = 2.388394e+05, iteration 18 F = 2.422601e+05 (not matched).
+
+Saved-field comparison (netCDF4 read of the Exodus files; work/verify/stage2_field_continuation.txt):
+  control : Stage-1 state 21 (iter 20) vs Stage-2 state 1 (local iter 0): max|diff| = 0.0, arrays identical
+  topology: Stage-1 state 21 (iter 20) vs Stage-2 state 1 (local iter 0): max|diff| = 0.0, arrays identical
+  control : Stage-1 state 20 (iter 19) vs Stage-2 state 1: max|diff| = 2.000e-01; state 19 (iter 18): 3.765e-01 (so not those states)
+  restart_input.exo state 21 identical to Stage-1 engine_output.exo state 21 (control and topology)
+  mean control: Stage-1 state 21 = 0.168639, Stage-2 state 1 = 0.168639, Stage-2 state 41 = 0.166562
+
+Stage-2 run: Slurm job 16243174 (COMPLETED, ExitCode 0:0, Elapsed 00:35:59, notch204); 41 diagnostics rows, local iterations 0..40
+  (overall iterations 20..60); last F(X) = 2.135584e+05; stop message: "Optimization stopping due to exceeding maximum number of iterations."
+  Stage-2 engine_output.exo: 41 saved states; final_analyze_output.exo = analyze iteration40.exo (time 40.0).
+Conclusion: seamless restart from the iteration-20 Stage-1 design, read from the control field. No restart setting had to be corrected.

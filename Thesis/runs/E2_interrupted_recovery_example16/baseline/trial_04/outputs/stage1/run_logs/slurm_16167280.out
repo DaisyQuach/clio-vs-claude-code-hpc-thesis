@@ -1,0 +1,157 @@
+JOB START UTC 2026-10-09T21:49:30Z  SLURM_JOB_ID=16167280  host=notch351  cpus=8  mem=32768
+----- module list
+
+Currently Loaded Modules:
+  1) chpc/1.0   (S)   3) openmpi/5.0.3               5) cubit-edu/2026.8
+  2) gcc/11.2.0       4) morphorm/approved-runtime
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+ 
+
+----- executables
+PlatoMain      /uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/PlatoMain
+analyze_MPMD   /uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/analyze_MPMD
+mpiexec        /uufs/chpc.utah.edu/sys/spack/v019/linux-rocky8-x86_64/gcc-11.2.0/openmpi-5.0.3-gjrgcotxcpanmyfade3xe7wjijuvnidx/bin/mpiexec
+----- run directory /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/baseline/trial_04/work/stage1/run
+624bc8520d4aa73ba71a5ac8596a5a3226daf00506148da006ce4ad6fdeffe9d  input_deck.i
+e28684a0510707efc9da8d68e59d99192567e1d21309d4edfae453d030ac0dec  mesh.exo
+2e2f1e9c750eb785bb3c6534df928b4bdd988cc0f53a4653ce142ec2a661dbb5  interface.xml
+7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a  engine_input_deck.xml
+09dabcc015dd9e0ab88dbe54a8a2f0496ff19b9abfe94bf5c46107d6238fa40d  engine_operations.xml
+a6f7d5bf3d61607bec82781d3afad5231a493e602331ea7a3b54f7e9b3c162d5  analyze_2_input_deck.xml
+fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0  analyze_2_operations.xml
+c813b81a2c43cbac181b51c3ae12cad319473e7c2725afd29c2637fedec2dcbf  analyze_helmholtz_input_deck.xml
+402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854  analyze_helmholtz_operations.xml
+5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc  mpirun.source
+----- mpirun.source
+mpiexec --oversubscribe -np 1 -x PLATO_PERFORMER_ID=0 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=engine_operations.xml \
+PlatoMain engine_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=1 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=analyze_2_operations.xml \
+analyze_MPMD --input-config=analyze_2_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=2 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=analyze_helmholtz_operations.xml \
+analyze_MPMD --input-config=analyze_helmholtz_input_deck.xml \
+MORPHORM START UTC 2026-10-09T21:49:34Z
+
+####################################################################################
+#                                                                                  #
+#                                                                                  #
+#  888b     d888                           888                                     #
+#  8888b   d8888                           888                                     #
+#  88888b.d88888                           888                                     #
+#  888Y88888P888  .d88b.  888d888 88888b.  88888b.   .d88b.  888d888 88888b.d88b.  #
+#  888 Y888P 888 d88''88b 888P'   888 '88b 888 '88b d88''88b 888P'   888 '888 '88b #
+#  888  Y8P  888 888  888 888     888  888 888  888 888  888 888     888  888  888 #
+#  888   '   888 Y88..88P 888     888 d88P 888  888 Y88..88P 888     888  888  888 #
+#  888       888  'Y88P'  888     88888P'  888  888  'Y88P'  888     888  888  888 #
+#                                 888                                              #
+#                                 888  REALTIME ENGINEERING FOR FASTER INNOVATION  #
+#                                 888                                              #
+#                                      Questions? contact info@morphorm.com        #
+#                                                                                  #
+####################################################################################
+
+MORPHORM END UTC 2026-10-09T22:00:17Z  mpirun.source rc=0
+----- run directory listing
+total 18392
+drwxr-xr-x 3 u1282901 hochhalter     4096 Oct  9 15:49 .
+drwxr-xr-x 4 u1282901 hochhalter      103 Oct  9 15:48 ..
+-rw-r----- 1 u1282901 hochhalter    89113 Oct  9 16:00 analyze_2_1
+-rw-r--r-- 1 u1282901 hochhalter     4106 Oct  9 15:47 analyze_2_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      864 Oct  9 15:47 analyze_2_operations.xml
+-rw-r----- 1 u1282901 hochhalter   174442 Oct  9 16:00 analyze_helmholtz_2
+-rw-r--r-- 1 u1282901 hochhalter      940 Oct  9 15:47 analyze_helmholtz_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      473 Oct  9 15:47 analyze_helmholtz_operations.xml
+drwxr-xr-x 2 u1282901 hochhalter     4096 Oct  9 16:00 analyze_id_2_output_scenario_id_1
+-rw-r----- 1 u1282901 hochhalter      306 Oct  9 16:00 engine_1_0
+-rw-r--r-- 1 u1282901 hochhalter      433 Oct  9 15:47 engine_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter     3472 Oct  9 15:47 engine_operations.xml
+-rw-r--r-- 1 u1282901 hochhalter 12383296 Oct  9 16:00 engine_output.exo
+-rw-r--r-- 1 u1282901 hochhalter     3000 Oct  9 15:47 input_deck.i
+-rw-r--r-- 1 u1282901 hochhalter    14346 Oct  9 15:47 interface.xml
+-rw-r--r-- 1 u1282901 hochhalter  1974608 Oct  9 15:44 mesh.exo
+-rw-r--r-- 1 u1282901 hochhalter     2119 Oct  9 16:00 morphorm_oc_optimizer_diagnostics.txt
+-rw-r--r-- 1 u1282901 hochhalter     1447 Oct  9 15:49 morphorm_stage1.log
+-rw-r--r-- 1 u1282901 hochhalter      536 Oct  9 15:47 mpirun.source
+-rw-r--r-- 1 u1282901 hochhalter      519 Oct  9 16:00 opt_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter     5590 Oct  9 15:47 xmlgenerator.log
+total 67496
+drwxr-xr-x 2 u1282901 hochhalter    4096 Oct  9 16:00 .
+drwxr-xr-x 3 u1282901 hochhalter    4096 Oct  9 15:49 ..
+-rw-r--r-- 1 u1282901 hochhalter      39 Oct  9 15:49 iteration0_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3073760 Oct  9 15:49 iteration0.exo
+-rw-r--r-- 1 u1282901 hochhalter     279 Oct  9 15:54 iteration10_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:54 iteration10.exo
+-rw-r--r-- 1 u1282901 hochhalter     303 Oct  9 15:55 iteration11_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:55 iteration11.exo
+-rw-r--r-- 1 u1282901 hochhalter     327 Oct  9 15:56 iteration12_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:56 iteration12.exo
+-rw-r--r-- 1 u1282901 hochhalter     351 Oct  9 15:56 iteration13_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:56 iteration13.exo
+-rw-r--r-- 1 u1282901 hochhalter     375 Oct  9 15:57 iteration14_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:57 iteration14.exo
+-rw-r--r-- 1 u1282901 hochhalter     399 Oct  9 15:57 iteration15_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:57 iteration15.exo
+-rw-r--r-- 1 u1282901 hochhalter     423 Oct  9 15:58 iteration16_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:58 iteration16.exo
+-rw-r--r-- 1 u1282901 hochhalter     447 Oct  9 15:58 iteration17_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:58 iteration17.exo
+-rw-r--r-- 1 u1282901 hochhalter     471 Oct  9 15:59 iteration18_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:59 iteration18.exo
+-rw-r--r-- 1 u1282901 hochhalter     495 Oct  9 15:59 iteration19_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:59 iteration19.exo
+-rw-r--r-- 1 u1282901 hochhalter      63 Oct  9 15:50 iteration1_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:50 iteration1.exo
+-rw-r--r-- 1 u1282901 hochhalter     519 Oct  9 16:00 iteration20_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 16:00 iteration20.exo
+-rw-r--r-- 1 u1282901 hochhalter      87 Oct  9 15:50 iteration2_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:51 iteration2.exo
+-rw-r--r-- 1 u1282901 hochhalter     111 Oct  9 15:51 iteration3_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:51 iteration3.exo
+-rw-r--r-- 1 u1282901 hochhalter     135 Oct  9 15:51 iteration4_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:52 iteration4.exo
+-rw-r--r-- 1 u1282901 hochhalter     159 Oct  9 15:52 iteration5_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:52 iteration5.exo
+-rw-r--r-- 1 u1282901 hochhalter     183 Oct  9 15:52 iteration6_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:53 iteration6.exo
+-rw-r--r-- 1 u1282901 hochhalter     207 Oct  9 15:53 iteration7_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:53 iteration7.exo
+-rw-r--r-- 1 u1282901 hochhalter     231 Oct  9 15:53 iteration8_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:54 iteration8.exo
+-rw-r--r-- 1 u1282901 hochhalter     255 Oct  9 15:54 iteration9_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 3295364 Oct  9 15:54 iteration9.exo
+----- optimizer diagnostics (tail)
+Iter   F-count          F(X)        Norm(F')         H1(X)         abs(dX)        abs(dF)
+0         1        4.893235e+06   5.288704e+05  -1.564817e-02   1.500000e-01  1.797693e+308
+1         2        8.715305e+05   1.190725e+05   9.426307e-02   2.000000e-01   4.021705e+06
+2         3        9.153247e+05   7.076490e+04   4.184032e-02   2.000000e-01   4.379426e+04
+3         4        5.932948e+05   3.922089e+04   4.846958e-02   2.000000e-01   3.220299e+05
+4         5        7.157917e+05   5.052073e+04   1.676062e-02   2.000000e-01   1.224969e+05
+5         6        5.716814e+05   3.791666e+04   1.721705e-02   2.000000e-01   1.441103e+05
+6         7        6.161091e+05   4.085972e+04  -4.378164e-13   2.000000e-01   4.442771e+04
+7         8        5.220660e+05   3.312145e+04  -6.858403e-14   2.000000e-01   9.404305e+04
+8         9        4.470169e+05   2.693147e+04  -2.564338e-13   2.000000e-01   7.504918e+04
+9        10        3.893516e+05   2.243726e+04  -3.237688e-13   2.000000e-01   5.766529e+04
+10        11        3.481402e+05   1.935145e+04   6.715462e-13   2.000000e-01   4.121135e+04
+11        12        3.179639e+05   1.725104e+04   5.812573e-13   2.000000e-01   3.017632e+04
+12        13        2.957322e+05   1.572357e+04  -3.227973e-14   2.000000e-01   2.223172e+04
+13        14        2.794783e+05   1.464060e+04   5.512257e-14   2.000000e-01   1.625391e+04
+14        15        2.674795e+05   1.385789e+04  -5.665746e-13   2.000000e-01   1.199873e+04
+15        16        2.585237e+05   1.328678e+04  -7.141510e-14   2.000000e-01   8.955873e+03
+16        17        2.516773e+05   1.285511e+04  -1.626754e-13   2.000000e-01   6.846314e+03
+17        18        2.464064e+05   1.252720e+04   4.223843e-13   2.000000e-01   5.270959e+03
+18        19        2.422601e+05   1.227652e+04  -3.567702e-13   2.000000e-01   4.146265e+03
+19        20        2.388394e+05   1.207748e+04   4.834189e-13   2.000000e-01   3.420762e+03
+20        21        2.360040e+05   1.191537e+04   3.964884e-13   2.000000e-01   2.835402e+03
+
+
+****** Optimization stopping due to exceeding maximum number of iterations. ******
+
+JOB END UTC 2026-10-09T22:00:18Z rc=0

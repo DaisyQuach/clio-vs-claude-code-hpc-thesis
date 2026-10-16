@@ -1,0 +1,368 @@
+{
+  "frozen_configuration_id": "FROZEN-EX16-v1",
+  "stage": "stage1",
+  "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/baseline/trial_04/work/stage1/run",
+  "verified_utc": "2026-10-09T21:48:54Z",
+  "checks": {
+    "analyze: Spatial Dimension == 3": {
+      "pass": true,
+      "observed": "3"
+    },
+    "analyze: Input Mesh == mesh.exo": {
+      "pass": true,
+      "observed": "mesh.exo"
+    },
+    "analyze: Physics == Mechanical": {
+      "pass": true,
+      "observed": "Mechanical"
+    },
+    "analyze: PDE Constraint == Elliptic (linear static)": {
+      "pass": true,
+      "observed": "Elliptic"
+    },
+    "analyze: objective criterion = Internal Elastic Energy (mechanical compliance)": {
+      "pass": true,
+      "observed": "Internal Elastic Energy"
+    },
+    "analyze: objective domains == {block_1}": {
+      "pass": true,
+      "observed": "{block_1}"
+    },
+    "analyze: compliance penalty SIMP": {
+      "pass": true,
+      "observed": "SIMP"
+    },
+    "analyze: compliance SIMP exponent == 3.0": {
+      "pass": true,
+      "observed": "3.0"
+    },
+    "analyze: compliance minimum_ersatz_material_value == 1e-3": {
+      "pass": true,
+      "observed": "1e-3"
+    },
+    "analyze: residual material interpolation Single-Phase": {
+      "pass": true,
+      "observed": "Single-Phase"
+    },
+    "analyze: residual response Linear": {
+      "pass": true,
+      "observed": "Linear"
+    },
+    "analyze: residual SIMP exponent == 3.0": {
+      "pass": true,
+      "observed": [
+        "SIMP",
+        "3.0"
+      ]
+    },
+    "analyze: residual SIMP minimum value == 1e-3": {
+      "pass": true,
+      "observed": "1e-3"
+    },
+    "analyze: exactly one domain block_1 -> material_1": {
+      "pass": true,
+      "observed": [
+        "block_1"
+      ]
+    },
+    "analyze: material isotropic linear elastic": {
+      "pass": true,
+      "observed": "Isotropic Linear Elastic"
+    },
+    "analyze: Youngs Modulus == 1.0": {
+      "pass": true,
+      "observed": "1.0"
+    },
+    "analyze: Poissons Ratio == 0.3": {
+      "pass": true,
+      "observed": "0.3"
+    },
+    "analyze: exactly one concentrated load": {
+      "pass": true,
+      "observed": 1
+    },
+    "analyze: load Dof == 1 (y direction)": {
+      "pass": true,
+      "observed": "1"
+    },
+    "analyze: load Value == -1.0 per node": {
+      "pass": true,
+      "observed": "-1.0"
+    },
+    "analyze: load Nodes == ns_load": {
+      "pass": true,
+      "observed": "ns_load"
+    },
+    "analyze: no tractions/natural BCs": {
+      "pass": true,
+      "observed": 0
+    },
+    "analyze: no body loads": {
+      "pass": true,
+      "observed": "Body Loads list absent"
+    },
+    "analyze: exactly three fixed-value BCs (dispx,dispy,dispz)": {
+      "pass": true,
+      "observed": [
+        [
+          "Fixed Value",
+          "0"
+        ],
+        [
+          "Fixed Value",
+          "1"
+        ],
+        [
+          "Fixed Value",
+          "2"
+        ]
+      ]
+    },
+    "analyze: all BCs on ns_fix with value 0.0": {
+      "pass": true,
+      "observed": [
+        [
+          "ns_fix",
+          "0.0"
+        ],
+        [
+          "ns_fix",
+          "0.0"
+        ],
+        [
+          "ns_fix",
+          "0.0"
+        ]
+      ]
+    },
+    "analyze: output displacement_x,y,z": {
+      "pass": true,
+      "observed": "{displacement_x, displacement_y, displacement_z}"
+    },
+    "helmholtz: Physics == Helmholtz Filter": {
+      "pass": true,
+      "observed": "Helmholtz Filter"
+    },
+    "helmholtz: Length Scale == 0.15/(2*sqrt(3)) = 0.043301 (radius_absolute 0.15)": {
+      "pass": true,
+      "observed": 0.043301
+    },
+    "helmholtz: Surface Length Scale == 1.0 (boundary_sticking_penalty 1.0)": {
+      "pass": true,
+      "observed": "1.0"
+    },
+    "helmholtz: no symmetry plane parameter": {
+      "pass": true,
+      "observed": [
+        "Length Scale",
+        "Surface Length Scale"
+      ]
+    },
+    "helmholtz: Input Mesh == mesh.exo": {
+      "pass": true,
+      "observed": "mesh.exo"
+    },
+    "helmholtz: domain block_1": {
+      "pass": true,
+      "observed": [
+        "block_1"
+      ]
+    },
+    "engine: PlatoMainOutput WriteRestart == true": {
+      "pass": true,
+      "observed": "true"
+    },
+    "engine: PlatoMainOutput OutputFrequency == 1 (every iteration saved)": {
+      "pass": true,
+      "observed": "1"
+    },
+    "engine: PlatoMainOutput MaxIterations == 20": {
+      "pass": true,
+      "observed": "20"
+    },
+    "engine: output fields control and topology (nodal)": {
+      "pass": true,
+      "observed": [
+        "control",
+        "topology"
+      ]
+    },
+    "engine: InitializeField Method Uniform": {
+      "pass": true,
+      "observed": "Uniform"
+    },
+    "engine: initial density value == 0.15": {
+      "pass": true,
+      "observed": "0.15"
+    },
+    "engine: no restart InitializeField from file (fresh Stage-1 start)": {
+      "pass": true,
+      "observed": 0
+    },
+    "engine: Update Problem operation, frequency 1": {
+      "pass": true,
+      "observed": "1"
+    },
+    "engine: volume constraint computed by engine ComputeVolume": {
+      "pass": true,
+      "observed": "ComputeVolume"
+    },
+    "engine: aggregator single weight == 1": {
+      "pass": true,
+      "observed": [
+        "1"
+      ]
+    },
+    "engine: normalize_in_aggregator false (no Normalize=true in aggregator)": {
+      "pass": true,
+      "observed": false
+    },
+    "engine: SetLowerBounds/SetUpperBounds density": {
+      "pass": true,
+      "observed": [
+        "density",
+        "density"
+      ]
+    },
+    "engine_input: mesh == mesh.exo": {
+      "pass": true,
+      "observed": "mesh.exo"
+    },
+    "engine_input: output file engine_output (exodus)": {
+      "pass": true,
+      "observed": [
+        "engine_output",
+        "exodus"
+      ]
+    },
+    "engine_input: single block index 1, material 1": {
+      "pass": true,
+      "observed": [
+        [
+          "1",
+          "1"
+        ]
+      ]
+    },
+    "interface: performers engine_1(engine), analyze_2(analyze), analyze_helmholtz(analyze)": {
+      "pass": true,
+      "observed": [
+        [
+          "engine_1",
+          "engine"
+        ],
+        [
+          "analyze_2",
+          "analyze"
+        ],
+        [
+          "analyze_helmholtz",
+          "analyze"
+        ]
+      ]
+    },
+    "interface: Optimizer Package == OC": {
+      "pass": true,
+      "observed": "OC"
+    },
+    "interface: Optimizer MaxIterations == 20": {
+      "pass": true,
+      "observed": "20"
+    },
+    "interface: OC tolerances are runtime defaults (1e-4, 1e-8, 1e-8)": {
+      "pass": true,
+      "observed": {
+        "OCControlStagnationTolerance": "1e-4",
+        "OCObjectiveStagnationTolerance": "1e-8",
+        "OCGradientTolerance": "1e-8",
+        "ProblemUpdateFrequency": "1"
+      }
+    },
+    "interface: ProblemUpdateFrequency == 1": {
+      "pass": true,
+      "observed": "1"
+    },
+    "interface: constraint NormalizedTargetValue == 0.15": {
+      "pass": true,
+      "observed": "0.15"
+    },
+    "interface: constraint reference == Design Volume (fraction of design-domain volume)": {
+      "pass": true,
+      "observed": "Design Volume"
+    },
+    "interface: exactly one constraint": {
+      "pass": true,
+      "observed": 1
+    },
+    "interface: constraint value computed by engine_1": {
+      "pass": true,
+      "observed": [
+        "engine_1"
+      ]
+    },
+    "interface: objective (compliance) value computed by analyze_2": {
+      "pass": true,
+      "observed": [
+        "analyze_2"
+      ]
+    },
+    "interface: Helmholtz filter applied to control before objective evaluation": {
+      "pass": true,
+      "observed": [
+        "analyze_helmholtz"
+      ]
+    },
+    "interface: Output To File stage includes PlatoMainOutput (engine) and Visualization (analyze_2)": {
+      "pass": true,
+      "observed": [
+        "Visualization",
+        "PlatoMainOutput"
+      ]
+    },
+    "interface: Update Problem stage registered": {
+      "pass": true,
+      "observed": "Update Problem"
+    },
+    "interface: density bounds [0,1]": {
+      "pass": true,
+      "observed": [
+        "0.0",
+        "1.0"
+      ]
+    },
+    "interface: initialization stage == Initial Guess (uniform field, no restart source)": {
+      "pass": true,
+      "observed": "Initial Guess"
+    },
+    "mpirun: three single-rank performers (-np 1 x3)": {
+      "pass": true,
+      "observed": 3
+    },
+    "mpirun: PlatoMain + 2x analyze_MPMD": {
+      "pass": true,
+      "observed": [
+        1,
+        2
+      ]
+    },
+    "mpirun: no mesh decomposition (no decomp/epu)": {
+      "pass": true,
+      "observed": "ok"
+    }
+  },
+  "n_checks": 65,
+  "n_pass": 65,
+  "all_checks_pass": true,
+  "sha256": {
+    "analyze_2_input_deck.xml": "a6f7d5bf3d61607bec82781d3afad5231a493e602331ea7a3b54f7e9b3c162d5",
+    "analyze_2_operations.xml": "fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0",
+    "analyze_helmholtz_input_deck.xml": "c813b81a2c43cbac181b51c3ae12cad319473e7c2725afd29c2637fedec2dcbf",
+    "analyze_helmholtz_operations.xml": "402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854",
+    "engine_input_deck.xml": "7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a",
+    "engine_operations.xml": "09dabcc015dd9e0ab88dbe54a8a2f0496ff19b9abfe94bf5c46107d6238fa40d",
+    "input_deck.i": "624bc8520d4aa73ba71a5ac8596a5a3226daf00506148da006ce4ad6fdeffe9d",
+    "interface.xml": "2e2f1e9c750eb785bb3c6534df928b4bdd988cc0f53a4653ce142ec2a661dbb5",
+    "mesh.exo": "e28684a0510707efc9da8d68e59d99192567e1d21309d4edfae453d030ac0dec",
+    "mpirun.source": "5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc"
+  }
+}

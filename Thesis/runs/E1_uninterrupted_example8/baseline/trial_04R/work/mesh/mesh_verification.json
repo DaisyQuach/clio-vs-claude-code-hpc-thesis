@@ -1,0 +1,105 @@
+{
+  "file": "work/mesh/mesh.exo",
+  "verified_utc": "2026-10-09T18:22:48Z",
+  "num_dim": 3,
+  "num_nodes": 15925,
+  "num_elem": 13824,
+  "bounding_box_xmin_xmax_ymin_ymax_zmin_zmax": [
+    0.0,
+    2.0,
+    0.0,
+    1.0,
+    0.0,
+    0.5
+  ],
+  "element_blocks": [
+    {
+      "id": 1,
+      "name": "block_1",
+      "elem_type": "HEX8",
+      "num_elem": 13824,
+      "nodes_per_elem": 8
+    }
+  ],
+  "nodesets": {
+    "ns_fix": {
+      "id": 1,
+      "count": 325,
+      "x_range": [
+        0.0,
+        0.0
+      ],
+      "y_range": [
+        0.0,
+        1.0
+      ],
+      "z_range": [
+        0.0,
+        0.5
+      ]
+    },
+    "ns_load": {
+      "id": 2,
+      "count": 13,
+      "x_range": [
+        2.0,
+        2.0
+      ],
+      "y_range": [
+        0.0,
+        0.0
+      ],
+      "z_range": [
+        0.0,
+        0.5
+      ]
+    }
+  },
+  "sidesets": {
+    "ss_sym": {
+      "id": 1,
+      "count": 1152,
+      "face_node_z_range": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "node_spacing": {
+    "nx_unique": 49,
+    "ny_unique": 25,
+    "nz_unique": 13,
+    "dx_min_max": [
+      0.0416666659999998,
+      0.0416666670000001
+    ],
+    "dy_min_max": [
+      0.041666666,
+      0.041666667000000004
+    ],
+    "dz_min_max": [
+      0.041666666,
+      0.041666667000000004
+    ]
+  },
+  "checks": {
+    "num_dim == 3": true,
+    "num_elem == 13824": true,
+    "num_nodes == 15925": true,
+    "bbox == [0,2]x[0,1]x[0,0.5]": true,
+    "exactly one element block": true,
+    "block name == 'block_1'": true,
+    "block elem type HEX8": true,
+    "block contains every element": true,
+    "uniform h=1/24 in x,y,z (48x24x12)": true,
+    "nodeset 'ns_fix' exists with 325 nodes": true,
+    "ns_fix all on x=0": true,
+    "nodeset 'ns_load' exists with 13 nodes": true,
+    "ns_load all on x=2,y=0 spanning z in [0,0.5]": true,
+    "sideset 'ss_sym' exists with 1152 faces": true,
+    "ss_sym faces all on z=0.5": true,
+    "exactly two nodesets": true,
+    "exactly one sideset": true
+  },
+  "ALL_CHECKS_PASS": true
+}

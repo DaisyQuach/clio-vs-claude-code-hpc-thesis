@@ -1,0 +1,50 @@
+{
+  "trial_id": "E3-baseline-trial_03",
+  "descriptive_only": true,
+  "session": {
+    "duration_ms": 1771500,
+    "duration_api_ms": 675802,
+    "num_turns": 53,
+    "is_error": false,
+    "subtype": "success",
+    "total_cost_usd": 7.957607500000002,
+    "usage": {
+      "input_tokens": 1666,
+      "cache_creation_input_tokens": 180076,
+      "cache_read_input_tokens": 5958910,
+      "output_tokens": 56994,
+      "output_tokens_details": {
+        "thinking_tokens": 11204
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 180076,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "global",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    }
+  },
+  "tool_calls_by_name": {
+    "Bash": 51,
+    "Read": 1
+  },
+  "bash_commands_with_error": 0,
+  "staging": {
+    "files_staged": 19,
+    "bytes_staged": 4923535,
+    "files_returned": 2,
+    "bytes_returned": 2779
+  },
+  "discovery": {
+    "locations_recorded": 12,
+    "artifact_selection_record": "present"
+  },
+  "boundary_audit": "PASS"
+}

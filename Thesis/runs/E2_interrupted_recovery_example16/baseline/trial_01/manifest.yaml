@@ -1,0 +1,29 @@
+run_id: E2-example16-baseline-01
+status: completed_unscored
+experiment: E2
+experiment_selector: e2-example16
+workflow: frozen_example16
+paired_block: E2-01
+system: baseline
+frozen_configuration_id: FROZEN-EX16-v1
+frozen_configuration_sha256: a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+agent_inputs_sha256: a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+model_identifier: claude-fable-5-1
+agent_harness: claude-code
+agent_harness_version: "2.1.295"
+headless: true
+slurm_contract: "account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00"
+created_utc: 2026-10-09T12:18:29Z
+started_utc: 2026-10-09T17:24:07Z
+finished_utc: 2026-10-09T18:16:59Z
+agent_session_ids: "6228d7ed-a251-45c5-ab0a-7a65f8416812,38f1cd94-1133-43bf-ad43-8cce8197e49b"
+agent_host_job_ids: "16162352,16162651"
+workflow_job_ids: "16162453,16162675,16162687"
+evidence_sha256_manifest: logs/evidence_SHA256SUMS.txt
+packet_verification: logs/packet_verification.json
+curation_researcher_reviewed: "2026-10-10"
+curation_include_in_analysis: true
+curation_notes: "both sessions exited 0 and the packet verified; the runner recorded Session B rc=127 from a launcher wrapper exit-path defect (see automation/AUTOMATION_LIMITATIONS.md item 13); status corrected to completed_unscored by the researcher-side fix"
+scoring_decision: accepted
+scoring_scored_utc: 2026-10-09T18:19:40Z
+scoring_record: researcher_only/scores/E2-example16-baseline-01/score.json

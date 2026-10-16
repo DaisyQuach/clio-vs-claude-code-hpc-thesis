@@ -1,0 +1,23 @@
+2026-10-13T14:36:19Z session start trial=E2-example16-clio-05R packet read
+2026-10-13T14:38:21Z mesh generation start: cubit -batch -nographics -nojournal -input mesh.jou
+2026-10-13T14:38:24Z cubit exit=0
+2026-10-13T14:38:48Z exo_summary mesh check rc=0 -> work/verify/mesh.json
+2026-10-13T14:38:57Z XMLGenerator input_deck.i start (cwd work/stage1/run)
+2026-10-13T14:38:57Z XMLGenerator exit=0
+2026-10-13T14:40:14Z scratch translations xlate_check_A (legacy filter form) and xlate_check_B (isosurface_output_frequency 1) for comparison only
+2026-10-13T14:40:41Z XMLGenerator (accepted translation) start
+2026-10-13T14:40:42Z XMLGenerator exit=0
+2026-10-13T14:41:04Z sbatch --parsable jobs/stage1_job_script.sbatch -> job 16242485 (Stage 1)
+2026-10-13T14:41:17Z staged mesh/deck/job script/generated_config deliverables under outputs/
+2026-10-13T15:00:14Z job 16242485 COMPLETED ExitCode 0:0 Elapsed 00:18:30 node notch204
+2026-10-13T15:00:42Z delivered stage1 outputs; SHA256SUMS.txt written (30 entries)
+2026-10-13T15:03:23Z work/run_summary.md written (Stage 1 complete, Stage 2 not started)
+2026-10-13T15:06:53Z session B start: packet read; Stage-1 state verified (sha256sum -c all OK; checkpoint sha 58dee776...; diag last_iter 20 F=2.360040e+05)
+2026-10-13T15:07:42Z XMLGenerator scratch translations work/stage2/xlate_check_iter20 and iter21 (translation only)
+2026-10-13T15:08:37Z XMLGenerator accepted Stage-2 translation in work/stage2/run (restart_iteration 21) exit=0
+2026-10-13T15:08:37Z sbatch --parsable jobs/stage2_job_script.sbatch -> job 16243174 (Stage 2, restart_iteration 21)
+2026-10-13T15:11:59Z stage2 first objective 2.360040e+05 == stage1 iter-20 objective (diag_summary --compare-first-to rc above); restart_iteration 21 confirmed correct, run continues
+2026-10-13T15:45:13Z job 16243174 COMPLETED ExitCode 0:0 Elapsed 00:35:59 node notch204
+2026-10-13T15:45:18Z delivered stage2 outputs via work/stage2/deliver_stage2.sh
+2026-10-13T15:46:06Z continuation_evidence.txt written; SHA256SUMS.txt regenerated (61 entries), sha256sum -c all OK
+2026-10-13T15:47:51Z work/run_summary.md updated with Session B / Stage 2 (sections 3B-7B, 8)

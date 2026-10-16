@@ -1,0 +1,53 @@
+{
+  "categories": [
+    "Model reasoning & writing",
+    "Reading inputs & manuals",
+    "Authoring files",
+    "Meshing (Cubit)",
+    "Deck translation (XMLGenerator)",
+    "Verification scripts",
+    "Slurm submit & wait",
+    "Records, copies & hashing"
+  ],
+  "classification_rules_priority": [
+    [
+      "Meshing (Cubit)",
+      "(^|[;&|(]\\s*|\\n\\s*|\\btime\\s+)cubit\\s+-"
+    ],
+    [
+      "Deck translation (XMLGenerator)",
+      "(^|[;&|(]\\s*|\\n\\s*|\\btime\\s+)XMLGenerator\\s+\\S"
+    ],
+    [
+      "Slurm submit & wait",
+      "\\bsbatch\\b|\\bsqueue\\b|\\bsacct\\b|\\bscontrol\\b|\\bsleep\\b|\\bscancel\\b"
+    ],
+    [
+      "Verification scripts",
+      "\\bpython3?\\b"
+    ],
+    [
+      "Authoring files",
+      "cat\\s*>|cat\\s*<<|\\btee\\b|sed\\s+-i|printf[^|]*>|>\\s*\\S+\\.(i|jou|sbatch|md|py|sh)\\b"
+    ],
+    [
+      "Reading inputs & manuals",
+      "\\bsed\\s+-n\\b|\\bgrep\\b|\\bpdftotext\\b|\\bcat\\b|\\bhead\\b|\\btail\\b|\\bfind\\b|\\bls\\b|\\bwc\\b"
+    ],
+    [
+      "Records, copies & hashing",
+      "\\bsha256sum\\b|\\bcp\\b|\\bmkdir\\b|\\bmv\\b|\\bdate\\b"
+    ]
+  ],
+  "globus_rule_reported_separately": "\\bglobus\\b|globus_stage_file\\.sh|stage_file\\.sh",
+  "notes": [
+    "Same method as Thesis/researcher_only/evaluation_figures/thesis_prelim (E1/E2).",
+    "Tool intervals = tool_use timestamp to tool_result timestamp from the session transcript.",
+    "Overlapping parallel tool calls are assigned once, to the highest-priority category.",
+    "Uncovered session time = model reasoning & writing (cross-check: api_s_reported).",
+    "Globus/staging command time is reported separately and overlaps the E1 categories.",
+    "sacct times are America/Denver local and converted to UTC.",
+    "Queue wait is measured from Eligible (dependency satisfied) to Start; trials ran one at a time by design.",
+    "Scientific series only for terminal_state == valid; every trial is listed in trials.csv."
+  ]
+}

@@ -1,0 +1,64 @@
+[2026-10-09T18:19:00Z] == E1-example8-baseline-04R (counted) ==
+PASS  pinned_binary                      /uufs/chpc.utah.edu/common/home/u1282901/.local/share/claude/versions/2.1.295 --version = 2.1.295
+PASS  help_flags                         all required flags present in --help of 2.1.295
+INFO  forbidden_flags_known              resume/continue/fork flags exist (--resume -r --continue -c --fork-session --teleport --from-pr --bg --background --cloud) and are never passed by the launcher
+PASS  output_format                      --output-format stream-json documented
+PASS  auth_status_cmd                    'auth status --json' available (no-model auth check)
+PASS  auth_logged_in                     auth status reports logged in
+PASS  credentials_file                   /uufs/chpc.utah.edu/common/home/u1282901/.claude/.credentials.json present (copied into each isolated session config dir)
+INFO  autoupdates_setting                ~/.claude.json autoUpdates=False; launcher also exports DISABLE_AUTOUPDATER=1
+PASS  cmd_sbatch                         /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sbatch
+PASS  cmd_sacct                          /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sacct
+PASS  cmd_squeue                         /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/squeue
+PASS  cmd_scontrol                       /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/scontrol
+PASS  cmd_sinfo                          /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sinfo
+PASS  cmd_uuidgen                        /usr/bin/uuidgen
+PASS  cmd_jq                             /usr/bin/jq
+PASS  partition                          hochhalter-np available
+INFO  slurm_contract                     account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00
+PASS  approved_software                  loader ok; runtime inventory hash matches frozen value
+PASS  frozen_e1-example8                 FROZEN-EX8-v1 cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+PASS  claude_md_ancestors                no CLAUDE.md in ancestors of /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs
+PASS  agent_visible_leak                 no researcher-only references in frozen configurations
+
+preflight: PASS (pinned_binary_ok=1, dry_run=0, utc=2026-10-09T18:19:11Z)
+PASS      manifest_identity                        E1-example8-baseline-04R (e1-example8)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX8-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  task_prompt.md present
+PASS      status_planned                           status: planned
+PASS      empty_work                               work/ contains only .gitkeep
+PASS      empty_jobs                               jobs/ contains only .gitkeep
+PASS      empty_logs                               logs/ contains only .gitkeep
+PASS      empty_outputs                            outputs/ contains only .gitkeep
+PASS      null_started_utc                         started_utc: null
+PASS      null_finished_utc                        finished_utc: null
+PASS      null_agent_session_ids                   agent_session_ids: null
+PASS      null_workflow_job_ids                    workflow_job_ids: null
+PASS      null_scoring_decision                    scoring_decision: null
+PASS      null_curation_include_in_analysis        curation_include_in_analysis: null
+PASS      no_prior_outputs                         no meshes/decks/job scripts in the packet
+
+packet verification (planned): verified  fails=0 ambiguous=0
+[2026-10-09T18:19:12Z] submitting agent-host job for E1-example8-baseline-04R/session_main (sbatch --wait)
+session 4c7b3b9c-14a7-4a15-ae29-060de1f8f612 rc=1 timeout_hit=false transcript=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/session_evidence/E1-example8-baseline-04R/session_main/transcript_4c7b3b9c-14a7-4a15-ae29-060de1f8f612.jsonl
+[2026-10-09T18:25:47Z] copied session evidence: session_main
+[2026-10-09T18:25:47Z] evidence collected for E1-example8-baseline-04R: sessions=4c7b3b9c-14a7-4a15-ae29-060de1f8f612 workflow_jobs=none agent_host_jobs=16163192
+PASS      manifest_identity                        E1-example8-baseline-04R (e1-example8)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX8-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  task_prompt.md present
+FAIL      deliverables                             missing: outputs/mesh.jou outputs/mesh.exo outputs/input_deck.i outputs/job_script.sbatch outputs/generated_config/interface.xml outputs/generated_config/analyze_helmholtz_input_deck.xml outputs/generated_config/analyze_2_input_deck.xml outputs/morphorm_oc_optimizer_diagnostics.txt outputs/engine_output.exo outputs/final_analyze_output.exo outputs/SHA256SUMS.txt jobs/job_ids.txt work/run_summary.md
+PASS      sacct_collected                          logs/slurm_sacct.psv present
+PASS      session_records                          1 session record(s) as required
+PASS      distinct_session_ids                     1 distinct session id(s)
+PASS      no_resume                                no resume/continue/fork in any launch
+PASS      isolated_config                          each session had its own CLAUDE_CONFIG_DIR
+PASS      pinned_session_main                      executable 2.1.295
+AMBIGUOUS exit_session_main                        rc=1 timeout_hit=false (process exit alone is not success; researcher review)
+PASS      boundary_audit                           no restricted paths mentioned in session transcripts
+
+packet verification (completed): failed  fails=1 ambiguous=1
+[2026-10-09T18:25:49Z] E1-example8-baseline-04R finished: status=failed (launch rc=1, verification rc=1). Scientific scoring is a separate researcher-only step.

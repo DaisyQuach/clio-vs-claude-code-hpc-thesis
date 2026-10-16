@@ -1,0 +1,522 @@
+{
+  "run_dir": "work/stage1/run",
+  "utc": "2026-10-10T00:22:12Z",
+  "checks": {
+    "diagnostics: iterations 0..20 present (21 rows)": true,
+    "diagnostics: stopped at the iteration cap (max iterations message)": true,
+    "diagnostics: finite objective values": true,
+    "checkpoint: 21 saved states (time steps)": true,
+    "checkpoint: nodal fields include control and topology": true,
+    "checkpoint: mesh size 30625 nodes / 27648 elements": true,
+    "checkpoint: state 1 is the uniform initial density 0.15 (control)": true,
+    "checkpoint: states are distinct (design evolves) and within [0,1]": true,
+    "checkpoint: control field for last state differs from step 20 (states not duplicated)": true,
+    "final analyze output iteration20.exo exists": true,
+    "final analyze output has displacement fields": true
+  },
+  "diagnostics_sha256": "4aaeaa78e77e9f065e3e0ab91d0205a13cdf600a7c76d9f8fc492b06092772f1",
+  "diagnostic_rows": [
+    {
+      "iter": 0,
+      "fcount": 1,
+      "F": 4893235.0,
+      "normF": 528870.4,
+      "H1": -0.01564817,
+      "dX": 0.15,
+      "dF": 1.797693e+308
+    },
+    {
+      "iter": 1,
+      "fcount": 2,
+      "F": 871530.5,
+      "normF": 119072.5,
+      "H1": 0.09426307,
+      "dX": 0.2,
+      "dF": 4021705.0
+    },
+    {
+      "iter": 2,
+      "fcount": 3,
+      "F": 915324.7,
+      "normF": 70764.9,
+      "H1": 0.04184032,
+      "dX": 0.2,
+      "dF": 43794.26
+    },
+    {
+      "iter": 3,
+      "fcount": 4,
+      "F": 593294.8,
+      "normF": 39220.89,
+      "H1": 0.04846958,
+      "dX": 0.2,
+      "dF": 322029.9
+    },
+    {
+      "iter": 4,
+      "fcount": 5,
+      "F": 715791.7,
+      "normF": 50520.73,
+      "H1": 0.01676062,
+      "dX": 0.2,
+      "dF": 122496.9
+    },
+    {
+      "iter": 5,
+      "fcount": 6,
+      "F": 571681.4,
+      "normF": 37916.66,
+      "H1": 0.01721705,
+      "dX": 0.2,
+      "dF": 144110.3
+    },
+    {
+      "iter": 6,
+      "fcount": 7,
+      "F": 616109.1,
+      "normF": 40859.72,
+      "H1": -4.378164e-13,
+      "dX": 0.2,
+      "dF": 44427.71
+    },
+    {
+      "iter": 7,
+      "fcount": 8,
+      "F": 522066.0,
+      "normF": 33121.45,
+      "H1": -6.858403e-14,
+      "dX": 0.2,
+      "dF": 94043.05
+    },
+    {
+      "iter": 8,
+      "fcount": 9,
+      "F": 447016.9,
+      "normF": 26931.47,
+      "H1": -2.564338e-13,
+      "dX": 0.2,
+      "dF": 75049.18
+    },
+    {
+      "iter": 9,
+      "fcount": 10,
+      "F": 389351.6,
+      "normF": 22437.26,
+      "H1": -3.237688e-13,
+      "dX": 0.2,
+      "dF": 57665.29
+    },
+    {
+      "iter": 10,
+      "fcount": 11,
+      "F": 348140.2,
+      "normF": 19351.45,
+      "H1": 6.715462e-13,
+      "dX": 0.2,
+      "dF": 41211.35
+    },
+    {
+      "iter": 11,
+      "fcount": 12,
+      "F": 317963.9,
+      "normF": 17251.04,
+      "H1": 5.812573e-13,
+      "dX": 0.2,
+      "dF": 30176.32
+    },
+    {
+      "iter": 12,
+      "fcount": 13,
+      "F": 295732.2,
+      "normF": 15723.57,
+      "H1": -3.227973e-14,
+      "dX": 0.2,
+      "dF": 22231.72
+    },
+    {
+      "iter": 13,
+      "fcount": 14,
+      "F": 279478.3,
+      "normF": 14640.6,
+      "H1": 5.512257e-14,
+      "dX": 0.2,
+      "dF": 16253.91
+    },
+    {
+      "iter": 14,
+      "fcount": 15,
+      "F": 267479.5,
+      "normF": 13857.89,
+      "H1": -5.665746e-13,
+      "dX": 0.2,
+      "dF": 11998.73
+    },
+    {
+      "iter": 15,
+      "fcount": 16,
+      "F": 258523.7,
+      "normF": 13286.78,
+      "H1": -7.14151e-14,
+      "dX": 0.2,
+      "dF": 8955.873
+    },
+    {
+      "iter": 16,
+      "fcount": 17,
+      "F": 251677.3,
+      "normF": 12855.11,
+      "H1": -1.626754e-13,
+      "dX": 0.2,
+      "dF": 6846.314
+    },
+    {
+      "iter": 17,
+      "fcount": 18,
+      "F": 246406.4,
+      "normF": 12527.2,
+      "H1": 4.223843e-13,
+      "dX": 0.2,
+      "dF": 5270.959
+    },
+    {
+      "iter": 18,
+      "fcount": 19,
+      "F": 242260.1,
+      "normF": 12276.52,
+      "H1": -3.567702e-13,
+      "dX": 0.2,
+      "dF": 4146.265
+    },
+    {
+      "iter": 19,
+      "fcount": 20,
+      "F": 238839.4,
+      "normF": 12077.48,
+      "H1": 4.834189e-13,
+      "dX": 0.2,
+      "dF": 3420.762
+    },
+    {
+      "iter": 20,
+      "fcount": 21,
+      "F": 236004.0,
+      "normF": 11915.37,
+      "H1": 3.964884e-13,
+      "dX": 0.2,
+      "dF": 2835.402
+    }
+  ],
+  "num_diagnostic_rows": 21,
+  "last_iteration": 20,
+  "stop_message": [
+    "****** Optimization stopping due to exceeding maximum number of iterations. ******"
+  ],
+  "compliance_iter20": 236004.0,
+  "compliance_iter0": 4893235.0,
+  "engine_output_sha256": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+  "engine_output": {
+    "num_nodes": 30625,
+    "num_elem": 27648,
+    "nodal_vars": [
+      "control",
+      "topology"
+    ],
+    "num_time_steps": 21,
+    "times": [
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0,
+      8.0,
+      9.0,
+      10.0,
+      11.0,
+      12.0,
+      13.0,
+      14.0,
+      15.0,
+      16.0,
+      17.0,
+      18.0,
+      19.0,
+      20.0,
+      21.0
+    ],
+    "field_stats": [
+      {
+        "step": 1,
+        "time": 1.0,
+        "control_min": 0.15,
+        "control_max": 0.15,
+        "control_mean": 0.15,
+        "topology_min": 0.026911321466421965,
+        "topology_max": 0.14999827399505053,
+        "topology_mean": 0.12822224315363542
+      },
+      {
+        "step": 2,
+        "time": 2.0,
+        "control_min": 0.0,
+        "control_max": 0.35,
+        "control_mean": 0.272638313261608,
+        "topology_min": 0.0008298149411814187,
+        "topology_max": 0.34809978702364325,
+        "topology_mean": 0.23321352164283166
+      },
+      {
+        "step": 3,
+        "time": 3.0,
+        "control_min": 0.0,
+        "control_max": 0.55,
+        "control_mean": 0.21994299322332686,
+        "topology_min": 1.6559376128277956e-05,
+        "topology_max": 0.4775193676727737,
+        "topology_mean": 0.18458319157214803
+      },
+      {
+        "step": 4,
+        "time": 4.0,
+        "control_min": 0.0,
+        "control_max": 0.75,
+        "control_mean": 0.22913436283251365,
+        "topology_min": 3.5065271790635154e-06,
+        "topology_max": 0.5755503157777044,
+        "topology_mean": 0.19136652188648542
+      },
+      {
+        "step": 5,
+        "time": 5.0,
+        "control_min": 0.0,
+        "control_max": 0.95,
+        "control_mean": 0.19495198039469921,
+        "topology_min": 1.0428639554408868e-06,
+        "topology_max": 0.6453996622090675,
+        "topology_mean": 0.16129398721849295
+      },
+      {
+        "step": 6,
+        "time": 6.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.1953577474450611,
+        "topology_min": 5.291716500322052e-07,
+        "topology_max": 0.6805686394445289,
+        "topology_mean": 0.16165807177585073
+      },
+      {
+        "step": 7,
+        "time": 7.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.17552506475370813,
+        "topology_min": 2.9694654450284686e-07,
+        "topology_max": 0.6880720886414589,
+        "topology_mean": 0.14499858416055053
+      },
+      {
+        "step": 8,
+        "time": 8.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.17507949977527562,
+        "topology_min": 2.019979911808584e-07,
+        "topology_max": 0.7151251172121595,
+        "topology_mean": 0.1448729499572243
+      },
+      {
+        "step": 9,
+        "time": 9.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.1741713411015511,
+        "topology_min": 1.5471348463142277e-07,
+        "topology_max": 0.778356454888587,
+        "topology_mean": 0.144657689491687
+      },
+      {
+        "step": 10,
+        "time": 10.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.17315189085328514,
+        "topology_min": 1.1917783518984141e-07,
+        "topology_max": 0.8249225385467015,
+        "topology_mean": 0.14444422677322205
+      },
+      {
+        "step": 11,
+        "time": 11.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.1722620261377634,
+        "topology_min": 9.790864014411077e-08,
+        "topology_max": 0.8624321333913341,
+        "topology_mean": 0.14426613320838808
+      },
+      {
+        "step": 12,
+        "time": 12.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.17153738703697893,
+        "topology_min": 8.452309418526328e-08,
+        "topology_max": 0.8848472305726668,
+        "topology_mean": 0.1441268414772181
+      },
+      {
+        "step": 13,
+        "time": 13.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.17095661886560587,
+        "topology_min": 7.599071453727307e-08,
+        "topology_max": 0.9058062054930104,
+        "topology_mean": 0.1440165236717765
+      },
+      {
+        "step": 14,
+        "time": 14.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.17050167645102957,
+        "topology_min": 6.994193582390105e-08,
+        "topology_max": 0.9125085776031655,
+        "topology_mean": 0.14392716746243361
+      },
+      {
+        "step": 15,
+        "time": 15.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.17013063719874938,
+        "topology_min": 6.57532420959728e-08,
+        "topology_max": 0.9165063927232617,
+        "topology_mean": 0.1438516490442067
+      },
+      {
+        "step": 16,
+        "time": 16.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.16980241266069937,
+        "topology_min": 6.27089212629254e-08,
+        "topology_max": 0.9198823772061238,
+        "topology_mean": 0.14378464446711722
+      },
+      {
+        "step": 17,
+        "time": 17.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.1695107556589423,
+        "topology_min": 6.044415828304395e-08,
+        "topology_max": 0.921745034113315,
+        "topology_mean": 0.14372191552668068
+      },
+      {
+        "step": 18,
+        "time": 18.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.16926611406275235,
+        "topology_min": 5.862996397385255e-08,
+        "topology_max": 0.9234669672253043,
+        "topology_mean": 0.1436643085916859
+      },
+      {
+        "step": 19,
+        "time": 19.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.16904599749696506,
+        "topology_min": 5.715975140399253e-08,
+        "topology_max": 0.9247189539212131,
+        "topology_mean": 0.14361040757615226
+      },
+      {
+        "step": 20,
+        "time": 20.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.1688365276594465,
+        "topology_min": 5.5906546774651785e-08,
+        "topology_max": 0.9257960071468148,
+        "topology_mean": 0.1435582159668681
+      },
+      {
+        "step": 21,
+        "time": 21.0,
+        "control_min": 0.0,
+        "control_max": 1.0,
+        "control_mean": 0.16863897625874086,
+        "topology_min": 5.482233252956195e-08,
+        "topology_max": 0.9267272956371002,
+        "topology_mean": 0.14350902484371225
+      }
+    ]
+  },
+  "engine_restart_exists": false,
+  "analyze_output_files": [
+    "iteration0.exo",
+    "iteration0_criteria_history.csv",
+    "iteration1.exo",
+    "iteration10.exo",
+    "iteration10_criteria_history.csv",
+    "iteration11.exo",
+    "iteration11_criteria_history.csv",
+    "iteration12.exo",
+    "iteration12_criteria_history.csv",
+    "iteration13.exo",
+    "iteration13_criteria_history.csv",
+    "iteration14.exo",
+    "iteration14_criteria_history.csv",
+    "iteration15.exo",
+    "iteration15_criteria_history.csv",
+    "iteration16.exo",
+    "iteration16_criteria_history.csv",
+    "iteration17.exo",
+    "iteration17_criteria_history.csv",
+    "iteration18.exo",
+    "iteration18_criteria_history.csv",
+    "iteration19.exo",
+    "iteration19_criteria_history.csv",
+    "iteration1_criteria_history.csv",
+    "iteration2.exo",
+    "iteration20.exo",
+    "iteration20_criteria_history.csv",
+    "iteration2_criteria_history.csv",
+    "iteration3.exo",
+    "iteration3_criteria_history.csv",
+    "iteration4.exo",
+    "iteration4_criteria_history.csv",
+    "iteration5.exo",
+    "iteration5_criteria_history.csv",
+    "iteration6.exo",
+    "iteration6_criteria_history.csv",
+    "iteration7.exo",
+    "iteration7_criteria_history.csv",
+    "iteration8.exo",
+    "iteration8_criteria_history.csv",
+    "iteration9.exo",
+    "iteration9_criteria_history.csv"
+  ],
+  "final_analyze_output_exists": true,
+  "final_analyze_output_sha256": "1baf67b8cb33f9878f9d64e92529248ab924c4b04f32a6ba9500526c40aa116d",
+  "final_analyze_output": {
+    "nodal_vars": [
+      "Topology",
+      "displacement X",
+      "displacement Y",
+      "displacement Z"
+    ],
+    "num_time_steps": 1
+  },
+  "opt_criteria_history_head": [
+    "My Objective, 4.8932349962451942e+06, 8.7153046674283571e+05, 9.1532472646736528e+05, 5.9329483879840304e+05, 7.1579172587517905e+05, 5.7168138186717627e+05, 6.1610909653086017e+05, 5.2206604954783490e+05, 4.4701686795713566e+05, 3.8935157378634781e+05, 3.4814022519649053e+05, 3.1796390153666626e+05, 2.9573218158720800e+05, 2.7947826727620844e+05, 2.6747953290352167e+05, 2.5852366024641678e+05, 2.5167734669623087e+05, 2.4640638814354767e+05, 2.4226012273218654e+05, 2.3883936024819835e+05, 2.3600395811001546e+05, "
+  ],
+  "opt_criteria_history_lines": 1,
+  "ALL_CHECKS_PASS": true
+}

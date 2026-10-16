@@ -1,0 +1,108 @@
+{
+  "file": "work/mesh/mesh.exo",
+  "sha256": "bdeceb5a251e3c82f75258cd2e83e7e9b9136d298635869042c7af5eaeee0fdc",
+  "num_dim": 3,
+  "num_nodes": 30625,
+  "num_elem": 27648,
+  "bounding_box": {
+    "x": [
+      0.0,
+      2.0
+    ],
+    "y": [
+      0.0,
+      1.0
+    ],
+    "z": [
+      0.0,
+      1.0
+    ]
+  },
+  "num_el_blk": 1,
+  "num_node_sets": 2,
+  "num_side_sets": 0,
+  "blocks": [
+    {
+      "id": 1,
+      "name": "block_1",
+      "elem_type": "HEX8",
+      "num_elem": 27648,
+      "nodes_per_elem": 8
+    }
+  ],
+  "nodesets": [
+    {
+      "id": 1,
+      "name": "ns_fix",
+      "num_nodes": 625,
+      "x_range": [
+        0.0,
+        0.0
+      ],
+      "y_range": [
+        0.0,
+        1.0
+      ],
+      "z_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ns_load",
+      "num_nodes": 25,
+      "x_range": [
+        2.0,
+        2.0
+      ],
+      "y_range": [
+        0.0,
+        0.0
+      ],
+      "z_range": [
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "unique_coords": {
+    "x": 49,
+    "y": 25,
+    "z": 25
+  },
+  "spacing": {
+    "x": [
+      0.0416666659999998,
+      0.0416666670000001
+    ],
+    "y": [
+      0.041666666,
+      0.041666667000000004
+    ],
+    "z": [
+      0.041666666,
+      0.041666667000000004
+    ]
+  },
+  "elem_volume": {
+    "min": 7.233796296296197e-05,
+    "max": 7.233796296296682e-05,
+    "total": 2.0000000000000244
+  },
+  "nodes_on_x0_face": 625,
+  "nodes_on_x2_y0_edge": 25,
+  "checks": {
+    "num_dim == 3": true,
+    "num_elem == 27648": true,
+    "num_nodes == 30625": true,
+    "bbox == [0,2]x[0,1]x[0,1]": true,
+    "exactly one block named block_1 with all elements, HEX8": true,
+    "structured 48x24x24 (49x25x25 unique coords)": true,
+    "uniform h = 1/24": true,
+    "ns_fix exists with 625 nodes, all at x = 0": true,
+    "ns_load exists with 25 nodes, all at x = 2, y = 0, z in [0,1]": true,
+    "no sidesets required (count)": true
+  },
+  "ALL_CHECKS_PASS": true
+}

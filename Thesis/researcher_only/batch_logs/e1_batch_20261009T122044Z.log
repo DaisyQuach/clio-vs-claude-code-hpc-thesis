@@ -1,0 +1,68 @@
+[2026-10-09T12:20:44Z] ---- e1-example8 trial 1 (counted) ----
+[2026-10-09T12:20:45Z] == E1-example8-baseline-01 (counted) ==
+PASS  pinned_binary                      /uufs/chpc.utah.edu/common/home/u1282901/.local/share/claude/versions/2.1.295 --version = 2.1.295
+PASS  help_flags                         all required flags present in --help of 2.1.295
+INFO  forbidden_flags_known              resume/continue/fork flags exist (--resume -r --continue -c --fork-session --teleport --from-pr --bg --background --cloud) and are never passed by the launcher
+PASS  output_format                      --output-format stream-json documented
+PASS  auth_status_cmd                    'auth status --json' available (no-model auth check)
+PASS  auth_logged_in                     auth status reports logged in
+PASS  credentials_file                   /uufs/chpc.utah.edu/common/home/u1282901/.claude/.credentials.json present (copied into each isolated session config dir)
+INFO  autoupdates_setting                ~/.claude.json autoUpdates=False; launcher also exports DISABLE_AUTOUPDATER=1
+PASS  cmd_sbatch                         /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sbatch
+PASS  cmd_sacct                          /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sacct
+PASS  cmd_squeue                         /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/squeue
+PASS  cmd_scontrol                       /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/scontrol
+PASS  cmd_sinfo                          /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sinfo
+PASS  cmd_uuidgen                        /usr/bin/uuidgen
+PASS  cmd_jq                             /usr/bin/jq
+PASS  partition                          hochhalter-np available
+INFO  slurm_contract                     account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00
+PASS  approved_software                  loader ok; runtime inventory hash matches frozen value
+PASS  frozen_e1-example8                 FROZEN-EX8-v1 cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+PASS  claude_md_ancestors                no CLAUDE.md in ancestors of /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs
+PASS  agent_visible_leak                 no researcher-only references in frozen configurations
+
+preflight: PASS (pinned_binary_ok=1, dry_run=0, utc=2026-10-09T12:20:54Z)
+PASS      manifest_identity                        E1-example8-baseline-01 (e1-example8)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX8-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  task_prompt.md present
+PASS      status_planned                           status: planned
+PASS      empty_work                               work/ contains only .gitkeep
+PASS      empty_jobs                               jobs/ contains only .gitkeep
+PASS      empty_logs                               logs/ contains only .gitkeep
+PASS      empty_outputs                            outputs/ contains only .gitkeep
+PASS      null_started_utc                         started_utc: null
+PASS      null_finished_utc                        finished_utc: null
+PASS      null_agent_session_ids                   agent_session_ids: null
+PASS      null_workflow_job_ids                    workflow_job_ids: null
+PASS      null_scoring_decision                    scoring_decision: null
+PASS      null_curation_include_in_analysis        curation_include_in_analysis: null
+PASS      no_prior_outputs                         no meshes/decks/job scripts in the packet
+
+packet verification (planned): verified  fails=0 ambiguous=0
+[2026-10-09T12:20:54Z] submitting agent-host job for E1-example8-baseline-01/session_main (sbatch --wait)
+/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/automation/launch_headless_claude.sh: line 99: exit: : numeric argument required
+[2026-10-09T12:44:02Z] copied session evidence: session_main
+[2026-10-09T12:44:04Z] evidence collected for E1-example8-baseline-01: sessions= workflow_jobs=16159074 agent_host_jobs=none
+PASS      manifest_identity                        E1-example8-baseline-01 (e1-example8)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX8-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  task_prompt.md present
+PASS      deliverables                             all 13 locked deliverables present
+PASS      outputs_sha256                           outputs/SHA256SUMS.txt verifies
+PASS      job_ids                                  workflow job ids: 16159074 
+PASS      sacct_collected                          logs/slurm_sacct.psv present
+PASS      session_records                          1 session record(s) as required
+FAIL      distinct_session_ids                     session ids not distinct
+PASS      no_resume                                no resume/continue/fork in any launch
+FAIL      isolated_config                          sessions shared a config dir
+FAIL      pinned_                                  executable version  != 2.1.295
+AMBIGUOUS exit_                                    rc= timeout_hit= (process exit alone is not success; researcher review)
+PASS      boundary_audit                           no restricted paths mentioned in session transcripts
+
+packet verification (completed): failed  fails=3 ambiguous=1
+[2026-10-09T12:44:05Z] E1-example8-baseline-01 finished: status=failed (launch rc=2, verification rc=1). Scientific scoring is a separate researcher-only step.
+[2026-10-09T12:44:05Z] FATAL: batch stopped: trial 1 ended with rc=1 (failed/ambiguous/blocked). Inspect before continuing. 1

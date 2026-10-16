@@ -1,0 +1,35 @@
+job=16154334 name=ex16_04_restart_shipped_20 node=notch351 start_utc=2026-10-09T07:12:23Z
+partition=hochhalter-np account=hochhalter-np qos=hochhalter-np cpus=8 mem_mb=32768
+preflight XMLGenerator exit=0
+36/36 checks pass; all_checks_pass=True
+951941cc684b444bd3c268c192eb7269ec964eb8b2579b6b8087b86575a32da6  topology_mech_ex16_restart.i
+70bd98cebb38bb77b3509b15d178bedd14bace8c775c004771b0217df782ae35  runmorphorm.py
+6144707a1940d09299bf21e62846523d2d1561d7f74f77f8bbdc6f395ec8f2ca  topology_mech_ex16.exo
+10ceb64594150df5f929f4ca1460903c0076f725f9fd47f8160a12b7ea64a00b  initialguess.exo
+topology_mech_ex16.exo: OK
+checkpoint_source=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/stage1/engine_output.exo sha256=10ceb64594150df5f929f4ca1460903c0076f725f9fd47f8160a12b7ea64a00b
+morphorm_start_utc=2026-10-09T07:12:27Z
+morphorm_end_utc=2026-10-09T07:33:12Z runmorphorm_exit_code=0
+
+****** Optimization stopping due to exceeding maximum number of iterations. ******
+
+identical to preflight: interface.xml
+identical to preflight: engine_input_deck.xml
+identical to preflight: engine_operations.xml
+identical to preflight: analyze_2_input_deck.xml
+identical to preflight: analyze_2_operations.xml
+identical to preflight: analyze_helmholtz_input_deck.xml
+identical to preflight: analyze_helmholtz_operations.xml
+identical to preflight: mpirun.source
+summarize exit=0
+  "last_iteration": 40,
+  "stop_message": "Optimization stopping due to exceeding maximum number of iterations.",
+  "final_compliance": 213684.3,
+  "reached_expected_iterations": true
+restart_evidence exit=3 (0 = resumed from the intended iteration)
+  "restart_resumes_from_stage1_iteration": 19,
+  "restart_first_compliance": 238839.4,
+  "restart_final_compliance": 213684.3,
+  "resumed_from_intended_iteration": false
+note: this variant is expected NOT to resume from the intended iteration
+end_utc=2026-10-09T07:33:13Z

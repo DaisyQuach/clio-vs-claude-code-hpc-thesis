@@ -1,0 +1,83 @@
+{
+  "frozen_configuration_id": "FROZEN-EX16-v1",
+  "verified_utc": "2026-10-09T19:07:11Z",
+  "mesh_file": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/baseline/trial_02R/work/mesh/mesh.exo",
+  "mesh_sha256": "f909589b0e29bc5e99d52bd578c755e7a5f3cf8c2e88883b13994cbdfbe032f8",
+  "num_dim": 3,
+  "num_nodes": 30625,
+  "num_elements": 27648,
+  "bounding_box": {
+    "x": [
+      0.0,
+      2.0
+    ],
+    "y": [
+      0.0,
+      1.0
+    ],
+    "z": [
+      0.0,
+      1.0
+    ]
+  },
+  "element_edge_length": {
+    "min": 0.041666666666665186,
+    "max": 0.04166666666666807,
+    "target": 0.041666666666666664
+  },
+  "blocks": [
+    {
+      "id": 1,
+      "name": "block_1",
+      "elem_type": "HEX8",
+      "num_elem": 27648,
+      "nodes_per_elem": 8
+    }
+  ],
+  "nodesets": {
+    "ns_fix": {
+      "id": 1,
+      "num_nodes": 625,
+      "x_min": 0.0,
+      "x_max": 0.0,
+      "y_min": 0.0,
+      "y_max": 1.0,
+      "z_min": 0.0,
+      "z_max": 1.0
+    },
+    "ns_load": {
+      "id": 2,
+      "num_nodes": 25,
+      "x_min": 2.0,
+      "x_max": 2.0,
+      "y_min": 0.0,
+      "y_max": 0.0,
+      "z_min": 0.0,
+      "z_max": 1.0
+    }
+  },
+  "num_sidesets": 0,
+  "checks": {
+    "num_elements == 27648": true,
+    "num_nodes == 30625": true,
+    "num_dim == 3": true,
+    "one element block": true,
+    "block name == block_1": true,
+    "block elem_type is HEX8": true,
+    "block_1 contains every element": true,
+    "bounding box x in [0,2]": true,
+    "bounding box y in [0,1]": true,
+    "bounding box z in [0,1]": true,
+    "uniform element edge length h = 1/24": true,
+    "structured 48 x 24 x 24 grid (unique coords)": true,
+    "nodeset ns_fix exists with 625 nodes": true,
+    "ns_fix nodes all on x = 0": true,
+    "ns_fix is the complete x=0 face": true,
+    "nodeset ns_load exists with 25 nodes": true,
+    "ns_load nodes all on x = 2, y = 0, spanning z in [0,1]": true,
+    "ns_load is the complete x=2,y=0 edge": true,
+    "no sidesets (none required)": true,
+    "exactly two nodesets": true
+  },
+  "all_checks_pass": true
+}

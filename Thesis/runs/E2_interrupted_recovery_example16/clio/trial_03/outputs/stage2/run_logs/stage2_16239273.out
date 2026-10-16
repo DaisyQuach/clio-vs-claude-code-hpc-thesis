@@ -1,0 +1,71 @@
+START_UTC 2026-10-13T08:55:47+00:00
+JOB_ID 16239273 NODE notch351
+=== module list ===
+
+Currently Loaded Modules:
+  1) chpc/1.0   (S)   3) openmpi/5.0.3               5) cubit-edu/2026.8
+  2) gcc/11.2.0       4) morphorm/approved-runtime
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+ 
+
+=== which ===
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/PlatoMain
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/analyze_MPMD
+/uufs/chpc.utah.edu/sys/spack/v019/linux-rocky8-x86_64/gcc-11.2.0/openmpi-5.0.3-gjrgcotxcpanmyfade3xe7wjijuvnidx/bin/mpiexec
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/XMLGenerator
+RUN_DIR /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/clio/trial_03/work/stage2
+da7e63c511c4f79c649d85fe6af4bbc57086d9373aaab80b9a58cf84f8d10028  input_deck.i
+d576cac42be6a8522610931120f537a7969fe89d73d86c512042e7dd35eb1d07  mesh.exo
+10ceb64594150df5f929f4ca1460903c0076f725f9fd47f8160a12b7ea64a00b  restart_input.exo
+9fe82e49ad9b2fee721db7d65219a66c9450e42a3c134529238b519815146e37  interface.xml
+de4341334d3c99814ea20139addc61561a25508268c3d2eebe97d80e819e9336  engine_operations.xml
+7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a  engine_input_deck.xml
+998ee0d46d67b1eb726163d7064b22b57b7ac8c4295c03921456fd10bd1c8e6b  analyze_2_input_deck.xml
+fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0  analyze_2_operations.xml
+c813b81a2c43cbac181b51c3ae12cad319473e7c2725afd29c2637fedec2dcbf  analyze_helmholtz_input_deck.xml
+402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854  analyze_helmholtz_operations.xml
+5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc  mpirun.source
+=== mpirun.source ===
+mpiexec --oversubscribe -np 1 -x PLATO_PERFORMER_ID=0 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=engine_operations.xml \
+PlatoMain engine_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=1 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=analyze_2_operations.xml \
+analyze_MPMD --input-config=analyze_2_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=2 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=analyze_helmholtz_operations.xml \
+analyze_MPMD --input-config=analyze_helmholtz_input_deck.xml \
+=== launch 2026-10-13T08:55:50+00:00 ===
+MORPHORM_EXIT 0
+=== run dir listing ===
+total 39712
+drwxr-xr-x 3 u1282901 hochhalter     4096 Oct 13 02:56 .
+drwxr-xr-x 9 u1282901 hochhalter     4096 Oct 13 02:54 ..
+-rw-r----- 1 u1282901 hochhalter   172163 Oct 13 03:16 analyze_2_1
+-rw-r--r-- 1 u1282901 hochhalter     4100 Oct 13 02:54 analyze_2_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      864 Oct 13 02:54 analyze_2_operations.xml
+-rw-r----- 1 u1282901 hochhalter   338762 Oct 13 03:16 analyze_helmholtz_2
+-rw-r--r-- 1 u1282901 hochhalter      940 Oct 13 02:54 analyze_helmholtz_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      473 Oct 13 02:54 analyze_helmholtz_operations.xml
+drwxr-xr-x 2 u1282901 hochhalter     4096 Oct 13 03:16 analyze_id_2_output_scenario_id_1
+-rw-r----- 1 u1282901 hochhalter      306 Oct 13 03:16 engine_1_0
+-rw-r--r-- 1 u1282901 hochhalter      433 Oct 13 02:54 engine_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter     3566 Oct 13 02:54 engine_operations.xml
+-rw-r--r-- 1 u1282901 hochhalter 22183456 Oct 13 03:16 engine_output.exo
+-rw-r--r-- 1 u1282901 hochhalter        0 Oct 13 02:55 engine_restart.exo
+-rw-r--r-- 1 u1282901 hochhalter     2322 Oct 13 02:54 input_deck.i
+-rw-r--r-- 1 u1282901 hochhalter    14346 Oct 13 02:54 interface.xml
+-rw-r--r-- 1 u1282901 hochhalter  1974564 Oct 13 02:47 mesh.exo
+-rw-r--r-- 1 u1282901 hochhalter     3979 Oct 13 03:16 morphorm_oc_optimizer_diagnostics.txt
+-rw-r--r-- 1 u1282901 hochhalter     1447 Oct 13 02:55 morphorm_stage2.log
+-rw-r--r-- 1 u1282901 hochhalter      536 Oct 13 02:54 mpirun.source
+-rw-r--r-- 1 u1282901 hochhalter      999 Oct 13 03:16 opt_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 12383296 Oct 13 02:47 restart_input.exo
+-rw-r--r-- 1 u1282901 hochhalter     5245 Oct 13 02:54 xmlgen.log
+END_UTC 2026-10-13T09:16:28+00:00

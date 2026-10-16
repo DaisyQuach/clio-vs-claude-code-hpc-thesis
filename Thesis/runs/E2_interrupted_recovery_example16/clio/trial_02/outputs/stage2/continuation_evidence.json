@@ -1,0 +1,66 @@
+{
+ "trial_id": "E2-example16-clio-02",
+ "frozen_config": "FROZEN-EX16-v1",
+ "checkpoint": {
+  "path": "outputs/stage1/engine_output.exo",
+  "sha256": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+  "saved_states": 21,
+  "exodus_time_values": "1.0 .. 21.0 (iterations 0 .. 20)",
+  "nodal_fields": [
+   "control",
+   "topology"
+  ]
+ },
+ "restart_input_read_by_stage2": {
+  "path": "outputs/stage2/restart_input.exo",
+  "sha256": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+  "identical_to_checkpoint": true
+ },
+ "restart_settings": {
+  "deck_keywords": {
+   "initial_guess_file_name": "restart_input.exo",
+   "initial_guess_field_name": "control",
+   "restart_iteration": 21
+  },
+  "generated_config": "outputs/stage2/generated_config/engine_operations.xml: InitializeField Method FromFieldOnInputMesh, Name restart_input.exo, VariableName control, Iteration 21; PlatoMainOutput RestartFieldName control",
+  "field_used": "control (raw design variable), not the filtered topology field",
+  "saved_state_used": "Stage-1 iteration 20 = 21st (last) saved state = Exodus time step 21 (time value 21.0); restart_iteration is interpreted by the engine as the 1-based Exodus time step index, confirmed by the objective and field comparisons below"
+ },
+ "objective_comparison": {
+  "stage1_iteration20_compliance": 236004.0,
+  "stage1_iteration19_compliance": 238839.4,
+  "stage2_iteration0_compliance": 236004.0,
+  "stage1_iteration20_norm_gradient": 11915.37,
+  "stage2_iteration0_norm_gradient": 11915.37,
+  "stage1_iteration20_constraint_H1": 3.964884e-13,
+  "stage2_iteration0_constraint_H1": 3.964884e-13,
+  "relative_difference_first_stage2_vs_last_stage1": 0.0,
+  "equals_stage1_iteration20": true,
+  "sources": [
+   "outputs/stage1/morphorm_oc_optimizer_diagnostics.txt",
+   "outputs/stage2/morphorm_oc_optimizer_diagnostics.txt",
+   "work/verify/stage2_diag.json (diag_summary.py --compare-first-to 2.360040e+05)"
+  ]
+ },
+ "field_comparison": {
+  "method": "work/verify/compare_restart_fields.py: Stage-1 checkpoint last state vs Stage-2 engine_output.exo first state, per nodal field",
+  "control_max_abs_diff": 0.0,
+  "control_nodes_differing": 0,
+  "control_closest_stage1_iteration": 20,
+  "control_max_abs_diff_vs_stage1_iteration19": 0.20000000000000007,
+  "topology_max_abs_diff": 0.0,
+  "topology_closest_stage1_iteration": 20,
+  "record": "work/verify/stage2_restart_field_comparison.json"
+ },
+ "iteration_counts": {
+  "stage1": "iterations 0..20 (21 rows), stopped at max_iterations 20",
+  "stage2": "local iterations 0..40 (41 rows), stopped at max_iterations 40 = overall iteration 60",
+  "stage2_final_compliance": 213558.4,
+  "stage2_final_constraint_H1": -7.552292e-14
+ },
+ "slurm_jobs": {
+  "stage1": 16237845,
+  "stage2": 16238332
+ },
+ "conclusion": "Seamless restart: Stage 2 started from the Stage-1 iteration-20 control field (bit-identical) and its first evaluated compliance equals the Stage-1 iteration-20 compliance exactly. No restart correction was needed."
+}

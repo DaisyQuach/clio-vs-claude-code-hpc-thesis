@@ -1,0 +1,140 @@
+RLM session initializedWARNING: No RLM logins were valid: -1
+Looking at product: Coreform Cubit
+status: ValidStudent
+Logged in via encrypted credentialsLogged in with new licensing
+
+                   CCCCC    UU   UU   BBBBBB    IIII   TTTTTT
+                  CC   CC   UU   UU   BB   BB    II      TT
+                  CC        UU   UU   BB   BB    II      TT
+                  CC        UU   UU   BBBBBB     II      TT
+                  CC        UU   UU   BB   BB    II      TT
+                  CC   CC   UU   UU   BB   BB    II      TT
+                   CCCCC     UUUUU    BBBBBB    IIII     TT  R
+
+                            MESH GENERATION TOOLKIT        
+                                      FOR                   
+                   PRE-PROCESSING OF FINITE ELEMENT ANALYSES
+
+               User community forum: https://forum.coreform.com
+
+
+                 Coreform Cubit 2026.8 64-Bit Build fdca55e4
+                               VTK Version 9.4.2
+                              ACIS Version 36.0.1.0
+                            Exodus API Version 8.25
+                            MeshGems Version 2026 1.0.0
+               Coreform Cubit Copyright 2013-2026 Coreform Inc.
+              Revised Fri Aug 21 12:16:25 2026 -0600
+                        Running 10/12/2026 11:14:49 PM
+
+                 CUBIT includes MeshGems by Spatial Inc.
+                  CUBIT includes ACIS software by Spatial Inc.
+                  CUBIT includes LP Solve by Michel Berkelaar.
+                       CUBIT includes VTK by Kitware Inc.
+           CUBIT includes Exodus II, based on netCDF by UCAR/Unidata.
+            CUBIT includes VERDICT, by Sandia National Laboratories.
+          CUBIT includes MESQUITE, by Argonne National Laboratory and
+                         Sandia National Laboratories.
+
+Machine type is Linux 4.18.0-553.170.1.el8_10.x86_64
+Machine name is notch272
+Working Directory: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/clio/trial_04/work/mesh/
+
+No Graphics System
+
+********** Now playing mesh.jou **********
+
+Finished Command: reset
+
+Successfully created brick volume 1 
+Finished Command: brick x 2 y 1 z 0.5
+
+Finished Command: volume 1 move x 1 y 0.5 z 0.25
+
+Finished Command: volume 1 size 0.041666666666667
+
+Finished Command: volume 1 scheme map
+
+Matching intervals successful.
+Morph mesher is not enabled in this Cubit build.
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Volume 1 meshing completed using scheme: map
+Generated 13824 hexes
+Finished Command: mesh volume 1
+
+Higher order nodes:
+Adding nodes 
+0   |    |    |    |    50   |    |    |    |  100
+
+Added Volume 1 to block 1
+Finished Command: block 1 add volume 1
+
+Set name of block 1 to "block_1"
+Finished Command: block 1 name "block_1"
+
+Finished Command: block 1 element type HEX8
+
+Finished Command: nodeset 1 add node with x_coord < 1e-06
+
+Finished Command: nodeset 1 name "ns_fix"
+
+Finished Command: nodeset 2 add node with x_coord > 1.999999 and y_coord < 1e-06
+
+Finished Command: nodeset 2 name "ns_load"
+
+Added Surface 1 to sideset 1
+Finished Command: sideset 1 add surface with z_coord > 0.499999
+
+Set name of sideset 1 to "ss_sym"
+Finished Command: sideset 1 name "ss_sym"
+
+
+Using ExodusII API version 8.25 and DB version 8.25 to export "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/clio/trial_04/work/mesh/mesh.exo".
+Writing Exodus file
+0   |    |    |    |    50   |    |    |    |  100
+**************************************************
+
+
+Executive Exodus summary:
+  Number of dimensions     = 3
+  Number of element blocks = 1
+  Number of sidesets       = 1
+  Number of nodesets       = 2
+  Number of bc sets        = 1
+  Number of elements       = 13824
+  Number of nodes          = 15925
+
+Finished writing /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/clio/trial_04/work/mesh/mesh.exo
+Finished Command: export mesh "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/clio/trial_04/work/mesh/mesh.exo" dimension 3 overwrite
+
+Higher order nodes:
+Adding nodes 
+0   |    |    |    |    50   |    |    |    |  100
+
+...deleting 13824 hexes from database...
+...deleting 4032 faces from database...
+...deleting 8064 edges from database...
+...deleting 15925 nodes from database...

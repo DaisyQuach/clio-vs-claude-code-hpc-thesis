@@ -1,0 +1,669 @@
+[2026-10-13T05:10:55Z] fable check: OK
+[2026-10-13T05:10:55Z] E1 trial 04: start
+[2026-10-13T05:10:55Z] == E1-example8-clio-04 (counted) ==
+PASS   baseline_preflight                 ../preflight.sh --experiment e1-example8
+PASS   clio_install                       /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime (bin/clio, bin/clio-kit for CLIO_BIN_DIR)
+PASS   clio_version                       clio-agent 0.9.5b5.post2
+INFO   claude_agent_sdk                   0.2.164 (bundled CLI 2.1.292; the deployment puts the pinned CLI first on PATH instead)
+PASS   claude_cli_pin                     /uufs/chpc.utah.edu/common/home/u1282901/.local/share/claude/versions/2.1.295 = 2.1.295 (same binary as the baseline)
+PASS   credentials                        copied into each session's isolated CLAUDE_CONFIG_DIR at launch
+PASS   decisions                          no placeholders in clio_trial_config.env
+PASS   blueprint                          variant from /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/automation/clio/blueprints/factorio-flat-0.5.0
+PASS   CLIO_CLAUDE_CODE_STREAM_IDLE_TTL_S 3600
+PASS   CLIO_MCP_CALL_TIMEOUT_S            3600
+PASS   CLIO_GACT_TURN_TIMEOUT_S           5400
+PASS   CLIO_MAX_NUDGES                    0
+PASS   watchdog_above_tool_timeout        5400 > 3600
+PASS   effort_parity                      no effort sent (Claude Code CLI default, as the baseline)
+PASS   prompt_parity                      one user message per session (as the baseline)
+[2026-10-13T05:11:08Z] CLIO preflight: PASS
+PASS      manifest_identity                        E1-example8-clio-04 (e1-example8)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX8-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  task_prompt.md present
+PASS      status_planned                           status: planned
+PASS      empty_work                               work/ contains only .gitkeep
+PASS      empty_jobs                               jobs/ contains only .gitkeep
+PASS      empty_logs                               logs/ contains only .gitkeep
+PASS      empty_outputs                            outputs/ contains only .gitkeep
+PASS      null_started_utc                         started_utc: null
+PASS      null_finished_utc                        finished_utc: null
+PASS      null_agent_session_ids                   agent_session_ids: null
+PASS      null_workflow_job_ids                    workflow_job_ids: null
+PASS      null_scoring_decision                    scoring_decision: null
+PASS      null_curation_include_in_analysis        curation_include_in_analysis: null
+PASS      no_prior_outputs                         no meshes/decks/job scripts in the packet
+
+packet verification (planned): verified  fails=0 ambiguous=0
+[2026-10-13T05:11:10Z] submitting agent-host job for E1-example8-clio-04/session_main (sbatch --wait)
+session sess_66431bad4a59 rc=0 end=finished_idle timeout_hit=false cli=2.1.295
+[2026-10-13T05:38:03Z] copied session evidence: session_main
+[2026-10-13T05:38:06Z] evidence collected for E1-example8-clio-04: sessions=sess_66431bad4a59 workflow_jobs=16230233 agent_host_jobs=16229281
+[2026-10-13T05:38:13Z] copied CLIO records: session_main
+[2026-10-13T05:38:17Z] CLIO evidence collected for E1-example8-clio-04: clio sessions=sess_66431bad4a59 cli=2.1.295 blueprint=factorio-flat@0.5.0
+PASS      manifest_identity                        E1-example8-clio-04 (e1-example8)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX8-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  task_prompt.md present
+PASS      deliverables                             all 13 locked deliverables present
+PASS      outputs_sha256                           outputs/SHA256SUMS.txt verifies
+PASS      job_ids                                  workflow job ids: 16230233 
+PASS      sacct_collected                          logs/slurm_sacct.psv present
+PASS      session_records                          1 session record(s) as required
+PASS      distinct_session_ids                     1 distinct session id(s)
+PASS      no_resume                                no resume/continue/fork in any launch
+PASS      isolated_config                          each session had its own CLAUDE_CONFIG_DIR
+PASS      pinned_session_main                      executable 2.1.295
+PASS      exit_session_main                        rc=0, no timeout
+PASS      boundary_audit                           no restricted paths mentioned in session transcripts
+
+packet verification (completed): verified  fails=0 ambiguous=0
+PASS      fresh_deployment_per_session             1 session(s), 1 distinct deployment dirs
+PASS      model_session_main                       claude_code/claude-fable-5-1
+PASS      approval_session_main                    bypass
+PASS      effort_session_main                      default
+PASS      blueprint_session_main                   factorio-flat@0.5.0
+PASS      claude_cli_session_main                  2.1.295
+PASS      clio_agent_session_main                  0.9.5b5.post2
+PASS      user_messages_session_main               1 (prompt + 0 nudge(s); limit 0)
+PASS      end_session_main                         finished_idle
+PASS      usage_session_main                       {"api_calls":25,"cost":5.08,"resends":0,"reset_reasons":{"first_call":1}}
+PASS      boundary_audit_clio_session_main         no restricted paths in the CLIO exports
+
+CLIO supplement verification: verified  fails=0 ambiguous=0
+[2026-10-13T05:38:20Z] E1-example8-clio-04 finished: status=completed_unscored (launch rc=0, verification rc=0, CLIO supplement rc=0). Scientific scoring is a separate researcher-only step.
+[2026-10-13T05:38:20Z] e1 trial 04: runner rc=0, manifest status: completed_unscored
+E1-example8-clio-04: accepted
+  [accepted] all predeclared checks passed within accept tolerances against the accepted reference
+[2026-10-13T05:38:38Z] scored E1-example8-clio-04: accepted (record: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/scores/E1-example8-clio-04/score.json)
+[2026-10-13T05:38:38Z] e1 trial 04 scored rc=0
+[2026-10-13T05:38:53Z] fable check: OK
+[2026-10-13T05:38:53Z] E1 trial 05: start
+[2026-10-13T05:38:53Z] == E1-example8-clio-05 (counted) ==
+PASS   baseline_preflight                 ../preflight.sh --experiment e1-example8
+PASS   clio_install                       /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime (bin/clio, bin/clio-kit for CLIO_BIN_DIR)
+PASS   clio_version                       clio-agent 0.9.5b5.post2
+INFO   claude_agent_sdk                   0.2.164 (bundled CLI 2.1.292; the deployment puts the pinned CLI first on PATH instead)
+PASS   claude_cli_pin                     /uufs/chpc.utah.edu/common/home/u1282901/.local/share/claude/versions/2.1.295 = 2.1.295 (same binary as the baseline)
+PASS   credentials                        copied into each session's isolated CLAUDE_CONFIG_DIR at launch
+PASS   decisions                          no placeholders in clio_trial_config.env
+PASS   blueprint                          variant from /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/automation/clio/blueprints/factorio-flat-0.5.0
+PASS   CLIO_CLAUDE_CODE_STREAM_IDLE_TTL_S 3600
+PASS   CLIO_MCP_CALL_TIMEOUT_S            3600
+PASS   CLIO_GACT_TURN_TIMEOUT_S           5400
+PASS   CLIO_MAX_NUDGES                    0
+PASS   watchdog_above_tool_timeout        5400 > 3600
+PASS   effort_parity                      no effort sent (Claude Code CLI default, as the baseline)
+PASS   prompt_parity                      one user message per session (as the baseline)
+[2026-10-13T05:39:06Z] CLIO preflight: PASS
+PASS      manifest_identity                        E1-example8-clio-05 (e1-example8)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX8-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  task_prompt.md present
+PASS      status_planned                           status: planned
+PASS      empty_work                               work/ contains only .gitkeep
+PASS      empty_jobs                               jobs/ contains only .gitkeep
+PASS      empty_logs                               logs/ contains only .gitkeep
+PASS      empty_outputs                            outputs/ contains only .gitkeep
+PASS      null_started_utc                         started_utc: null
+PASS      null_finished_utc                        finished_utc: null
+PASS      null_agent_session_ids                   agent_session_ids: null
+PASS      null_workflow_job_ids                    workflow_job_ids: null
+PASS      null_scoring_decision                    scoring_decision: null
+PASS      null_curation_include_in_analysis        curation_include_in_analysis: null
+PASS      no_prior_outputs                         no meshes/decks/job scripts in the packet
+
+packet verification (planned): verified  fails=0 ambiguous=0
+[2026-10-13T05:39:07Z] submitting agent-host job for E1-example8-clio-05/session_main (sbatch --wait)
+session sess_e916e7cfaeb3 rc=0 end=finished_idle timeout_hit=false cli=2.1.295
+[2026-10-13T06:10:48Z] copied session evidence: session_main
+[2026-10-13T06:10:52Z] evidence collected for E1-example8-clio-05: sessions=sess_e916e7cfaeb3 workflow_jobs=16234356 agent_host_jobs=16233778
+[2026-10-13T06:11:01Z] copied CLIO records: session_main
+[2026-10-13T06:11:09Z] CLIO evidence collected for E1-example8-clio-05: clio sessions=sess_e916e7cfaeb3 cli=2.1.295 blueprint=factorio-flat@0.5.0
+PASS      manifest_identity                        E1-example8-clio-05 (e1-example8)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX8-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  task_prompt.md present
+PASS      deliverables                             all 13 locked deliverables present
+PASS      outputs_sha256                           outputs/SHA256SUMS.txt verifies
+PASS      job_ids                                  workflow job ids: 16234356 
+PASS      sacct_collected                          logs/slurm_sacct.psv present
+PASS      session_records                          1 session record(s) as required
+PASS      distinct_session_ids                     1 distinct session id(s)
+PASS      no_resume                                no resume/continue/fork in any launch
+PASS      isolated_config                          each session had its own CLAUDE_CONFIG_DIR
+PASS      pinned_session_main                      executable 2.1.295
+PASS      exit_session_main                        rc=0, no timeout
+PASS      boundary_audit                           no restricted paths mentioned in session transcripts
+
+packet verification (completed): verified  fails=0 ambiguous=0
+PASS      fresh_deployment_per_session             1 session(s), 1 distinct deployment dirs
+PASS      model_session_main                       claude_code/claude-fable-5-1
+PASS      approval_session_main                    bypass
+PASS      effort_session_main                      default
+PASS      blueprint_session_main                   factorio-flat@0.5.0
+PASS      claude_cli_session_main                  2.1.295
+PASS      clio_agent_session_main                  0.9.5b5.post2
+PASS      user_messages_session_main               1 (prompt + 0 nudge(s); limit 0)
+PASS      end_session_main                         finished_idle
+PASS      usage_session_main                       {"api_calls":36,"cost":7.3,"resends":0,"reset_reasons":{"first_call":1}}
+PASS      boundary_audit_clio_session_main         no restricted paths in the CLIO exports
+
+CLIO supplement verification: verified  fails=0 ambiguous=0
+[2026-10-13T06:11:14Z] E1-example8-clio-05 finished: status=completed_unscored (launch rc=0, verification rc=0, CLIO supplement rc=0). Scientific scoring is a separate researcher-only step.
+[2026-10-13T06:11:14Z] e1 trial 05: runner rc=0, manifest status: completed_unscored
+E1-example8-clio-05: accepted
+  [accepted] all predeclared checks passed within accept tolerances against the accepted reference
+[2026-10-13T06:11:35Z] scored E1-example8-clio-05: accepted (record: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/scores/E1-example8-clio-05/score.json)
+[2026-10-13T06:11:35Z] e1 trial 05 scored rc=0
+[2026-10-13T06:11:42Z] fable check: OK
+[2026-10-13T06:11:42Z] E2 trial 01: start
+[2026-10-13T06:11:42Z] == E2-example16-clio-01 (counted) ==
+PASS   baseline_preflight                 ../preflight.sh --experiment e2-example16
+PASS   clio_install                       /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime (bin/clio, bin/clio-kit for CLIO_BIN_DIR)
+PASS   clio_version                       clio-agent 0.9.5b5.post2
+INFO   claude_agent_sdk                   0.2.164 (bundled CLI 2.1.292; the deployment puts the pinned CLI first on PATH instead)
+PASS   claude_cli_pin                     /uufs/chpc.utah.edu/common/home/u1282901/.local/share/claude/versions/2.1.295 = 2.1.295 (same binary as the baseline)
+PASS   credentials                        copied into each session's isolated CLAUDE_CONFIG_DIR at launch
+PASS   decisions                          no placeholders in clio_trial_config.env
+PASS   blueprint                          variant from /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/automation/clio/blueprints/factorio-flat-0.5.0
+PASS   CLIO_CLAUDE_CODE_STREAM_IDLE_TTL_S 3600
+PASS   CLIO_MCP_CALL_TIMEOUT_S            3600
+PASS   CLIO_GACT_TURN_TIMEOUT_S           5400
+PASS   CLIO_MAX_NUDGES                    0
+PASS   watchdog_above_tool_timeout        5400 > 3600
+PASS   effort_parity                      no effort sent (Claude Code CLI default, as the baseline)
+PASS   prompt_parity                      one user message per session (as the baseline)
+[2026-10-13T06:11:57Z] CLIO preflight: PASS
+PASS      manifest_identity                        E2-example16-clio-01 (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+PASS      status_planned                           status: planned
+PASS      empty_work                               work/ contains only .gitkeep
+PASS      empty_jobs                               jobs/ contains only .gitkeep
+PASS      empty_logs                               logs/ contains only .gitkeep
+PASS      empty_outputs                            outputs/ contains only .gitkeep
+PASS      null_started_utc                         started_utc: null
+PASS      null_finished_utc                        finished_utc: null
+PASS      null_agent_session_ids                   agent_session_ids: null
+PASS      null_workflow_job_ids                    workflow_job_ids: null
+PASS      null_scoring_decision                    scoring_decision: null
+PASS      null_curation_include_in_analysis        curation_include_in_analysis: null
+PASS      no_prior_outputs                         no meshes/decks/job scripts in the packet
+
+packet verification (planned): verified  fails=0 ambiguous=0
+[2026-10-13T06:11:59Z] submitting agent-host job for E2-example16-clio-01/session_a (sbatch --wait)
+session sess_34437e0d6daa rc=0 end=finished_idle timeout_hit=false cli=2.1.295
+[2026-10-13T06:42:02Z] Session A ended rc=0; running interlock
+[2026-10-13T06:42:24Z] submitting agent-host job for E2-example16-clio-01/session_b (sbatch --wait)
+session sess_1d90719127f9 rc=0 end=finished_idle timeout_hit=false cli=2.1.295
+[2026-10-13T07:16:12Z] copied session evidence: session_a
+[2026-10-13T07:16:12Z] copied session evidence: session_b
+[2026-10-13T07:16:18Z] evidence collected for E2-example16-clio-01: sessions=sess_34437e0d6daa,sess_1d90719127f9 workflow_jobs=16236766,16237166 agent_host_jobs=16236715,16237101
+[2026-10-13T07:16:24Z] copied CLIO records: session_a
+[2026-10-13T07:16:37Z] copied CLIO records: session_b
+[2026-10-13T07:16:47Z] CLIO evidence collected for E2-example16-clio-01: clio sessions=sess_34437e0d6daa,sess_1d90719127f9 cli=2.1.295 blueprint=factorio-flat@0.5.0
+PASS      manifest_identity                        E2-example16-clio-01 (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+PASS      deliverables                             all 19 locked deliverables present
+PASS      outputs_sha256                           outputs/SHA256SUMS.txt verifies
+PASS      job_ids                                  workflow job ids: 16236766 16237166 
+PASS      sacct_collected                          logs/slurm_sacct.psv present
+PASS      session_records                          2 session record(s) as required
+PASS      distinct_session_ids                     2 distinct session id(s)
+PASS      no_resume                                no resume/continue/fork in any launch
+PASS      isolated_config                          each session had its own CLAUDE_CONFIG_DIR
+PASS      pinned_session_a                         executable 2.1.295
+PASS      pinned_session_b                         executable 2.1.295
+PASS      exit_session_a                           rc=0, no timeout
+PASS      exit_session_b                           rc=0, no timeout
+PASS      boundary_audit                           no restricted paths mentioned in session transcripts
+PASS      session_order                            session A ended 2026-10-13T06:41:32Z before session B started 2026-10-13T06:43:02Z
+PASS      stage2_after_a                           stage-2 deck written after session A ended
+
+packet verification (completed): verified  fails=0 ambiguous=0
+PASS      fresh_deployment_per_session             2 session(s), 2 distinct deployment dirs
+PASS      model_session_a                          claude_code/claude-fable-5-1
+PASS      approval_session_a                       bypass
+PASS      effort_session_a                         default
+PASS      blueprint_session_a                      factorio-flat@0.5.0
+PASS      claude_cli_session_a                     2.1.295
+PASS      clio_agent_session_a                     0.9.5b5.post2
+PASS      user_messages_session_a                  1 (prompt + 0 nudge(s); limit 0)
+PASS      end_session_a                            finished_idle
+PASS      usage_session_a                          {"api_calls":32,"cost":6.39,"resends":0,"reset_reasons":{"first_call":1}}
+PASS      boundary_audit_clio_session_a            no restricted paths in the CLIO exports
+PASS      model_session_b                          claude_code/claude-fable-5-1
+PASS      approval_session_b                       bypass
+PASS      effort_session_b                         default
+PASS      blueprint_session_b                      factorio-flat@0.5.0
+PASS      claude_cli_session_b                     2.1.295
+PASS      clio_agent_session_b                     0.9.5b5.post2
+PASS      user_messages_session_b                  1 (prompt + 0 nudge(s); limit 0)
+PASS      end_session_b                            finished_idle
+PASS      usage_session_b                          {"api_calls":21,"cost":4.65,"resends":0,"reset_reasons":{"first_call":1}}
+PASS      boundary_audit_clio_session_b            no restricted paths in the CLIO exports
+
+CLIO supplement verification: verified  fails=0 ambiguous=0
+[2026-10-13T07:16:55Z] E2-example16-clio-01 finished: status=completed_unscored (Session B rc=0, verification rc=0, CLIO supplement rc=0). Scientific scoring is a separate researcher-only step.
+[2026-10-13T07:16:55Z] e2 trial 01: runner rc=0, manifest status: completed_unscored
+E2-example16-clio-01: accepted
+  [accepted] all predeclared checks passed within accept tolerances against the accepted reference
+[2026-10-13T07:17:18Z] scored E2-example16-clio-01: accepted (record: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/scores/E2-example16-clio-01/score.json)
+[2026-10-13T07:17:18Z] e2 trial 01 scored rc=0
+[2026-10-13T07:18:03Z] fable check: OK
+[2026-10-13T07:18:03Z] E2 trial 02: start
+[2026-10-13T07:18:03Z] == E2-example16-clio-02 (counted) ==
+PASS   baseline_preflight                 ../preflight.sh --experiment e2-example16
+PASS   clio_install                       /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime (bin/clio, bin/clio-kit for CLIO_BIN_DIR)
+PASS   clio_version                       clio-agent 0.9.5b5.post2
+INFO   claude_agent_sdk                   0.2.164 (bundled CLI 2.1.292; the deployment puts the pinned CLI first on PATH instead)
+PASS   claude_cli_pin                     /uufs/chpc.utah.edu/common/home/u1282901/.local/share/claude/versions/2.1.295 = 2.1.295 (same binary as the baseline)
+PASS   credentials                        copied into each session's isolated CLAUDE_CONFIG_DIR at launch
+PASS   decisions                          no placeholders in clio_trial_config.env
+PASS   blueprint                          variant from /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/automation/clio/blueprints/factorio-flat-0.5.0
+PASS   CLIO_CLAUDE_CODE_STREAM_IDLE_TTL_S 3600
+PASS   CLIO_MCP_CALL_TIMEOUT_S            3600
+PASS   CLIO_GACT_TURN_TIMEOUT_S           5400
+PASS   CLIO_MAX_NUDGES                    0
+PASS   watchdog_above_tool_timeout        5400 > 3600
+PASS   effort_parity                      no effort sent (Claude Code CLI default, as the baseline)
+PASS   prompt_parity                      one user message per session (as the baseline)
+[2026-10-13T07:18:20Z] CLIO preflight: PASS
+PASS      manifest_identity                        E2-example16-clio-02 (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+PASS      status_planned                           status: planned
+PASS      empty_work                               work/ contains only .gitkeep
+PASS      empty_jobs                               jobs/ contains only .gitkeep
+PASS      empty_logs                               logs/ contains only .gitkeep
+PASS      empty_outputs                            outputs/ contains only .gitkeep
+PASS      null_started_utc                         started_utc: null
+PASS      null_finished_utc                        finished_utc: null
+PASS      null_agent_session_ids                   agent_session_ids: null
+PASS      null_workflow_job_ids                    workflow_job_ids: null
+PASS      null_scoring_decision                    scoring_decision: null
+PASS      null_curation_include_in_analysis        curation_include_in_analysis: null
+PASS      no_prior_outputs                         no meshes/decks/job scripts in the packet
+
+packet verification (planned): verified  fails=0 ambiguous=0
+[2026-10-13T07:18:22Z] submitting agent-host job for E2-example16-clio-02/session_a (sbatch --wait)
+session sess_89924455560a rc=0 end=finished_idle timeout_hit=false cli=2.1.295
+[2026-10-13T07:46:49Z] Session A ended rc=0; running interlock
+[2026-10-13T07:47:10Z] submitting agent-host job for E2-example16-clio-02/session_b (sbatch --wait)
+session sess_9c103f9445e8 rc=0 end=finished_idle timeout_hit=false cli=2.1.295
+[2026-10-13T08:29:30Z] copied session evidence: session_a
+[2026-10-13T08:29:30Z] copied session evidence: session_b
+[2026-10-13T08:29:37Z] evidence collected for E2-example16-clio-02: sessions=sess_89924455560a,sess_9c103f9445e8 workflow_jobs=16237845,16238332 agent_host_jobs=16237673,16238295
+[2026-10-13T08:29:43Z] copied CLIO records: session_a
+[2026-10-13T08:29:54Z] copied CLIO records: session_b
+[2026-10-13T08:30:02Z] CLIO evidence collected for E2-example16-clio-02: clio sessions=sess_89924455560a,sess_9c103f9445e8 cli=2.1.295 blueprint=factorio-flat@0.5.0
+PASS      manifest_identity                        E2-example16-clio-02 (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+PASS      deliverables                             all 19 locked deliverables present
+PASS      outputs_sha256                           outputs/SHA256SUMS.txt verifies
+PASS      job_ids                                  workflow job ids: 16237845 16238332 
+PASS      sacct_collected                          logs/slurm_sacct.psv present
+PASS      session_records                          2 session record(s) as required
+PASS      distinct_session_ids                     2 distinct session id(s)
+PASS      no_resume                                no resume/continue/fork in any launch
+PASS      isolated_config                          each session had its own CLAUDE_CONFIG_DIR
+PASS      pinned_session_a                         executable 2.1.295
+PASS      pinned_session_b                         executable 2.1.295
+PASS      exit_session_a                           rc=0, no timeout
+PASS      exit_session_b                           rc=0, no timeout
+PASS      boundary_audit                           no restricted paths mentioned in session transcripts
+PASS      session_order                            session A ended 2026-10-13T07:46:21Z before session B started 2026-10-13T07:48:14Z
+PASS      stage2_after_a                           stage-2 deck written after session A ended
+
+packet verification (completed): verified  fails=0 ambiguous=0
+PASS      fresh_deployment_per_session             2 session(s), 2 distinct deployment dirs
+PASS      model_session_a                          claude_code/claude-fable-5-1
+PASS      approval_session_a                       bypass
+PASS      effort_session_a                         default
+PASS      blueprint_session_a                      factorio-flat@0.5.0
+PASS      claude_cli_session_a                     2.1.295
+PASS      clio_agent_session_a                     0.9.5b5.post2
+PASS      user_messages_session_a                  1 (prompt + 0 nudge(s); limit 0)
+PASS      end_session_a                            finished_idle
+PASS      usage_session_a                          {"api_calls":27,"cost":5.84,"resends":0,"reset_reasons":{"first_call":1}}
+PASS      boundary_audit_clio_session_a            no restricted paths in the CLIO exports
+PASS      model_session_b                          claude_code/claude-fable-5-1
+PASS      approval_session_b                       bypass
+PASS      effort_session_b                         default
+PASS      blueprint_session_b                      factorio-flat@0.5.0
+PASS      claude_cli_session_b                     2.1.295
+PASS      clio_agent_session_b                     0.9.5b5.post2
+PASS      user_messages_session_b                  1 (prompt + 0 nudge(s); limit 0)
+PASS      end_session_b                            finished_idle
+PASS      usage_session_b                          {"api_calls":22,"cost":4.34,"resends":0,"reset_reasons":{"first_call":1}}
+PASS      boundary_audit_clio_session_b            no restricted paths in the CLIO exports
+
+CLIO supplement verification: verified  fails=0 ambiguous=0
+[2026-10-13T08:30:11Z] E2-example16-clio-02 finished: status=completed_unscored (Session B rc=0, verification rc=0, CLIO supplement rc=0). Scientific scoring is a separate researcher-only step.
+[2026-10-13T08:30:11Z] e2 trial 02: runner rc=0, manifest status: completed_unscored
+E2-example16-clio-02: accepted
+  [accepted] all predeclared checks passed within accept tolerances against the accepted reference
+[2026-10-13T08:30:28Z] scored E2-example16-clio-02: accepted (record: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/scores/E2-example16-clio-02/score.json)
+[2026-10-13T08:30:28Z] e2 trial 02 scored rc=0
+[2026-10-13T08:30:38Z] fable check: OK
+[2026-10-13T08:30:38Z] E2 trial 03: start
+[2026-10-13T08:30:38Z] == E2-example16-clio-03 (counted) ==
+PASS   baseline_preflight                 ../preflight.sh --experiment e2-example16
+PASS   clio_install                       /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime (bin/clio, bin/clio-kit for CLIO_BIN_DIR)
+PASS   clio_version                       clio-agent 0.9.5b5.post2
+INFO   claude_agent_sdk                   0.2.164 (bundled CLI 2.1.292; the deployment puts the pinned CLI first on PATH instead)
+PASS   claude_cli_pin                     /uufs/chpc.utah.edu/common/home/u1282901/.local/share/claude/versions/2.1.295 = 2.1.295 (same binary as the baseline)
+PASS   credentials                        copied into each session's isolated CLAUDE_CONFIG_DIR at launch
+PASS   decisions                          no placeholders in clio_trial_config.env
+PASS   blueprint                          variant from /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/automation/clio/blueprints/factorio-flat-0.5.0
+PASS   CLIO_CLAUDE_CODE_STREAM_IDLE_TTL_S 3600
+PASS   CLIO_MCP_CALL_TIMEOUT_S            3600
+PASS   CLIO_GACT_TURN_TIMEOUT_S           5400
+PASS   CLIO_MAX_NUDGES                    0
+PASS   watchdog_above_tool_timeout        5400 > 3600
+PASS   effort_parity                      no effort sent (Claude Code CLI default, as the baseline)
+PASS   prompt_parity                      one user message per session (as the baseline)
+[2026-10-13T08:30:50Z] CLIO preflight: PASS
+PASS      manifest_identity                        E2-example16-clio-03 (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+PASS      status_planned                           status: planned
+PASS      empty_work                               work/ contains only .gitkeep
+PASS      empty_jobs                               jobs/ contains only .gitkeep
+PASS      empty_logs                               logs/ contains only .gitkeep
+PASS      empty_outputs                            outputs/ contains only .gitkeep
+PASS      null_started_utc                         started_utc: null
+PASS      null_finished_utc                        finished_utc: null
+PASS      null_agent_session_ids                   agent_session_ids: null
+PASS      null_workflow_job_ids                    workflow_job_ids: null
+PASS      null_scoring_decision                    scoring_decision: null
+PASS      null_curation_include_in_analysis        curation_include_in_analysis: null
+PASS      no_prior_outputs                         no meshes/decks/job scripts in the packet
+
+packet verification (planned): verified  fails=0 ambiguous=0
+[2026-10-13T08:30:52Z] submitting agent-host job for E2-example16-clio-03/session_a (sbatch --wait)
+session sess_89573e259756 rc=0 end=finished_idle timeout_hit=false cli=2.1.295
+[2026-10-13T08:52:23Z] Session A ended rc=0; running interlock
+[2026-10-13T08:52:44Z] submitting agent-host job for E2-example16-clio-03/session_b (sbatch --wait)
+session sess_457f4eca7c29 rc=0 end=finished_idle timeout_hit=false cli=2.1.295
+[2026-10-13T09:22:16Z] copied session evidence: session_a
+[2026-10-13T09:22:16Z] copied session evidence: session_b
+[2026-10-13T09:22:22Z] evidence collected for E2-example16-clio-03: sessions=sess_89573e259756,sess_457f4eca7c29 workflow_jobs=16239127,16239273 agent_host_jobs=16239048,16239268
+[2026-10-13T09:22:27Z] copied CLIO records: session_a
+[2026-10-13T09:22:39Z] copied CLIO records: session_b
+[2026-10-13T09:22:48Z] CLIO evidence collected for E2-example16-clio-03: clio sessions=sess_89573e259756,sess_457f4eca7c29 cli=2.1.295 blueprint=factorio-flat@0.5.0
+PASS      manifest_identity                        E2-example16-clio-03 (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+PASS      deliverables                             all 19 locked deliverables present
+PASS      outputs_sha256                           outputs/SHA256SUMS.txt verifies
+PASS      job_ids                                  workflow job ids: 16239127 16239273 
+PASS      sacct_collected                          logs/slurm_sacct.psv present
+PASS      session_records                          2 session record(s) as required
+PASS      distinct_session_ids                     2 distinct session id(s)
+PASS      no_resume                                no resume/continue/fork in any launch
+PASS      isolated_config                          each session had its own CLAUDE_CONFIG_DIR
+PASS      pinned_session_a                         executable 2.1.295
+PASS      pinned_session_b                         executable 2.1.295
+PASS      exit_session_a                           rc=0, no timeout
+PASS      exit_session_b                           rc=0, no timeout
+PASS      boundary_audit                           no restricted paths mentioned in session transcripts
+PASS      session_order                            session A ended 2026-10-13T08:52:10Z before session B started 2026-10-13T08:52:51Z
+PASS      stage2_after_a                           stage-2 deck written after session A ended
+
+packet verification (completed): verified  fails=0 ambiguous=0
+PASS      fresh_deployment_per_session             2 session(s), 2 distinct deployment dirs
+PASS      model_session_a                          claude_code/claude-fable-5-1
+PASS      approval_session_a                       bypass
+PASS      effort_session_a                         default
+PASS      blueprint_session_a                      factorio-flat@0.5.0
+PASS      claude_cli_session_a                     2.1.295
+PASS      clio_agent_session_a                     0.9.5b5.post2
+PASS      user_messages_session_a                  1 (prompt + 0 nudge(s); limit 0)
+PASS      end_session_a                            finished_idle
+PASS      usage_session_a                          {"api_calls":26,"cost":5.91,"resends":0,"reset_reasons":{"first_call":1}}
+PASS      boundary_audit_clio_session_a            no restricted paths in the CLIO exports
+PASS      model_session_b                          claude_code/claude-fable-5-1
+PASS      approval_session_b                       bypass
+PASS      effort_session_b                         default
+PASS      blueprint_session_b                      factorio-flat@0.5.0
+PASS      claude_cli_session_b                     2.1.295
+PASS      clio_agent_session_b                     0.9.5b5.post2
+PASS      user_messages_session_b                  1 (prompt + 0 nudge(s); limit 0)
+PASS      end_session_b                            finished_idle
+PASS      usage_session_b                          {"api_calls":24,"cost":4.71,"resends":0,"reset_reasons":{"first_call":1}}
+PASS      boundary_audit_clio_session_b            no restricted paths in the CLIO exports
+
+CLIO supplement verification: verified  fails=0 ambiguous=0
+[2026-10-13T09:22:55Z] E2-example16-clio-03 finished: status=completed_unscored (Session B rc=0, verification rc=0, CLIO supplement rc=0). Scientific scoring is a separate researcher-only step.
+[2026-10-13T09:22:55Z] e2 trial 03: runner rc=0, manifest status: completed_unscored
+E2-example16-clio-03: accepted
+  [accepted] all predeclared checks passed within accept tolerances against the accepted reference
+[2026-10-13T09:23:14Z] scored E2-example16-clio-03: accepted (record: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/scores/E2-example16-clio-03/score.json)
+[2026-10-13T09:23:14Z] e2 trial 03 scored rc=0
+[2026-10-13T09:23:22Z] fable check: OK
+[2026-10-13T09:23:22Z] E2 trial 04: start
+[2026-10-13T09:23:22Z] == E2-example16-clio-04 (counted) ==
+PASS   baseline_preflight                 ../preflight.sh --experiment e2-example16
+PASS   clio_install                       /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime (bin/clio, bin/clio-kit for CLIO_BIN_DIR)
+PASS   clio_version                       clio-agent 0.9.5b5.post2
+INFO   claude_agent_sdk                   0.2.164 (bundled CLI 2.1.292; the deployment puts the pinned CLI first on PATH instead)
+PASS   claude_cli_pin                     /uufs/chpc.utah.edu/common/home/u1282901/.local/share/claude/versions/2.1.295 = 2.1.295 (same binary as the baseline)
+PASS   credentials                        copied into each session's isolated CLAUDE_CONFIG_DIR at launch
+PASS   decisions                          no placeholders in clio_trial_config.env
+PASS   blueprint                          variant from /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/automation/clio/blueprints/factorio-flat-0.5.0
+PASS   CLIO_CLAUDE_CODE_STREAM_IDLE_TTL_S 3600
+PASS   CLIO_MCP_CALL_TIMEOUT_S            3600
+PASS   CLIO_GACT_TURN_TIMEOUT_S           5400
+PASS   CLIO_MAX_NUDGES                    0
+PASS   watchdog_above_tool_timeout        5400 > 3600
+PASS   effort_parity                      no effort sent (Claude Code CLI default, as the baseline)
+PASS   prompt_parity                      one user message per session (as the baseline)
+[2026-10-13T09:23:37Z] CLIO preflight: PASS
+PASS      manifest_identity                        E2-example16-clio-04 (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+PASS      status_planned                           status: planned
+PASS      empty_work                               work/ contains only .gitkeep
+PASS      empty_jobs                               jobs/ contains only .gitkeep
+PASS      empty_logs                               logs/ contains only .gitkeep
+PASS      empty_outputs                            outputs/ contains only .gitkeep
+PASS      null_started_utc                         started_utc: null
+PASS      null_finished_utc                        finished_utc: null
+PASS      null_agent_session_ids                   agent_session_ids: null
+PASS      null_workflow_job_ids                    workflow_job_ids: null
+PASS      null_scoring_decision                    scoring_decision: null
+PASS      null_curation_include_in_analysis        curation_include_in_analysis: null
+PASS      no_prior_outputs                         no meshes/decks/job scripts in the packet
+
+packet verification (planned): verified  fails=0 ambiguous=0
+[2026-10-13T09:23:39Z] submitting agent-host job for E2-example16-clio-04/session_a (sbatch --wait)
+session sess_87a77e8adf3b rc=0 end=finished_idle timeout_hit=false cli=2.1.295
+[2026-10-13T09:44:38Z] Session A ended rc=0; running interlock
+[2026-10-13T09:44:59Z] submitting agent-host job for E2-example16-clio-04/session_b (sbatch --wait)
+session sess_f55ba5bee831 rc=0 end=finished_idle timeout_hit=false cli=2.1.295
+[2026-10-13T10:16:38Z] copied session evidence: session_a
+[2026-10-13T10:16:39Z] copied session evidence: session_b
+[2026-10-13T10:16:44Z] evidence collected for E2-example16-clio-04: sessions=sess_87a77e8adf3b,sess_f55ba5bee831 workflow_jobs=16239529,16239713 agent_host_jobs=16239476,16239672
+[2026-10-13T10:16:50Z] copied CLIO records: session_a
+[2026-10-13T10:17:02Z] copied CLIO records: session_b
+[2026-10-13T10:17:10Z] CLIO evidence collected for E2-example16-clio-04: clio sessions=sess_87a77e8adf3b,sess_f55ba5bee831 cli=2.1.295 blueprint=factorio-flat@0.5.0
+PASS      manifest_identity                        E2-example16-clio-04 (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+PASS      deliverables                             all 19 locked deliverables present
+PASS      outputs_sha256                           outputs/SHA256SUMS.txt verifies
+PASS      job_ids                                  workflow job ids: 16239529 16239713 
+PASS      sacct_collected                          logs/slurm_sacct.psv present
+PASS      session_records                          2 session record(s) as required
+PASS      distinct_session_ids                     2 distinct session id(s)
+PASS      no_resume                                no resume/continue/fork in any launch
+PASS      isolated_config                          each session had its own CLAUDE_CONFIG_DIR
+PASS      pinned_session_a                         executable 2.1.295
+PASS      pinned_session_b                         executable 2.1.295
+PASS      exit_session_a                           rc=0, no timeout
+PASS      exit_session_b                           rc=0, no timeout
+PASS      boundary_audit                           no restricted paths mentioned in session transcripts
+PASS      session_order                            session A ended 2026-10-13T09:44:06Z before session B started 2026-10-13T09:45:34Z
+PASS      stage2_after_a                           stage-2 deck written after session A ended
+
+packet verification (completed): verified  fails=0 ambiguous=0
+PASS      fresh_deployment_per_session             2 session(s), 2 distinct deployment dirs
+PASS      model_session_a                          claude_code/claude-fable-5-1
+PASS      approval_session_a                       bypass
+PASS      effort_session_a                         default
+PASS      blueprint_session_a                      factorio-flat@0.5.0
+PASS      claude_cli_session_a                     2.1.295
+PASS      clio_agent_session_a                     0.9.5b5.post2
+PASS      user_messages_session_a                  1 (prompt + 0 nudge(s); limit 0)
+PASS      end_session_a                            finished_idle
+PASS      usage_session_a                          {"api_calls":28,"cost":5.11,"resends":0,"reset_reasons":{"first_call":1}}
+PASS      boundary_audit_clio_session_a            no restricted paths in the CLIO exports
+PASS      model_session_b                          claude_code/claude-fable-5-1
+PASS      approval_session_b                       bypass
+PASS      effort_session_b                         default
+PASS      blueprint_session_b                      factorio-flat@0.5.0
+PASS      claude_cli_session_b                     2.1.295
+PASS      clio_agent_session_b                     0.9.5b5.post2
+PASS      user_messages_session_b                  1 (prompt + 0 nudge(s); limit 0)
+PASS      end_session_b                            finished_idle
+PASS      usage_session_b                          {"api_calls":19,"cost":5.26,"resends":0,"reset_reasons":{"first_call":1}}
+PASS      boundary_audit_clio_session_b            no restricted paths in the CLIO exports
+
+CLIO supplement verification: verified  fails=0 ambiguous=0
+[2026-10-13T10:17:19Z] E2-example16-clio-04 finished: status=completed_unscored (Session B rc=0, verification rc=0, CLIO supplement rc=0). Scientific scoring is a separate researcher-only step.
+[2026-10-13T10:17:19Z] e2 trial 04: runner rc=0, manifest status: completed_unscored
+E2-example16-clio-04: accepted
+  [accepted] all predeclared checks passed within accept tolerances against the accepted reference
+[2026-10-13T10:17:40Z] scored E2-example16-clio-04: accepted (record: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/scores/E2-example16-clio-04/score.json)
+[2026-10-13T10:17:40Z] e2 trial 04 scored rc=0
+[2026-10-13T10:17:51Z] fable check: OK
+[2026-10-13T10:17:51Z] E2 trial 05: start
+[2026-10-13T10:17:51Z] == E2-example16-clio-05 (counted) ==
+PASS   baseline_preflight                 ../preflight.sh --experiment e2-example16
+PASS   clio_install                       /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime (bin/clio, bin/clio-kit for CLIO_BIN_DIR)
+PASS   clio_version                       clio-agent 0.9.5b5.post2
+INFO   claude_agent_sdk                   0.2.164 (bundled CLI 2.1.292; the deployment puts the pinned CLI first on PATH instead)
+PASS   claude_cli_pin                     /uufs/chpc.utah.edu/common/home/u1282901/.local/share/claude/versions/2.1.295 = 2.1.295 (same binary as the baseline)
+PASS   credentials                        copied into each session's isolated CLAUDE_CONFIG_DIR at launch
+PASS   decisions                          no placeholders in clio_trial_config.env
+PASS   blueprint                          variant from /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/automation/clio/blueprints/factorio-flat-0.5.0
+PASS   CLIO_CLAUDE_CODE_STREAM_IDLE_TTL_S 3600
+PASS   CLIO_MCP_CALL_TIMEOUT_S            3600
+PASS   CLIO_GACT_TURN_TIMEOUT_S           5400
+PASS   CLIO_MAX_NUDGES                    0
+PASS   watchdog_above_tool_timeout        5400 > 3600
+PASS   effort_parity                      no effort sent (Claude Code CLI default, as the baseline)
+PASS   prompt_parity                      one user message per session (as the baseline)
+[2026-10-13T10:18:05Z] CLIO preflight: PASS
+PASS      manifest_identity                        E2-example16-clio-05 (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+PASS      status_planned                           status: planned
+PASS      empty_work                               work/ contains only .gitkeep
+PASS      empty_jobs                               jobs/ contains only .gitkeep
+PASS      empty_logs                               logs/ contains only .gitkeep
+PASS      empty_outputs                            outputs/ contains only .gitkeep
+PASS      null_started_utc                         started_utc: null
+PASS      null_finished_utc                        finished_utc: null
+PASS      null_agent_session_ids                   agent_session_ids: null
+PASS      null_workflow_job_ids                    workflow_job_ids: null
+PASS      null_scoring_decision                    scoring_decision: null
+PASS      null_curation_include_in_analysis        curation_include_in_analysis: null
+PASS      no_prior_outputs                         no meshes/decks/job scripts in the packet
+
+packet verification (planned): verified  fails=0 ambiguous=0
+[2026-10-13T10:18:07Z] submitting agent-host job for E2-example16-clio-05/session_a (sbatch --wait)
+session sess_12cf308ba19f rc=0 end=finished_idle timeout_hit=false cli=2.1.295
+[2026-10-13T10:46:33Z] Session A ended rc=0; running interlock
+[2026-10-13T10:46:54Z] submitting agent-host job for E2-example16-clio-05/session_b (sbatch --wait)
+session sess_bf946304fcf4 rc=1 end=error timeout_hit=false cli=2.1.295
+[2026-10-13T10:51:21Z] copied session evidence: session_a
+[2026-10-13T10:51:22Z] copied session evidence: session_b
+[2026-10-13T10:51:23Z] evidence collected for E2-example16-clio-05: sessions=sess_12cf308ba19f,sess_bf946304fcf4 workflow_jobs=16240216 agent_host_jobs=16240159,16240337
+[2026-10-13T10:51:29Z] copied CLIO records: session_a
+[2026-10-13T10:51:33Z] copied CLIO records: session_b
+[2026-10-13T10:51:39Z] CLIO evidence collected for E2-example16-clio-05: clio sessions=sess_12cf308ba19f,sess_bf946304fcf4 cli=2.1.295 blueprint=factorio-flat@0.5.0
+PASS      manifest_identity                        E2-example16-clio-05 (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+FAIL      deliverables                             missing: outputs/stage2/input_deck.i outputs/stage2/job_script.sbatch outputs/stage2/generated_config/interface.xml outputs/stage2/generated_config/engine_operations.xml outputs/stage2/restart_input.exo outputs/stage2/morphorm_oc_optimizer_diagnostics.txt outputs/stage2/engine_output.exo outputs/stage2/final_analyze_output.exo
+PASS      outputs_sha256                           outputs/SHA256SUMS.txt verifies
+PASS      job_ids                                  workflow job ids: 16240216 
+PASS      sacct_collected                          logs/slurm_sacct.psv present
+PASS      session_records                          2 session record(s) as required
+PASS      distinct_session_ids                     2 distinct session id(s)
+PASS      no_resume                                no resume/continue/fork in any launch
+PASS      isolated_config                          each session had its own CLAUDE_CONFIG_DIR
+PASS      pinned_session_a                         executable 2.1.295
+PASS      pinned_session_b                         executable 2.1.295
+PASS      exit_session_a                           rc=0, no timeout
+AMBIGUOUS exit_session_b                           rc=1 timeout_hit=false (process exit alone is not success; researcher review)
+PASS      boundary_audit                           no restricted paths mentioned in session transcripts
+PASS      session_order                            session A ended 2026-10-13T10:46:09Z before session B started 2026-10-13T10:47:03Z
+AMBIGUOUS stage2_after_a                           stage-2 deck mtime not after session A end (researcher review)
+
+packet verification (completed): failed  fails=1 ambiguous=2
+PASS      fresh_deployment_per_session             2 session(s), 2 distinct deployment dirs
+PASS      model_session_a                          claude_code/claude-fable-5-1
+PASS      approval_session_a                       bypass
+PASS      effort_session_a                         default
+PASS      blueprint_session_a                      factorio-flat@0.5.0
+PASS      claude_cli_session_a                     2.1.295
+PASS      clio_agent_session_a                     0.9.5b5.post2
+PASS      user_messages_session_a                  1 (prompt + 0 nudge(s); limit 0)
+PASS      end_session_a                            finished_idle
+PASS      usage_session_a                          {"api_calls":32,"cost":5.66,"resends":0,"reset_reasons":{"first_call":1}}
+PASS      boundary_audit_clio_session_a            no restricted paths in the CLIO exports
+PASS      model_session_b                          claude_code/claude-fable-5-1
+PASS      approval_session_b                       bypass
+PASS      effort_session_b                         default
+PASS      blueprint_session_b                      factorio-flat@0.5.0
+PASS      claude_cli_session_b                     2.1.295
+PASS      clio_agent_session_b                     0.9.5b5.post2
+PASS      user_messages_session_b                  1 (prompt + 0 nudge(s); limit 0)
+AMBIGUOUS end_session_b                            error (researcher review)
+PASS      usage_session_b                          {"api_calls":1,"cost":0,"resends":0,"reset_reasons":{"first_call":1}}
+PASS      boundary_audit_clio_session_b            no restricted paths in the CLIO exports
+
+CLIO supplement verification: ambiguous  fails=0 ambiguous=1
+[2026-10-13T10:51:45Z] E2-example16-clio-05 finished: status=failed (Session B rc=1, verification rc=1, CLIO supplement rc=5). Scientific scoring is a separate researcher-only step.
+[2026-10-13T10:51:45Z] e2 trial 05: runner rc=1, manifest status: failed
+[2026-10-13T10:51:45Z] STOP: e2 trial 05 did not complete cleanly (decide under the replacement policy)

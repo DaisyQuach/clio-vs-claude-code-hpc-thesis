@@ -1,0 +1,68 @@
+--- work/candidate_originals/example_07/topology_mech_ex7.i	2026-10-04 00:18:16.622053872 -0600
++++ work/run/input_deck.i	2026-10-10 00:18:17.913297806 -0600
+@@ -2,6 +2,7 @@
+   code engine
+   number_processors 1
+   update_problem true
++  update_problem_frequency 1
+ end service
+ 
+ begin service 2
+@@ -28,11 +29,14 @@
+ begin residual 1
+   type mechanical
+   load_ids 1
+-  boundary_condition_ids 1
++  boundary_condition_ids 1 2
+   material_interpolation_id 1
+ end residual
+ 
+ begin material_interpolation 1
++  type single_phase
++  model simp
++  penalty_exponent 3.0
+   minimum_value 1e-3
+ end material_interpolation
+ 
+@@ -58,12 +62,20 @@
+   value 0 0 0
+ end boundary_condition
+ 
++begin boundary_condition 2
++  type fixed_value
++  location_type sideset
++  location_name ss_sym
++  degree_of_freedom dispz
++  value 0
++end boundary_condition
++
+ begin load 1
+   type concentrated_load
+   location_type nodeset
+   location_name ns_load
+   direction y
+-  value -1
++  value -1.0
+ end load
+ 
+ begin constraint 1
+@@ -88,10 +100,12 @@
+   type helmholtz
+   radius_absolute 0.15
+   boundary_sticking_penalty 1.0
++  symmetry_plane_location_names ss_sym
+ end filter
+ 
+ begin study
+   filter_ids 1
++  symmetry_plane_location_names ss_sym
+   max_iterations 50
+   update_problem_frequency 1
+   optimization_algorithm oc
+@@ -101,5 +115,5 @@
+ end study
+ 
+ begin mesh
+-  name topology_mech_ex7.exo
++  name mesh.exo
+ end mesh

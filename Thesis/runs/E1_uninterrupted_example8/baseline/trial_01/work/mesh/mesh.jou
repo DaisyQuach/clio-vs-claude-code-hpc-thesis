@@ -1,0 +1,26 @@
+## FROZEN-EX8-v1 half-cantilever mesh (trial E1-example8-baseline-01)
+## Design domain: x in [0,2], y in [0,1], z in [0,0.5]; HEX8 mapped mesh, h = 1/24
+reset
+brick x 2.0 y 1.0 z 0.5
+## brick is created centred on the origin; move its corner to the origin
+move volume 1 x 1.0 y 0.5 z 0.25 include_merged
+## uniform element size h = 1/24 -> 48 x 24 x 12 elements
+volume 1 size {1.0/24.0}
+volume 1 scheme map
+mesh volume 1
+## single optimizable block containing every element
+block 1 add volume 1
+block 1 name "block_1"
+block 1 element type HEX8
+## nodeset ns_fix: all nodes on the face x = 0
+nodeset 1 add node with x_coord < 1.0e-6
+nodeset 1 name "ns_fix"
+## nodeset ns_load: all nodes on the edge x = 2, y = 0 (z in [0,0.5])
+nodeset 2 add node with x_coord > 1.999999 and y_coord < 1.0e-6
+nodeset 2 name "ns_load"
+## sideset ss_sym: all element faces on the cut (symmetry) plane z = 0.5
+sideset 1 add surface with z_coord > 0.499999
+sideset 1 name "ss_sym"
+## export Exodus II, dimension 3
+set exodus netcdf4 off
+export mesh "mesh.exo" dimension 3 overwrite

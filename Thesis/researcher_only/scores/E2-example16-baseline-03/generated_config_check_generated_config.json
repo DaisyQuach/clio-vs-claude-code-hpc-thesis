@@ -1,0 +1,159 @@
+{
+  "rundir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/baseline/trial_03/outputs/stage2/generated_config",
+  "args": {
+    "rundir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/baseline/trial_03/outputs/stage2/generated_config",
+    "mesh": "mesh.exo",
+    "max_iterations": 40,
+    "symmetry_sides": null,
+    "no_symmetry_sides": true,
+    "sym_bc_sideset": null,
+    "simp_min": 0.001,
+    "simp_exp": 3.0,
+    "radius": 0.15,
+    "sticking": 1.0,
+    "volume_target": 0.15,
+    "write_restart": null,
+    "initial_density": null,
+    "restart_file": "restart_input.exo",
+    "restart_field": "control",
+    "restart_iteration": 21,
+    "update_frequency": 1,
+    "out": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/scores/E2-example16-baseline-03/generated_config_check_generated_config.json"
+  },
+  "info": {
+    "helmholtz": {
+      "Input Mesh": "mesh.exo",
+      "Physics": "Helmholtz Filter",
+      "Length Scale": "0.043301",
+      "Surface Length Scale": "1.0"
+    },
+    "material": {
+      "Youngs Modulus": "1.0",
+      "Poissons Ratio": "0.3"
+    },
+    "residual_penalty": {
+      "Type": "SIMP",
+      "Exponent": "3.0",
+      "Minimum Value": "1e-3"
+    },
+    "objective": {
+      "Type": "Scalar Function",
+      "Scalar Function Type": "Internal Elastic Energy",
+      "Domains": "{block_1}",
+      "penalty": {
+        "Type": "SIMP",
+        "Exponent": "3.0",
+        "Minimum Value": "1e-3"
+      }
+    },
+    "loads": [
+      {
+        "Dof": "1",
+        "Value": "-1.0",
+        "Nodes": "ns_load"
+      }
+    ],
+    "essential_bcs": [
+      {
+        "Type": "Fixed Value",
+        "Index": "0",
+        "Sides": "ns_fix",
+        "Value": "0.0"
+      },
+      {
+        "Type": "Fixed Value",
+        "Index": "1",
+        "Sides": "ns_fix",
+        "Value": "0.0"
+      },
+      {
+        "Type": "Fixed Value",
+        "Index": "2",
+        "Sides": "ns_fix",
+        "Value": "0.0"
+      }
+    ],
+    "solver": {
+      "Solver Package": "tacho"
+    },
+    "optimizer": {
+      "MaxIterations": "40",
+      "OCControlStagnationTolerance": "1e-4",
+      "OCObjectiveStagnationTolerance": "1e-8",
+      "OCGradientTolerance": "1e-8",
+      "ProblemUpdateFrequency": "1",
+      "NormalizedTargetValue": "0.15"
+    },
+    "performers": [
+      [
+        "engine_1",
+        "engine"
+      ],
+      [
+        "analyze_2",
+        "analyze"
+      ],
+      [
+        "analyze_helmholtz",
+        "analyze"
+      ]
+    ],
+    "engine_output": {
+      "WriteRestart": "true",
+      "OutputFrequency": "1",
+      "MaxIterations": "40",
+      "RestartFieldName": "control"
+    },
+    "initialize_field": {
+      "Method": "FromFieldOnInputMesh",
+      "Name": "restart_input.exo",
+      "VariableName": "control",
+      "Iteration": "21"
+    },
+    "mpirun_np": [
+      "1",
+      "1",
+      "1"
+    ]
+  },
+  "checks": {
+    "helmholtz: Physics == Helmholtz Filter": true,
+    "helmholtz: Input Mesh == mesh": true,
+    "helmholtz: Length Scale == radius/(2*sqrt(3)) = 0.043301": true,
+    "helmholtz: Surface Length Scale == 1.0": true,
+    "helmholtz: no Symmetry Plane Sides": true,
+    "analyze: Physics == Mechanical": true,
+    "analyze: Input Mesh == mesh": true,
+    "analyze: Youngs Modulus == 1.0": true,
+    "analyze: Poissons Ratio == 0.3": true,
+    "analyze: residual penalty SIMP": true,
+    "analyze: residual SIMP Exponent == 3.0": true,
+    "analyze: residual SIMP Minimum Value == 0.001": true,
+    "analyze: objective == Internal Elastic Energy (compliance)": true,
+    "analyze: objective SIMP Exponent == 3.0": true,
+    "analyze: objective SIMP Minimum Value == 0.001": true,
+    "analyze: exactly one concentrated load": true,
+    "analyze: load Dof 1 (y), Value -1, Nodes ns_load": true,
+    "analyze: dispx/dispy/dispz = 0 on ns_fix": true,
+    "analyze: exactly 3 essential BCs": true,
+    "analyze: no natural (traction) BCs": true,
+    "analyze: output dispx dispy dispz": true,
+    "interface: Optimizer Package == OC": true,
+    "interface: MaxIterations == 40": true,
+    "interface: ProblemUpdateFrequency == 1": true,
+    "interface: volume NormalizedTargetValue == 0.15": true,
+    "interface: constraint ReferenceValueName == Design Volume": true,
+    "interface: bounds [0,1]": true,
+    "interface: performers engine_1, analyze_2, analyze_helmholtz": true,
+    "engine: PlatoMainOutput MaxIterations == 40": true,
+    "engine: InitializeField Method == FromFieldOnInputMesh": true,
+    "engine: restart file == restart_input.exo": true,
+    "engine: restart field == control": true,
+    "engine: restart Iteration (1-based Exodus state) == 21": true,
+    "engine: UpdateProblemFrequency == 1": true,
+    "mpirun: three single-rank performers (PlatoMain, analyze, helmholtz)": true
+  },
+  "n_pass": 35,
+  "n_checks": 35,
+  "all_checks_pass": true
+}

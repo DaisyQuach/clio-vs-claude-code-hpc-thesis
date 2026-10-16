@@ -1,0 +1,78 @@
+{
+ "trial": "E2-example16-clio-03",
+ "frozen_configuration": "FROZEN-EX16-v1",
+ "checkpoint": {
+  "path": "outputs/stage1/engine_output.exo",
+  "sha256": "10ceb64594150df5f929f4ca1460903c0076f725f9fd47f8160a12b7ea64a00b",
+  "saved_states": 21,
+  "exodus_time_steps": "1..21 hold iterations 0..20"
+ },
+ "restart_copy_read_by_stage2": {
+  "path": "outputs/stage2/restart_input.exo",
+  "sha256_identical_to_checkpoint": true
+ },
+ "restart_settings": {
+  "deck": {
+   "initial_guess_file_name": "restart_input.exo",
+   "initial_guess_field_name": "control",
+   "restart_iteration": 21
+  },
+  "generated_config": "engine_operations.xml InitializeField Method=FromFieldOnInputMesh Name=restart_input.exo VariableName=control Iteration=21; RestartFieldName=control",
+  "index_convention_observed": "restart_iteration is the 1-based Exodus time-step index of the initial-guess file (0 = fresh run); time step 21 = Stage-1 iteration 20"
+ },
+ "field_read": "control (raw design variable), not topology",
+ "saved_iteration_used": 20,
+ "compliance_comparison": {
+  "stage1_iteration20_F": 236004.0,
+  "stage1_iteration19_F": 238839.4,
+  "stage2_iteration0_F": 236004.0,
+  "relative_difference": 0.0,
+  "stage2_iter0_norm_grad": 11915.37,
+  "stage1_iter20_norm_grad": 11915.37,
+  "stage2_iter0_H1": 3.964884e-13,
+  "stage1_iter20_H1": 3.964884e-13,
+  "seamless": true
+ },
+ "saved_field_comparison": {
+  "control": {
+   "checkpoint_step21_iter20_vs_stage2_step1_iter0_max_abs_diff": 0.0,
+   "checkpoint_step20_iter19_vs_stage2_step1_iter0_max_abs_diff": 0.20000000000000007,
+   "identical_to_iter20": true,
+   "checkpoint_iter20_min_max": [
+    0.0,
+    1.0
+   ],
+   "stage2_iter0_min_max": [
+    0.0,
+    1.0
+   ]
+  },
+  "topology": {
+   "checkpoint_step21_iter20_vs_stage2_step1_iter0_max_abs_diff": 0.0,
+   "checkpoint_step20_iter19_vs_stage2_step1_iter0_max_abs_diff": 0.047426354733120846,
+   "identical_to_iter20": true,
+   "checkpoint_iter20_min_max": [
+    5.482233252956195e-08,
+    0.9267272956371002
+   ],
+   "stage2_iter0_min_max": [
+    5.482233252956195e-08,
+    0.9267272956371002
+   ]
+  }
+ },
+ "stage2_run": {
+  "job_id": 16239273,
+  "iterations": "0..40 (41 rows)",
+  "stop_message": "****** Optimization stopping due to exceeding maximum number of iterations. ******",
+  "final_F_iteration40": 213558.4,
+  "overall_iteration_reached": 60
+ },
+ "sources": [
+  "outputs/stage1/morphorm_oc_optimizer_diagnostics.txt",
+  "outputs/stage2/morphorm_oc_optimizer_diagnostics.txt",
+  "work/verify/stage2_diag.json",
+  "work/verify/stage2_field_continuation.json"
+ ],
+ "wrong_state_corrections": "none needed; first attempt (restart_iteration 21) read the iteration-20 design"
+}

@@ -1,0 +1,15 @@
+2026-10-13T04:19:00-06:00 start trial E2-example16-clio-05; manuals converted to work/manuals_txt
+2026-10-13T10:20:40+00:00 cubit mesh start
+2026-10-13T10:20:43+00:00 cubit -batch -nographics -nojournal -input mesh.jou exit=0 (work/mesh)
+2026-10-13T10:21:04+00:00 exo_summary.py mesh check exit=0 -> work/verify/mesh.json
+2026-10-13T10:21:14+00:00 XMLGenerator input_deck.i start (work/stage1/run)
+2026-10-13T10:21:15+00:00 XMLGenerator exit=0
+2026-10-13T10:22:29+00:00 translation variants A/B/C tested under work/stage1/xlate_tests
+2026-10-13T10:22:51+00:00 decision: adopt study-level isosurface_output_frequency 1 (engine OutputFrequency 1); previous translation kept at work/stage1/run_attempt0_translate_only; re-translating in clean work/stage1/run
+2026-10-13T10:22:51+00:00 XMLGenerator (final Stage-1) exit=0
+2026-10-13T10:23:15+00:00 sensitivity test D (sticking 0.5, scratch only) ->  <Parameter name="Surface Length Scale" type="double" value="0.5" />
+2026-10-13T10:23:32+00:00 sbatch --parsable jobs/stage1_job.sbatch -> job 16240216 (Stage 1)
+2026-10-13T10:42:44+00:00 job 16240216 COMPLETED exit 0:0 elapsed 00:18:46 node notch204
+2026-10-13T10:43:04+00:00 running work/deliver_stage1.sh 16240216
+2026-10-13T10:43:04+00:00 deliver_stage1.sh exit=0 ; outputs/SHA256SUMS.txt written
+2026-10-13T10:45:11+00:00 work/run_summary.md written (Stage 1 complete; Stage 2 not started)

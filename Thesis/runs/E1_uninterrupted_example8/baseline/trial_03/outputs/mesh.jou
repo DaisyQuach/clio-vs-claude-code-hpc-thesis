@@ -1,0 +1,29 @@
+# Frozen workflow EX8 (FROZEN-EX8-v1): half-cantilever design domain
+# Brick x in [0,2], y in [0,1], z in [0,0.5]; structured HEX8 (mapped) mesh, h = 1/24
+# Expected: 48 x 24 x 12 = 13824 elements, 15925 nodes
+reset
+brick x 2.0 y 1.0 z 0.5
+# place the corner at the origin (brick is created centered at origin)
+move volume 1 x 1.0 y 0.5 z 0.25 include_merged
+# structured mapped mesh with exact interval counts per edge direction
+volume 1 scheme map
+curve with length > 1.5 interval 48
+curve with length > 0.75 and length < 1.5 interval 24
+curve with length < 0.75 interval 12
+curve all scheme equal
+mesh volume 1
+# single element block containing every element
+block 1 add volume 1
+block 1 name "block_1"
+block 1 element type HEX8
+# nodeset ns_fix: every node on the face x = 0
+nodeset 1 add surface with x_coord < 1.0e-6
+nodeset 1 name "ns_fix"
+# nodeset ns_load: every node on the edge x = 2, y = 0, z in [0, 0.5]
+nodeset 2 add curve with x_coord > 1.999 and y_coord < 1.0e-6
+nodeset 2 name "ns_load"
+# sideset ss_sym: every element face on the cut plane z = 0.5
+sideset 1 add surface with z_coord > 0.499
+sideset 1 name "ss_sym"
+# export Exodus II, dimension 3
+export mesh "mesh.exo" dimension 3 overwrite

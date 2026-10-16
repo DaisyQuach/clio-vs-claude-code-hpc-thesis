@@ -1,0 +1,250 @@
+{
+  "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2",
+  "utc": "2026-10-09T21:59:36Z",
+  "stopping_message": [
+    "****** Optimization stopping due to exceeding maximum number of iterations. ******"
+  ],
+  "final_diagnostics_row": "50        51        1.044701e+05   7.033815e+03  -1.628697e-13   1.142971e-01   6.611695e+01",
+  "final_objective": 104470.1,
+  "final_constraint_H1": -1.628697e-13,
+  "criteria_history": {
+    "rows": 1,
+    "criterion": "My Objective",
+    "n_values": 51,
+    "first": "2.6547864698604103e+06",
+    "last": "1.0447014052065862e+05"
+  },
+  "engine_output": {
+    "time_steps": 51,
+    "nodal_vars": [
+      "control",
+      "topology"
+    ],
+    "times": [
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0,
+      8.0,
+      9.0,
+      10.0,
+      11.0,
+      12.0,
+      13.0,
+      14.0,
+      15.0,
+      16.0,
+      17.0,
+      18.0,
+      19.0,
+      20.0,
+      21.0,
+      22.0,
+      23.0,
+      24.0,
+      25.0,
+      26.0,
+      27.0,
+      28.0,
+      29.0,
+      30.0,
+      31.0,
+      32.0,
+      33.0,
+      34.0,
+      35.0,
+      36.0,
+      37.0,
+      38.0,
+      39.0,
+      40.0,
+      41.0,
+      42.0,
+      43.0,
+      44.0,
+      45.0,
+      46.0,
+      47.0,
+      48.0,
+      49.0,
+      50.0,
+      51.0
+    ],
+    "num_nodes": 15925,
+    "num_elem": 13824
+  },
+  "engine_output_final_topology_stats": {
+    "min": 1.0117440914631687e-08,
+    "max": 0.9390815894813763,
+    "mean": 0.15707116105688124
+  },
+  "engine_output_final_control_stats": {
+    "min": 0.0,
+    "max": 1.0,
+    "mean": 0.18510212060079667
+  },
+  "analyze_iteration_files": {
+    "count": 51,
+    "first": "iteration0.exo",
+    "last": "iteration50.exo"
+  },
+  "iteration50_exo": {
+    "nodal_vars": [
+      "Topology",
+      "displacement X",
+      "displacement Y",
+      "displacement Z"
+    ],
+    "elem_vars": [
+      "My Objective"
+    ],
+    "time_steps": 1,
+    "num_nodes": 15925,
+    "num_elem": 13824,
+    "stat_Topology": {
+      "min": 1.0117440914631687e-08,
+      "max": 0.9390815894813763
+    },
+    "stat_displacement X": {
+      "min": -6448.032182867787,
+      "max": 3727.4382688297196
+    },
+    "stat_displacement Y": {
+      "min": -21941.17299464446,
+      "max": 0.0
+    },
+    "stat_displacement Z": {
+      "min": -396.24132771269257,
+      "max": 2141.725451948709
+    }
+  },
+  "checks": [
+    {
+      "check": "diagnostics_last_iteration_50",
+      "pass": true,
+      "got": 50,
+      "expected": 50
+    },
+    {
+      "check": "diagnostics_rows_0..50",
+      "pass": true,
+      "got": [
+        51,
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          48,
+          49,
+          50
+        ]
+      ],
+      "expected": [
+        51,
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          48,
+          49,
+          50
+        ]
+      ]
+    },
+    {
+      "check": "stopping_message_is_max_iterations",
+      "pass": true,
+      "got": [
+        "****** Optimization stopping due to exceeding maximum number of iterations. ******"
+      ],
+      "expected": "exceeding maximum number of iterations"
+    },
+    {
+      "check": "no_early_convergence_message",
+      "pass": true,
+      "got": [
+        "****** Optimization stopping due to exceeding maximum number of iterations. ******"
+      ],
+      "expected": "no 'converged' message"
+    },
+    {
+      "check": "final_constraint_feasible_H1<=1e-6",
+      "pass": true,
+      "got": -1.628697e-13,
+      "expected": "<= 1e-6"
+    },
+    {
+      "check": "criteria_history_has_51_objective_values(iter0..50)",
+      "pass": true,
+      "got": 51,
+      "expected": 51
+    },
+    {
+      "check": "engine_output_has_control_and_topology",
+      "pass": true,
+      "got": [
+        "control",
+        "topology"
+      ],
+      "expected": [
+        "control",
+        "topology"
+      ]
+    },
+    {
+      "check": "engine_output_51_time_steps(iter0..50)",
+      "pass": true,
+      "got": [
+        51,
+        51.0
+      ],
+      "expected": [
+        51,
+        51.0
+      ]
+    },
+    {
+      "check": "analyze_iteration50_exo_exists",
+      "pass": true,
+      "got": "iteration50.exo",
+      "expected": "iteration50.exo"
+    },
+    {
+      "check": "iteration50_has_displacements_xyz",
+      "pass": true,
+      "got": [
+        "Topology",
+        "displacement X",
+        "displacement Y",
+        "displacement Z"
+      ],
+      "expected": "displacement X/Y/Z"
+    },
+    {
+      "check": "iteration50_has_density_field",
+      "pass": true,
+      "got": [
+        "Topology",
+        "displacement X",
+        "displacement Y",
+        "displacement Z",
+        "My Objective"
+      ],
+      "expected": "a topology/density field"
+    },
+    {
+      "check": "iteration50_finite",
+      "pass": true,
+      "got": "finite",
+      "expected": "finite"
+    }
+  ],
+  "all_pass": true
+}

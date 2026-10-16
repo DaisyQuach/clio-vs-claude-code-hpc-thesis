@@ -1,0 +1,143 @@
+{
+  "trial": "E2-example16-baseline-01",
+  "frozen_configuration": "FROZEN-EX16-v1",
+  "purpose": "Continuation evidence required by scientific_problem_specification.md section 7: Stage 2 must resume from the iteration-20 design saved at the end of Stage 1, read from the control field of the Stage-1 engine output (checkpoint).",
+  "checkpoint": {
+    "path": "outputs/stage1/engine_output.exo",
+    "sha256": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+    "saved_states": 21,
+    "exodus_time_steps": "1..21 (time values 1.0..21.0); time step k holds optimization iteration k-1; iteration 20 = time step 21",
+    "fields": [
+      "control",
+      "topology"
+    ]
+  },
+  "copy_read_by_stage2": {
+    "path": "outputs/stage2/restart_input.exo",
+    "sha256": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+    "byte_identical_to_checkpoint": true
+  },
+  "restart_settings_as_executed": {
+    "deck": "outputs/stage2/input_deck.i",
+    "initial_guess_file_name": "restart_input.exo",
+    "initial_guess_field_name": "control",
+    "restart_iteration": 21,
+    "max_iterations": 40,
+    "generated_configuration": "outputs/stage2/generated_config/engine_operations.xml: InitializeField Method FromFieldOnInputMesh, Name restart_input.exo, VariableName control, Iteration 21; PlatoMainOutput RestartFieldName control, MaxIterations 40; interface.xml Convergence/MaxIterations 40",
+    "saved_state_used": "Exodus time step 21 of the checkpoint = Stage-1 optimization iteration 20 (end of Stage 1), control (raw design variable) field",
+    "index_convention_finding": "restart_iteration is interpreted by the runtime as the 1-based Exodus time-step index of the initial-guess file, not the optimizer iteration number. Attempt 1 used restart_iteration 20 and its first evaluated compliance was 2.388394e+05 = Stage-1 iteration 19 (time step 20); that job (16162675) was cancelled and the setting corrected to 21."
+  },
+  "optimizer_diagnostics_comparison": {
+    "stage1_iteration_20_row": "20        21        2.360040e+05   1.191537e+04   3.964884e-13   2.000000e-01   2.835402e+03",
+    "stage2_iteration_0_row": "0         1        2.360040e+05   1.191537e+04   3.964884e-13   1.000000e+00  1.797693e+308",
+    "stage1_iteration_20_compliance": "2.360040e+05",
+    "stage2_first_evaluated_compliance": "2.360040e+05",
+    "equal": true,
+    "stage1_iterations_with_this_compliance": [
+      20
+    ],
+    "gradient_norm_equal": true,
+    "constraint_value_equal": true,
+    "full_precision_criteria_history": {
+      "stage1_last_objective": "2.3600395811001546e+05",
+      "stage2_first_objective": "2.3600395811001546e+05",
+      "equal": true
+    },
+    "rejected_attempt1": {
+      "diagnostics_snapshot": "work/stage2/attempt1_first_row_diagnostics_snapshot.txt",
+      "first_row": [
+        "0         1        2.388394e+05   1.207748e+04   4.834189e-13   1.000000e+00  1.797693e+308"
+      ],
+      "first_compliance": "2.388394e+05",
+      "stage1_iterations_whose_compliance_equals_it": [
+        19
+      ]
+    }
+  },
+  "saved_field_comparison": {
+    "stage2_engine_output": "outputs/stage2/engine_output.exo (41 time steps = local iterations 0..40 = overall iterations 20..60)",
+    "max_abs_diff_stage2_step1_control_vs_checkpoint_step21_control_iteration20": 0.0,
+    "max_abs_diff_stage2_step1_topology_vs_checkpoint_step21_topology": 0.0,
+    "max_abs_diff_stage2_step1_control_vs_checkpoint_step20_control_iteration19": 0.20000000000000007,
+    "closest_checkpoint_step_to_stage2_initial_control": "stage1_step21_iter20"
+  },
+  "iteration_counts": {
+    "stage1": "0..20 (21 rows), stopped at max_iterations 20",
+    "stage2_local": "0..40 (41 rows), stopped at max_iterations 40",
+    "overall": "iteration 60 reached",
+    "stage2_final_row": "40        41        2.135584e+05   1.063277e+04  -7.552292e-14   1.281498e-01   1.258486e+02",
+    "stage2_stopping_message": [
+      "****** Optimization stopping due to exceeding maximum number of iterations. ******"
+    ]
+  },
+  "compliance_history_overall": {
+    "stage1_iterations_0_20": [
+      "4.8932349962451942e+06",
+      "8.7153046674283571e+05",
+      "9.1532472646736528e+05",
+      "5.9329483879840304e+05",
+      "7.1579172587517905e+05",
+      "5.7168138186717627e+05",
+      "6.1610909653086017e+05",
+      "5.2206604954783490e+05",
+      "4.4701686795713566e+05",
+      "3.8935157378634781e+05",
+      "3.4814022519649053e+05",
+      "3.1796390153666626e+05",
+      "2.9573218158720800e+05",
+      "2.7947826727620844e+05",
+      "2.6747953290352167e+05",
+      "2.5852366024641678e+05",
+      "2.5167734669623087e+05",
+      "2.4640638814354767e+05",
+      "2.4226012273218654e+05",
+      "2.3883936024819835e+05",
+      "2.3600395811001546e+05"
+    ],
+    "stage2_iterations_20_60": [
+      "2.3600395811001546e+05",
+      "2.3363986471026938e+05",
+      "2.3161950709462259e+05",
+      "2.2987458448569526e+05",
+      "2.2841412942009710e+05",
+      "2.2714158835959088e+05",
+      "2.2603869743233957e+05",
+      "2.2507309663455255e+05",
+      "2.2422476032699787e+05",
+      "2.2345373573981776e+05",
+      "2.2273044297616291e+05",
+      "2.2209272997323138e+05",
+      "2.2150877137274132e+05",
+      "2.2096364451408287e+05",
+      "2.2043663668475178e+05",
+      "2.1992478882274541e+05",
+      "2.1944418528889585e+05",
+      "2.1898534641481613e+05",
+      "2.1854014212000821e+05",
+      "2.1814451569997470e+05",
+      "2.1777960727187395e+05",
+      "2.1745160094118037e+05",
+      "2.1714146195424977e+05",
+      "2.1683766632231316e+05",
+      "2.1654861746126873e+05",
+      "2.1627345046363139e+05",
+      "2.1600263403047028e+05",
+      "2.1573576279149108e+05",
+      "2.1549582878602427e+05",
+      "2.1526121566593944e+05",
+      "2.1505371954704478e+05",
+      "2.1486588081021610e+05",
+      "2.1468421402355729e+05",
+      "2.1451088785199859e+05",
+      "2.1434767529546472e+05",
+      "2.1420145959152034e+05",
+      "2.1406535751591230e+05",
+      "2.1393094573734008e+05",
+      "2.1380597270753782e+05",
+      "2.1368426268346232e+05",
+      "2.1355841409304400e+05"
+    ]
+  },
+  "verification_record": "outputs/stage2/stage2_results_verification.json (15/15 checks pass)",
+  "CONTINUATION_VERIFIED": true
+}

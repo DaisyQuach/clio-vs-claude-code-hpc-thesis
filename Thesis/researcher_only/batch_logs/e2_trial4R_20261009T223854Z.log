@@ -1,0 +1,76 @@
+[2026-10-09T22:38:54Z] == E2-example16-baseline-04R (counted) ==
+PASS  pinned_binary                      /uufs/chpc.utah.edu/common/home/u1282901/.local/share/claude/versions/2.1.295 --version = 2.1.295
+PASS  help_flags                         all required flags present in --help of 2.1.295
+INFO  forbidden_flags_known              resume/continue/fork flags exist (--resume -r --continue -c --fork-session --teleport --from-pr --bg --background --cloud) and are never passed by the launcher
+PASS  output_format                      --output-format stream-json documented
+PASS  auth_status_cmd                    'auth status --json' available (no-model auth check)
+PASS  auth_logged_in                     auth status reports logged in
+PASS  credentials_file                   /uufs/chpc.utah.edu/common/home/u1282901/.claude/.credentials.json present (copied into each isolated session config dir)
+INFO  autoupdates_setting                ~/.claude.json autoUpdates=False; launcher also exports DISABLE_AUTOUPDATER=1
+PASS  cmd_sbatch                         /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sbatch
+PASS  cmd_sacct                          /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sacct
+PASS  cmd_squeue                         /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/squeue
+PASS  cmd_scontrol                       /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/scontrol
+PASS  cmd_sinfo                          /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sinfo
+PASS  cmd_uuidgen                        /usr/bin/uuidgen
+PASS  cmd_jq                             /usr/bin/jq
+PASS  partition                          hochhalter-np available
+INFO  slurm_contract                     account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00
+PASS  approved_software                  loader ok; runtime inventory hash matches frozen value
+PASS  frozen_e2-example16                FROZEN-EX16-v1 a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+PASS  claude_md_ancestors                no CLAUDE.md in ancestors of /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs
+PASS  agent_visible_leak                 no researcher-only references in frozen configurations
+
+preflight: PASS (pinned_binary_ok=1, dry_run=0, utc=2026-10-09T22:39:03Z)
+PASS      manifest_identity                        E2-example16-baseline-04R (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+PASS      status_planned                           status: planned
+PASS      empty_work                               work/ contains only .gitkeep
+PASS      empty_jobs                               jobs/ contains only .gitkeep
+PASS      empty_logs                               logs/ contains only .gitkeep
+PASS      empty_outputs                            outputs/ contains only .gitkeep
+PASS      null_started_utc                         started_utc: null
+PASS      null_finished_utc                        finished_utc: null
+PASS      null_agent_session_ids                   agent_session_ids: null
+PASS      null_workflow_job_ids                    workflow_job_ids: null
+PASS      null_scoring_decision                    scoring_decision: null
+PASS      null_curation_include_in_analysis        curation_include_in_analysis: null
+PASS      no_prior_outputs                         no meshes/decks/job scripts in the packet
+
+packet verification (planned): verified  fails=0 ambiguous=0
+[2026-10-09T22:39:04Z] submitting agent-host job for E2-example16-baseline-04R/session_a (sbatch --wait)
+session c8180d83-a7ea-40ac-b5c0-c03a883e40ba rc=0 timeout_hit=false transcript=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/session_evidence/E2-example16-baseline-04R/session_a/transcript_c8180d83-a7ea-40ac-b5c0-c03a883e40ba.jsonl
+[2026-10-09T23:06:34Z] Session A ended rc=0; running interlock
+[2026-10-09T23:06:34Z] submitting agent-host job for E2-example16-baseline-04R/session_b (sbatch --wait)
+session ac097af2-04d3-41a0-9159-18dd75bc7c42 rc=0 timeout_hit=false transcript=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/session_evidence/E2-example16-baseline-04R/session_b/transcript_ac097af2-04d3-41a0-9159-18dd75bc7c42.jsonl
+[2026-10-09T23:53:23Z] copied session evidence: session_a
+[2026-10-09T23:53:24Z] copied session evidence: session_b
+[2026-10-09T23:53:28Z] evidence collected for E2-example16-baseline-04R: sessions=c8180d83-a7ea-40ac-b5c0-c03a883e40ba,ac097af2-04d3-41a0-9159-18dd75bc7c42 workflow_jobs=16168225,16168323,16168342 agent_host_jobs=16168160,16168311
+PASS      manifest_identity                        E2-example16-baseline-04R (e2-example16)
+PASS      agent_inputs_frozen                      agent_inputs hash == frozen FROZEN-EX16-v1
+PASS      manifest_frozen_hash                     manifest records the frozen hash
+PASS      agent_inputs_clean                       no restricted references in agent_inputs
+PASS      prompts                                  session_a_prompt.md and recovery_prompt.md present
+PASS      recovery_prompt_neutral                  recovery prompt contains no stage labels, filenames or iteration hints
+PASS      deliverables                             all 19 locked deliverables present
+PASS      outputs_sha256                           outputs/SHA256SUMS.txt verifies
+PASS      job_ids                                  workflow job ids: 16168225 16168323 16168342 
+PASS      sacct_collected                          logs/slurm_sacct.psv present
+PASS      session_records                          2 session record(s) as required
+PASS      distinct_session_ids                     2 distinct session id(s)
+PASS      no_resume                                no resume/continue/fork in any launch
+PASS      isolated_config                          each session had its own CLAUDE_CONFIG_DIR
+PASS      pinned_session_a                         executable 2.1.295
+PASS      pinned_session_b                         executable 2.1.295
+PASS      exit_session_a                           rc=0, no timeout
+PASS      exit_session_b                           rc=0, no timeout
+PASS      boundary_audit                           no restricted paths mentioned in session transcripts
+PASS      session_order                            session A ended 2026-10-09T23:06:28Z before session B started 2026-10-09T23:06:46Z
+PASS      stage2_after_a                           stage-2 deck written after session A ended
+
+packet verification (completed): verified  fails=0 ambiguous=0
+[2026-10-09T23:53:30Z] E2-example16-baseline-04R finished: status=completed_unscored (Session B rc=0, verification rc=0). Scientific scoring is a separate researcher-only step.

@@ -1,0 +1,26 @@
+2026-10-09T23:56:16Z waiting for Session A agent-host job 16168659
+2026-10-10T00:26:50Z Session A rc=0
+[2026-10-10T00:26:50Z] == E2-example16-baseline-05 (counted) ==
+PASS  pinned_binary                      /uufs/chpc.utah.edu/common/home/u1282901/.local/share/claude/versions/2.1.295 --version = 2.1.295
+PASS  help_flags                         all required flags present in --help of 2.1.295
+INFO  forbidden_flags_known              resume/continue/fork flags exist (--resume -r --continue -c --fork-session --teleport --from-pr --bg --background --cloud) and are never passed by the launcher
+PASS  output_format                      --output-format stream-json documented
+PASS  auth_status_cmd                    'auth status --json' available (no-model auth check)
+PASS  auth_logged_in                     auth status reports logged in
+PASS  credentials_file                   /uufs/chpc.utah.edu/common/home/u1282901/.claude/.credentials.json present (copied into each isolated session config dir)
+INFO  autoupdates_setting                ~/.claude.json autoUpdates=False; launcher also exports DISABLE_AUTOUPDATER=1
+PASS  cmd_sbatch                         /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sbatch
+PASS  cmd_sacct                          /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sacct
+PASS  cmd_squeue                         /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/squeue
+PASS  cmd_scontrol                       /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/scontrol
+PASS  cmd_sinfo                          /uufs/notchpeak.peaks/sys/installdir/slurm/std/bin/sinfo
+PASS  cmd_uuidgen                        /usr/bin/uuidgen
+PASS  cmd_jq                             /usr/bin/jq
+PASS  partition                          hochhalter-np available
+INFO  slurm_contract                     account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00
+PASS  approved_software                  loader ok; runtime inventory hash matches frozen value
+PASS  frozen_e2-example16                FROZEN-EX16-v1 a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+PASS  claude_md_ancestors                no CLAUDE.md in ancestors of /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs
+PASS  agent_visible_leak                 no researcher-only references in frozen configurations
+
+preflight: PASS (pinned_binary_ok=1, dry_run=0, utc=2026-10-10T00:26:58Z)

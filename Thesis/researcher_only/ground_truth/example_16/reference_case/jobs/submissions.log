@@ -1,0 +1,5 @@
+submitted_utc	job_id	job_name	dependency	command
+2026-10-09T06:52:04Z	16154331	ex16_01_mesh		sbatch --parsable  /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/jobs/ex16_01_mesh.sbatch
+2026-10-09T06:52:04Z	16154332	ex16_02_stage1	afterok:16154331	sbatch --parsable --dependency=afterok:16154331 /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/jobs/ex16_02_stage1.sbatch
+2026-10-09T06:52:05Z	16154333	ex16_03_restart_corrected_21	afterok:16154332	sbatch --parsable --dependency=afterok:16154332 /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/jobs/ex16_03_restart_corrected_21.sbatch
+2026-10-09T06:52:05Z	16154334	ex16_04_restart_shipped_20	afterok:16154332	sbatch --parsable --dependency=afterok:16154332 /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/ground_truth/example_16/reference_case/jobs/ex16_04_restart_shipped_20.sbatch

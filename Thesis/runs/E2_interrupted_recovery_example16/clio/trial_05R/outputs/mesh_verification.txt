@@ -1,0 +1,47 @@
+# Mesh verification record - FROZEN-EX16-v1, trial E2-example16-clio-05R
+# generated 2026-10-13T14:41:17Z by exo_summary.py (morphorm skill bundled check) on work/mesh/mesh.exo; expectations: num_elem=27648 num_nodes=30625 block:block_1:type=HEX8 nodeset:ns_fix=625 nodeset:ns_load=25 bbox_min=0,0,0 bbox_max=2.0,1.0,1.0
+{
+ "file": "work/mesh/mesh.exo",
+ "num_nodes": 30625,
+ "num_elem": 27648,
+ "num_dim": 3,
+ "bbox_min": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "bbox_max": [
+  2.0,
+  1.0,
+  1.0
+ ],
+ "blocks": [
+  {
+   "name": "block_1",
+   "type": "HEX8",
+   "elems": 27648,
+   "nodes_per_elem": 8
+  }
+ ],
+ "nodesets": {
+  "ns_fix": 625,
+  "ns_load": 25
+ },
+ "sidesets": {},
+ "time_steps": 0,
+ "nodal_vars": [],
+ "elem_vars": [],
+ "expect_failures": [],
+ "expect_ok": true
+}
+
+# Cubit executive summary (work/mesh/cubit_stdout.log):
+Executive Exodus summary:
+  Number of dimensions     = 3
+  Number of element blocks = 1
+  Number of sidesets       = 0
+  Number of nodesets       = 2
+  Number of bc sets        = 1
+  Number of elements       = 27648
+  Number of nodes          = 30625
+

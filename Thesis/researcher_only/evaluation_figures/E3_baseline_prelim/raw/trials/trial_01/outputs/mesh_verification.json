@@ -1,0 +1,114 @@
+{
+  "utc": "2026-10-10T05:45:30Z",
+  "file": "work/mesh/mesh.exo",
+  "spec": "E3-SPC-v1 section 3",
+  "num_nodes": 15925,
+  "num_elem": 13824,
+  "num_blocks": 1,
+  "block_names": [
+    "block_1"
+  ],
+  "block_sizes": [
+    13824
+  ],
+  "block_elem_types": [
+    "HEX8"
+  ],
+  "bbox": {
+    "x": [
+      0.0,
+      2.0
+    ],
+    "y": [
+      0.0,
+      1.0
+    ],
+    "z": [
+      0.0,
+      0.5
+    ]
+  },
+  "nodesets": {
+    "ns_fix": {
+      "count": 325,
+      "x": [
+        0.0,
+        0.0
+      ],
+      "y": [
+        0.0,
+        1.0
+      ],
+      "z": [
+        0.0,
+        0.5
+      ]
+    },
+    "ns_load": {
+      "count": 13,
+      "x": [
+        2.0,
+        2.0
+      ],
+      "y": [
+        0.0,
+        0.0
+      ],
+      "z": [
+        0.0,
+        0.5
+      ]
+    }
+  },
+  "sidesets": {
+    "ss_sym": {
+      "count": 1152,
+      "sides_used": [
+        4
+      ],
+      "face_z_min": 0.5,
+      "face_z_max": 0.5
+    }
+  },
+  "expected": {
+    "num_elem": 13824,
+    "num_nodes": 15925,
+    "blocks": [
+      "block_1"
+    ],
+    "elem_type": "HEX8",
+    "bbox": {
+      "x": [
+        0.0,
+        2.0
+      ],
+      "y": [
+        0.0,
+        1.0
+      ],
+      "z": [
+        0.0,
+        0.5
+      ]
+    },
+    "ns_fix": 325,
+    "ns_load": 13,
+    "ss_sym": 1152
+  },
+  "checks": {
+    "num_elem == 13824": true,
+    "num_nodes == 15925": true,
+    "exactly one block named block_1": true,
+    "block_1 contains every element": true,
+    "element type HEX8": true,
+    "bounding box [0,2]x[0,1]x[0,0.5]": true,
+    "ns_fix has 325 nodes": true,
+    "ns_fix all on x=0": true,
+    "ns_load has 13 nodes": true,
+    "ns_load on x=2,y=0 spanning z in [0,0.5]": true,
+    "ss_sym has 1152 faces": true,
+    "ss_sym faces all on z=0.5": true,
+    "uniform element size h=1/24 (unique x coords = 49)": true
+  },
+  "result": "PASS"
+}

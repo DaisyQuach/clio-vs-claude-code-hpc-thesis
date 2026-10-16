@@ -1,0 +1,27 @@
+job=16154329 name=ex8_02_run_canonical node=notch351 start_utc=2026-10-09T06:53:22Z
+partition=hochhalter-np account=hochhalter-np qos=hochhalter-np cpus=8 mem_mb=32768
+preflight XMLGenerator exit=0
+34/34 checks pass; all_checks_pass=True
+01a76bf2fcbbd34ba919c0aa7e023c409224a000b2b41c2a6ec48f932986a5ff  topology_mech_ex8.i
+70bd98cebb38bb77b3509b15d178bedd14bace8c775c004771b0217df782ae35  runmorphorm.py
+46dd51a81e3502200c4b12223ebd2aacc95c4082311ad9e76128b41b3340f0f3  topology_mech_ex8.exo
+topology_mech_ex8.exo: OK
+morphorm_start_utc=2026-10-09T06:53:26Z
+morphorm_end_utc=2026-10-09T07:03:13Z runmorphorm_exit_code=0
+
+****** Optimization stopping due to exceeding maximum number of iterations. ******
+
+identical to preflight: interface.xml
+identical to preflight: engine_input_deck.xml
+identical to preflight: engine_operations.xml
+identical to preflight: analyze_2_input_deck.xml
+identical to preflight: analyze_2_operations.xml
+identical to preflight: analyze_helmholtz_input_deck.xml
+identical to preflight: analyze_helmholtz_operations.xml
+identical to preflight: mpirun.source
+summarize exit=0
+  "last_iteration": 50,
+  "stop_message": "Optimization stopping due to exceeding maximum number of iterations.",
+  "final_compliance": 146898.5,
+  "reached_expected_iterations": true
+end_utc=2026-10-09T07:03:14Z

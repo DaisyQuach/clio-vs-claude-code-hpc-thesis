@@ -1,0 +1,41 @@
+# Generated-configuration verification (E3-SPC-v1), utc 2026-10-10T07:50:46Z
+# directory: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_05/work/run
+# sha256 9bc13ac9c61c0d8b3c7c73b5c0bce38e31c7d35b53e45483c2fd5238bea222e8  analyze_2_input_deck.xml
+# sha256 fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0  analyze_2_operations.xml
+# sha256 e0b190ab3e8c71334d7b7ec5f0567dbcdae40f7a371b943a553d6eb54fae5436  analyze_helmholtz_input_deck.xml
+# sha256 402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854  analyze_helmholtz_operations.xml
+# sha256 7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a  engine_input_deck.xml
+# sha256 c5b07640e3f1427a5f763631a2f7f9c3ec1ea54e97160106efe598afc0c67c1b  engine_operations.xml
+# sha256 5edae27083a20d17fe853d1499da94d570c4336bcd42339c11e0bf6ad008ce68  input_deck.i
+# sha256 2f545669f80885d182291e9aad47d74baf8403082364f79f67542f653a616885  interface.xml
+# sha256 5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc  mpirun.source
+[PASS] helmholtz: filter length scale present (0.15 -> 0.043301 = R/(2*sqrt(3)))  (analyze_helmholtz_input_deck.xml)
+[PASS] helmholtz: surface (boundary-sticking) length scale 1.0 present  (analyze_helmholtz_input_deck.xml)
+[PASS] helmholtz: symmetry plane sideset ss_sym present  (analyze_helmholtz_input_deck.xml)
+[PASS] helmholtz: mesh.exo, dimension 3, block_1  (analyze_helmholtz_input_deck.xml)
+[PASS] analyze: isotropic linear elastic E=1.0 nu=0.3 on material_1  (analyze_2_input_deck.xml)
+[PASS] analyze: block_1 -> material_1 (only domain)  (analyze_2_input_deck.xml)
+[PASS] analyze: residual SIMP single-phase exponent 3.0 minimum 1e-3  (analyze_2_input_deck.xml)
+[PASS] analyze: compliance criterion (Internal Elastic Energy) SIMP exponent 3.0 minimum ersatz 1e-3  (analyze_2_input_deck.xml)
+[PASS] analyze: concentrated load ns_load, dof 1 (y), value -1.0; exactly one load  (analyze_2_input_deck.xml)
+[PASS] analyze: no tractions / natural BCs, no body forces  (analyze_2_input_deck.xml)
+[PASS] analyze: ns_fix displacement X fixed 0  (analyze_2_input_deck.xml)
+[PASS] analyze: ns_fix displacement Y fixed 0  (analyze_2_input_deck.xml)
+[PASS] analyze: ns_fix displacement Z fixed 0  (analyze_2_input_deck.xml)
+[PASS] analyze: ss_sym displacement Z fixed 0 (symmetry)  (analyze_2_input_deck.xml)
+[PASS] analyze: exactly 4 essential BC entries  (analyze_2_input_deck.xml)
+[PASS] analyze: output displacement_x,y,z  (analyze_2_input_deck.xml)
+[PASS] analyze: mesh.exo, dimension 3  (analyze_2_input_deck.xml)
+[PASS] optimizer OC, MaxIterations 50  (interface.xml)
+[PASS] OC default tolerances (1e-4 control stagnation, 1e-8 objective stagnation, 1e-8 gradient)  (interface.xml)
+[PASS] update problem stage, frequency 1  (interface.xml / engine_operations.xml)
+[PASS] volume constraint normalized target 0.15 (less_than), evaluated by engine_1  (interface.xml)
+[PASS] objective: single compliance criterion weight 1 aggregated (weighted sum) from analyze_2  (interface.xml / engine_operations.xml)
+[PASS] normalize_in_aggregator false (no Normalize element in Aggregator)  (engine_operations.xml)
+[PASS] density discretization, uniform initial density 0.15  (engine_operations.xml)
+[PASS] engine output of topology and control fields  (interface.xml)
+[PASS] engine output file engine_output (exodus), mesh.exo  (engine_input_deck.xml)
+[PASS] three performers: engine_1, analyze_2, analyze_helmholtz  (interface.xml)
+[PASS] mpirun.source: every performer -np 1 (single rank), no decomposition  (mpirun.source)
+[PASS] no restart file written / no initial guess file  (engine_operations.xml)
+ALL_CHECKS_PASS

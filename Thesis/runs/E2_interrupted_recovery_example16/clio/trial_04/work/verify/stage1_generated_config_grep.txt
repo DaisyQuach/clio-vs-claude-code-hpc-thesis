@@ -1,0 +1,124 @@
+# Stage-1 generated-config verification (grep of XMLGenerator output in work/stage1/run)
+## analyze_2_input_deck.xml: loads, BCs, output, penalty
+3:  <Parameter name="Spatial Dimension" type="int" value="3" />
+4:  <Parameter name="Input Mesh" type="string" value="mesh.exo" />
+6:    <Parameter name="Physics" type="string" value="Mechanical" />
+7:    <Parameter name="PDE Constraint" type="string" value="Elliptic" />
+10:        <Parameter name="Type" type="string" value="Scalar Function" />
+11:        <Parameter name="Scalar Function Type" type="string" value="Internal Elastic Energy" />
+12:        <Parameter name="Domains" type="Array(string)" value="{block_1}" />
+14:          <Parameter name="Type" type="string" value="SIMP" />
+15:          <Parameter name="Exponent" type="double" value="3.0" />
+16:          <Parameter name="Minimum Value" type="double" value="1e-3" />
+22:        <Parameter name="Material Interpolation Model" type="string" value="Single-Phase" />
+23:        <Parameter name="Response" type="string" value="Linear" />
+25:          <Parameter name="Type" type="string" value="SIMP" />
+26:          <Parameter name="Exponent" type="double" value="3.0" />
+27:          <Parameter name="Minimum Value" type="double" value="1e-3" />
+33:        <Parameter name="Solver Package" type="string" value="tacho" />
+39:          <Parameter name="Element Block" type="string" value="block_1" />
+40:          <Parameter name="Material Model" type="string" value="material_1" />
+47:          <Parameter name="Youngs Modulus" type="double" value="1.0" />
+48:          <Parameter name="Poissons Ratio" type="double" value="0.3" />
+52:    <ParameterList name="Concentrated Loads">
+53:      <ParameterList name="Concentrated Load with ID 0">
+54:        <Parameter name="Dof" type="int" value="1" />
+55:        <Parameter name="Value" type="double" value="-1.0" />
+56:        <Parameter name="Nodes" type="string" value="ns_load" />
+61:      <ParameterList name="Displacement X with ID 1">
+62:        <Parameter name="Type" type="string" value="Fixed Value" />
+63:        <Parameter name="Index" type="int" value="0" />
+64:        <Parameter name="Sides" type="string" value="ns_fix" />
+65:        <Parameter name="Value" type="double" value="0" />
+67:      <ParameterList name="Displacement Y with ID 2">
+68:        <Parameter name="Type" type="string" value="Fixed Value" />
+69:        <Parameter name="Index" type="int" value="1" />
+70:        <Parameter name="Sides" type="string" value="ns_fix" />
+71:        <Parameter name="Value" type="double" value="0" />
+73:      <ParameterList name="Displacement Z with ID 3">
+74:        <Parameter name="Type" type="string" value="Fixed Value" />
+75:        <Parameter name="Index" type="int" value="2" />
+76:        <Parameter name="Sides" type="string" value="ns_fix" />
+77:        <Parameter name="Value" type="double" value="0" />
+80:    <ParameterList name="Output">
+81:      <Parameter name="Plottable" type="Array(string)" value="{displacement_x, displacement_y, displacement_z}" />
+## interface.xml: optimizer options
+164:  <Name>Initial Guess</Name>
+166:    <Name>Initialize Field</Name>
+169:      <ArgumentName>Initialized Field</ArgumentName>
+239:  <Name>Update Problem</Name>
+241:    <Name>Update Problem</Name>
+446:  <Package>OC</Package>
+448:    <OCControlStagnationTolerance>1e-4</OCControlStagnationTolerance>
+449:    <OCObjectiveStagnationTolerance>1e-8</OCObjectiveStagnationTolerance>
+450:    <OCGradientTolerance>1e-8</OCGradientTolerance>
+451:    <ProblemUpdateFrequency>1</ProblemUpdateFrequency>
+454:    <MaxIterations>20</MaxIterations>
+456:  <UpdateProblemStage>
+457:    <Name>Update Problem</Name>
+458:  </UpdateProblemStage>
+464:    <InitializationStage>Initial Guess</InitializationStage>
+482:    <NormalizedTargetValue>0.15</NormalizedTargetValue>
+## engine_operations.xml: output/restart/init
+<?xml version="1.0"?>
+<Operation>
+  <Function>PlatoMainOutput</Function>
+  <Name>PlatoMainOutput</Name>
+  <WriteRestart>true</WriteRestart>
+  <OutputFrequency>1</OutputFrequency>
+  <MaxIterations>20</MaxIterations>
+  <Input>
+    <ArgumentName>topology</ArgumentName>
+    <Layout>Nodal Field</Layout>
+  </Input>
+  <Input>
+    <ArgumentName>control</ArgumentName>
+    <Layout>Nodal Field</Layout>
+  </Input>
+</Operation>
+<Operation>
+  <Function>InitializeField</Function>
+  <Name>Initialize Field</Name>
+  <Method>Uniform</Method>
+  <Uniform>
+    <Value>0.15</Value>
+  </Uniform>
+  <Output>
+    <ArgumentName>Initialized Field</ArgumentName>
+  </Output>
+</Operation>
+## helmholtz
+<?xml version="1.0"?>
+<ParameterList name="Problem">
+  <Parameter name="Spatial Dimension" type="int" value="3" />
+  <Parameter name="Input Mesh" type="string" value="mesh.exo" />
+  <ParameterList name="Scenarios">
+    <Parameter name="Physics" type="string" value="Helmholtz Filter" />
+    <Parameter name="PDE Constraint" type="string" value="Hyperbolic" />
+    <ParameterList name="Spatial Model">
+      <ParameterList name="Domains">
+        <ParameterList name="block_1">
+          <Parameter name="Element Block" type="string" value="block_1" />
+          <Parameter name="Material Model" type="string" value="material_1" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="Parameters">
+      <Parameter name="Length Scale" type="double" value="0.043301" />
+      <Parameter name="Surface Length Scale" type="double" value="1.0" />
+    </ParameterList>
+  </ParameterList>
+</ParameterList>
+## mpirun.source
+mpiexec --oversubscribe -np 1 -x PLATO_PERFORMER_ID=0 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=engine_operations.xml \
+PlatoMain engine_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=1 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=analyze_2_operations.xml \
+analyze_MPMD --input-config=analyze_2_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=2 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=analyze_helmholtz_operations.xml \
+analyze_MPMD --input-config=analyze_helmholtz_input_deck.xml \

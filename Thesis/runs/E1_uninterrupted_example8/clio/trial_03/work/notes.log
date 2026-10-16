@@ -1,0 +1,15 @@
+2026-10-13T04:03:14Z start trial=E1-example8-clio-03 inputs read
+2026-10-13T04:03:30Z manuals converted to work/manuals/*.txt
+2026-10-13T04:05:17Z mesh generation start: cubit -batch -nographics -nojournal -input mesh.jou (cwd work/mesh)
+2026-10-13T04:05:20Z cubit exit=0 
+2026-10-13T04:05:42Z XMLGenerator input_deck.i in work/run1
+2026-10-13T04:05:43Z XMLGenerator exit=0
+2026-10-13T04:06:22Z run1 translation lacked symmetry plane in Helmholtz XML; re-translating in work/run2 with study-level filter keywords
+2026-10-13T04:06:23Z XMLGenerator run2 exit=0
+2026-10-13T04:07:02Z sbatch --parsable jobs/morphorm_ex8.sbatch -> job 16223098 (run dir work/run2)
+2026-10-13T04:15:46Z job 16223098 RUNNING on notch274, ~20 iterations at 7 min
+2026-10-13T04:26:14Z job 16223098 COMPLETED 0:0 elapsed 00:16:47 node notch274
+2026-10-13T04:26:45Z delivery: copying run2 artifacts to outputs/
+2026-10-13T04:26:45Z outputs/SHA256SUMS.txt written and checked
+2026-10-13T04:28:25Z work/run_summary.md written
+2026-10-13T04:28:36Z run_summary.md timestamps normalized to UTC (agent host local 22:xx MDT = 04:xx Z)

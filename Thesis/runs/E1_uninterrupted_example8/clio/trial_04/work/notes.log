@@ -1,0 +1,11 @@
+2026-10-13T05:12:30Z pdftotext manuals -> work/manual_txt/{user,theory}.txt exit 0
+2026-10-13T05:14:46Z cubit -batch -nographics -nojournal -input work/mesh/mesh.jou exit 0 (log work/mesh/cubit_mesh.log)
+2026-10-13T05:15:03Z exo_summary.py mesh verification exit 0 -> work/verify/mesh.json
+2026-10-13T05:15:03Z XMLGenerator work/run/input_deck.i exit 0 (log work/run/xmlgenerator.log)
+2026-10-13T05:15:40Z DECISION: filter-block form (work/run) generated no symmetry-plane sideset in analyze_helmholtz_input_deck.xml -> retranslate with legacy study-level filter keywords in work/run2 (attempt 1 kept under work/run)
+2026-10-13T05:15:40Z XMLGenerator work/run2/input_deck.i exit 0 (log work/run2/xmlgenerator.log)
+2026-10-13T05:16:00Z xml_params.py work/run2 -> work/verify/generated_config_run2.tsv
+2026-10-13T05:16:17Z sbatch --parsable jobs/morphorm_ex8.sbatch exit 0 jobid=16230233
+2026-10-13T05:33:49Z job 16230233 COMPLETED exit 0:0 elapsed 00:16:48 node notch274
+2026-10-13T05:34:26Z deliverables copied to outputs/ and SHA256SUMS.txt generated
+2026-10-13T05:36:25Z work/run_summary.md written

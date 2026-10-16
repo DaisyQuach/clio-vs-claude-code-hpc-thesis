@@ -1,0 +1,20 @@
+# FROZEN-EX16-v1 cantilever mesh: brick [0,2]x[0,1]x[0,1], 48x24x24 HEX8 mapped
+reset
+brick x 2.0 y 1.0 z 1.0
+move volume 1 x 1.0 y 0.5 z 0.5 include_merged
+volume 1 scheme map
+curve with length > 1.5 interval 48
+curve with length < 1.5 interval 24
+mesh volume 1
+block 1 add volume 1
+block 1 name "block_1"
+block 1 element type HEX8
+nodeset 1 add node with x_coord < 1.0e-6
+nodeset 1 name "ns_fix"
+nodeset 2 add node with x_coord > 1.999999 and y_coord < 1.0e-6
+nodeset 2 name "ns_load"
+list block 1
+list nodeset 1
+list nodeset 2
+set exodus netcdf4 off
+export mesh "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/clio/trial_01/work/mesh/mesh.exo" dimension 3 overwrite

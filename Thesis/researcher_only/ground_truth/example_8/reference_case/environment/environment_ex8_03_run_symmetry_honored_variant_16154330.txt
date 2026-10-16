@@ -1,0 +1,30 @@
+captured_utc=2026-10-09T06:53:25Z
+host=notch351
+slurm_job_id=16154330 slurm_job_name=ex8_03_run_symmetry_honored_variant partition=hochhalter-np account=hochhalter-np qos=hochhalter-np cpus_per_task=8 mem_per_node_mb=32768 nodelist=notch351
+[modules]
+chpc/1.0
+gcc/11.2.0
+openmpi/5.0.3
+morphorm/approved-runtime
+[executables]
+python3=/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/python/bin/python3
+XMLGenerator=/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/XMLGenerator
+PlatoMain=/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/PlatoMain
+analyze=/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/analyze
+analyze_MPMD=/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/analyze_MPMD
+mpiexec=/uufs/chpc.utah.edu/sys/spack/v019/linux-rocky8-x86_64/gcc-11.2.0/openmpi-5.0.3-gjrgcotxcpanmyfade3xe7wjijuvnidx/bin/mpiexec
+cubit=none
+epu=/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/epu
+mpiexec_version=mpiexec (Open MPI) 5.0.3
+python3_version=Python 3.13.5
+MORPHORM_RUNTIME=/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm
+morphorm_modulefile_sha256=dec9d78b15cd0a5925f9e4907bce8f0f9d6c9859c24e952e51e8a849bc93e58d
+cubit_modulefile_sha256=9c5bc2f9e266616ceebd384d82d0859d9977e0085635053061652728704819ad
+runtime_env_sh_sha256=131300a16632ffa48ddc00948f8fd11610d9aac454a83a86a525027a24acfdf8
+runtime_inventory_SHA256SUMS_sha256=fa0d97b93a7990271813eccf8768e14465266853a83ef8adab9e6987b4e3e4d2
+load_approved_software_sha256=d459b935cd4faa0d0e627434c2d71c326d36d5fcca96226a57074df7b6deab37
+OMP_NUM_THREADS=unset
+[uname]
+Linux notch351 4.18.0-553.170.1.el8_10.x86_64 #1 SMP Thu Oct 1 12:14:02 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+[cpu]
+model name	: AMD EPYC 7713P 64-Core Processor

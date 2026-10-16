@@ -1,0 +1,34 @@
+MISSING	radius
+MISSING	sticking
+MISSING	symmetry
+MISSING	ersatz
+MISSING	relative
+MISSING	algorithm
+MISSING	topology
+analyze_2_input_deck.xml	Criteria/My Objective/Penalty Function	Minimum Value	1e-3
+analyze_2_input_deck.xml	Residual/Mechanical Residual/Penalty Function	Minimum Value	1e-3
+analyze_2_input_deck.xml	Material Models/material_1/Isotropic Linear Elastic	Youngs Modulus	1.0
+analyze_2_input_deck.xml	Material Models/material_1/Isotropic Linear Elastic	Poissons Ratio	0.3
+analyze_2_operations.xml	root/Operation	OutputFrequency	1
+analyze_2_operations.xml	root/Operation	Target	0.0
+analyze_helmholtz_input_deck.xml	Problem/Scenarios/Parameters	Length Scale	0.043301
+analyze_helmholtz_input_deck.xml	Problem/Scenarios/Parameters	Surface Length Scale	1.0
+engine_operations.xml	root/Operation	WriteRestart	true
+engine_operations.xml	root/Operation	OutputFrequency	5
+engine_operations.xml	root/Operation	MaxIterations	20
+engine_operations.xml	root/Operation	Discretization	density
+engine_operations.xml	root/Operation	Discretization	density
+engine_operations.xml	root/Operation	PenaltyModel	SIMP
+engine_operations.xml	root/Operation/SIMP	PenaltyExponent	1.0
+engine_operations.xml	root/Operation/SIMP	MinimumValue	0.0
+engine_operations.xml	root/Operation	PenaltyModel	SIMP
+engine_operations.xml	root/Operation/SIMP	PenaltyExponent	1.0
+engine_operations.xml	root/Operation/SIMP	MinimumValue	0.0
+engine_operations.xml	root/Operation	UpdateProblemFrequency	1
+interface.xml	root/Optimizer/Options	OCControlStagnationTolerance	1e-4
+interface.xml	root/Optimizer/Options	ProblemUpdateFrequency	1
+interface.xml	root/Optimizer/Convergence	MaxIterations	20
+interface.xml	root/Optimizer/Output	OutputStage	Output To File
+interface.xml	root/Optimizer/OptimizationVariables	InitializationStage	Initial Guess
+interface.xml	root/Optimizer/OptimizationVariables	FilteredName	Topology
+interface.xml	root/Optimizer/Constraint	NormalizedTargetValue	0.15

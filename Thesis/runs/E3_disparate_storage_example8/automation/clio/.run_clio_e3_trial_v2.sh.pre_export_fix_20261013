@@ -1,0 +1,103 @@
+#!/usr/bin/env bash
+# E3 CLIO trial runner, version 2 (2026-10-11). Supersedes run_clio_e3_trial.sh + start_e3_clio_server.sh, which are kept
+# unchanged as the 2026-10-09 record. Changes come from the non-counted CLIO pilots (clioSessions/CLIO_E1_API_pilots):
+#  - the deployment is built by the shared CLIO launcher Thesis/automation/clio/launch_clio_session.sh (same one as E1/E2):
+#    CLIO_BIN_DIR set (without it the service is unhealthy), runtime tuning (idle-reap TTL, tool timeout, turn watchdog),
+#    stream audit, private clio-core daemon, isolated CLAUDE_CONFIG_DIR, the baseline's Claude Code 2.1.295 pinned on PATH;
+#  - the blueprint is attached and its version verified, and approval/effort are sent on the message too (a message without
+#    confirmation_policy falls back to "ask", which would stop a bypass trial at the first tool call);
+#  - model usage incl. cache writes is collected from the session's own Claude Code transcripts (logs/session/clio/usage_*).
+# Everything E3-specific is unchanged: same packet (prepare_baseline_trial.sh --system clio), same prompt file
+# (baseline_e3_prompt.md, byte-identical to task/task_prompt.md at the pin), same Globus/staging checks, same 6600 s limit,
+# same records, boundary audit, metrics and verification (verify_baseline_trial.sh --system clio).
+#
+# Usage (inside THIS trial's own allocation with the baseline agent-host contract; it never calls sbatch itself):
+#   run_clio_e3_trial_v2.sh --trial-dir <E3>/clio/trial_NN (--dry-run | --execute-counted)
+# e.g. sbatch --account=hochhalter-np --partition=hochhalter-np --nodes=1 --ntasks=1 --cpus-per-task=8 --mem=32G --time=02:00:00 \
+#        --wrap "<this script> --trial-dir <E3>/clio/trial_01 --execute-counted"
+# Stops with exit 3 and logs/ACTION_REQUIRED_<code>.md (nothing dispatched) if a precondition fails.
+source "$(dirname "${BASH_SOURCE[0]}")/../lib/e3_common.sh"
+B="$E3_AUTOMATION/baseline"; C="$E3_AUTOMATION/clio"; TC="$THESIS_ROOT/automation/clio"
+td=""; mode=""; cfg="$B/baseline_e3_config.env"
+while [[ $# -gt 0 ]]; do case "$1" in
+  --trial-dir) td=${2:?}; shift 2;; --dry-run) mode=dry; shift;; --execute-counted) mode=counted; shift;;
+  -h|--help) sed -n '2,22p' "$0"; exit 0;; *) die "unknown argument: $1" 2;; esac; done
+[[ -n "$td" && -n "$mode" ]] || die "need --trial-dir and --dry-run|--execute-counted" 2
+td=$(e3_guard_trial_dir clio "$td") || exit $?; tid=$(trial_id_of clio "$td")
+dry=0; [[ $mode == dry ]] && dry=1; export E3_DRY_RUN=$dry
+# shellcheck disable=SC1090
+source "$cfg"
+: "${E3_ACCESS_MODEL:?}" "${E3_CLAUDE_MODEL:?}" "${E3_CONTROL_REPO_URL:?}" "${E3_CONTROL_COMMIT:?}" "${E3_GLOBUS_MODE:?}" "${E3_SESSION_TIMEOUT_SECONDS:?}"
+[[ "$E3_ACCESS_MODEL" == procedural_researcher_only ]] || die "E3_ACCESS_MODEL must be procedural_researcher_only" 2
+# shellcheck disable=SC1090
+source "$TC/clio_trial_config.env"   # CLIO pins and decisions shared with E1/E2 (placeholders refuse a counted run)
+prompt="$B/baseline_e3_prompt.md"
+checks=(); ck() { checks+=("$1 $2 $3"); log "check $1: $2 — $3"; }
+ar() { action_required "$td" "$@"; }
+
+# 1. allocation, CLIO decisions and pins
+if nlr=$(e3_node_local_root); then ck allocation PASS "job $SLURM_JOB_ID, node-local root \$TMPDIR on $(hostname -s)"
+elif [[ $dry == 1 ]]; then ck allocation INFO "not inside the trial allocation (required for --execute-counted)"
+else ar slurm_allocation "Run inside this trial's allocation on its compute node."; fi
+ph=$(for k in CLIO_AGENT_VERSION_PIN CLIO_CORE_VERSION_PIN CLIO_DESKTOP_VERSION CLIO_BLUEPRINT_ID CLIO_BLUEPRINT_VERSION; do [[ "${!k}" == TBD* ]] && echo "$k"; done | paste -sd' ' -)
+[[ -z "$ph" ]] && ck clio_decisions PASS "no placeholders" || { [[ $dry == 1 ]] && ck clio_decisions INFO "placeholders: $ph" || ar clio_decisions_missing "Thesis/automation/clio/clio_trial_config.env still has placeholders: $ph"; }
+[[ "$E3_CLAUDE_MODEL" == claude-fable-5-1 ]] && ck model PASS "$E3_CLAUDE_MODEL (same as the E1/E2 CLIO arm)" || ar model_mismatch "E3 model $E3_CLAUDE_MODEL differs from the shared CLIO configuration"
+[[ "$CLIO_CLAUDE_CLI_PIN" == "$E3_CLAUDE_PIN_VERSION" ]] && ck claude_cli_pin PASS "$CLIO_CLAUDE_CLI_PIN = E3 baseline harness" || ar cli_pin_mismatch "CLIO CLI pin $CLIO_CLAUDE_CLI_PIN != E3 baseline $E3_CLAUDE_PIN_VERSION"
+# 2. GitHub, Globus, sources, workspace (identical to the baseline and to run_clio_e3_trial.sh)
+export GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=/bin/false GIT_SSH_COMMAND="ssh -o BatchMode=yes -o ConnectTimeout=20 -o StrictHostKeyChecking=yes"
+[[ "$E3_CONTROL_COMMIT" =~ ^[0-9a-f]{40}$ ]] || ar control_commit_unset "E3_CONTROL_COMMIT is not a 40-hex commit."
+timeout 60 git ls-remote --quiet "$E3_CONTROL_REPO_URL" >/dev/null 2>&1 && ck control_repo PASS "readable noninteractively" || ar control_repo_unreadable "git ls-remote failed noninteractively."
+[[ "$E3_GLOBUS_MODE" == globus ]] || ar globus_mandatory "Globus is mandatory for E3."
+gcli="$E3_ROOT/${E3_GLOBUS_CLI_REL:-automation/environment/tools/globus-cli-3.43.0/bin/globus}"; gsrc=${E3_GLOBUS_COLLECTION_ID:?}
+[[ -x "$gcli" ]] && timeout 60 "$gcli" whoami </dev/null >/dev/null 2>&1 && timeout 120 "$gcli" ls "$gsrc:/" </dev/null >/dev/null 2>&1 \
+  && ck globus PASS "collection $gsrc listable noninteractively" || ar globus_interactive_auth "Pinned Globus CLI cannot list $gsrc noninteractively."
+"$E3_AUTOMATION/verify_readonly_sources.sh" >/dev/null 2>&1 && ck sources PASS "collections verify; archive write-protected" || ar sources_failed_verification "Read-only collections fail verification."
+"$E3_AUTOMATION/init_trial_workspace.sh" --system clio --trial-dir "$td" --dry-run >/dev/null 2>&1 && ck workspace PASS "fresh" || die "trial workspace not fresh: $td (never reuse; record a new attempt)" 4
+psha=$(sha256_of "$prompt"); sd_plan="${nlr:-<TMPDIR>}/e3/clio/$tid"
+if [[ $dry == 1 ]]; then
+  printf '%s\n' "${checks[@]}"
+  E3_TRIAL_ID=$tid THESIS_SESSION_EVIDENCE_ROOT=/nonexistent "$TC/launch_clio_session.sh" --trial-dir "$td" --run-id "$tid" --session-label session_main \
+    --prompt-file "$prompt" --dry-run --evidence-dir "${TMPDIR:-/tmp}/e3_clio_dryrun_$tid" | tail -3
+  log "DRY RUN complete: nothing written in the trial, no deployment, no model call (plan under ${TMPDIR:-/tmp}/e3_clio_dryrun_$tid)"; exit 0
+fi
+
+# ======================= counted execution =======================
+[[ "$(manifest_get "$td/manifest.yaml" e3dc_status)" == planned ]] || die "manifest status is not planned; refusing" 4
+[[ -e "$sd_plan" ]] && die "staging directory already exists: $sd_plan (refusing reuse)" 4
+clone=$("$B/prepare_baseline_trial.sh" --system clio --trial-dir "$td" --clone-root "$nlr/e3/_control" --staging-dir "$sd_plan" --config "$cfg" | tail -1) || exit $?
+sd=$("$E3_AUTOMATION/init_node_local_staging.sh" --system clio --trial-dir "$td") || exit $?; [[ "$sd" == "$sd_plan" ]] || die "staging dir differs from plan" 1
+"$E3_AUTOMATION/record_source_versions.sh" --trial-dir "$td" --control-dir "$clone" >/dev/null || die "source/version verification failed" 1
+sess="$td/logs/session"; mkdir -p "$sess"; marker="$td/provenance/.trial_start_marker"; : > "$marker"
+xenv="$nlr/e3/clio_env_$tid.env"
+printf 'E3_TRIAL_ID=%s\nE3_TRIAL_ROOT=%s\nE3_STAGING_DIR=%s\nE3_SYSTEM=clio\nPYTHONDONTWRITEBYTECODE=1\n' "$tid" "$td" "$sd" > "$xenv"
+manifest_set "$td/manifest.yaml" e3dc_status running; manifest_set "$td/manifest.yaml" e3dc_staging_dir "\"$(redact_home <<< "$sd")\""
+manifest_set "$td/manifest.yaml" e3dc_model "$E3_CLAUDE_MODEL"; manifest_set "$td/manifest.yaml" e3dc_prompt_sha256 "$psha"
+manifest_set "$td/manifest.yaml" e3dc_slurm_job_id "$SLURM_JOB_ID"; manifest_set "$td/manifest.yaml" e3dc_started_utc "$(utc_now)"
+# the shared launcher: fresh deployment under $E3/.agent_runtime/clio/<trial_id>/session_main, one session, records in logs/session/
+THESIS_CLIO_RUNTIME_ROOT="$E3_RUNTIME_DIR/clio" "$TC/launch_clio_session.sh" --trial-dir "$td" --run-id "$tid" --session-label session_main \
+  --prompt-file "$prompt" --execute-counted --local --evidence-dir "$sess" --extra-env "$xenv"; rc=$?
+sr="$sess/session_record.json"; sid=$(jq -r '.session_id // empty' "$sr" 2>/dev/null); end=$(jq -r '.end_utc // empty' "$sr" 2>/dev/null)
+# E3 record names (as run_clio_e3_trial.sh wrote them), for the shared audit, metrics and verification
+cp -p "$sess/clio/export_full.json" "$sess/export.json" 2>/dev/null; cp -p "$sess/clio/messages.json" "$sess/messages.json" 2>/dev/null
+jq -c '[.messages[]? // .[]?] | .[] | (.parts // [])[] | select(.type=="tool_call") | {id:(.call_id // .id), name:(.tool_name // .name), input:(.input // {})}' "$sess/messages.json" > "$sess/tool_inputs.jsonl" 2>/dev/null || : > "$sess/tool_inputs.jsonl"
+record_command "$td" "$rc" clio-session "$sid" "<prompt.md>"
+"$E3_AUTOMATION/record_staging_snapshot.sh" --trial-dir "$td" --staging "$sd" || true
+"$E3_AUTOMATION/record_output_provenance.sh" --trial-dir "$td" >/dev/null || true
+if "$E3_AUTOMATION/verify_readonly_sources.sh" > "$td/provenance/sources_after_trial.txt" 2>&1; then su=true; else su=false; fi
+"$E3_AUTOMATION/audit_boundary.sh" --system clio --trial-dir "$td" --since "$marker" --staging "$sd" >/dev/null; arc=$?
+av=$(sed -n 's/^verdict: //p' "$td/provenance/boundary_audit.txt")
+"$C/collect_clio_metrics.sh" --trial-dir "$td" >/dev/null || warn "metrics collection failed"
+manifest_set "$td/manifest.yaml" e3dc_session_id "$sid"; manifest_set "$td/manifest.yaml" e3dc_finished_utc "${end:-$(utc_now)}"
+manifest_set "$td/manifest.yaml" e3dc_agent_executable "\"clio-agent $(jq -r .clio_agent_version "$sr" 2>/dev/null)\""
+manifest_set "$td/manifest.yaml" e3dc_agent_version "\"Claude Code CLI $(jq -r .executable_version "$sr" 2>/dev/null) via CLIO\""
+manifest_set "$td/manifest.yaml" e3dc_exit_status "$rc"; manifest_set "$td/manifest.yaml" e3dc_boundary_audit "${av:-unknown}"
+manifest_set "$td/manifest.yaml" e3dc_sources_unchanged "$su"; manifest_set "$td/manifest.yaml" e3dc_status awaiting_scoring
+for k in e3clio2_blueprint e3clio2_claude_cli_version e3clio2_runtime_tuning e3clio2_usage_summary; do grep -q "^$k:" "$td/manifest.yaml" || die "manifest lacks $k (v2 fields)" 4; done
+manifest_set "$td/manifest.yaml" e3clio2_blueprint "\"$(jq -r '.effective_session_settings | "\(.blueprint_id)@\(.blueprint_version)"' "$sr")\""
+manifest_set "$td/manifest.yaml" e3clio2_claude_cli_version "\"$(jq -r .executable_version "$sr")\""
+manifest_set "$td/manifest.yaml" e3clio2_runtime_tuning "\"idle_ttl=$CLIO_CLAUDE_CODE_STREAM_IDLE_TTL_S mcp_call_timeout=$CLIO_MCP_CALL_TIMEOUT_S turn_timeout=$CLIO_GACT_TURN_TIMEOUT_S core=$CLIO_CORE_ISOLATION\""
+manifest_set "$td/manifest.yaml" e3clio2_usage_summary "logs/session/clio/usage_summary.json"
+"$B/verify_baseline_trial.sh" --system clio --trial-dir "$td" --completed > "$td/provenance/verification.txt" 2>&1 || true
+log "CLIO session $sid ended rc=$rc ($(jq -r .end_reason "$sr" 2>/dev/null)); audit=${av:-unknown} sources_unchanged=$su"
+[[ $su == true && $arc -eq 0 ]] || exit 1
+exit $rc

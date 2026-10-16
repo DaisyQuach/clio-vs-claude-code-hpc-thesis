@@ -1,0 +1,28 @@
+# Problem card — E3 candidate package example_02 (generated 2026-10-09T23:58:50Z from setup/source_inventory.csv)
+package_id: example_02
+source_example_number: 2
+title: "Prune-and-refine continuation of the bracket problem"
+classification: "distinct workflow"
+scientific_role: "Continuation workflow on the Example 1 bracket that adds a prune service (4 processors) and study method prune_and_topology: the mesh is pruned and refined (number_of_refines 1, number_buffer_layers 2) around an initial-guess design read from engine_output.exo, with an absolute volume target. It is a distinct multi-service workflow; it depends on the Example 1 mesh (topology_mech_ex1.exo) and on a completed Example 1 engine output, neither of which is included here. No journal is shipped for this example (it reuses the Example 1 mesh)."
+shipped_from: "Morphorm Examples Manual, topology optimization / mechanical, Example 2 (manual-shipped input deck)"
+authenticity: "files are byte-identical copies of the original sources listed below (SHA-256 verified at copy time)"
+contains_completed_results: false
+original_source_locations:
+  - "/uufs/chpc.utah.edu/common/home/chet/Daisy/Morphorm/docs/examples/input_decks/topology_optimization/mech/topology_mech_ex2.i"
+included_files:
+  - path: selected_source_materials/topology_mech_ex2.i
+    role: "candidate input deck (Example 2, as shipped)"
+    file_type: "Morphorm input deck (text)"
+    size_bytes: 2120
+    sha256: d060e336bf540d8e2dbe3f524f75c5f7bd48e5449eee06713edf2c0882bcc14a
+omitted_result_categories:
+  - "completed final Exodus outputs (engine_output.exo, analyze outputs, per-iteration output directories)"
+  - "input/meshed Exodus files (regenerate from the journal where a journal is included)"
+  - "completed topology renderings and optimized-geometry figures"
+  - "final accepted result summaries and run READMEs"
+  - "numerical objective/compliance/constraint histories (optimizer diagnostics, criterion CSVs)"
+  - "solver, Cubit and Slurm logs"
+  - "generated runtime configuration (XMLGenerator output) of completed runs"
+  - "researcher validation material and scoring records"
+hashes:
+  selected_source_materials/topology_mech_ex2.i: d060e336bf540d8e2dbe3f524f75c5f7bd48e5449eee06713edf2c0882bcc14a

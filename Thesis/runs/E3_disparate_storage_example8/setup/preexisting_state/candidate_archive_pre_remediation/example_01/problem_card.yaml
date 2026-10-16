@@ -1,0 +1,42 @@
+# Problem card — E3 candidate package example_01 (generated 2026-10-09T23:58:50Z from setup/source_inventory.csv)
+package_id: example_01
+source_example_number: 1
+title: "Topology optimization of a bolted bracket (static compliance, kernel filter)"
+classification: "general example"
+scientific_role: "Introductory 3-D minimum-compliance topology optimization of a filleted L-bracket with four bolt holes and a mounting hole: tetrahedral mesh, two element blocks (design block_1, fixed non-design block_2 around the bolts), fixed nodesets ns_1/ns_2, traction loads on sidesets ss_1/ss_2, steel properties, relative volume constraint 0.3, kernel filter (radius_scale 2), Optimality Criteria, 100 iterations. Illustrates the general input-deck block structure (services, criteria, scenario, residual, objective, constraint, output, BCs, loads, blocks, material, filter, study, mesh)."
+shipped_from: "Morphorm Examples Manual, topology optimization / mechanical, Example 1 (manual-shipped input deck and journal)"
+authenticity: "files are byte-identical copies of the original sources listed below (SHA-256 verified at copy time)"
+contains_completed_results: false
+original_source_locations:
+  - "/uufs/chpc.utah.edu/common/home/chet/Daisy/Morphorm_Full_Examples_Tests/topology_mech_ex1.i"
+  - "/uufs/chpc.utah.edu/common/home/chet/Daisy/Morphorm/docs/examples/input_decks/topology_optimization/mech/topology_mech_ex1.jou"
+  - "/uufs/chpc.utah.edu/common/home/chet/Daisy/Morphorm/docs/examples/figs/topology_optimization/mech/topology_original_geom_mech_ex1.png"
+included_files:
+  - path: selected_source_materials/topology_mech_ex1.i
+    role: "candidate input deck (Example 1, as shipped)"
+    file_type: "Morphorm input deck (text)"
+    size_bytes: 1909
+    sha256: b96faf4ec2b0187edc32b5cf8e873a0ae36e41d7dac8084383ef6db925d21b34
+  - path: selected_source_materials/topology_mech_ex1.jou
+    role: "candidate mesh-generation journal (Example 1, as shipped)"
+    file_type: "Coreform Cubit journal (text)"
+    size_bytes: 2703
+    sha256: 30ceb2ae66411de86d01707c521bc70fc407b8538ed703d970f7340e1ab05746
+  - path: selected_source_materials/problem_geometry_figure.png
+    role: "problem-statement geometry/mesh figure (no result)"
+    file_type: "PNG image"
+    size_bytes: 2067821
+    sha256: 234f8a9cfa440268e89be4ed9bac4157f0ce3952a2a0a4f385c7d63af274bfd1
+omitted_result_categories:
+  - "completed final Exodus outputs (engine_output.exo, analyze outputs, per-iteration output directories)"
+  - "input/meshed Exodus files (regenerate from the journal where a journal is included)"
+  - "completed topology renderings and optimized-geometry figures"
+  - "final accepted result summaries and run READMEs"
+  - "numerical objective/compliance/constraint histories (optimizer diagnostics, criterion CSVs)"
+  - "solver, Cubit and Slurm logs"
+  - "generated runtime configuration (XMLGenerator output) of completed runs"
+  - "researcher validation material and scoring records"
+hashes:
+  selected_source_materials/topology_mech_ex1.i: b96faf4ec2b0187edc32b5cf8e873a0ae36e41d7dac8084383ef6db925d21b34
+  selected_source_materials/topology_mech_ex1.jou: 30ceb2ae66411de86d01707c521bc70fc407b8538ed703d970f7340e1ab05746
+  selected_source_materials/problem_geometry_figure.png: 234f8a9cfa440268e89be4ed9bac4157f0ce3952a2a0a4f385c7d63af274bfd1

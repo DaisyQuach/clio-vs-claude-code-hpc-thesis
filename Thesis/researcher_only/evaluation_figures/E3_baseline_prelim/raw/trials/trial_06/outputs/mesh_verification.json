@@ -1,0 +1,107 @@
+{
+  "utc": "2026-10-10T15:03:41Z",
+  "file": "work/mesh/mesh.exo",
+  "num_nodes": 15925,
+  "num_elements": 13824,
+  "num_blocks": 1,
+  "block_names": [
+    "block_1"
+  ],
+  "block_sizes": [
+    13824
+  ],
+  "block_elem_types": [
+    "HEX8"
+  ],
+  "bbox": {
+    "x": [
+      0.0,
+      2.0
+    ],
+    "y": [
+      0.0,
+      1.0
+    ],
+    "z": [
+      0.0,
+      0.5
+    ]
+  },
+  "unique_x": 49,
+  "unique_y": 25,
+  "unique_z": 13,
+  "element_size_x": 0.041666666666666664,
+  "element_size_x_max_dev": 6.666666666835241e-07,
+  "nodesets": {
+    "ids": [
+      1,
+      2
+    ],
+    "names": [
+      "ns_fix",
+      "ns_load"
+    ],
+    "detail": {
+      "ns_fix": {
+        "count": 325,
+        "x": [
+          0.0,
+          0.0
+        ],
+        "y": [
+          0.0,
+          1.0
+        ],
+        "z": [
+          0.0,
+          0.5
+        ]
+      },
+      "ns_load": {
+        "count": 13,
+        "x": [
+          2.0,
+          2.0
+        ],
+        "y": [
+          0.0,
+          0.0
+        ],
+        "z": [
+          0.0,
+          0.5
+        ]
+      }
+    }
+  },
+  "sidesets": {
+    "ids": [
+      1
+    ],
+    "names": [
+      "ss_sym"
+    ],
+    "detail": {
+      "ss_sym": {
+        "count": 1152,
+        "face_z_min": 0.5,
+        "face_z_max": 0.5,
+        "sides_used": [
+          4
+        ]
+      }
+    }
+  },
+  "checks": {
+    "num_elements == 13824": true,
+    "num_nodes == 15925": true,
+    "one block named block_1 with all elements": true,
+    "element type HEX8": true,
+    "bbox x [0,2] y [0,1] z [0,0.5]": true,
+    "structured 49 x 25 x 13 node planes (h=1/24)": true,
+    "ns_fix: 325 nodes, all at x=0": true,
+    "ns_load: 13 nodes at x=2,y=0 spanning z in [0,0.5]": true,
+    "ss_sym: 1152 faces, all on z=0.5": true
+  },
+  "ALL_PASS": true
+}

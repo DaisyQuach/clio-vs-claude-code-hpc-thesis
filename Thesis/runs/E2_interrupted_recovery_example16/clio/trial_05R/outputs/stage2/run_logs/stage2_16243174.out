@@ -1,0 +1,56 @@
+STAGE2 job 16243174 start_utc=2026-10-13T15:08:51Z host=notch204
+--- module list ---
+
+Currently Loaded Modules:
+  1) chpc/1.0   (S)   3) openmpi/5.0.3               5) cubit-edu/2026.8
+  2) gcc/11.2.0       4) morphorm/approved-runtime
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+ 
+
+--- which ---
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/PlatoMain
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/analyze_MPMD
+/uufs/chpc.utah.edu/sys/spack/v019/linux-rocky8-x86_64/gcc-11.2.0/openmpi-5.0.3-gjrgcotxcpanmyfade3xe7wjijuvnidx/bin/mpiexec
+run_dir=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/clio/trial_05R/work/stage2/run
+892c8de1feb517864cf4de7fffebdbe99a342a494ad338b8e4892a1eaa7f5488  mesh.exo
+58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8  restart_input.exo
+74ae7450d4eb172077997dd92139c22987de7a0f0f2845bc420f34820e7bc02c  input_deck.i
+3582e3985d2dd3c4e34a29d3338c4b0de6a7b1e3e8a32e1e2cfa24ee1c88c7ef  interface.xml
+de4341334d3c99814ea20139addc61561a25508268c3d2eebe97d80e819e9336  engine_operations.xml
+7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a  engine_input_deck.xml
+998ee0d46d67b1eb726163d7064b22b57b7ac8c4295c03921456fd10bd1c8e6b  analyze_2_input_deck.xml
+fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0  analyze_2_operations.xml
+c813b81a2c43cbac181b51c3ae12cad319473e7c2725afd29c2637fedec2dcbf  analyze_helmholtz_input_deck.xml
+402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854  analyze_helmholtz_operations.xml
+5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc  mpirun.source
+morphorm_start_utc=2026-10-13T15:08:55Z
+morphorm_end_utc=2026-10-13T15:44:47Z morphorm_exit=0
+total 41748
+drwxr-xr-x 3 u1282901 hochhalter     4096 Oct 13 09:09 .
+drwxr-xr-x 5 u1282901 hochhalter      171 Oct 13 09:20 ..
+-rw-r----- 1 u1282901 hochhalter   172163 Oct 13 09:44 analyze_2_1
+-rw-r--r-- 1 u1282901 hochhalter     4100 Oct 13 09:08 analyze_2_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      864 Oct 13 09:08 analyze_2_operations.xml
+-rw-r----- 1 u1282901 hochhalter   338762 Oct 13 09:44 analyze_helmholtz_2
+-rw-r--r-- 1 u1282901 hochhalter      940 Oct 13 09:08 analyze_helmholtz_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      473 Oct 13 09:08 analyze_helmholtz_operations.xml
+drwxr-xr-x 2 u1282901 hochhalter     4096 Oct 13 09:44 analyze_id_2_output_scenario_id_1
+-rw-r----- 1 u1282901 hochhalter      306 Oct 13 09:44 engine_1_0
+-rw-r--r-- 1 u1282901 hochhalter      433 Oct 13 09:08 engine_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter     3566 Oct 13 09:08 engine_operations.xml
+-rw-r--r-- 1 u1282901 hochhalter 22183456 Oct 13 09:44 engine_output.exo
+-rw-r--r-- 1 u1282901 hochhalter        0 Oct 13 09:08 engine_restart.exo
+-rw-r--r-- 1 u1282901 hochhalter     3294 Oct 13 09:08 input_deck.i
+-rw-r--r-- 1 u1282901 hochhalter    14345 Oct 13 09:08 interface.xml
+-rw-r--r-- 1 u1282901 hochhalter  1974608 Oct 13 09:08 mesh.exo
+-rw-r--r-- 1 u1282901 hochhalter     3979 Oct 13 09:44 morphorm_oc_optimizer_diagnostics.txt
+-rw-r--r-- 1 u1282901 hochhalter    30103 Oct 13 09:44 morphorm_stage2.log
+-rw-r--r-- 1 u1282901 hochhalter      536 Oct 13 09:08 mpirun.source
+-rw-r--r-- 1 u1282901 hochhalter      999 Oct 13 09:44 opt_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 12383296 Oct 13 09:08 restart_input.exo
+-rw-r--r-- 1 u1282901 hochhalter        0 Oct 13 09:08 xmlgenerator_stderr.log
+-rw-r--r-- 1 u1282901 hochhalter     5007 Oct 13 09:08 xmlgenerator_stdout.log
+STAGE2 job 16243174 end_utc=2026-10-13T15:44:47Z

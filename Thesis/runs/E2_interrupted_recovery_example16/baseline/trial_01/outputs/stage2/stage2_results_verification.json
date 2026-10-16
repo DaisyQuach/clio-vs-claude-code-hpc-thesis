@@ -1,0 +1,296 @@
+{
+  "stage2_run_dir": "work/stage2/attempt2_restart21",
+  "stage1_checkpoint": "outputs/stage1/engine_output.exo",
+  "restart_iteration_used": 21,
+  "stage1_diagnostics": {
+    "file": "outputs/stage1/morphorm_oc_optimizer_diagnostics.txt",
+    "sha256": "4aaeaa78e77e9f065e3e0ab91d0205a13cdf600a7c76d9f8fc492b06092772f1",
+    "iterations": [
+      0,
+      20
+    ],
+    "num_rows": 21,
+    "stopping_message": [
+      "****** Optimization stopping due to exceeding maximum number of iterations. ******"
+    ],
+    "row_iteration_19": [
+      "19        20        2.388394e+05   1.207748e+04   4.834189e-13   2.000000e-01   3.420762e+03"
+    ],
+    "row_iteration_20": [
+      "20        21        2.360040e+05   1.191537e+04   3.964884e-13   2.000000e-01   2.835402e+03"
+    ]
+  },
+  "stage2_diagnostics": {
+    "file": "work/stage2/attempt2_restart21/morphorm_oc_optimizer_diagnostics.txt",
+    "sha256": "e206a8507f1c5233305540358ebbbb59df034d8b3219946bbbb097c71f0b2be1",
+    "iterations": [
+      0,
+      40
+    ],
+    "num_rows": 41,
+    "stopping_message": [
+      "****** Optimization stopping due to exceeding maximum number of iterations. ******"
+    ],
+    "row_iteration_0": [
+      "0         1        2.360040e+05   1.191537e+04   3.964884e-13   1.000000e+00  1.797693e+308"
+    ],
+    "row_iteration_40": [
+      "40        41        2.135584e+05   1.063277e+04  -7.552292e-14   1.281498e-01   1.258486e+02"
+    ],
+    "compliance_history_local_iter": {
+      "0": 236004.0,
+      "1": 233639.9,
+      "2": 231619.5,
+      "3": 229874.6,
+      "4": 228414.1,
+      "5": 227141.6,
+      "6": 226038.7,
+      "7": 225073.1,
+      "8": 224224.8,
+      "9": 223453.7,
+      "10": 222730.4,
+      "11": 222092.7,
+      "12": 221508.8,
+      "13": 220963.6,
+      "14": 220436.6,
+      "15": 219924.8,
+      "16": 219444.2,
+      "17": 218985.3,
+      "18": 218540.1,
+      "19": 218144.5,
+      "20": 217779.6,
+      "21": 217451.6,
+      "22": 217141.5,
+      "23": 216837.7,
+      "24": 216548.6,
+      "25": 216273.5,
+      "26": 216002.6,
+      "27": 215735.8,
+      "28": 215495.8,
+      "29": 215261.2,
+      "30": 215053.7,
+      "31": 214865.9,
+      "32": 214684.2,
+      "33": 214510.9,
+      "34": 214347.7,
+      "35": 214201.5,
+      "36": 214065.4,
+      "37": 213930.9,
+      "38": 213806.0,
+      "39": 213684.3,
+      "40": 213558.4
+    },
+    "compliance_history_overall_iter": {
+      "20": 236004.0,
+      "21": 233639.9,
+      "22": 231619.5,
+      "23": 229874.6,
+      "24": 228414.1,
+      "25": 227141.6,
+      "26": 226038.7,
+      "27": 225073.1,
+      "28": 224224.8,
+      "29": 223453.7,
+      "30": 222730.4,
+      "31": 222092.7,
+      "32": 221508.8,
+      "33": 220963.6,
+      "34": 220436.6,
+      "35": 219924.8,
+      "36": 219444.2,
+      "37": 218985.3,
+      "38": 218540.1,
+      "39": 218144.5,
+      "40": 217779.6,
+      "41": 217451.6,
+      "42": 217141.5,
+      "43": 216837.7,
+      "44": 216548.6,
+      "45": 216273.5,
+      "46": 216002.6,
+      "47": 215735.8,
+      "48": 215495.8,
+      "49": 215261.2,
+      "50": 215053.7,
+      "51": 214865.9,
+      "52": 214684.2,
+      "53": 214510.9,
+      "54": 214347.7,
+      "55": 214201.5,
+      "56": 214065.4,
+      "57": 213930.9,
+      "58": 213806.0,
+      "59": 213684.3,
+      "60": 213558.4
+    }
+  },
+  "continuation_evidence": {
+    "checkpoint_file": "outputs/stage1/engine_output.exo",
+    "checkpoint_sha256": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+    "restart_copy_read_by_stage2": "work/stage2/attempt2_restart21/restart_input.exo",
+    "restart_copy_sha256": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+    "field_read": "control",
+    "restart_iteration_keyword_value": 21,
+    "saved_state_semantics": "restart_iteration is the 1-based Exodus time-step index of the checkpoint; time step 21 holds the iteration-20 (end of Stage 1) design",
+    "stage1_iteration_20_compliance": "2.360040e+05",
+    "stage1_iteration_20_norm_gradient": "1.191537e+04",
+    "stage1_iteration_20_constraint": "3.964884e-13",
+    "stage2_first_evaluated_compliance": "2.360040e+05",
+    "stage2_first_norm_gradient": "1.191537e+04",
+    "stage2_first_constraint": "3.964884e-13",
+    "stage1_iterations_whose_compliance_equals_stage2_first": [
+      20
+    ],
+    "rejected_attempt1_restart_iteration_20": {
+      "diagnostics_snapshot": "work/stage2/attempt1_first_row_diagnostics_snapshot.txt",
+      "first_row": [
+        "0         1        2.388394e+05   1.207748e+04   4.834189e-13   1.000000e+00  1.797693e+308"
+      ],
+      "first_compliance": "2.388394e+05",
+      "stage1_iterations_whose_compliance_equals_it": [
+        19
+      ]
+    }
+  },
+  "saved_fields": {
+    "checkpoint_time_steps": 21,
+    "checkpoint_time_values_first_last": [
+      1.0,
+      21.0
+    ],
+    "checkpoint_nodal_fields": [
+      "control",
+      "topology"
+    ],
+    "stage2_engine_output_time_steps": 41,
+    "stage2_time_values_first_last": [
+      1.0,
+      41.0
+    ],
+    "stage2_nodal_fields": [
+      "control",
+      "topology"
+    ],
+    "stage2_nodes_elems": [
+      30625,
+      27648
+    ],
+    "max_abs_diff_stage2_step1_control_vs_checkpoint_step21_control_(iteration20)": 0.0,
+    "max_abs_diff_stage2_step1_control_vs_checkpoint_step20_control_(iteration19)": 0.20000000000000007,
+    "max_abs_diff_stage2_step1_topology_vs_checkpoint_step21_topology": 0.0,
+    "closest_checkpoint_step_to_stage2_step1_control": "stage1_step21_iter20",
+    "max_abs_diff_per_checkpoint_step": {
+      "stage1_step1_iter0": 0.85,
+      "stage1_step2_iter1": 0.8142769881849347,
+      "stage1_step3_iter2": 0.8861075912238656,
+      "stage1_step4_iter3": 0.896231008240401,
+      "stage1_step5_iter4": 0.95,
+      "stage1_step6_iter5": 1.0,
+      "stage1_step7_iter6": 1.0,
+      "stage1_step8_iter7": 1.0,
+      "stage1_step9_iter8": 1.0,
+      "stage1_step10_iter9": 1.0,
+      "stage1_step11_iter10": 0.9820230444625124,
+      "stage1_step12_iter11": 0.963380752902136,
+      "stage1_step13_iter12": 0.9378155304593868,
+      "stage1_step14_iter13": 0.8830844454897971,
+      "stage1_step15_iter14": 0.801127417038701,
+      "stage1_step16_iter15": 0.715467810996641,
+      "stage1_step17_iter16": 0.6181876950633842,
+      "stage1_step18_iter17": 0.5041427777297635,
+      "stage1_step19_iter18": 0.37648919964488287,
+      "stage1_step20_iter19": 0.20000000000000007,
+      "stage1_step21_iter20": 0.0
+    },
+    "stage2_final_step_control_stats": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.16656202720108187
+    },
+    "stage2_final_step_topology_stats": {
+      "min": 4.138855972637989e-08,
+      "max": 0.9337841316891132,
+      "mean": 0.14296447534543327
+    }
+  },
+  "analyze_output_dir": {
+    "dir": "work/stage2/attempt2_restart21/analyze_id_2_output_scenario_id_1",
+    "num_files": 82,
+    "exo_files": [
+      "iteration0.exo",
+      "iteration1.exo",
+      "iteration2.exo",
+      "iteration3.exo",
+      "iteration4.exo",
+      "iteration5.exo",
+      "iteration6.exo",
+      "iteration7.exo",
+      "iteration8.exo",
+      "iteration9.exo",
+      "iteration10.exo",
+      "iteration11.exo",
+      "iteration12.exo",
+      "iteration13.exo",
+      "iteration14.exo",
+      "iteration15.exo",
+      "iteration16.exo",
+      "iteration17.exo",
+      "iteration18.exo",
+      "iteration19.exo",
+      "iteration20.exo",
+      "iteration21.exo",
+      "iteration22.exo",
+      "iteration23.exo",
+      "iteration24.exo",
+      "iteration25.exo",
+      "iteration26.exo",
+      "iteration27.exo",
+      "iteration28.exo",
+      "iteration29.exo",
+      "iteration30.exo",
+      "iteration31.exo",
+      "iteration32.exo",
+      "iteration33.exo",
+      "iteration34.exo",
+      "iteration35.exo",
+      "iteration36.exo",
+      "iteration37.exo",
+      "iteration38.exo",
+      "iteration39.exo",
+      "iteration40.exo"
+    ]
+  },
+  "final_analyze_output": {
+    "file": "work/stage2/attempt2_restart21/analyze_id_2_output_scenario_id_1/iteration40.exo",
+    "sha256": "99f38f171ce7c3347f176230d50629d508a01a7dd062c7f26b9a920e7cfa6643",
+    "num_time_steps": 1,
+    "nodal_fields": [
+      "Topology",
+      "displacement X",
+      "displacement Y",
+      "displacement Z"
+    ],
+    "num_nodes": 30625
+  },
+  "opt_criteria_history": [
+    "My Objective, 2.3600395811001546e+05, 2.3363986471026938e+05, 2.3161950709462259e+05, 2.2987458448569526e+05, 2.2841412942009710e+05, 2.2714158835959088e+05, 2.2603869743233957e+05, 2.2507309663455255e+05, 2.2422476032699787e+05, 2.2345373573981776e+05, 2.2273044297616291e+05, 2.2209272997323138e+05, 2.2150877137274132e+05, 2.2096364451408287e+05, 2.2043663668475178e+05, 2.1992478882274541e+05, 2.1944418528889585e+05, 2.1898534641481613e+05, 2.1854014212000821e+05, 2.1814451569997470e+05, 2.1777960727187395e+05, 2.1745160094118037e+05, 2.1714146195424977e+05, 2.1683766632231316e+05, 2.1654861746126873e+05, 2.1627345046363139e+05, 2.1600263403047028e+05, 2.1573576279149108e+05, 2.1549582878602427e+05, 2.1526121566593944e+05, 2.1505371954704478e+05, 2.1486588081021610e+05, 2.1468421402355729e+05, 2.1451088785199859e+05, 2.1434767529546472e+05, 2.1420145959152034e+05, 2.1406535751591230e+05, 2.1393094573734008e+05, 2.1380597270753782e+05, 2.1368426268346232e+05, 2.1355841409304400e+05,"
+  ],
+  "checks": {
+    "stage2 diagnostics: local iterations 0..40 present (41 rows)": true,
+    "stage2 diagnostics: last local iteration == 40 == max_iterations (overall iteration 60)": true,
+    "stage2 diagnostics: stopped at iteration cap (max iterations message)": true,
+    "continuation: Stage-2 first evaluated compliance == Stage-1 iteration-20 compliance (printed values identical)": true,
+    "continuation: Stage-2 first compliance matches no other Stage-1 iteration": true,
+    "continuation: Stage-2 first gradient norm and constraint value == Stage-1 iteration-20 values": true,
+    "continuation: restart copy read by Stage 2 is byte-identical to the checkpoint": true,
+    "continuation: checkpoint unchanged (sha256 58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8)": true,
+    "saved fields: Stage-2 step-1 control field == checkpoint step-21 (iteration-20) control field (max abs diff 0)": true,
+    "saved fields: Stage-2 step-1 control differs from checkpoint step-20 (iteration-19) control": true,
+    "saved fields: Stage-2 engine_output has 41 time steps with control and topology": true,
+    "saved fields: Stage-2 engine_output node/element counts match mesh": true,
+    "saved fields: all Stage-2 control values finite and within [0,1]": true,
+    "final analyze output iteration40.exo exists with displacement fields": true,
+    "analyze outputs iteration0..40 present": true
+  },
+  "ALL_CHECKS_PASS": true
+}

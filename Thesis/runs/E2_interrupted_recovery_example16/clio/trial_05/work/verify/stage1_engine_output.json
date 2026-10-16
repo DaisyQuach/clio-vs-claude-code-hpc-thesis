@@ -1,0 +1,51 @@
+{
+ "file": "work/stage1/run/engine_output.exo",
+ "num_nodes": 30625,
+ "num_elem": 27648,
+ "num_dim": 3,
+ "bbox_min": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "bbox_max": [
+  2.0,
+  1.0,
+  1.0
+ ],
+ "blocks": [
+  {
+   "name": "",
+   "type": "HEX8",
+   "elems": 27648,
+   "nodes_per_elem": 8
+  }
+ ],
+ "nodesets": {
+  "ns_fix": 625,
+  "ns_load": 25
+ },
+ "sidesets": {},
+ "time_steps": 21,
+ "time_first_last": [
+  1.0,
+  21.0
+ ],
+ "nodal_vars": [
+  "control",
+  "topology"
+ ],
+ "elem_vars": [],
+ "nodal_min_max_last_step": {
+  "control": [
+   0.0,
+   1.0
+  ],
+  "topology": [
+   5.482233252956195e-08,
+   0.9267272956371002
+  ]
+ },
+ "expect_failures": [],
+ "expect_ok": true
+}

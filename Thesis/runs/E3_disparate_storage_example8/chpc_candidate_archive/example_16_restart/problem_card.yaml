@@ -1,0 +1,48 @@
+# Problem card — E3 candidate package example_16_restart (regenerated 2026-10-10T00:39:27Z by E3 remediation; logical source identifiers)
+package_id: example_16_restart
+source_example_number: 16
+source_identifier: MORPHORM-CANDIDATE-EX16
+source_identifier_note: "logical identifier assigned by E3; it is not a filesystem path and not the original location"
+title: "Two-stage restart workflow on the full Helmholtz cantilever"
+classification: "restart-specific workflow"
+scientific_role: "Restart workflow on the full 2 x 1 x 1 cantilever: stage 1 runs 20 OC iterations with write_restart_file true; the restart deck runs 40 further iterations starting from the saved design (initial_guess_file_name initialguess.exo, initial_guess_field_name control, restart_iteration 20). Same physics and filter settings as the full Helmholtz cantilever; its specific purpose is demonstrating checkpoint/restart of an optimization. The restart stage needs a stage-1 output (not included)."
+self_contained: "stage 1 yes (journal + stage-1 deck); the restart stage needs this package's own stage-1 output, which a user generates by running stage 1; no other example's files are needed"
+shipped_from: "Morphorm Examples Manual, topology optimization / mechanical, Example 16 (manual-shipped stage-1 deck, restart deck and journal)"
+authenticity: "files are byte-identical copies of the original example files (SHA-256 verified at copy time)"
+contains_completed_results: false
+source_file_identifiers:
+  - MORPHORM-CANDIDATE-EX16/stage1_input_deck
+  - MORPHORM-CANDIDATE-EX16/journal
+  - MORPHORM-CANDIDATE-EX16/restart_input_deck
+included_files:
+  - path: selected_source_materials/topology_mech_ex16.i
+    source_file_identifier: MORPHORM-CANDIDATE-EX16/stage1_input_deck
+    role: "candidate stage-1 input deck (Example 16, as shipped)"
+    file_type: "Morphorm input deck (text)"
+    size_bytes: 1731
+    sha256: 4193f3b3981691499f13359369f6f419ea69c9a908f8c5285945ba51ca29112d
+  - path: selected_source_materials/topology_mech_ex16.jou
+    source_file_identifier: MORPHORM-CANDIDATE-EX16/journal
+    role: "candidate mesh-generation journal (Example 16, as shipped)"
+    file_type: "Coreform Cubit journal (text)"
+    size_bytes: 1076
+    sha256: b02676b90e219b460a1e4a5b9a5910438fea46198cfac4dbdeffa4a3c947fca5
+  - path: selected_source_materials/topology_mech_ex16_restart.i
+    source_file_identifier: MORPHORM-CANDIDATE-EX16/restart_input_deck
+    role: "candidate restart input deck (Example 16, as shipped)"
+    file_type: "Morphorm input deck (text)"
+    size_bytes: 1806
+    sha256: 951941cc684b444bd3c268c192eb7269ec964eb8b2579b6b8087b86575a32da6
+omitted_result_categories:
+  - "completed final Exodus outputs (engine_output.exo, analyze outputs, per-iteration output directories)"
+  - "input/meshed Exodus files (regenerate from the journal where a journal is included)"
+  - "completed topology renderings and optimized-geometry figures"
+  - "final accepted result summaries and run READMEs"
+  - "numerical objective/compliance/constraint histories (optimizer diagnostics, criterion CSVs)"
+  - "solver, Cubit and Slurm logs"
+  - "generated runtime configuration (XMLGenerator output) of completed runs"
+  - "researcher validation material and scoring records"
+hashes:
+  selected_source_materials/topology_mech_ex16.i: 4193f3b3981691499f13359369f6f419ea69c9a908f8c5285945ba51ca29112d
+  selected_source_materials/topology_mech_ex16.jou: b02676b90e219b460a1e4a5b9a5910438fea46198cfac4dbdeffa4a3c947fca5
+  selected_source_materials/topology_mech_ex16_restart.i: 951941cc684b444bd3c268c192eb7269ec964eb8b2579b6b8087b86575a32da6

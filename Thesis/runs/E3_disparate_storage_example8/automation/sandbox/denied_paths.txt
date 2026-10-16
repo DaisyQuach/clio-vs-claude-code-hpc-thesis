@@ -1,0 +1,19 @@
+# E3 sandbox — roots that must never be visible inside the sandbox (read by launch_e3_sandbox.sh).
+# The launcher refuses to start if any exposed path is at, under, or an ancestor of one of these.
+# Nothing outside allowed_paths.txt is mounted at all, so these are a defence-in-depth check, not the mechanism.
+# The account home directory is also denied; the launcher takes it from $HOME at run time (not written here).
+/uufs/chpc.utah.edu/common/home/chet/Daisy/Morphorm_ground_truth
+/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/researcher_only
+/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/setup
+/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only
+/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8
+/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments
+/uufs/chpc.utah.edu/common/home/chet/Daisy/Morphorm_Full_Examples_Tests
+/uufs/chpc.utah.edu/common/home/chet/Daisy/Morphorm
+/uufs/chpc.utah.edu/common/home/chet/Daisy/morphorm_manuals
+/uufs/chpc.utah.edu/common/home/chet/Daisy/experiments_groundTruth
+/uufs/chpc.utah.edu/common/home/chet/Daisy/Abaqus_Topology_GroundTruth
+/uufs/chpc.utah.edu/common/home/chet/Daisy/experiments
+/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/common
+/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/automation

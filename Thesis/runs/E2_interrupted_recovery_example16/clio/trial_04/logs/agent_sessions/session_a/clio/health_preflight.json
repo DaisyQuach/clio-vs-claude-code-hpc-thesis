@@ -1,0 +1,196 @@
+{
+  "healthy": true,
+  "uptime_s": 5,
+  "overall_status": "degraded",
+  "integrations": [
+    {
+      "name": "lm_provider",
+      "status": "ready",
+      "detail": "Claude Code sdk transport is ready: `claude` CLI found on PATH (no HTTP /models endpoint \u2014 probed the CLI the transport spawns).",
+      "summary": "Claude Code sdk transport is ready: `claude` CLI found on PATH (no HTTP /models endpoint \u2014 probed the CLI the transport spawns).",
+      "config_source": "env:CLIO_LM_PROVIDER, env:CLIO_LM_API_BASE, env:CLIO_LM_MODEL, default:claude_code",
+      "next_action": "No action required.",
+      "endpoint": "claude-code://sdk",
+      "required": true,
+      "reason": null
+    },
+    {
+      "name": "arc",
+      "status": "ready",
+      "detail": "ARC clio-core backend is live: iowarp_core is installed and the shared clio-core daemon is listening on port 19448. Semantic (BM25) scope search is unavailable (typed search_unavailable) -- the clio_cte_indexer chimod is not composed (clio-core#905: https://github.com/iowarp/clio-core/issues/905#issuecomment-5826003299).",
+      "summary": "ARC clio-core backend is live: iowarp_core is installed and the shared clio-core daemon is listening on port 19448. Semantic (BM25) scope search is unavailable (typed search_unavailable) -- the clio_cte_indexer chimod is not composed (clio-core#905: https://github.com/iowarp/clio-core/issues/905#issuecomment-5826003299).",
+      "config_source": "default:cte",
+      "next_action": "No action required.",
+      "endpoint": "127.0.0.1:19448",
+      "required": true,
+      "reason": "clio_core_search_indexer_absent"
+    },
+    {
+      "name": "clio_core_attach",
+      "status": "ready",
+      "detail": "clio-core attached (port 19448, config /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-04/session_a/clio_home/data/cte/hosts/notch351/cte.yaml).",
+      "summary": "clio-core attached (port 19448, config /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-04/session_a/clio_home/data/cte/hosts/notch351/cte.yaml).",
+      "config_source": "runtime:clio_core_attach",
+      "next_action": "No action required.",
+      "endpoint": "127.0.0.1:19448",
+      "required": false,
+      "reason": "clio_core_attached"
+    },
+    {
+      "name": "clio_core_ram_cap",
+      "status": "ready",
+      "detail": "clio-core runs disk-only data with working memory bounded at 1GB (~1.0 GiB); no ram data tier (#906 memory budget).",
+      "summary": "clio-core runs disk-only data with working memory bounded at 1GB (~1.0 GiB); no ram data tier (#906 memory budget).",
+      "config_source": "file:/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-04/session_a/clio_home/data/cte/hosts/notch351/cte.yaml",
+      "next_action": "No action required.",
+      "endpoint": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-04/session_a/clio_home/data/cte/hosts/notch351/cte.yaml",
+      "required": true,
+      "reason": "disk_only_arena_bounded"
+    },
+    {
+      "name": "clio_core_liveness",
+      "status": "ready",
+      "detail": "1 clio-core store liveness gate(s) active and healthy; ops are guarded against a runtime-daemon loss (#892).",
+      "summary": "1 clio-core store liveness gate(s) active and healthy; ops are guarded against a runtime-daemon loss (#892).",
+      "config_source": "runtime:clio_core_liveness_gate",
+      "next_action": "No action required.",
+      "endpoint": null,
+      "required": true,
+      "reason": "clio_core_liveness_healthy"
+    },
+    {
+      "name": "clio_core_daemon_memory",
+      "status": "ready",
+      "detail": "clio-core daemon (pid 1763079) RSS is 314.2 MiB (committed 506.5 GiB), 46 threads, 1 live client(s); within the elevated threshold (~1.0 GiB).",
+      "summary": "clio-core daemon (pid 1763079) RSS is 314.2 MiB (committed 506.5 GiB), 46 threads, 1 live client(s); within the elevated threshold (~1.0 GiB).",
+      "config_source": "runtime:clio_core_daemon_memory",
+      "next_action": "No action required.",
+      "endpoint": "127.0.0.1:19448",
+      "required": true,
+      "reason": "clio_core_daemon_rss_ok"
+    },
+    {
+      "name": "cte_cold_tier_disk",
+      "status": "ready",
+      "detail": "CTE cold tier has 2.0 MiB allocated (0% of its 50GB capacity; warn at 50%). Its sparse files have 1.0 GiB logical size.",
+      "summary": "CTE cold tier has 2.0 MiB allocated (0% of its 50GB capacity; warn at 50%). Its sparse files have 1.0 GiB logical size.",
+      "config_source": "arc.cte.file_capacity, arc.cte.disk_warn_fraction",
+      "next_action": "No action required.",
+      "endpoint": null,
+      "required": false,
+      "reason": null
+    },
+    {
+      "name": "file_policy",
+      "status": "ready",
+      "detail": "Local file access allows roots [/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/clio/trial_04, /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-04/session_a/clio_home, /scratch/local/u1282901/16239476], max file size 1.0 GiB, symlinks denied.",
+      "summary": "Local file access allows roots [/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/clio/trial_04, /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-04/session_a/clio_home, /scratch/local/u1282901/16239476], max file size 1.0 GiB, symlinks denied.",
+      "config_source": "env:CLIO_ALLOWED_ROOTS; default:1GiB; default:deny-symlinks",
+      "next_action": "Set CLIO_ALLOWED_ROOTS, CLIO_MAX_FILE_SIZE_BYTES, or CLIO_ALLOW_SYMLINKS to change local file policy.",
+      "endpoint": null,
+      "required": true,
+      "reason": null
+    },
+    {
+      "name": "gateway",
+      "status": "ready",
+      "detail": "Gateway exposes 4 tool(s) across 2 server(s).",
+      "summary": "Gateway exposes 4 tool(s) across 2 server(s).",
+      "config_source": "in-process:clio_agent.tools.gateway",
+      "next_action": "No action required.",
+      "endpoint": null,
+      "required": true,
+      "reason": null
+    },
+    {
+      "name": "api",
+      "status": "ready",
+      "detail": "API application is running in this process.",
+      "summary": "API application is running in this process.",
+      "config_source": "current FastAPI app state",
+      "next_action": "No action required.",
+      "endpoint": "in-process",
+      "required": true,
+      "reason": null
+    },
+    {
+      "name": "clio_core",
+      "status": "ready",
+      "detail": "clio-core runtime is live: iowarp_core is installed and the shared daemon is listening on port 19448.",
+      "summary": "clio-core runtime is live: iowarp_core is installed and the shared daemon is listening on port 19448.",
+      "config_source": "pip:iowarp_core; default:cte",
+      "next_action": "No action required.",
+      "endpoint": "127.0.0.1:19448",
+      "required": true,
+      "reason": null
+    },
+    {
+      "name": "sandbox",
+      "status": "degraded",
+      "detail": "No OS write-confinement (mechanism=none, reason=kernel_too_old); the advisory file_policy applies at the tool boundary. Out-of-root writes are recorded on the provenance floor, not yet prevented.",
+      "summary": "No OS write-confinement (mechanism=none, reason=kernel_too_old); the advisory file_policy applies at the tool boundary. Out-of-root writes are recorded on the provenance floor, not yet prevented.",
+      "config_source": "runtime:sandbox",
+      "next_action": "Install codex (`npm install -g @openai/codex`) for the cross-platform OS write fence, or run on a Landlock-capable kernel (>=5.13) on Linux; the advisory file_policy still applies meanwhile.",
+      "endpoint": null,
+      "required": true,
+      "reason": "kernel_too_old"
+    },
+    {
+      "name": "sandbox_conformance",
+      "status": "ready",
+      "detail": "All 6 spawn seams carry a typed confinement label on tier 'none' (3 wrapped, 3 excluded); zero untyped degrades.",
+      "summary": "All 6 spawn seams carry a typed confinement label on tier 'none' (3 wrapped, 3 excluded); zero untyped degrades.",
+      "config_source": "runtime:sandbox_conformance",
+      "next_action": "No action required.",
+      "endpoint": null,
+      "required": false,
+      "reason": null
+    },
+    {
+      "name": "compaction_prompt",
+      "status": "ready",
+      "detail": "compaction summarizer prompt: /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/prompt_packs/builtin/compaction.md",
+      "summary": "compaction summarizer prompt: /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/prompt_packs/builtin/compaction.md",
+      "config_source": "packaged default",
+      "next_action": "none",
+      "endpoint": null,
+      "required": false,
+      "reason": null
+    },
+    {
+      "name": "child_reaper",
+      "status": "ready",
+      "detail": "Child-tree reaping is delegated to per-child pdeathsig (setpriv) + the process-group teardown (POSIX); no process-wide Job Object is needed.",
+      "summary": "Child-tree reaping is delegated to per-child pdeathsig (setpriv) + the process-group teardown (POSIX); no process-wide Job Object is needed.",
+      "config_source": "runtime:process_tree",
+      "next_action": "No action required.",
+      "endpoint": null,
+      "required": true,
+      "reason": "delegated_to_pdeathsig"
+    },
+    {
+      "name": "child_processes",
+      "status": "ready",
+      "detail": "1 live child process(es) in this tree (clio_core_daemon=1).",
+      "summary": "1 live child process(es) in this tree (clio_core_daemon=1).",
+      "config_source": "runtime:process_tree",
+      "next_action": "Expected while the server runs (MCP stdio + SDK CLI). A hard-kill reaper (Windows Job Object / POSIX pdeathsig) prevents these from orphaning.",
+      "endpoint": null,
+      "required": false,
+      "reason": "child_census"
+    },
+    {
+      "name": "child_parentage",
+      "status": "ready",
+      "detail": "All 0 CLIO process(es) descend from the server root (pid 1763019) or the clio-core daemon root (the two intended roots).",
+      "summary": "All 0 CLIO process(es) descend from the server root (pid 1763019) or the clio-core daemon root (the two intended roots).",
+      "config_source": "runtime:process_census",
+      "next_action": "No action required.",
+      "endpoint": null,
+      "required": false,
+      "reason": "all_rooted"
+    }
+  ],
+  "tool_hooks_installed": true,
+  "context_mode": "clio_core"
+}

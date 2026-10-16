@@ -1,0 +1,84 @@
+{
+  "utc": "2026-10-10T05:48:02Z",
+  "directory": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_01/work/run",
+  "spec": "E3-SPC-v1 sections 4-6 (generated-configuration requirement)",
+  "helmholtz_parameters": {
+    "Problem/Scenarios/Parameters/Length Scale": "0.043301",
+    "Problem/Scenarios/Parameters/Surface Length Scale": "1.0",
+    "Problem/Scenarios/Parameters/Symmetry Plane Sides": "{ss_sym}"
+  },
+  "essential_boundary_conditions": {
+    "Displacement X with ID 1": {
+      "Type": "Fixed Value",
+      "Index": "0",
+      "Sides": "ns_fix",
+      "Value": "0"
+    },
+    "Displacement Y with ID 2": {
+      "Type": "Fixed Value",
+      "Index": "1",
+      "Sides": "ns_fix",
+      "Value": "0"
+    },
+    "Displacement Z with ID 3": {
+      "Type": "Fixed Value",
+      "Index": "2",
+      "Sides": "ns_fix",
+      "Value": "0"
+    },
+    "Displacement Z with ID 4": {
+      "Type": "Fixed Value",
+      "Index": "2",
+      "Sides": "ss_sym",
+      "Value": "0"
+    }
+  },
+  "concentrated_loads": {
+    "Problem/Scenarios/Concentrated Loads/Concentrated Load with ID 0/Dof": "1",
+    "Problem/Scenarios/Concentrated Loads/Concentrated Load with ID 0/Value": "-1.0",
+    "Problem/Scenarios/Concentrated Loads/Concentrated Load with ID 0/Nodes": "ns_load"
+  },
+  "material": {
+    "Problem/Scenarios/Material Models/material_1/Isotropic Linear Elastic/Youngs Modulus": "1.0",
+    "Problem/Scenarios/Material Models/material_1/Isotropic Linear Elastic/Poissons Ratio": "0.3"
+  },
+  "penalty": {
+    "Problem/Scenarios/Criteria/My Objective/Penalty Function/Type": "SIMP",
+    "Problem/Scenarios/Criteria/My Objective/Penalty Function/Exponent": "3.0",
+    "Problem/Scenarios/Criteria/My Objective/Penalty Function/Minimum Value": "1e-3",
+    "Problem/Scenarios/Residual/Mechanical Residual/Penalty Function/Type": "SIMP",
+    "Problem/Scenarios/Residual/Mechanical Residual/Penalty Function/Exponent": "3.0",
+    "Problem/Scenarios/Residual/Mechanical Residual/Penalty Function/Minimum Value": "1e-3"
+  },
+  "checks": {
+    "helmholtz: filter length scale present and = 0.15/(2*sqrt(3)) = 0.043301": true,
+    "helmholtz: surface (boundary-sticking) length scale present and = 1.0": true,
+    "helmholtz: symmetry-plane sideset ss_sym declared": true,
+    "helmholtz: physics = Helmholtz Filter, mesh = mesh.exo, 3-D": true,
+    "analyze: isotropic linear elastic E=1.0 nu=0.3 for material of block_1": true,
+    "analyze: residual SIMP exponent 3.0, minimum 1e-3": true,
+    "analyze: compliance criterion SIMP exponent 3.0, minimum ersatz 1e-3": true,
+    "analyze: single-phase material interpolation, linear response": true,
+    "analyze: exactly one concentrated load, dof y (1), value -1.0, nodes ns_load; no tractions": true,
+    "analyze: ns_fix fixed in dispx, dispy, dispz (three displacement conditions, value 0)": true,
+    "analyze: ss_sym fixed in dispz only (value 0)": true,
+    "analyze: no other essential boundary conditions": true,
+    "analyze: output dispx dispy dispz": true,
+    "analyze: physics Mechanical, mesh mesh.exo, 3-D": true,
+    "interface: optimizer OC": true,
+    "interface: max iterations 50": true,
+    "interface: OC runtime-default tolerances present (control 1e-4, objective 1e-8, gradient 1e-8)": true,
+    "interface: volume constraint normalized target 0.15 referenced to Design Volume": true,
+    "engine: volume constraint evaluated by engine_1 (ComputeVolume)": true,
+    "interface: compliance objective evaluated by analyze_2": true,
+    "engine: weighted-sum aggregator with single weight 1": true,
+    "engine: normalize_in_aggregator false (no Normals block, no initial criterion value)": true,
+    "engine: uniform initial density 0.15, density discretization": true,
+    "engine: update problem frequency 1 and Update Problem stage": true,
+    "engine: output of control and topology fields": true,
+    "engine: block 1 material 1, mesh mesh.exo, engine_output": true,
+    "services: engine, analyze and helmholtz performers, one rank each (mpirun.source -np 1 x3)": true,
+    "analyze: visualization output every iteration to analyze_id_2_output": true
+  },
+  "result": "PASS"
+}

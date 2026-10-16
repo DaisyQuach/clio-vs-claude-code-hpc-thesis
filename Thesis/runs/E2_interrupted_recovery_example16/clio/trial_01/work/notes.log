@@ -1,0 +1,23 @@
+2026-10-13T06:13:26Z start session A trial=E2-example16-clio-01
+2026-10-13T06:13:29Z pdftotext manuals -> work/manuals
+2026-10-13T06:15:03Z cubit -batch -nographics -nojournal -input work/mesh/mesh.jou (start)
+2026-10-13T06:15:06Z cubit mesh rc=0 log=work/mesh/cubit_mesh.log
+2026-10-13T06:15:19Z exo_summary mesh check rc=0 -> work/verify/mesh.json
+2026-10-13T06:15:48Z nodeset coordinate check -> work/verify/mesh_nodeset_coords.txt
+2026-10-13T06:16:15Z XMLGenerator input_deck.i in work/stage1/run (start)
+2026-10-13T06:16:15Z XMLGenerator rc=0
+2026-10-13T06:17:23Z scratch translate test output_frequency 1 in work/stage1/xmltest_outfreq rc=0
+2026-10-13T06:17:38Z sbatch --parsable jobs/stage1_job_script.sbatch rc=0 jobid=16236766 (Stage 1)
+2026-10-13T06:17:50Z copied mesh/deck/config/jobscript deliverables to outputs/
+2026-10-13T06:35:44Z job 16236766 COMPLETED ExitCode 0:0 Elapsed 00:17:14 node notch274
+2026-10-13T06:36:11Z verification: diag 21 rows iter0-20 stop=max iterations; engine_output.exo 21 steps control+topology; iteration20.exo present
+2026-10-13T06:36:23Z delivered Stage-1 outputs; outputs/SHA256SUMS.txt written (28 files)
+2026-10-13T06:40:30Z wrote work/run_summary.md from notes.log (Stage 1 complete, Stage 2 not started)
+2026-10-13T06:44:53Z start session B (recovery) trial=E2-example16-clio-01; read agent_inputs, work/notes.log, work/run_summary.md; verified Stage 1 complete: diag 21 rows iter0-20 stop=max iterations, checkpoint outputs/stage1/engine_output.exo 21 steps, sha256sum -c SHA256SUMS.txt 0 non-OK; Stage 2 not started
+2026-10-13T06:47:12Z cp checkpoint -> work/stage2/run/restart_input.exo cmp OK sha 9f961677...; XMLGenerator input_deck.i in work/stage2/run rc=0 (restart_iteration 21 = last Exodus time step, to be proven by first-objective check); xml_params -> work/verify/stage2_xml_params.txt (exit 1 only for free-text term filename); generated config differs from Stage 1 only in MaxIterations 40, RestartFieldName control, InitializeField FromFieldOnInputMesh restart_input.exo/control/Iteration 21
+2026-10-13T06:47:13Z sbatch --parsable jobs/stage2_job_script.sbatch rc=0 jobid=16237166 (Stage 2 attempt 1, restart_iteration 21)
+2026-10-13T06:51:59Z job 16237166 RUNNING node notch351; Stage-2 first row Iter0 F(X)=2.360040e+05 Norm(F')=1.191537e+04 H1=3.964884e-13 == Stage-1 iter20 row -> seamless restart confirmed (restart_iteration 21 = Exodus time step 21 = iteration 20); diag_summary --compare-first-to saved work/verify/stage2_first_objective_check.txt
+2026-10-13T07:08:55Z job 16237166 COMPLETED ExitCode 0:0 Elapsed 00:20:42 node notch351; sacct -> jobs/sacct_16237166.txt
+2026-10-13T07:10:19Z verification Stage 2: diag 41 rows iter0-40 stop=max iterations first_vs_given_rel_diff 0.0 (work/verify/stage2_diag_summary.txt); engine_output.exo 41 steps control+topology expect_ok (stage2_engine_output.json); iteration40.exo 1 step time 40 (stage2_final_analyze_output.json); control-field compare stage1 step21 == stage2 step1 identical, != step20 by 0.2 (stage2_control_field_compare.txt); engine_restart.exo 0 bytes not a valid Exodus file (not a deliverable)
+2026-10-13T07:10:20Z delivered Stage-2 outputs to outputs/stage2/ (cmp OK); regenerated outputs/SHA256SUMS.txt (54 files)
+2026-10-13T07:14:17Z updated work/run_summary.md in place (Session A text preserved in work/summary_parts/run_summary_sessionA_original.md; Session-B subsections spliced into sections 3-8)

@@ -1,0 +1,16 @@
+2026-10-13T19:23:49Z start trial=E3-clio-trial_07 staging=/scratch/local/u1282901/16252784/e3/clio/E3-clio-trial_07
+2026-10-13T19:23:49Z control-commit=62954055b4e848f2155258c5b8c628eab97c8586 checksum=PASS
+2026-10-13T19:24:14Z CORRECTION: control snapshot sha256sum -c: all 23 present files PASS; ./.gitignore listed in checksums.sha256 but not present in the snapshot (not needed)
+2026-10-13T19:25:47Z pdftotext user manual -> work/manual/user_manual.txt
+2026-10-13T19:26:50Z cubit -batch -nographics -nojournal -input mesh.jou (cwd work/mesh)
+2026-10-13T19:26:52Z cubit rc=0 
+2026-10-13T19:27:20Z XMLGenerator input_deck.i (cwd work/run)
+2026-10-13T19:27:21Z XMLGenerator rc=0
+2026-10-13T19:27:21Z exo_summary mesh.exo rc=0 -> work/verify/mesh.json
+2026-10-13T19:28:04Z XMLGenerator input_deck.i (cwd work/run2, legacy filter keywords)
+2026-10-13T19:28:04Z XMLGenerator rc=0
+2026-10-13T19:28:25Z xml_params run (filter block) rc=1 MISSING symmetry; run2 (legacy keywords) rc=0 -> work/verify/xml_params_run2.tsv
+2026-10-13T19:28:46Z sbatch jobs/morphorm_spc_run2.sbatch -> job 16253073 (rc=0)
+2026-10-13T19:46:40Z job 16253073 COMPLETED 0:0 elapsed 00:17:11 node notch273
+2026-10-13T19:47:14Z deliverables copied to outputs/, hash_outputs.sh run
+2026-10-13T19:50:10Z work/run_summary.md written

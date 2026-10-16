@@ -1,0 +1,24 @@
+2026-10-13T12:48:01-06:00 start trial=E3-clio-trial_06 staging=/scratch/local/u1282901/16250333/e3/clio/E3-clio-trial_06
+2026-10-13T12:48:44-06:00 discovery: candidate archive listed, manifest verified
+2026-10-13T12:48:51-06:00 globus ls -r of private source done
+2026-10-13T12:49:35-06:00 globus stage README.md rc=0
+2026-10-13T12:51:56-06:00 globus staged manual + target materials
+2026-10-13T12:52:09-06:00 globus staged documentation set
+2026-10-13T12:52:28-06:00 staged example_07 package
+2026-10-13T12:52:47-06:00 pdftotext user manual -> work/manual_text/user_manual.txt
+2026-10-13T18:54:39Z cubit mesh generation start (agent host)
+2026-10-13T18:54:42Z cubit rc=0
+2026-10-13T18:55:17Z exo_summary mesh verification rc=0 -> work/verify/mesh.json
+2026-10-13T18:55:31Z XMLGenerator start work/run01
+2026-10-13T18:55:31Z XMLGenerator rc=0
+2026-10-13T18:56:21Z run01 translation: symmetry_plane_location_names from filter block NOT in analyze_helmholtz_input_deck.xml; re-translating in run02 with legacy study-level filter keywords
+2026-10-13T18:56:23Z XMLGenerator start work/run02
+2026-10-13T18:56:24Z XMLGenerator run02 rc=0
+2026-10-13T18:56:47Z xml_params run02 -> work/verify/generated_config_run02.tsv rc=0
+2026-10-13T18:57:36Z sbatch jobs/morphorm_spc_run02.sbatch -> job 16251472 (run dir work/run02)
+2026-10-13T19:04:10Z returned adaptation sources to work/reference/
+2026-10-13T19:15:44Z job 16251472 COMPLETED 0:0 elapsed 00:17:40 node notch272; stop msg: exceeding maximum number of iterations
+2026-10-13T19:17:09Z bc check on iteration50.exo -> work/verify/bc_check_iteration50.txt
+2026-10-13T19:17:36Z deliverables copied to outputs/, SHA256SUMS written
+2026-10-13T19:19:39Z work/run_summary.md written
+2026-10-13T19:19:39Z final deliverable check complete

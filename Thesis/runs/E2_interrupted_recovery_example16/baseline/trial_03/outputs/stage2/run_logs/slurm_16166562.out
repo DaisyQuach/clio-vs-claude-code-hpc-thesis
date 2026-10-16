@@ -1,0 +1,108 @@
+=== STAGE 2 JOB 16166562 on notch274
+JOB START UTC: 2026-10-09T20:58:06Z
+=== module list
+
+Currently Loaded Modules:
+  1) chpc/1.0   (S)   3) openmpi/5.0.3               5) cubit-edu/2026.8
+  2) gcc/11.2.0       4) morphorm/approved-runtime
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+ 
+
+=== executables
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/PlatoMain
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/analyze_MPMD
+/uufs/chpc.utah.edu/sys/spack/v019/linux-rocky8-x86_64/gcc-11.2.0/openmpi-5.0.3-gjrgcotxcpanmyfade3xe7wjijuvnidx/bin/mpiexec
+/uufs/chpc.utah.edu/common/home/chet/Daisy/ThesisExperiments/common/approved_runtime/morphorm/bin/XMLGenerator
+=== run directory: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/baseline/trial_03/work/stage2
+=== sha256 of inputs used by this job
+b7deef5fd565fe04e10b909b51f242111647cdd4136be815955414d6cbd1389d  input_deck.i
+ceeed3bbaca41c84f1d568fdde66c4d810a685467fe83a27351dca70d851fcaf  mesh.exo
+58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8  restart_input.exo
+ce3472f6107d147906912492c2272117eb09b082d9984e38d7eef95b1f080288  interface.xml
+7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a  engine_input_deck.xml
+de4341334d3c99814ea20139addc61561a25508268c3d2eebe97d80e819e9336  engine_operations.xml
+a6f7d5bf3d61607bec82781d3afad5231a493e602331ea7a3b54f7e9b3c162d5  analyze_2_input_deck.xml
+fbabf1a1c037533ce5dc1b1ba6a97ce9d70a795c1128735196a3e624aa73efa0  analyze_2_operations.xml
+c813b81a2c43cbac181b51c3ae12cad319473e7c2725afd29c2637fedec2dcbf  analyze_helmholtz_input_deck.xml
+402ffc30789914bd0c1c7bf429aa2f08ea22b0040960d015b9c71fd716404854  analyze_helmholtz_operations.xml
+5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc  mpirun.source
+=== mpirun.source
+mpiexec --oversubscribe -np 1 -x PLATO_PERFORMER_ID=0 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=engine_operations.xml \
+PlatoMain engine_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=1 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=analyze_2_operations.xml \
+analyze_MPMD --input-config=analyze_2_input_deck.xml \
+: -np 1 -x PLATO_PERFORMER_ID=2 \
+-x PLATO_INTERFACE_FILE=interface.xml \
+-x PLATO_APP_FILE=analyze_helmholtz_operations.xml \
+analyze_MPMD --input-config=analyze_helmholtz_input_deck.xml \
+OMP_NUM_THREADS=1
+MORPHORM START UTC: 2026-10-09T20:58:13Z
+MORPHORM END UTC: 2026-10-09T21:31:50Z
+MORPHORM EXIT CODE: 0
+=== run directory listing
+total 39736
+drwxr-xr-x 3 u1282901 hochhalter     4096 Oct  9 14:58 .
+drwxr-xr-x 9 u1282901 hochhalter     4096 Oct  9 14:56 ..
+-rw-r----- 1 u1282901 hochhalter   172163 Oct  9 15:31 analyze_2_1
+-rw-r--r-- 1 u1282901 hochhalter     4106 Oct  9 14:57 analyze_2_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      864 Oct  9 14:57 analyze_2_operations.xml
+-rw-r----- 1 u1282901 hochhalter   338762 Oct  9 15:31 analyze_helmholtz_2
+-rw-r--r-- 1 u1282901 hochhalter      940 Oct  9 14:57 analyze_helmholtz_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      473 Oct  9 14:57 analyze_helmholtz_operations.xml
+drwxr-xr-x 2 u1282901 hochhalter     4096 Oct  9 15:31 analyze_id_2_output_scenario_id_1
+-rw-r----- 1 u1282901 hochhalter      306 Oct  9 15:31 engine_1_0
+-rw-r--r-- 1 u1282901 hochhalter      433 Oct  9 14:57 engine_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter     3566 Oct  9 14:57 engine_operations.xml
+-rw-r--r-- 1 u1282901 hochhalter 22183456 Oct  9 15:31 engine_output.exo
+-rw-r--r-- 1 u1282901 hochhalter        0 Oct  9 14:58 engine_restart.exo
+-rw-r--r-- 1 u1282901 hochhalter    13540 Oct  9 14:57 generated_config_verification.json
+-rw-r--r-- 1 u1282901 hochhalter     3777 Oct  9 14:56 input_deck.i
+-rw-r--r-- 1 u1282901 hochhalter    14338 Oct  9 14:57 interface.xml
+-rw-r--r-- 1 u1282901 hochhalter        9 Oct  9 14:57 JOBID.txt
+-rw-r--r-- 1 u1282901 hochhalter     2307 Oct  9 14:54 job_script.sbatch
+-rw-r--r-- 1 u1282901 hochhalter  1974564 Oct  9 14:24 mesh.exo
+-rw-r--r-- 1 u1282901 hochhalter     3979 Oct  9 15:31 morphorm_oc_optimizer_diagnostics.txt
+-rw-r--r-- 1 u1282901 hochhalter     1447 Oct  9 14:58 morphorm_stage2.log
+-rw-r--r-- 1 u1282901 hochhalter      536 Oct  9 14:57 mpirun.source
+-rw-r--r-- 1 u1282901 hochhalter      999 Oct  9 15:31 opt_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter 12383296 Oct  9 14:48 restart_input.exo
+-rw-r--r-- 1 u1282901 hochhalter     5278 Oct  9 14:57 xmlgenerator.log
+=== optimizer diagnostics (tail)
+15        16        2.199248e+05   1.098730e+04  -1.108835e-13   1.599610e-01   5.118479e+02
+16        17        2.194442e+05   1.095866e+04   4.396483e-14   1.604995e-01   4.806035e+02
+17        18        2.189853e+05   1.093082e+04  -1.255385e-13   1.696667e-01   4.588389e+02
+18        19        2.185401e+05   1.090369e+04   8.062995e-14   1.717086e-01   4.452043e+02
+19        20        2.181445e+05   1.088082e+04  -1.151579e-13   1.541819e-01   3.956264e+02
+20        21        2.177796e+05   1.085986e+04  -8.462675e-14   1.614316e-01   3.649084e+02
+21        22        2.174516e+05   1.084165e+04   4.024558e-15   1.419827e-01   3.280063e+02
+22        23        2.171415e+05   1.082409e+04  -7.790990e-14   1.495410e-01   3.101390e+02
+23        24        2.168377e+05   1.080731e+04  -1.438849e-13   1.626397e-01   3.037956e+02
+24        25        2.165486e+05   1.079175e+04   9.500734e-14   1.297112e-01   2.890489e+02
+25        26        2.162735e+05   1.077678e+04   6.389334e-14   1.550216e-01   2.751670e+02
+26        27        2.160026e+05   1.076235e+04  -1.497136e-13   1.263009e-01   2.708164e+02
+27        28        2.157358e+05   1.074781e+04   8.551493e-14   1.402343e-01   2.668712e+02
+28        29        2.154958e+05   1.073460e+04  -7.338574e-14   1.460445e-01   2.399340e+02
+29        30        2.152612e+05   1.072141e+04  -6.211698e-14   1.427667e-01   2.346131e+02
+30        31        2.150537e+05   1.071042e+04  -1.998401e-15   1.238027e-01   2.074961e+02
+31        32        2.148659e+05   1.070106e+04  -8.165690e-14   1.317296e-01   1.878387e+02
+32        33        2.146842e+05   1.069215e+04   8.792966e-14   1.267673e-01   1.816668e+02
+33        34        2.145109e+05   1.068327e+04   6.106227e-14   1.250863e-01   1.733262e+02
+34        35        2.143477e+05   1.067479e+04   1.572076e-13   1.403816e-01   1.632126e+02
+35        36        2.142015e+05   1.066705e+04   1.052214e-13   1.172985e-01   1.462157e+02
+36        37        2.140654e+05   1.065962e+04   1.174894e-13   1.209566e-01   1.361021e+02
+37        38        2.139309e+05   1.065222e+04  -1.436351e-13   1.295442e-01   1.344118e+02
+38        39        2.138060e+05   1.064555e+04  -2.015055e-14   1.323652e-01   1.249730e+02
+39        40        2.136843e+05   1.063922e+04  -5.684342e-14   1.081651e-01   1.217100e+02
+40        41        2.135584e+05   1.063277e+04  -7.552292e-14   1.281498e-01   1.258486e+02
+
+
+****** Optimization stopping due to exceeding maximum number of iterations. ******
+
+JOB END UTC: 2026-10-09T21:31:50Z

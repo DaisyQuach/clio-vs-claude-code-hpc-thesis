@@ -1,0 +1,347 @@
+{
+  "utc": "2026-10-10T06:20:11Z",
+  "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_02/work/run",
+  "checks": {
+    "helmholtz_physics": {
+      "pass": true,
+      "got": "Helmholtz Filter",
+      "expected": "Helmholtz Filter"
+    },
+    "helmholtz_length_scale_present": {
+      "pass": true,
+      "got": "0.043301",
+      "expected": "present (filter radius 0.15 translated by XMLGenerator: 0.15/(2*sqrt(3)) = 0.043301)"
+    },
+    "helmholtz_length_scale_value": {
+      "pass": true,
+      "got": "0.043301",
+      "expected": 0.04330127018922193
+    },
+    "helmholtz_surface_length_scale": {
+      "pass": true,
+      "got": "1.0",
+      "expected": "1.0 (boundary_sticking_penalty 1.0)"
+    },
+    "helmholtz_symmetry_plane_sides": {
+      "pass": true,
+      "got": "{ss_sym}",
+      "expected": "{ss_sym}"
+    },
+    "helmholtz_mesh": {
+      "pass": true,
+      "got": "mesh.exo",
+      "expected": "mesh.exo"
+    },
+    "helmholtz_block": {
+      "pass": true,
+      "got": "block_1",
+      "expected": "block_1"
+    },
+    "analyze_physics": {
+      "pass": true,
+      "got": [
+        "Mechanical",
+        "Elliptic"
+      ],
+      "expected": [
+        "Mechanical",
+        "Elliptic"
+      ]
+    },
+    "analyze_dimension": {
+      "pass": true,
+      "got": "3",
+      "expected": "3"
+    },
+    "analyze_mesh": {
+      "pass": true,
+      "got": "mesh.exo",
+      "expected": "mesh.exo"
+    },
+    "material_E": {
+      "pass": true,
+      "got": "1.0",
+      "expected": "1.0"
+    },
+    "material_nu": {
+      "pass": true,
+      "got": "0.3",
+      "expected": "0.3"
+    },
+    "material_assigned_block_1": {
+      "pass": true,
+      "got": "material_1",
+      "expected": "material_1 on block_1"
+    },
+    "simp_residual": {
+      "pass": true,
+      "got": [
+        "SIMP",
+        "3.0",
+        "1e-3"
+      ],
+      "expected": [
+        "SIMP",
+        "3.0",
+        "1e-3"
+      ]
+    },
+    "simp_criteria": {
+      "pass": true,
+      "got": [
+        "SIMP",
+        "3.0",
+        "1e-3"
+      ],
+      "expected": [
+        "SIMP",
+        "3.0",
+        "1e-3"
+      ]
+    },
+    "residual_single_phase": {
+      "pass": true,
+      "got": "Single-Phase",
+      "expected": "Single-Phase"
+    },
+    "objective_compliance": {
+      "pass": true,
+      "got": [
+        "Internal Elastic Energy",
+        "{block_1}"
+      ],
+      "expected": [
+        "Internal Elastic Energy",
+        "{block_1}"
+      ]
+    },
+    "load_single_concentrated": {
+      "pass": true,
+      "got": [
+        "Concentrated Load with ID 0"
+      ],
+      "expected": "exactly one concentrated load"
+    },
+    "load_dof_y_value_-1_on_ns_load": {
+      "pass": true,
+      "got": [
+        "1",
+        "-1.0",
+        "ns_load"
+      ],
+      "expected": [
+        "1 (y)",
+        "-1.0",
+        "ns_load"
+      ]
+    },
+    "no_tractions": {
+      "pass": true,
+      "got": [],
+      "expected": "no natural boundary conditions"
+    },
+    "essential_bcs": {
+      "pass": true,
+      "got": [
+        [
+          "ns_fix",
+          "0",
+          "Fixed Value",
+          "0"
+        ],
+        [
+          "ns_fix",
+          "1",
+          "Fixed Value",
+          "0"
+        ],
+        [
+          "ns_fix",
+          "2",
+          "Fixed Value",
+          "0"
+        ],
+        [
+          "ss_sym",
+          "2",
+          "Fixed Value",
+          "0"
+        ]
+      ],
+      "expected": [
+        [
+          "ns_fix",
+          "0",
+          "Fixed Value",
+          "0"
+        ],
+        [
+          "ns_fix",
+          "1",
+          "Fixed Value",
+          "0"
+        ],
+        [
+          "ns_fix",
+          "2",
+          "Fixed Value",
+          "0"
+        ],
+        [
+          "ss_sym",
+          "2",
+          "Fixed Value",
+          "0"
+        ]
+      ]
+    },
+    "output_displacements": {
+      "pass": true,
+      "got": "{displacement_x, displacement_y, displacement_z}",
+      "expected": "{displacement_x, displacement_y, displacement_z}"
+    },
+    "optimizer_oc": {
+      "pass": true,
+      "got": "OC",
+      "expected": "OC"
+    },
+    "max_iterations_50": {
+      "pass": true,
+      "got": "50",
+      "expected": "50"
+    },
+    "update_problem_stage": {
+      "pass": true,
+      "got": [
+        "Update Problem",
+        "1"
+      ],
+      "expected": [
+        "Update Problem",
+        "1"
+      ]
+    },
+    "oc_default_tolerances": {
+      "pass": true,
+      "got": [
+        "1e-4",
+        "1e-8",
+        "1e-8"
+      ],
+      "expected": [
+        "1e-4",
+        "1e-8",
+        "1e-8"
+      ]
+    },
+    "constraint_target_0.15": {
+      "pass": true,
+      "got": [
+        "0.15",
+        "Design Volume"
+      ],
+      "expected": [
+        "0.15",
+        "Design Volume"
+      ]
+    },
+    "performers": {
+      "pass": true,
+      "got": [
+        [
+          "engine_1",
+          "engine"
+        ],
+        [
+          "analyze_2",
+          "analyze"
+        ],
+        [
+          "analyze_helmholtz",
+          "analyze"
+        ]
+      ],
+      "expected": "engine_1/engine, analyze_2/analyze, analyze_helmholtz/analyze"
+    },
+    "engine_output_control_topology": {
+      "pass": true,
+      "got": [
+        "control",
+        "topology"
+      ],
+      "expected": [
+        "control",
+        "topology"
+      ]
+    },
+    "constraint_evaluated_by_engine": {
+      "pass": true,
+      "got": true,
+      "expected": "engine_1 computes constraint value"
+    },
+    "objective_evaluated_by_analyze": {
+      "pass": true,
+      "got": true,
+      "expected": "analyze_2 computes objective value"
+    },
+    "initial_density_0.15": {
+      "pass": true,
+      "got": [
+        "Uniform",
+        "0.15"
+      ],
+      "expected": [
+        "Uniform",
+        "0.15"
+      ]
+    },
+    "discretization_density": {
+      "pass": true,
+      "got": "density",
+      "expected": "density"
+    },
+    "update_problem_frequency_1": {
+      "pass": true,
+      "got": "1",
+      "expected": "1"
+    },
+    "weighted_sum_weight_1": {
+      "pass": true,
+      "got": {
+        "weights": [
+          "1"
+        ],
+        "normalize_elements": []
+      },
+      "expected": "single weight 1, no normalization"
+    },
+    "engine_output_max_iterations": {
+      "pass": true,
+      "got": "50",
+      "expected": "50"
+    },
+    "single_rank_performers": {
+      "pass": true,
+      "got": [
+        "1",
+        "1",
+        "1"
+      ],
+      "expected": [
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    "no_decomp": {
+      "pass": true,
+      "got": false,
+      "expected": "no decomp command"
+    }
+  },
+  "notes": [
+    "engine PlatoMainOutput OutputFrequency = 5 (runtime default isosurface_output_frequency; not a locked value; iteration 50 is a multiple of it)",
+    "analyze Visualization OutputFrequency = 1"
+  ],
+  "all_pass": true
+}

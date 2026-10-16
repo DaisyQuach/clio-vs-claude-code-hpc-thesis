@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<Operation>
+  <Function>PlatoMainOutput</Function>
+  <Name>PlatoMainOutput</Name>
+  <WriteRestart>false</WriteRestart>
+  <OutputFrequency>5</OutputFrequency>
+  <MaxIterations>40</MaxIterations>
+  <RestartFieldName>control</RestartFieldName>
+  <Input>
+    <ArgumentName>topology</ArgumentName>
+    <Layout>Nodal Field</Layout>
+  </Input>
+  <Input>
+    <ArgumentName>control</ArgumentName>
+    <Layout>Nodal Field</Layout>
+  </Input>
+</Operation>
+<Operation>
+  <Function>InitializeField</Function>
+  <Name>Initialize Field</Name>
+  <Method>FromFieldOnInputMesh</Method>
+  <FromFieldOnInputMesh>
+    <Name>initialguess.exo</Name>
+    <VariableName>control</VariableName>
+    <Iteration>20</Iteration>
+  </FromFieldOnInputMesh>
+</Operation>
+<Operation>
+  <Function>SetLowerBounds</Function>
+  <Name>Compute Lower Bounds</Name>
+  <UseCase>solid</UseCase>
+  <Discretization>density</Discretization>
+  <Input>
+    <ArgumentName>Lower Bound Value</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>Lower Bound Vector</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>SetUpperBounds</Function>
+  <Name>Compute Upper Bounds</Name>
+  <UseCase>solid</UseCase>
+  <Discretization>density</Discretization>
+  <Input>
+    <ArgumentName>Upper Bound Value</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>Upper Bound Vector</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>CopyField</Function>
+  <Name>Copy Field</Name>
+  <Input>
+    <ArgumentName>InputField</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>OutputField</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>CopyValue</Function>
+  <Name>Copy Value</Name>
+  <Input>
+    <ArgumentName>InputValue</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>OutputValue</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>DesignVolume</Function>
+  <Name>Design Volume</Name>
+  <Output>
+    <ArgumentName>Design Volume</ArgumentName>
+  </Output>
+</Operation>
+<Operation>
+  <Function>ComputeVolume</Function>
+  <Name>Compute Constraint Value 1</Name>
+  <PenaltyModel>SIMP</PenaltyModel>
+  <Input>
+    <ArgumentName>Topology</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>Volume</ArgumentName>
+  </Output>
+  <Output>
+    <ArgumentName>Volume Gradient</ArgumentName>
+  </Output>
+  <SIMP>
+    <PenaltyExponent>1.0</PenaltyExponent>
+    <MinimumValue>0.0</MinimumValue>
+  </SIMP>
+</Operation>
+<Operation>
+  <Function>ComputeVolume</Function>
+  <Name>Compute Constraint Gradient 1</Name>
+  <PenaltyModel>SIMP</PenaltyModel>
+  <Input>
+    <ArgumentName>Topology</ArgumentName>
+  </Input>
+  <Output>
+    <ArgumentName>Volume</ArgumentName>
+  </Output>
+  <Output>
+    <ArgumentName>Volume Gradient</ArgumentName>
+  </Output>
+  <SIMP>
+    <PenaltyExponent>1.0</PenaltyExponent>
+    <MinimumValue>0.0</MinimumValue>
+  </SIMP>
+</Operation>
+<Operation>
+  <Function>Update Problem</Function>
+  <Name>Update Problem</Name>
+  <UpdateProblemFrequency>1</UpdateProblemFrequency>
+</Operation>
+<Operation>
+  <Name>Aggregate Data</Name>
+  <Function>Aggregator</Function>
+  <Aggregate>
+    <Layout>Value</Layout>
+    <Input>
+      <ArgumentName>Value 1</ArgumentName>
+    </Input>
+    <Output>
+      <ArgumentName>Value</ArgumentName>
+    </Output>
+  </Aggregate>
+  <Aggregate>
+    <Layout>Nodal Field</Layout>
+    <Input>
+      <ArgumentName>Field 1</ArgumentName>
+    </Input>
+    <Output>
+      <ArgumentName>Field</ArgumentName>
+    </Output>
+  </Aggregate>
+  <Weighting>
+    <Weight>
+      <Value>1</Value>
+    </Weight>
+  </Weighting>
+</Operation>

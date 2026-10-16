@@ -1,0 +1,164 @@
+{
+  "trial": "E2-example16-baseline-03",
+  "frozen_configuration": "FROZEN-EX16-v1",
+  "purpose": "Continuation evidence required by scientific_problem_specification.md section 7: Stage 2 must resume from the design saved at the end of Stage 1 (iteration 20), read from the 'control' field.",
+  "verified_utc": "2026-10-09T21:32:54.338341+00:00",
+  "checkpoint": {
+    "stage1_engine_output": "outputs/stage1/engine_output.exo",
+    "sha256": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+    "saved_states": 21,
+    "exodus_time_step_to_iteration": "time step k (1-based) holds iteration k-1; time step 21 = iteration 20"
+  },
+  "copy_read_by_stage2": {
+    "path": "outputs/stage2/restart_input.exo (byte-identical copy; run-directory copy work/stage2/restart_input.exo)",
+    "sha256": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8"
+  },
+  "restart_settings_used_by_accepted_stage2_run_(job_16166562)": {
+    "deck_keywords": {
+      "initial_guess_file_name": "restart_input.exo",
+      "initial_guess_field_name": "control",
+      "restart_iteration": 21
+    },
+    "generated_configuration": {
+      "file": "outputs/stage2/generated_config/engine_operations.xml",
+      "InitializeField.Method": "FromFieldOnInputMesh",
+      "FromFieldOnInputMesh.Name": "restart_input.exo",
+      "FromFieldOnInputMesh.VariableName": "control",
+      "FromFieldOnInputMesh.Iteration": 21
+    }
+  },
+  "saved_state_used": "Stage-1 iteration 20 = checkpoint Exodus time step 21 (the last of 21 saved states); field 'control' (raw design variable), not 'topology'",
+  "why_restart_iteration_is_21": "The runtime interprets restart_iteration / <Iteration> as the 1-based Exodus time step of the initial-guess file (User Manual 2.5.10: 'iteration (time step)'). The first attempt with restart_iteration 20 (job 16166532, cancelled) evaluated a first compliance of 2.388394e+05 = Stage-1 iteration 19, i.e. it read time step 20 = the iteration-19 design. With restart_iteration 21 the first compliance equals the Stage-1 iteration-20 value.",
+  "compliance_comparison": {
+    "stage1_iteration20_diagnostics_F(X)": "2.360040e+05",
+    "stage1_iteration20_opt_criteria_history_csv": 236003.95811001546,
+    "stage2_first_evaluated_diagnostics_F(X)_local_iteration_0": "2.360040e+05",
+    "stage2_first_evaluated_opt_criteria_history_csv": 236003.95811001546,
+    "equal": true,
+    "stage1_iterations_with_this_compliance": [
+      20
+    ]
+  },
+  "wrong_attempt_for_the_record": {
+    "job": 16166532,
+    "restart_iteration": 20,
+    "first_compliance": "2.388394e+05",
+    "matches_stage1_iteration": 19,
+    "action": "cancelled by the agent after the first diagnostics row; artifacts preserved in work/stage2_attempt1_restart_iteration20/; no deliverable taken from it"
+  },
+  "saved_field_comparison": {
+    "max_abs_diff_stage2_control_state0_vs_stage1_control_state_k": {
+      "0": 0.85,
+      "1": 0.8142769881849347,
+      "2": 0.8861075912238656,
+      "3": 0.896231008240401,
+      "4": 0.95,
+      "5": 1.0,
+      "6": 1.0,
+      "7": 1.0,
+      "8": 1.0,
+      "9": 1.0,
+      "10": 0.9820230444625124,
+      "11": 0.963380752902136,
+      "12": 0.9378155304593868,
+      "13": 0.8830844454897971,
+      "14": 0.801127417038701,
+      "15": 0.715467810996641,
+      "16": 0.6181876950633842,
+      "17": 0.5041427777297635,
+      "18": 0.37648919964488287,
+      "19": 0.20000000000000007,
+      "20": 0.0
+    },
+    "max_abs_diff_stage2_topology_state0_vs_stage1_topology_state20": 0.0
+  },
+  "stage1_compliance_history": {
+    "0": "4.893235e+06",
+    "1": "8.715305e+05",
+    "2": "9.153247e+05",
+    "3": "5.932948e+05",
+    "4": "7.157917e+05",
+    "5": "5.716814e+05",
+    "6": "6.161091e+05",
+    "7": "5.220660e+05",
+    "8": "4.470169e+05",
+    "9": "3.893516e+05",
+    "10": "3.481402e+05",
+    "11": "3.179639e+05",
+    "12": "2.957322e+05",
+    "13": "2.794783e+05",
+    "14": "2.674795e+05",
+    "15": "2.585237e+05",
+    "16": "2.516773e+05",
+    "17": "2.464064e+05",
+    "18": "2.422601e+05",
+    "19": "2.388394e+05",
+    "20": "2.360040e+05"
+  },
+  "stage2_iterations_reached": {
+    "local": 40,
+    "overall": 60,
+    "stopping_message": [
+      "****** Optimization stopping due to exceeding maximum number of iterations. ******"
+    ]
+  },
+  "stage2_final_compliance_local_iteration_40": 213558.4,
+  "checks": [
+    {
+      "check": "CONTINUATION: stage 2 first compliance (local it. 0) == stage 1 compliance at iteration 20 (diagnostics text)",
+      "pass": true,
+      "got": "2.360040e+05",
+      "expected": "2.360040e+05"
+    },
+    {
+      "check": "CONTINUATION: the stage-1 iteration whose compliance equals stage 2's first compliance is exactly 20",
+      "pass": true,
+      "got": [
+        20
+      ],
+      "expected": [
+        20
+      ]
+    },
+    {
+      "check": "CONTINUATION: opt_criteria_history.csv stage2[0] == stage1[20] (rel 1e-9)",
+      "pass": true,
+      "got": {
+        "stage2_first": 236003.95811001546,
+        "stage1_iter20": 236003.95811001546
+      },
+      "expected": "equal to 1e-9 relative"
+    },
+    {
+      "check": "restart_input.exo is byte-identical to the Stage-1 checkpoint",
+      "pass": true,
+      "got": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+      "expected": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8"
+    },
+    {
+      "check": "restart_input.exo has 21 saved states (iterations 0..20)",
+      "pass": true,
+      "got": 21,
+      "expected": 21
+    },
+    {
+      "check": "CONTINUATION: stage 2 saved control state 0 == stage 1 saved control state of iteration 20 (time step 21), nodewise (max abs diff <= 1e-12)",
+      "pass": true,
+      "got": 0.0,
+      "expected": "<= 1e-12"
+    },
+    {
+      "check": "CONTINUATION: the checkpoint state closest to stage 2's initial control is iteration 20 (and it is an exact match)",
+      "pass": true,
+      "got": {
+        "closest_stage1_iteration": 20,
+        "max_abs_diff": 0.0
+      },
+      "expected": {
+        "closest_stage1_iteration": 20,
+        "max_abs_diff": 0.0
+      }
+    }
+  ],
+  "ALL_CONTINUATION_CHECKS_PASS": true
+}

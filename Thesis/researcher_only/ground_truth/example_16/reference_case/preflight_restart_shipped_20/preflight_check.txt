@@ -1,0 +1,37 @@
+PASS helmholtz: Physics == Helmholtz Filter
+PASS helmholtz: Input Mesh == mesh
+PASS helmholtz: Length Scale == radius/(2*sqrt(3)) = 0.043301
+PASS helmholtz: Surface Length Scale == 1.0
+PASS helmholtz: no Symmetry Plane Sides
+PASS analyze: Physics == Mechanical
+PASS analyze: Input Mesh == mesh
+PASS analyze: Youngs Modulus == 1.0
+PASS analyze: Poissons Ratio == 0.3
+PASS analyze: residual penalty SIMP
+PASS analyze: residual SIMP Exponent == 3.0
+PASS analyze: residual SIMP Minimum Value == 0.001
+PASS analyze: objective == Internal Elastic Energy (compliance)
+PASS analyze: objective SIMP Exponent == 3.0
+PASS analyze: objective SIMP Minimum Value == 0.001
+PASS analyze: exactly one concentrated load
+PASS analyze: load Dof 1 (y), Value -1, Nodes ns_load
+PASS analyze: dispx/dispy/dispz = 0 on ns_fix
+PASS analyze: exactly 3 essential BCs
+PASS analyze: no natural (traction) BCs
+PASS analyze: output dispx dispy dispz
+PASS interface: Optimizer Package == OC
+PASS interface: MaxIterations == 40
+PASS interface: ProblemUpdateFrequency == 1
+PASS interface: volume NormalizedTargetValue == 0.15
+PASS interface: constraint ReferenceValueName == Design Volume
+PASS interface: bounds [0,1]
+PASS interface: performers engine_1, analyze_2, analyze_helmholtz
+PASS engine: PlatoMainOutput WriteRestart == false
+PASS engine: PlatoMainOutput MaxIterations == 40
+PASS engine: InitializeField Method == FromFieldOnInputMesh
+PASS engine: restart file == initialguess.exo
+PASS engine: restart field == control
+PASS engine: restart Iteration (1-based Exodus state) == 20
+PASS engine: UpdateProblemFrequency == 1
+PASS mpirun: three single-rank performers (PlatoMain, analyze, helmholtz)
+36/36 checks pass; all_checks_pass=True

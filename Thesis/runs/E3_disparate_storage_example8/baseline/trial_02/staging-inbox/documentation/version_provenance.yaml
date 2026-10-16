@@ -1,0 +1,37 @@
+# Version provenance for the private source collection (recorded at E3 setup, 2026-10-09 UTC; revised at E3 remediation,
+# 2026-10-10 UTC). Source identifiers below are logical identifiers assigned by E3: they are not filesystem paths and not
+# the original locations. The mapping to original locations is a researcher-side record.
+manuals:
+  - file: manuals/Morphorm_User_Manual.pdf
+    title: "User Manual"
+    release: "1.0.0"
+    pages: 303
+    pdf_creation_date: "2026-07-15T12:19:41-06:00"
+    sha256: 46c0b655c9bccd535e197f560181e84333c2d165a1d50a0d47398fe27a19dae5
+    source_identifier: MORPHORM-MANUAL-USER-V1
+  - file: manuals/Morphorm_Theory_Manual.pdf
+    title: "Theory Manual"
+    pages: 154
+    pdf_creation_date: "2026-07-15T12:19:49-06:00"
+    sha256: e60bf7f2cc9d70c5ebc2ded40520c06b1f06e07498ede6842ec9be621473039f
+    source_identifier: MORPHORM-MANUAL-THEORY-V1
+target_materials:
+  - file: target_materials/symmetry_plane_cantilever/geometry_and_loading_figure.png
+    sha256: 2cc53d2243e7fc8435d8413a5bc89f73a194df4c38164310004354c11432563d
+    source_identifier: MORPHORM-TARGET-SUPPORT-V1/problem_figure
+documentation_source_tree:
+  source_identifier: MORPHORM-DOCS-SOURCE-V1
+  git_commit: f07a712bd5ef2b548f870c8f49869e7ec9508f6d
+  git_commit_date: "2026-08-24T21:15:10-06:00"
+  working_tree_clean: true
+  included_in_this_collection: false
+approved_software:
+  interface: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/automation/environment/load_morphorm_e3.sh
+  interface_sha256: 25b77e664ced50e57c5fe595731757a7ab53b819f731d7c2dc269e9c96855b9a
+  morphorm_runtime: "morphorm/approved-runtime (engine 0d767ac7, analyze 60c5e37c); E3-local byte-identical copy"
+  morphorm_modulefile_sha256: 573edb58e90bf29fe6b882b7c954a1548f8f633e4db191307748089cdc4dc045
+  morphorm_inventory_sha256: fa0d97b93a7990271813eccf8768e14465266853a83ef8adab9e6987b4e3e4d2
+  cubit_module: "cubit-edu/2026.8"
+  cubit_modulefile_sha256: 37cbcf0ba52a329adf3626b2d9ec1db91730d2787f3fea2a4751109e168773ac
+  toolchain: "gcc/11.2.0, openmpi/5.0.3"
+  source_of_values: "E3 environment inventory (researcher-side record); runtime inventory hash unchanged from the thesis frozen configuration"

@@ -1,0 +1,107 @@
+{
+  "freeze_id": "E3-BASELINE-FREEZE-v1",
+  "frozen_utc": "2026-10-10T05:28:03Z",
+  "applies_to": [
+    "baseline/trial_01",
+    "baseline/trial_02",
+    "baseline/trial_03",
+    "baseline/trial_04",
+    "baseline/trial_05"
+  ],
+  "clio_note": "CLIO deferred; CLIO trials must later use this exact configuration (same pin, prompt, collections, runtime, model, Claude pin, audit and scoring)",
+  "task_specification": "E3-SPC-v1",
+  "prompt": {
+    "path": "automation/baseline/baseline_e3_prompt.md",
+    "sha256": "63f84f79301da3a5362a457017d3df4ede1342c5ca5bd122b069f83424e91c20",
+    "control_repo_task_prompt_sha256_at_pin": "63f84f79301da3a5362a457017d3df4ede1342c5ca5bd122b069f83424e91c20"
+  },
+  "control_repository": {
+    "url": "git@github.com:DaisyQuach/daisy-e3-distributed-context-control.git",
+    "visibility": "private",
+    "commit": "62954055b4e848f2155258c5b8c628eab97c8586",
+    "catalog_version": 5,
+    "catalog_checksums_sha256_at_pin": "471c1d2cc06b084995d34a41ae1a87c655d73a98e7eb1f9245982c3686e0424e"
+  },
+  "packet": {
+    "location": "<trial>/agent-inputs/ (generated fresh at launch by prepare_baseline_trial.sh: git archive of README.md task catalog protocol scripts at the pin + trial_context.md, permitted_roots.txt, globus_access.txt, CONTROL_COMMIT.txt; then read-only)",
+    "legacy_inputs": "none (legacy agent_inputs/ archived out of trial_01..05; --accept-legacy-agent-inputs not used)"
+  },
+  "globus": {
+    "mode": "globus (mandatory)",
+    "source_collection_id": "6dcea62e-130d-47a9-8b77-80fba6f58693",
+    "source_collection_name": "daisy-e3-private-source",
+    "destination_collection_id": "7cf0baa1-8bd0-4e91-a1e6-c19042952a7c",
+    "destination_scope": "<trial>/staging-inbox/ only",
+    "cli": "automation/environment/tools/globus-cli-3.43.0",
+    "cli_version": "3.43.0",
+    "cli_files_list_sha256": "11747399eca4ef0e689fec342690a392554f34453d58d7341f6b0cb7d2ca7134",
+    "source_manifest_sha256": "d856bed27efea0561e35e01ce9e3202bf121c14e3d313b3ec34a4dafa9a8cc53",
+    "source_manifest_tsv_sha256": "a1f71015d5555b58d900e74fd9871189fe74d10038b4b13007ab1707e8d10bb1",
+    "staging_helper": "agent-inputs/control/scripts/non_destructive_preflight_helpers/globus_stage_file.sh (at the pin)"
+  },
+  "candidate_archive": {
+    "manifest_sha256": "3c89c503d0888be096a9b1740b44d7b9f3de309d5701fdcaef7c40627ba57dac"
+  },
+  "claude": {
+    "version": "2.1.295",
+    "executable": "$HOME/.local/share/claude/versions/2.1.295",
+    "sha256": "4503bfe11a6c7fcc1e0b39b5e0d347c04248f750b03b0977b3ad6b531fe6f358",
+    "model": "claude-fable-5-1",
+    "reasoning_effort": "harness default (no override: runner unsets every CLAUDE* variable, jobs submitted with --export=NONE, isolated CLAUDE_CONFIG_DIR with settings.json {model} only); same as E1/E2",
+    "flags": "--print --verbose --output-format stream-json --model claude-fable-5-1 --dangerously-skip-permissions --session-id <uuid> --disable-slash-commands --no-chrome",
+    "session_timeout_seconds": 6600,
+    "never_used": [
+      "--resume",
+      "--continue",
+      "--fork-session"
+    ]
+  },
+  "runtime": {
+    "loader": "automation/environment/load_morphorm_e3.sh",
+    "loader_sha256": "25b77e664ced50e57c5fe595731757a7ab53b819f731d7c2dc269e9c96855b9a",
+    "cubit_manifest_sha256": "5e7a26de8559dc58d8b38651c455bf4c01211a91b58273044c5210217c14bd9c",
+    "environment_inventory_sha256": "5bacd72c6fbe9185ac5386bfcd7be440ff8ea9fb97b0ec3f8ec4bf90cfdef5f6",
+    "runtime_tree_fingerprint_sha256": "e8529a319e0a326f4964e5b07c8f2ceb93f5458c7306daf2c9953361887faf85",
+    "node_local_root": "Slurm per-job $TMPDIR (/scratch/local/<account>/<jobid>)"
+  },
+  "slurm_contract": {
+    "account": "hochhalter-np",
+    "partition": "hochhalter-np",
+    "nodes": 1,
+    "ntasks": 1,
+    "cpus_per_task": 8,
+    "mem": "32G",
+    "time": "02:00:00",
+    "export": "NONE (login shell)"
+  },
+  "access_model": "procedural_researcher_only",
+  "audit": {
+    "version_id": "audit_boundary.sh sha256 prefix",
+    "audit_boundary_sha256": "05e49d4e4e2b2a8239878e413202aa61e968b8e779ce95bf57c27cc765e4d63c",
+    "classify_tool_paths_sha256": "040661235d86b4b2435633367466946390e147d6f0036e1e3fd23a73fb9e12c6",
+    "classify_globus_sha256": "99a926bff1d229b4562664bee42816e351c7103d18ef5d25bac0191d59310f6d",
+    "e3_common_sha256": "35041cd16f19590c3dc5c1f452124721715c2f6ff72b3702dccb6f35c62424f6",
+    "policy": "forbidden-path or unauthorized-storage finding (verdict FAIL) invalidates the trial"
+  },
+  "automation": {
+    "runner_sha256": "b25d3c2d404f429022d2c083eb430ced46af8245fc9730cafd265b0975457407",
+    "prepare_sha256": "667ade2cd10258b317d658d79f4f7459b6bc4a12e944fcaa9c38a22eec474652",
+    "verify_sha256": "dab9fee6777f2929106fc6a82e41471ee585d413ee245a8cb31428a4470ed86f",
+    "metrics_sha256": "912a17cc4cd74af3453129b160e4483d001d9e7b4353641b673d4f7a057dd570",
+    "config_env_sha256": "06c4e0b91c905be7629cc6ea7996d724fcd238cc45f20d5eba23def4797f2146",
+    "all_files_list": "setup/baseline_execution/freeze/automation_files.sha256",
+    "all_files_list_sha256": "f7d373d1ed1a42ffdf71586ff6237a6e5e7812f186668134bbbf7dd3525dc8fc"
+  },
+  "scoring": {
+    "scope": "researcher_only/evaluation/E3_SCORING_SCOPE.md (frozen at remediation 2026-10-10)",
+    "rubric": "E1 compliance rubric by reference (Thesis/researcher_only/RESEARCHER_DECISIONS.md); not changed for E3",
+    "scoring_version": "E3_SCORING_SCOPE.md sha256 recorded in scoring_scope_sha256",
+    "scoring_scope_sha256": "50751ceeaabcdc0d18775509f58423254082c243a0d135aa543b5f45971af337"
+  },
+  "execution_schedule": {
+    "design": "five independent Slurm jobs, run strictly one at a time via afterany dependencies (trial_01 -> 02 -> 03 -> 04 -> 05); a failure in one does not stop or alter the others",
+    "reason": "audit_boundary.sh section 2 FAILs a trial if any file under the E3 root outside that trial changes during its window, and section 7 FAILs on any Globus task of the account outside that trial's staging-inbox/; concurrent trials would therefore invalidate each other. E1/E2 also ran trials sequentially.",
+    "live_job_records": ".agent_runtime/baseline/<trial_id>/execution/ (researcher-side, excluded from section 2, forbidden to agents)"
+  },
+  "invalid_attempt_policy": "failed, cancelled, timed-out, invalid or audit-failed attempts are retained and marked; never overwritten, retried automatically or replaced. Any rerun is a new recorded attempt under the protocol."
+}

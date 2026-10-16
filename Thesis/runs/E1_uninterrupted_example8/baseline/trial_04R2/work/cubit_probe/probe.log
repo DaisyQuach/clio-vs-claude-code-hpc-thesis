@@ -1,0 +1,382 @@
+RLM session initializedWARNING: No RLM logins were valid: -1
+Looking at product: Coreform Cubit
+status: ValidStudent
+Logged in via encrypted credentialsLogged in with new licensing
+
+                   CCCCC    UU   UU   BBBBBB    IIII   TTTTTT
+                  CC   CC   UU   UU   BB   BB    II      TT
+                  CC        UU   UU   BB   BB    II      TT
+                  CC        UU   UU   BBBBBB     II      TT
+                  CC        UU   UU   BB   BB    II      TT
+                  CC   CC   UU   UU   BB   BB    II      TT
+                   CCCCC     UUUUU    BBBBBB    IIII     TT  R
+
+                            MESH GENERATION TOOLKIT        
+                                      FOR                   
+                   PRE-PROCESSING OF FINITE ELEMENT ANALYSES
+
+               User community forum: https://forum.coreform.com
+
+
+                 Coreform Cubit 2026.8 64-Bit Build fdca55e4
+                               VTK Version 9.4.2
+                              ACIS Version 36.0.1.0
+                            Exodus API Version 8.25
+                            MeshGems Version 2026 1.0.0
+               Coreform Cubit Copyright 2013-2026 Coreform Inc.
+              Revised Fri Aug 21 12:16:25 2026 -0600
+                        Running 10/09/2026 03:44:34 PM
+
+                 CUBIT includes MeshGems by Spatial Inc.
+                  CUBIT includes ACIS software by Spatial Inc.
+                  CUBIT includes LP Solve by Michel Berkelaar.
+                       CUBIT includes VTK by Kitware Inc.
+           CUBIT includes Exodus II, based on netCDF by UCAR/Unidata.
+            CUBIT includes VERDICT, by Sandia National Laboratories.
+          CUBIT includes MESQUITE, by Argonne National Laboratory and
+                         Sandia National Laboratories.
+
+Machine type is Linux 4.18.0-553.170.1.el8_10.x86_64
+Machine name is notch351
+Working Directory: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/manual_text/work/cubit_probe/
+
+No Graphics System
+
+********** Now playing probe.jou **********
+
+Finished Command: reset
+
+Successfully created brick volume 1 
+Finished Command: brick x 2 y 1 z 0.5
+
+ Moved Body 1:  x 1.000000e+00  y 5.000000e-01  z 2.500000e-01
+Finished Command: move volume 1 x 1 y 0.5 z 0.25 include_merged
+
+Volume Entity  (Id = 1)
+	Visible:	Yes
+	6 Owned Surfaces:        
+	______Name______    Id
+	       Surface 1     1
+	       Surface 2     2
+	       Surface 3     3
+	       Surface 4     4
+	       Surface 5     5
+	       Surface 6     6
+
+	In Body 1.
+Finished Command: list volume 1
+
+Surface Entity  (Id = 1)
+	Visible:	Yes
+	4 curves in 1 loop.
+	Visible:	Yes
+		Arc	Vertex Type:
+Name	Id	Length	Start_T	End_T
+--------------------------------------------------------------------------------------
+Curve 1	1	1	1  	2  
+Curve 2	2	2	2  	3  
+Curve 3	3	1	3  	4  
+Curve 4	4	2	4  	1  
+
+	In Volume 1.
+
+Surface Entity  (Id = 2)
+	Visible:	Yes
+	4 curves in 1 loop.
+	Visible:	Yes
+		Arc	Vertex Type:
+Name	Id	Length	Start_T	End_T
+--------------------------------------------------------------------------------------
+Curve 5	5	1	5  	6  
+Curve 6	6	2	6  	7  
+Curve 7	7	1	7  	8  
+Curve 8	8	2	8  	5  
+
+	In Volume 1.
+
+Surface Entity  (Id = 3)
+	Visible:	Yes
+	4 curves in 1 loop.
+	Visible:	Yes
+		Arc	Vertex Type:
+Name	Id	Length	Start_T	End_T
+--------------------------------------------------------------------------------------
+Curve 9	9	0.5	4  	7  
+Curve 6	6	2	6  	7  
+Curve 10	10	0.5	1  	6  
+Curve 4	4	2	4  	1  
+
+	In Volume 1.
+
+Surface Entity  (Id = 4)
+	Visible:	Yes
+	4 curves in 1 loop.
+	Visible:	Yes
+		Arc	Vertex Type:
+Name	Id	Length	Start_T	End_T
+--------------------------------------------------------------------------------------
+Curve 11	11	0.5	3  	8  
+Curve 7	7	1	7  	8  
+Curve 9	9	0.5	4  	7  
+Curve 3	3	1	3  	4  
+
+	In Volume 1.
+
+Surface Entity  (Id = 5)
+	Visible:	Yes
+	4 curves in 1 loop.
+	Visible:	Yes
+		Arc	Vertex Type:
+Name	Id	Length	Start_T	End_T
+--------------------------------------------------------------------------------------
+Curve 12	12	0.5	2  	5  
+Curve 8	8	2	8  	5  
+Curve 11	11	0.5	3  	8  
+Curve 2	2	2	2  	3  
+
+	In Volume 1.
+
+Surface Entity  (Id = 6)
+	Visible:	Yes
+	4 curves in 1 loop.
+	Visible:	Yes
+		Arc	Vertex Type:
+Name	Id	Length	Start_T	End_T
+--------------------------------------------------------------------------------------
+Curve 10	10	0.5	1  	6  
+Curve 5	5	1	5  	6  
+Curve 12	12	0.5	2  	5  
+Curve 1	1	1	1  	2  
+
+	In Volume 1.
+
+Finished Command: list surface all
+
+	Visible:	Yes
+		Arc	Vertex Type:
+Name	Id	Length	Start_T	End_T
+--------------------------------------------------------------------------------------
+Curve 1	1	1	1  	2  
+	In Surface 1, Surface 6.
+
+Curve 2	2	2	2  	3  
+	In Surface 1, Surface 5.
+
+Curve 3	3	1	3  	4  
+	In Surface 1, Surface 4.
+
+Curve 4	4	2	4  	1  
+	In Surface 1, Surface 3.
+
+Curve 5	5	1	5  	6  
+	In Surface 2, Surface 6.
+
+Curve 6	6	2	6  	7  
+	In Surface 2, Surface 3.
+
+Curve 7	7	1	7  	8  
+	In Surface 2, Surface 4.
+
+Curve 8	8	2	8  	5  
+	In Surface 2, Surface 5.
+
+Curve 9	9	0.5	4  	7  
+	In Surface 3, Surface 4.
+
+Curve 10	10	0.5	1  	6  
+	In Surface 3, Surface 6.
+
+Curve 11	11	0.5	3  	8  
+	In Surface 4, Surface 5.
+
+Curve 12	12	0.5	2  	5  
+	In Surface 5, Surface 6.
+
+Finished Command: list curve all
+
+Finished Command: volume 1 size 0.0416666666666667
+
+Finished Command: volume 1 scheme map
+
+Matching intervals successful.
+Morph mesher is not enabled in this Cubit build.
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Generating Mesh
+Processing...
+0   |    |    |    |    50   |    |    |    |  100
+
+Volume 1 meshing completed using scheme: map
+Generated 13824 hexes
+Finished Command: mesh volume 1
+
+Surface Entity  (Id = 4)
+	Visible:	Yes
+	4 curves in 1 loop.
+	Visible:	Yes
+		Arc	Vertex Type:
+Name	Id	Length	Start_T	End_T
+--------------------------------------------------------------------------------------
+Curve 11	11	0.5	3 e	8 e
+Curve 7	7	1	7 e	8 e
+Curve 9	9	0.5	4 e	7 e
+Curve 3	3	1	3 e	4 e
+
+	In Volume 1.
+
+Finished Command: list surface with x_coord < 0.001
+
+Surface Entity  (Id = 1)
+	Visible:	Yes
+	4 curves in 1 loop.
+	Visible:	Yes
+		Arc	Vertex Type:
+Name	Id	Length	Start_T	End_T
+--------------------------------------------------------------------------------------
+Curve 1	1	1	1 e	2 e
+Curve 2	2	2	2 e	3 e
+Curve 3	3	1	3 e	4 e
+Curve 4	4	2	4 e	1 e
+
+	In Volume 1.
+
+Finished Command: list surface with z_coord > 0.499
+
+Curve Entity  (Id = 10)
+	Visible:	Yes
+		Arc	Vertex Type:
+Name	Id	Length	Start_T	End_T
+--------------------------------------------------------------------------------------
+Curve 10	10	0.5	1  	6  
+	In Surface 3, Surface 6.
+
+Finished Command: list curve with x_coord > 1.999 and y_coord < 0.001
+
+  Node 1 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.500000
+     Type: Corner Node
+     Owner: Vertex 1 (Vertex 1)
+     Hexes:  13537
+     Faces:  1, 3745, 2869
+     Edges:  1, 144, 4765
+  Node 1227 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.000000
+     Type: Corner Node
+     Owner: Vertex 6 (Vertex 6)
+     Hexes:  13548
+     Faces:  1176, 3756, 2880
+     Edges:  2400, 2401, 4776
+  Node 2462 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.458333
+     Type: Corner Node
+     Owner: Curve 10 (Curve 10)
+     Hexes:  13537, 13538
+     Faces:  2869, 3745, 2870, 3746
+     Edges:  4765, 4766, 5858, 7525
+  Node 2463 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.416667
+     Type: Corner Node
+     Owner: Curve 10 (Curve 10)
+     Hexes:  13538, 13539
+     Faces:  2870, 3746, 2871, 3747
+     Edges:  4766, 4767, 5859, 7527
+  Node 2464 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.375000
+     Type: Corner Node
+     Owner: Curve 10 (Curve 10)
+     Hexes:  13539, 13540
+     Faces:  2871, 3747, 2872, 3748
+     Edges:  4767, 4768, 5860, 7529
+  Node 2465 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.333333
+     Type: Corner Node
+     Owner: Curve 10 (Curve 10)
+     Hexes:  13540, 13541
+     Faces:  2872, 3748, 2873, 3749
+     Edges:  4768, 4769, 5861, 7531
+  Node 2466 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.291667
+     Type: Corner Node
+     Owner: Curve 10 (Curve 10)
+     Hexes:  13541, 13542
+     Faces:  2873, 3749, 2874, 3750
+     Edges:  4769, 4770, 5862, 7533
+  Node 2467 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.250000
+     Type: Corner Node
+     Owner: Curve 10 (Curve 10)
+     Hexes:  13542, 13543
+     Faces:  2874, 3750, 2875, 3751
+     Edges:  4770, 4771, 5863, 7535
+  Node 2468 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.208333
+     Type: Corner Node
+     Owner: Curve 10 (Curve 10)
+     Hexes:  13543, 13544
+     Faces:  2875, 3751, 2876, 3752
+     Edges:  4771, 4772, 5864, 7537
+  Node 2469 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.166667
+     Type: Corner Node
+     Owner: Curve 10 (Curve 10)
+     Hexes:  13544, 13545
+     Faces:  2876, 3752, 2877, 3753
+     Edges:  4772, 4773, 5865, 7539
+  Node 2470 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.125000
+     Type: Corner Node
+     Owner: Curve 10 (Curve 10)
+     Hexes:  13545, 13546
+     Faces:  2877, 3753, 2878, 3754
+     Edges:  4773, 4774, 5866, 7541
+  Node 2471 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.083333
+     Type: Corner Node
+     Owner: Curve 10 (Curve 10)
+     Hexes:  13546, 13547
+     Faces:  2878, 3754, 2879, 3755
+     Edges:  4774, 4775, 5867, 7543
+  Node 2472 --
+           X-coord      Y-coord      Z-coord
+           2.000000     0.000000     0.041667
+     Type: Corner Node
+     Owner: Curve 10 (Curve 10)
+     Hexes:  13547, 13548
+     Faces:  2879, 3755, 2880, 3756
+     Edges:  4775, 4776, 5868, 7545
+Finished Command: list node with x_coord > 1.999 and y_coord < 0.001
+
+...deleting 13824 hexes from database...
+...deleting 4032 faces from database...
+...deleting 8064 edges from database...
+...deleting 15925 nodes from database...

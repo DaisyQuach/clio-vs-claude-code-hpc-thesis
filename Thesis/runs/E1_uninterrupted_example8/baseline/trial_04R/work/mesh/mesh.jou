@@ -1,0 +1,25 @@
+# FROZEN-EX8-v1 half-cantilever mesh (Coreform Cubit batch journal)
+# Domain: x in [0,2], y in [0,1], z in [0,0.5]; HEX8 mapped mesh, h = 1/24
+reset
+brick x 2.0 y 1.0 z 0.5
+# brick is created centered at the origin; move its corner to the origin
+move volume 1 x 1.0 y 0.5 z 0.25 include_merged
+# structured (mapped) hex mesh with uniform size h = 1/24 -> 48 x 24 x 12 elements
+volume 1 scheme map
+volume 1 size 0.041666666666666667
+mesh volume 1
+# single element block containing the whole domain
+block 1 add volume 1
+block 1 name 'block_1'
+block 1 element type HEX8
+# nodeset ns_fix: all nodes on the face x = 0
+nodeset 1 add surface with x_coord < 0.001
+nodeset 1 name 'ns_fix'
+# nodeset ns_load: all nodes on the edge x = 2, y = 0 (spanning z in [0,0.5])
+nodeset 2 add curve with x_coord > 1.999 and y_coord < 0.001
+nodeset 2 name 'ns_load'
+# sideset ss_sym: all element faces on the cut plane z = 0.5
+sideset 1 add surface with z_coord > 0.499
+sideset 1 name 'ss_sym'
+# export Exodus II, 3-D
+export mesh "mesh.exo" dimension 3 overwrite

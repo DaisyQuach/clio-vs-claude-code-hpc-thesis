@@ -1,0 +1,34 @@
+generated_config_verification utc=2026-10-10T15:10:11Z dir=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_06/work/run
+PASS | analyze: Spatial Dimension 3, Input Mesh mesh.exo
+PASS | analyze: material_1 isotropic linear elastic E=1.0 nu=0.3
+PASS | analyze: block_1 is the only domain and uses material_1
+PASS | analyze: residual SIMP single-phase, exponent 3.0, minimum 1e-3
+PASS | analyze: compliance criterion (Internal Elastic Energy) on block_1 with SIMP exponent 3.0, minimum ersatz 1e-3
+PASS | analyze: exactly one concentrated load: ns_load, Dof 1 (y), value -1.0 per node
+PASS | analyze: no natural (traction) boundary conditions
+PASS | analyze: EBCs = ns_fix X,Y,Z fixed 0 and ss_sym Z fixed 0 (four entries, nothing else)
+PASS | analyze: output displacement_x/y/z
+PASS | helmholtz: Length Scale present = 0.043301 = radius 0.15/(2*sqrt(3))
+PASS | helmholtz: Surface Length Scale present = 1.0 (boundary_sticking_penalty 1.0)
+PASS | helmholtz: Symmetry Plane Sides present = {ss_sym}
+PASS | helmholtz: physics Helmholtz Filter on block_1, mesh mesh.exo
+PASS | interface: optimizer package OC
+PASS | interface: MaxIterations 50
+PASS | interface: ProblemUpdateFrequency 1 and Update Problem stage
+PASS | interface: default OC tolerances (1e-4 control stagnation, 1e-8 objective stagnation, 1e-8 gradient)
+PASS | interface: volume constraint NormalizedTargetValue 0.15 referenced to Design Volume
+PASS | interface: three performers engine_1, analyze_2, analyze_helmholtz
+PASS | interface: engine output stage writes topology and control (PlatoMainOutput)
+PASS | interface: volume constraint evaluated by engine_1; objective by analyze_2
+PASS | interface: Helmholtz filter applied to control before objective/constraint (Filter Control by analyze_helmholtz)
+PASS | engine_operations: uniform initial density 0.15
+PASS | engine_operations: aggregator weight 1, normalization false (no Normals/Normalize element; XMLGenerator emits one only for normalize_in_aggregator true)
+PASS | engine_operations: Update Problem operation present
+PASS | engine_operations: engine output writes topology and control
+PASS | engine_input_deck: mesh.exo, block 1 material 1, output engine_output (exodus)
+PASS | mpirun.source: three single-rank performers (-np 1 x3), PlatoMain + analyze_MPMD x2, no decomposition
+ALL_PASS
+--- helmholtz Parameters: {'Length Scale': '0.043301', 'Surface Length Scale': '1.0', 'Symmetry Plane Sides': '{ss_sym}'}
+--- EBCs: [('ns_fix', 0, 0.0, 'Fixed Value'), ('ns_fix', 1, 0.0, 'Fixed Value'), ('ns_fix', 2, 0.0, 'Fixed Value'), ('ss_sym', 2, 0.0, 'Fixed Value')]
+--- load: [{'Dof': '1', 'Value': '-1.0', 'Nodes': 'ns_load'}]
+--- material: {'Youngs Modulus': '1.0', 'Poissons Ratio': '0.3'} SIMP residual: {'Type': 'SIMP', 'Exponent': '3.0', 'Minimum Value': '1e-3'} SIMP criterion: {'Type': 'SIMP', 'Exponent': '3.0', 'Minimum Value': '1e-3'}

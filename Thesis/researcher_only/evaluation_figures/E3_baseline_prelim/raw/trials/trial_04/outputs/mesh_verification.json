@@ -1,0 +1,138 @@
+{
+  "utc": "2026-10-10T07:13:34Z",
+  "file": "work/mesh/mesh.exo",
+  "num_dim": 3,
+  "num_nodes": 15925,
+  "num_elem": 13824,
+  "num_el_blk": 1,
+  "blocks": [
+    {
+      "id": 1,
+      "name": "block_1",
+      "elem_type": "HEX8",
+      "num_elem": 13824,
+      "nodes_per_elem": 8
+    }
+  ],
+  "nodesets": [
+    {
+      "id": 1,
+      "name": "ns_fix",
+      "num_nodes": 325,
+      "x_range": [
+        0.0,
+        0.0
+      ],
+      "y_range": [
+        0.0,
+        1.0
+      ],
+      "z_range": [
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ns_load",
+      "num_nodes": 13,
+      "x_range": [
+        2.0,
+        2.0
+      ],
+      "y_range": [
+        0.0,
+        0.0
+      ],
+      "z_range": [
+        0.0,
+        0.5
+      ]
+    }
+  ],
+  "sidesets": [
+    {
+      "id": 1,
+      "name": "ss_sym",
+      "num_faces": 1152,
+      "all_faces_on_z0.5": true
+    }
+  ],
+  "bounding_box": {
+    "x": [
+      0.0,
+      2.0
+    ],
+    "y": [
+      0.0,
+      1.0
+    ],
+    "z": [
+      0.0,
+      0.5
+    ]
+  },
+  "unique_coordinate_planes": {
+    "x": 49,
+    "y": 25,
+    "z": 13
+  },
+  "element_size_h": {
+    "x": 0.041666666666666664,
+    "y": 0.041666666666666664,
+    "z": 0.041666666666666664
+  },
+  "expected": {
+    "num_dim": 3,
+    "num_nodes": 15925,
+    "num_elem": 13824,
+    "num_el_blk": 1,
+    "block_name": "block_1",
+    "block_elem_type": "HEX8",
+    "block_num_elem": 13824,
+    "ns_fix": 325,
+    "ns_load": 13,
+    "ss_sym": 1152,
+    "bbox": {
+      "x": [
+        0.0,
+        2.0
+      ],
+      "y": [
+        0.0,
+        1.0
+      ],
+      "z": [
+        0.0,
+        0.5
+      ]
+    },
+    "planes": {
+      "x": 49,
+      "y": 25,
+      "z": 13
+    }
+  },
+  "checks": {
+    "ns_fix_all_on_x0": true,
+    "ns_fix_count_equals_x0_nodes": true,
+    "ns_load_all_on_edge_x2_y0": true,
+    "ns_load_count_equals_edge_nodes": true,
+    "ss_sym_all_faces_on_cut_plane": true,
+    "num_dim": true,
+    "num_nodes": true,
+    "num_elem": true,
+    "single_block": true,
+    "block_name_block_1": true,
+    "block_HEX8": true,
+    "block_contains_all_elements": true,
+    "ns_fix_325": true,
+    "ns_load_13": true,
+    "ss_sym_1152": true,
+    "bbox": true,
+    "structured_48x24x12": true,
+    "uniform_h_1_over_24": true,
+    "exactly_two_nodesets_one_sideset": true
+  },
+  "result": "PASS"
+}

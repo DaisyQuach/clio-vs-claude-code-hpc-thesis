@@ -1,0 +1,32 @@
+## E3-SPC-v1 Symmetry-Plane Cantilever: half (z in [0, 0.5]) of the 2 x 1 x 1 cantilever.
+## Written for this trial from the frozen specification (geometry, mesh, sets); the brick/map/nodeset
+## idiom follows the candidate Example 7 journal (full-domain cantilever), adapted to the half domain.
+## Design domain x in [0, 2], y in [0, 1], z in [0, 0.5]; cut (symmetry) plane z = 0.5.
+## Structured HEX8 mesh, uniform h = 1/24 (48 x 24 x 12 = 13,824 elements, 15,925 nodes).
+reset
+#{len = 2.0}
+#{ht  = 1.0}
+#{wd  = 0.5}
+#{esize = 0.0416667}
+## --- geometry: brick with its corner at the origin ---
+create brick x {len} y {ht} z {wd}
+move volume 1 x {len/2.0} y {ht/2.0} z {wd/2.0}
+## --- structured (mapped) hex mesh, 48 x 24 x 12 ---
+volume 1 scheme map
+volume 1 size {esize}
+mesh volume 1
+## --- single design block containing every element ---
+block 1 volume 1
+block 1 name 'block_1'
+block 1 element type HEX8
+## --- fixed support: all nodes on the face x = 0 (325 nodes) ---
+nodeset 1 add node in surface with x_coord < {esize/2.0}
+nodeset 1 name "ns_fix"
+## --- line load: all nodes on the edge x = 2, y = 0, spanning z in [0, 0.5] (13 nodes) ---
+nodeset 2 add node with x_coord > {len - esize/2.0} and with y_coord < {esize/2.0}
+nodeset 2 name "ns_load"
+## --- symmetry (cut) plane: all element faces on z = 0.5 (1,152 faces) ---
+sideset 1 add surface with z_coord > {wd - esize/2.0}
+sideset 1 name "ss_sym"
+## --- export Exodus II, dimension 3 ---
+export mesh "mesh.exo" dimension 3 overwrite

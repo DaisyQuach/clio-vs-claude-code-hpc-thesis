@@ -1,0 +1,188 @@
+# Run-output verification record (E3-SPC-v1 §6 iterations/outputs, §5 BCs realized) -- work/scripts/verify_outputs.py
+{
+  "diagnostics.iteration_rows_(0..50)": {
+    "expected": 51,
+    "actual": 51,
+    "pass": true
+  },
+  "diagnostics.last_iteration": {
+    "expected": 50,
+    "actual": 50,
+    "pass": true
+  },
+  "diagnostics.stop_message_max_iterations": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "diagnostics.no_early_convergence_message": {
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  "opt_criteria_history.objective_values_(51)": {
+    "expected": 51,
+    "actual": 51,
+    "pass": true
+  },
+  "opt_criteria_history.objective_decreased": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "final_analyze_output.exists": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "final_analyze_output.nodal_vars": {
+    "actual": [
+      "Topology",
+      "displacement X",
+      "displacement Y",
+      "displacement Z"
+    ],
+    "pass": true
+  },
+  "final_analyze_output.elem_vars": {
+    "actual": [
+      "My Objective"
+    ],
+    "pass": true
+  },
+  "final_analyze_output.has_displacement_x_y_z": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "final_analyze_output.has_density_or_topology_field": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "final_analyze_output.num_nodes": {
+    "expected": 15925,
+    "actual": 15925,
+    "pass": true
+  },
+  "final_analyze_output.num_elem": {
+    "expected": 13824,
+    "actual": 13824,
+    "pass": true
+  },
+  "bc.ns_fix_all_displacements_zero": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "bc.ss_sym_uz_zero_on_cut_plane_(1225 nodes)": {
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  "bc.ss_sym_node_count": {
+    "actual": 1225,
+    "expected": 1225,
+    "pass": true
+  },
+  "bc.max_abs_uz_off_plane": {
+    "actual": 2141.725451948709,
+    "pass": true
+  },
+  "bc.ns_load_mean_uy_(negative=loaded downward)": {
+    "actual": -16072.329310870698,
+    "pass": true
+  },
+  "engine_output.nodal_fields_control_and_topology": {
+    "expected": [
+      "control",
+      "topology"
+    ],
+    "actual": [
+      "control",
+      "topology"
+    ],
+    "pass": true
+  },
+  "engine_output.time_steps": {
+    "actual": 51,
+    "pass": true
+  },
+  "engine_output.time_values": {
+    "actual": [
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0,
+      8.0,
+      9.0,
+      10.0,
+      11.0,
+      12.0,
+      13.0,
+      14.0,
+      15.0,
+      16.0,
+      17.0,
+      18.0,
+      19.0,
+      20.0,
+      21.0,
+      22.0,
+      23.0,
+      24.0,
+      25.0,
+      26.0,
+      27.0,
+      28.0,
+      29.0,
+      30.0,
+      31.0,
+      32.0,
+      33.0,
+      34.0,
+      35.0,
+      36.0,
+      37.0,
+      38.0,
+      39.0,
+      40.0,
+      41.0,
+      42.0,
+      43.0,
+      44.0,
+      45.0,
+      46.0,
+      47.0,
+      48.0,
+      49.0,
+      50.0,
+      51.0
+    ],
+    "pass": true
+  },
+  "engine_output.num_nodes": {
+    "expected": 15925,
+    "actual": 15925,
+    "pass": true
+  },
+  "engine_output.final_topology_range": {
+    "actual": [
+      1.0117440914631687e-08,
+      0.9390815894813763
+    ],
+    "pass": true
+  },
+  "engine_output.final_topology_mean": {
+    "actual": 0.15707116105688124,
+    "pass": true
+  },
+  "_summary": {
+    "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/baseline/trial_03/work/run",
+    "utc": "2026-10-10T07:05:27Z",
+    "all_pass": true
+  }
+}

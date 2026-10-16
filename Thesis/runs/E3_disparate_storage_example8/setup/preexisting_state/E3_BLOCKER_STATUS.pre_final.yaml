@@ -1,0 +1,97 @@
+# E3 blocker status (researcher-side; never agent-visible). Updated by each readiness step.
+updated_utc: 2026-10-10T03:15Z   # previous versions: preexisting_state/E3_BLOCKER_STATUS.{globus_login,gcs_consent,guest_collection}.yaml
+overall: NO-GO
+stopped_at: "Phase 3 complete (job 16172196); awaiting researcher decisions: node-local staging root, Globus destination, Cubit licence check, CLIO deployment"
+next_action: setup/RESEARCHER_ACTION_REQUIRED.md
+resume_message: null
+
+decisions_recorded:
+  access_model: procedural_researcher_only        # E1/E2 model; no technical/sandbox isolation claimed
+  globus: mandatory                               # direct local reading is not an equivalent fallback
+  trial_design: "5 baseline + 5 CLIO, trial_01..trial_05 each"
+  invalid_attempts: "retained and marked invalid; never replaced or overwritten"
+  globus_visibility: "discoverable-only accepted (researcher decision 2026-10-10): public=True lists the collection in Globus search but grants no data access; only owner and endpoint-service rules exist"
+  clio_deployment: "assumed: local CLIO Desktop connected to CHPC (researcher, 2026-10-10); details to be clarified with E1/E2; not required to work now; no CLIO runner or trial directories created"
+  node_local_root: "probe /scratch/local first (stat-only job); use a fresh per-trial dir there if writable, else /tmp/e3/<system>/<trial_id> (researcher, 2026-10-10)"
+  globus_destination: "CHPC DMZ mapped collection 7cf0baa1-8bd0-4e91-a1e6-c19042952a7c as destination only, limited to the trial's own staging inbox; then hash-checked cp to node-local (researcher, 2026-10-10)"
+  cubit_license_check: "approved: one trivial non-scientific cubit -batch run (brick x 1, no export) in the pilot; exit status and licence state only (researcher, 2026-10-10)"
+
+phase_1_reconcile:
+  status: done
+  globus_marked_mandatory: true                   # runner + prepare now refuse posix_readonly_fallback (exit 3, ACTION_REQUIRED globus_mandatory)
+  planned_trial_locations:
+    baseline: [trial_01, trial_02, trial_03, trial_04, trial_05]   # all exist, clean agent-inputs/, verify --planned PASS
+    clio: [trial_01, trial_02, trial_03, trial_04, trial_05]       # only trial_01 exists; 02..05 NOT created (deployment undecided)
+  execution_environment: "ordinary user environment, no sandbox"
+  cubit_license_lookup: "per-user Coreform activation in $HOME/.config/Coreform/ (cubit_creds, Cubit_ticket, licenses/, login_tokens.json, Cubit.ini); the E3 modulefile sets no licence variable; nothing read or launched"
+  pending_for_phase_2_commit:   # resolved 2026-10-10 except the last item
+    - "DONE: catalog v4 and trial_context.md state Globus as the only access method (host path = provenance only)"
+    - "OPEN (Phase 3/4): agent access to the pinned Globus CLI (automation/environment/tools/ is not yet in E3_SOFTWARE_ROOTS or the loader)"
+
+blockers:
+  globus_configuration:
+    status: CONFIGURED
+    collection:
+      name: daisy-e3-private-source
+      uuid: 6dcea62e-130d-47a9-8b77-80fba6f58693
+      type: GCSv5_guest_collection
+      host_collection: "7cf0baa1-8bd0-4e91-a1e6-c19042952a7c (University of Utah -- CHPC DMZ Clustered Endpoint; GCS endpoint 70ea92f5-e653-42f3-bbe0-decb336c32cc)"
+      exposed_root: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/globus_source_root
+      high_assurance: true
+      authentication_timeout_mins: 525600
+      created_by: researcher (Globus web app), 2026-10-10
+    permissions_policy:
+      acl_rules: "implicit only: owner (researcher identity) rw at /, GCS endpoint service identity rw at /; no rule for any other identity, group, all-users or anonymous"
+      read_only_enforcement: "filesystem: chmod -R a-w globus_source_root (0 write bits); Globus mkdir probe -> EndpointPermissionDenied (HTTP 403), nothing created"
+      visibility: "public=True in the transfer-API record (discoverable in Globus search; grants no data access)"
+      visibility_fix_status: >-
+        Web app 'Edit Attributes' shows no visibility option (researcher, 2026-10-10). The CLI supports
+        'globus gcs collection update <uuid> --private', but it must reach the GCS manager, which notchpeak1 cannot.
+        Other CHPC login nodes are not reachable noninteractively (notchpeak2: interactive auth; others: unknown host
+        key); no host key was added and no login was attempted. Options: (A) researcher runs the update from their own
+        computer; (B) recorded researcher decision to accept discoverability-only visibility. Option A attempt (2026-10-10): the update hung on the researcher's computer; transfer API still reports public=True (likely the GCS manager is not reachable from that network either). Next: retry on campus network/VPN with a reachability test, or ask CHPC, or Option B.
+    verification_login_node:
+      root_listing: "documentation/ manuals/ target_materials/ MANIFEST.sha256 MANIFEST.tsv README.md (globus ls <uuid>:/)"
+      escape_probe: "globus ls <uuid>:/../ returns the same root"
+      e3_files_transferred: none
+    pinned_cli: "automation/environment/tools/globus-cli-3.43.0 (venv on python/3.12.4; runs in an empty environment; runner uses E3_GLOBUS_CLI_REL)"
+    configured_in:
+      - "automation/baseline/baseline_e3_config.env: E3_GLOBUS_COLLECTION_ID, E3_GLOBUS_CLI_REL"
+      - "control repo catalog v4, commit ab341a1c66093f32c897b5c3390ac45bead4d135 (pushed; repo private)"
+    network_from_login_node_notchpeak1:
+      transfer_api: reachable
+      gcs_manager_443: "timeout (CLI collection management impossible from this node)"
+      collection_https_server_443: timeout
+    open_design_question: "how trials stage Globus files into node-local $SLURM_TMPDIR (expected: Globus transfer to a trial-local CHPC path via a destination collection, then hash-checked cp); fixed in Phase 3/4, identical for all ten trials. Until then permitted_roots.txt still lists the host path for the record-keeping helpers."
+    procedural_note: "the researcher's Globus identity can also reach the CHPC mapped collections; the catalog now permits only this collection ID, and Globus commands and collection IDs in session records will be audited"
+  github_at_pinned_commit:
+    status: OPEN
+    status_note: "verified on login node and compute node notch204 (ls-remote rc 0, blobless clone, pin object = commit)"
+    detail: "pin ab341a1c66093f32c897b5c3390ac45bead4d135 (catalog v4)"
+  compute_node_qualification:
+    status: DONE_WITH_FINDINGS
+    detail: "job 16172196 on notch204, exit 0 (setup/E3_PILOT_PHASE3_REPORT.md). $SLURM_TMPDIR UNSET (TmpFS=/scratch/local, no job container); /tmp node-local 98 GB, shared and not per-job. GitHub, Globus (ls and pilot transfer), loader, Claude pin all OK on the compute node; compute nodes reach the GCS manager and guest HTTPS"
+    decision_needed: "fixed node-local staging root for all ten trials; approved Globus destination for staging"
+  claude_2_1_295_readiness:
+    status: OPEN
+    detail: "login node: version 2.1.295, sha256 4503bfe1...f358, flags present; compute node and headless auth not tested"
+  ordinary_morphorm_cubit_license:
+    status: OPEN
+    detail: "licence location identified (per-user, account home); compute-node visibility not tested; no Cubit/Morphorm run"
+  baseline_runner_readiness:
+    status: OPEN
+    detail: "dry runs pass non-blocked checks; waits on Globus collection and compute-node qualification"
+  clio_deployment_and_runner:
+    status: BLOCKED_DECISION
+    detail: "existing E3 docs define no CLIO deployment mechanism (clio/README.md: no runner exists); researcher must choose local CLIO Desktop connected to CHPC or a documented remote/headless runner"
+  final_packet_freeze:
+    status: NOT_STARTED
+  account_name_provenance:
+    status: OPEN
+    detail: "Phase 6 review not started"
+  trial_count_parity:
+    status: OPEN
+    detail: "baseline 5/5 workspaces exist; CLIO 1/5"
+
+observations:
+  - "Coreform credential files in $HOME/.config/Coreform/ are mode 644 (directory 755): readable by other CHPC users. Not changed (outside E3 scope); researcher may want chmod go-rwx."

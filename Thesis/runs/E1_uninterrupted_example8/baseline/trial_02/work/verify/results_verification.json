@@ -1,0 +1,410 @@
+{
+  "trial_id": "E1-example8-baseline-02",
+  "frozen_configuration_id": "FROZEN-EX8-v1",
+  "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_02/work/run1",
+  "verification_utc": "2026-10-09T13:06:19Z",
+  "checks": [
+    {
+      "check": "diagnostics_file_exists",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "diagnostics_max_iteration_index",
+      "expected": 50,
+      "actual": 50,
+      "pass": true
+    },
+    {
+      "check": "diagnostics_iterations_0_to_50_all_present",
+      "expected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "actual": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "pass": true
+    },
+    {
+      "check": "optimizer_termination_message(info)",
+      "expected": null,
+      "actual": [
+        "****** Optimization stopping due to exceeding maximum number of iterations. ******"
+      ],
+      "pass": true
+    },
+    {
+      "check": "terminated_by_reaching_max_iterations",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "not_terminated_by_convergence_before_cap",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "check": "no_simulation_failure_message",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "check": "iteration_0_row(info)",
+      "expected": null,
+      "actual": {
+        "F-count": 1,
+        "F(X)": 2654786.0,
+        "Norm(F')": 402458.3,
+        "H1(X)": -0.01564817,
+        "abs(dX)": 0.15,
+        "abs(dF)": 1.797693e+308
+      },
+      "pass": true
+    },
+    {
+      "check": "iteration_50_row(info)",
+      "expected": null,
+      "actual": {
+        "F-count": 51,
+        "F(X)": 104470.1,
+        "Norm(F')": 7033.815,
+        "H1(X)": -1.628697e-13,
+        "abs(dX)": 0.1142971,
+        "abs(dF)": 66.11695
+      },
+      "pass": true
+    },
+    {
+      "check": "final_volume_constraint_H1_<=_1e-3",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "final_objective_finite_positive",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "opt_criteria_history_exists(info)",
+      "expected": null,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "opt_criteria_history_rows(info)",
+      "expected": null,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "check": "opt_criteria_history_last(info)",
+      "expected": null,
+      "actual": "My Objective, 2.6547864698604103e+06, 6.3679259033174743e+05, 7.5356673009371362e+05, 5.1794200361514621e+05, 4.6212603700425831e+05, 3.7562441033571260e+05, 3.1299134882288420e+05, 2.6379927269917616e+05, 2.2476338428993357e+05, 1.9563337869435776e+05, 1.7471306636915597e+05, 1.5942455761390913e+05, 1.4800947489461943e+05, 1.3934577266911406e+05, 1.3269222411792621e+05, 1.2770753581207486e+05, 1.2389163066251588e+05, 1.2084750013290218e+05, 1.1835886130531480e+05, 1.1634318595439897e+05, 1.1469279403075065e+05, 1.1332839144660751e+05, 1.1218891306407918e+05, 1.1122191844962127e+05, 1.1041103605811279e+05, 1.0974473544470636e+05, 1.0915317553689552e+05, 1.0865625919543476e+05, 1.0821811709163751e+05, 1.0782289788048169e+05, 1.0748054474513557e+05, 1.0716325407682270e+05, 1.0687851495025207e+05, 1.0662565981800611e+05, 1.0638508493515309e+05, 1.0616034653707840e+05, 1.0596492328375526e+05, 1.0578756902744653e+05, 1.0562499994857861e+05, 1.0549493990675367e+05, 1.0537152324667232e+05, 1.0525039852003903e+05, 1.0514276469554615e+05, 1.0504394984224110e+05, 1.0494642431525873e+05, 1.0485467800820213e+05, 1.0476911917512775e+05, 1.0468635127544840e+05, 1.0460756965350441e+05, 1.0453625747477090e+05, 1.0447014052065862e+05, ",
+      "pass": true
+    },
+    {
+      "check": "engine_output_exists",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "engine_output_time_steps(info)",
+      "expected": null,
+      "actual": 51,
+      "pass": true
+    },
+    {
+      "check": "engine_output_time_values(info)",
+      "expected": null,
+      "actual": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0,
+        17.0,
+        18.0,
+        19.0,
+        20.0,
+        21.0,
+        22.0,
+        23.0,
+        24.0,
+        25.0,
+        26.0,
+        27.0,
+        28.0,
+        29.0,
+        30.0,
+        31.0,
+        32.0,
+        33.0,
+        34.0,
+        35.0,
+        36.0,
+        37.0,
+        38.0,
+        39.0,
+        40.0,
+        41.0,
+        42.0,
+        43.0,
+        44.0,
+        45.0,
+        46.0,
+        47.0,
+        48.0,
+        49.0,
+        50.0,
+        51.0
+      ],
+      "pass": true
+    },
+    {
+      "check": "engine_output_has_control_and_topology",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "engine_output_nodal_vars(info)",
+      "expected": null,
+      "actual": [
+        "control",
+        "topology"
+      ],
+      "pass": true
+    },
+    {
+      "check": "engine_output_num_nodes",
+      "expected": 15925,
+      "actual": 15925,
+      "pass": true
+    },
+    {
+      "check": "engine_output_num_elem",
+      "expected": 13824,
+      "actual": 13824,
+      "pass": true
+    },
+    {
+      "check": "engine_output_final_topology_stats(info)",
+      "expected": null,
+      "actual": {
+        "min": 1.0117440914631687e-08,
+        "max": 0.9390815894813763,
+        "mean": 0.15707116105688124
+      },
+      "pass": true
+    },
+    {
+      "check": "engine_output_final_topology_in_[0,1]",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "final_analyze_output_iteration50_exists",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "final_analyze_output_path(info)",
+      "expected": null,
+      "actual": [
+        "work/run1/analyze_id_2_output_scenario_id_1/iteration50.exo"
+      ],
+      "pass": true
+    },
+    {
+      "check": "iteration50_nodal_vars(info)",
+      "expected": null,
+      "actual": [
+        "Topology",
+        "displacement X",
+        "displacement Y",
+        "displacement Z"
+      ],
+      "pass": true
+    },
+    {
+      "check": "iteration50_elem_vars(info)",
+      "expected": null,
+      "actual": [
+        "My Objective"
+      ],
+      "pass": true
+    },
+    {
+      "check": "iteration50_has_displacements_x_y_z",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "iteration50_has_density_field",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "iteration50_num_nodes",
+      "expected": 15925,
+      "actual": 15925,
+      "pass": true
+    },
+    {
+      "check": "iteration50_uy_range(info)",
+      "expected": null,
+      "actual": [
+        -21941.17299464446,
+        0.0
+      ],
+      "pass": true
+    },
+    {
+      "check": "iteration50_uy_finite",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "analyze_iteration_files_count(info)",
+      "expected": null,
+      "actual": 51,
+      "pass": true
+    },
+    {
+      "check": "morphorm_run_log_exists",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "run_log_error_like_lines(info)",
+      "expected": null,
+      "actual": [],
+      "pass": true
+    }
+  ],
+  "all_checks_pass": true
+}

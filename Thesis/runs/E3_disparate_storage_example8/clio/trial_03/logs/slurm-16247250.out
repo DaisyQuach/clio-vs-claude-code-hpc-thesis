@@ -1,0 +1,60 @@
+UTC start: 2026-10-13T17:33:10Z  job=16247250  node=notch351
+--- module list ---
+
+Currently Loaded Modules:
+  1) chpc/1.0   (S)   3) openmpi/5.0.3               5) cubit-edu/2026.8
+  2) gcc/11.2.0       4) morphorm/approved-runtime
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+ 
+
+--- run directory /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/clio/trial_03/work/run2 ---
+total 1092
+-rw-r--r-- 1 u1282901 hochhalter    4424 Oct 13 11:28 analyze_2_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter     864 Oct 13 11:28 analyze_2_operations.xml
+-rw-r--r-- 1 u1282901 hochhalter    1026 Oct 13 11:28 analyze_helmholtz_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter     473 Oct 13 11:28 analyze_helmholtz_operations.xml
+-rw-r--r-- 1 u1282901 hochhalter     433 Oct 13 11:28 engine_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter    3473 Oct 13 11:28 engine_operations.xml
+-rw-r--r-- 1 u1282901 hochhalter    2866 Oct 13 11:28 input_deck.i
+-rw-r--r-- 1 u1282901 hochhalter   14338 Oct 13 11:28 interface.xml
+-rw-r--r-- 1 u1282901 hochhalter 1052996 Oct 13 11:26 mesh.exo
+-rw-r--r-- 1 u1282901 hochhalter     536 Oct 13 11:28 mpirun.source
+-rw-r--r-- 1 u1282901 hochhalter    7178 Oct 13 11:28 xmlgenerator_stdout.txt
+e5bf824a00fccf72bb4f1d4795cf800c7f195a0387e5c91347c99296856dbc97  input_deck.i
+e2d2bf4fc353ad2781321225ce9d1a4715b28149e4f07b647df9ddd745bacdf0  mesh.exo
+2f545669f80885d182291e9aad47d74baf8403082364f79f67542f653a616885  interface.xml
+9bc13ac9c61c0d8b3c7c73b5c0bce38e31c7d35b53e45483c2fd5238bea222e8  analyze_2_input_deck.xml
+e0b190ab3e8c71334d7b7ec5f0567dbcdae40f7a371b943a553d6eb54fae5436  analyze_helmholtz_input_deck.xml
+7f3edc06119d4155981b3861c2c2263f268e6a3f56f7577cc0aa202f3b35169a  engine_input_deck.xml
+5f45e199f30722f60934996cf4b58b4ce832972c71a3ef0cbe97ae2f6469f3bc  mpirun.source
+--- bash mpirun.source: 2026-10-13T17:33:25Z ---
+--- mpirun.source exit=0 at 2026-10-13T17:42:58Z ---
+total 20564
+-rw-r----- 1 u1282901 hochhalter   213703 Oct 13 11:42 analyze_2_1
+-rw-r--r-- 1 u1282901 hochhalter     4424 Oct 13 11:28 analyze_2_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      864 Oct 13 11:28 analyze_2_operations.xml
+-rw-r----- 1 u1282901 hochhalter   420922 Oct 13 11:42 analyze_helmholtz_2
+-rw-r--r-- 1 u1282901 hochhalter     1026 Oct 13 11:28 analyze_helmholtz_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter      473 Oct 13 11:28 analyze_helmholtz_operations.xml
+drwxr-xr-x 2 u1282901 hochhalter     8192 Oct 13 11:42 analyze_id_2_output_scenario_id_1
+-rw-r----- 1 u1282901 hochhalter      306 Oct 13 11:42 engine_1_0
+-rw-r--r-- 1 u1282901 hochhalter      433 Oct 13 11:28 engine_input_deck.xml
+-rw-r--r-- 1 u1282901 hochhalter     3473 Oct 13 11:28 engine_operations.xml
+-rw-r--r-- 1 u1282901 hochhalter 14073528 Oct 13 11:42 engine_output.exo
+-rw-r--r-- 1 u1282901 hochhalter     2866 Oct 13 11:28 input_deck.i
+-rw-r--r-- 1 u1282901 hochhalter    14338 Oct 13 11:28 interface.xml
+-rw-r--r-- 1 u1282901 hochhalter  1052996 Oct 13 11:26 mesh.exo
+-rw-r--r-- 1 u1282901 hochhalter     4909 Oct 13 11:42 morphorm_oc_optimizer_diagnostics.txt
+-rw-r--r-- 1 u1282901 hochhalter     1447 Oct 13 11:33 morphorm_run.log
+-rw-r--r-- 1 u1282901 hochhalter      536 Oct 13 11:28 mpirun.source
+-rw-r--r-- 1 u1282901 hochhalter     1239 Oct 13 11:42 opt_criteria_history.csv
+-rw-r--r-- 1 u1282901 hochhalter     7178 Oct 13 11:28 xmlgenerator_stdout.txt
+50        51        1.044701e+05   7.033815e+03  -1.628697e-13   1.142971e-01   6.611695e+01
+
+
+****** Optimization stopping due to exceeding maximum number of iterations. ******
+
+UTC end: 2026-10-13T17:42:58Z

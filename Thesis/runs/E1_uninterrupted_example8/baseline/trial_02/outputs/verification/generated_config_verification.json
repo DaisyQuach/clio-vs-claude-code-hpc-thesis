@@ -1,0 +1,604 @@
+{
+  "trial_id": "E1-example8-baseline-02",
+  "frozen_configuration_id": "FROZEN-EX8-v1",
+  "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_02/work/run1",
+  "verification_utc": "2026-10-09T12:54:37Z",
+  "checks": [
+    {
+      "check": "helmholtz_input_deck_exists",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "helmholtz_physics",
+      "expected": "Helmholtz Filter",
+      "actual": "Helmholtz Filter",
+      "pass": true
+    },
+    {
+      "check": "helmholtz_mesh",
+      "expected": "mesh.exo",
+      "actual": "mesh.exo",
+      "pass": true
+    },
+    {
+      "check": "helmholtz_dimension",
+      "expected": "3",
+      "actual": "3",
+      "pass": true
+    },
+    {
+      "check": "helmholtz_length_scale_present",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "helmholtz_length_scale_equals_0.15/(2*sqrt(3))",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "helmholtz_length_scale_value(info)",
+      "expected": 0.04330127018922193,
+      "actual": "0.043301",
+      "pass": true
+    },
+    {
+      "check": "helmholtz_surface_length_scale_present",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "helmholtz_surface_length_scale_(boundary_sticking_penalty)=1.0",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "helmholtz_symmetry_plane_sides_present",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "helmholtz_symmetry_plane_sides",
+      "expected": "{ss_sym}",
+      "actual": "{ss_sym}",
+      "pass": true
+    },
+    {
+      "check": "helmholtz_domain_block",
+      "expected": "block_1",
+      "actual": "block_1",
+      "pass": true
+    },
+    {
+      "check": "analyze_input_deck_exists",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "analyze_physics",
+      "expected": "Mechanical",
+      "actual": "Mechanical",
+      "pass": true
+    },
+    {
+      "check": "analyze_pde",
+      "expected": "Elliptic",
+      "actual": "Elliptic",
+      "pass": true
+    },
+    {
+      "check": "analyze_dimension",
+      "expected": "3",
+      "actual": "3",
+      "pass": true
+    },
+    {
+      "check": "analyze_mesh",
+      "expected": "mesh.exo",
+      "actual": "mesh.exo",
+      "pass": true
+    },
+    {
+      "check": "material_isotropic_linear_elastic_E=1.0",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "material_nu=0.3",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "material_assigned_to_block_1",
+      "expected": "material_1",
+      "actual": "material_1",
+      "pass": true
+    },
+    {
+      "check": "single_domain_block_1",
+      "expected": [
+        "block_1"
+      ],
+      "actual": [
+        "block_1"
+      ],
+      "pass": true
+    },
+    {
+      "check": "residual_interpolation_single_phase",
+      "expected": "Single-Phase",
+      "actual": "Single-Phase",
+      "pass": true
+    },
+    {
+      "check": "residual_response_linear",
+      "expected": "Linear",
+      "actual": "Linear",
+      "pass": true
+    },
+    {
+      "check": "residual_penalty_type_SIMP",
+      "expected": "SIMP",
+      "actual": "SIMP",
+      "pass": true
+    },
+    {
+      "check": "residual_SIMP_exponent=3.0",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "residual_SIMP_minimum_value=1e-3",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "single_analyze_criterion",
+      "expected": 1,
+      "actual": 1,
+      "pass": true
+    },
+    {
+      "check": "criterion_scalar_function",
+      "expected": "Scalar Function",
+      "actual": "Scalar Function",
+      "pass": true
+    },
+    {
+      "check": "criterion_type_compliance(Internal Elastic Energy)",
+      "expected": "Internal Elastic Energy",
+      "actual": "Internal Elastic Energy",
+      "pass": true
+    },
+    {
+      "check": "criterion_domains_block_1",
+      "expected": "{block_1}",
+      "actual": "{block_1}",
+      "pass": true
+    },
+    {
+      "check": "criterion_penalty_SIMP",
+      "expected": "SIMP",
+      "actual": "SIMP",
+      "pass": true
+    },
+    {
+      "check": "criterion_SIMP_exponent=3.0",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "criterion_minimum_ersatz_material_value=1e-3",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "exactly_one_concentrated_load",
+      "expected": 1,
+      "actual": 1,
+      "pass": true
+    },
+    {
+      "check": "load_nodeset_ns_load",
+      "expected": "ns_load",
+      "actual": "ns_load",
+      "pass": true
+    },
+    {
+      "check": "load_dof_y(index 1)",
+      "expected": "1",
+      "actual": "1",
+      "pass": true
+    },
+    {
+      "check": "load_value_-1.0_per_node",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "no_tractions_or_pressures",
+      "expected": 0,
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "check": "essential_bcs_(sides,index,type,value)",
+      "expected": [
+        [
+          "ns_fix",
+          "0",
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "ns_fix",
+          "1",
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "ns_fix",
+          "2",
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "ss_sym",
+          "2",
+          "Fixed Value",
+          "0.0"
+        ]
+      ],
+      "actual": [
+        [
+          "ns_fix",
+          "0",
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "ns_fix",
+          "1",
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "ns_fix",
+          "2",
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "ss_sym",
+          "2",
+          "Fixed Value",
+          "0.0"
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "check": "ns_fix_ux_uy_uz_fixed",
+      "expected": [
+        "0",
+        "1",
+        "2"
+      ],
+      "actual": [
+        "0",
+        "1",
+        "2"
+      ],
+      "pass": true
+    },
+    {
+      "check": "ss_sym_uz_fixed_only",
+      "expected": [
+        "2"
+      ],
+      "actual": [
+        "2"
+      ],
+      "pass": true
+    },
+    {
+      "check": "analyze_output_displacements",
+      "expected": "{displacement_x, displacement_y, displacement_z}",
+      "actual": "{displacement_x, displacement_y, displacement_z}",
+      "pass": true
+    },
+    {
+      "check": "linear_solver_package(info)",
+      "expected": null,
+      "actual": "tacho",
+      "pass": true
+    },
+    {
+      "check": "interface_exists",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "performers_engine_analyze_helmholtz",
+      "expected": [
+        [
+          "engine_1",
+          "engine",
+          "0"
+        ],
+        [
+          "analyze_2",
+          "analyze",
+          "1"
+        ],
+        [
+          "analyze_helmholtz",
+          "analyze",
+          "2"
+        ]
+      ],
+      "actual": [
+        [
+          "engine_1",
+          "engine",
+          "0"
+        ],
+        [
+          "analyze_2",
+          "analyze",
+          "1"
+        ],
+        [
+          "analyze_helmholtz",
+          "analyze",
+          "2"
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "check": "optimizer_package_OC",
+      "expected": "OC",
+      "actual": "OC",
+      "pass": true
+    },
+    {
+      "check": "optimizer_max_iterations_50",
+      "expected": "50",
+      "actual": "50",
+      "pass": true
+    },
+    {
+      "check": "optimizer_update_problem_frequency_1",
+      "expected": "1",
+      "actual": "1",
+      "pass": true
+    },
+    {
+      "check": "optimizer_update_problem_stage_present",
+      "expected": "Update Problem",
+      "actual": "Update Problem",
+      "pass": true
+    },
+    {
+      "check": "oc_default_tolerances(info)",
+      "expected": null,
+      "actual": {
+        "OCControlStagnationTolerance": "1e-4",
+        "OCObjectiveStagnationTolerance": "1e-8",
+        "OCGradientTolerance": "1e-8",
+        "ProblemUpdateFrequency": "1"
+      },
+      "pass": true
+    },
+    {
+      "check": "constraint_normalized_target_0.15",
+      "expected": "0.15",
+      "actual": "0.15",
+      "pass": true
+    },
+    {
+      "check": "constraint_reference_design_volume",
+      "expected": "Design Volume",
+      "actual": "Design Volume",
+      "pass": true
+    },
+    {
+      "check": "single_constraint",
+      "expected": 1,
+      "actual": 1,
+      "pass": true
+    },
+    {
+      "check": "bounds_0_1",
+      "expected": [
+        "0.0",
+        "1.0"
+      ],
+      "actual": [
+        "0.0",
+        "1.0"
+      ],
+      "pass": true
+    },
+    {
+      "check": "filtered_variable_name_Topology",
+      "expected": "Topology",
+      "actual": "Topology",
+      "pass": true
+    },
+    {
+      "check": "constraint_value_computed_by_engine",
+      "expected": [
+        "engine_1"
+      ],
+      "actual": [
+        "engine_1"
+      ],
+      "pass": true
+    },
+    {
+      "check": "objective_value_computed_by_analyze",
+      "expected": [
+        "analyze_2"
+      ],
+      "actual": [
+        "analyze_2"
+      ],
+      "pass": true
+    },
+    {
+      "check": "objective_filtered_by_helmholtz_performer",
+      "expected": [
+        "analyze_helmholtz"
+      ],
+      "actual": [
+        "analyze_helmholtz"
+      ],
+      "pass": true
+    },
+    {
+      "check": "engine_output_control_and_topology",
+      "expected": [
+        "control",
+        "topology"
+      ],
+      "actual": [
+        "control",
+        "topology"
+      ],
+      "pass": true
+    },
+    {
+      "check": "engine_initialize_uniform",
+      "expected": "Uniform",
+      "actual": "Uniform",
+      "pass": true
+    },
+    {
+      "check": "engine_initial_density_0.15",
+      "expected": "0.15",
+      "actual": "0.15",
+      "pass": true
+    },
+    {
+      "check": "engine_update_problem_frequency_1",
+      "expected": "1",
+      "actual": "1",
+      "pass": true
+    },
+    {
+      "check": "engine_output_max_iterations_50",
+      "expected": "50",
+      "actual": "50",
+      "pass": true
+    },
+    {
+      "check": "engine_discretization_density",
+      "expected": "density",
+      "actual": "density",
+      "pass": true
+    },
+    {
+      "check": "aggregator_single_weight_1",
+      "expected": [
+        "1"
+      ],
+      "actual": [
+        "1"
+      ],
+      "pass": true
+    },
+    {
+      "check": "aggregator_no_normalization_element",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "engine_volume_constraint_linear(SIMP exponent 1, min 0)",
+      "expected": [
+        "1.0",
+        "0.0"
+      ],
+      "actual": [
+        "1.0",
+        "0.0"
+      ],
+      "pass": true
+    },
+    {
+      "check": "engine_PlatoMainOutput_OutputFrequency(info)",
+      "expected": null,
+      "actual": "5",
+      "pass": true
+    },
+    {
+      "check": "engine_mesh_file",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "engine_output_file_engine_output",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "check": "mpirun_single_rank_per_performer",
+      "expected": [
+        "1",
+        "1",
+        "1"
+      ],
+      "actual": [
+        "1",
+        "1",
+        "1"
+      ],
+      "pass": true
+    },
+    {
+      "check": "mpirun_executables",
+      "expected": [
+        true,
+        2
+      ],
+      "actual": [
+        true,
+        2
+      ],
+      "pass": true
+    },
+    {
+      "check": "mpirun_no_decomposition",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "check": "analyze_viz_output_frequency_1",
+      "expected": "1",
+      "actual": "1",
+      "pass": true
+    }
+  ],
+  "all_checks_pass": true
+}

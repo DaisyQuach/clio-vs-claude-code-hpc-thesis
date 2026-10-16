@@ -1,0 +1,60 @@
+# E3 blocker status (researcher-side; never agent-visible). Updated by each readiness step.
+updated_utc: 2026-10-10T02:41Z
+overall: NO-GO
+stopped_at: "Phase 2.2 — no authenticated Globus session (researcher authentication required)"
+next_action: setup/RESEARCHER_ACTION_REQUIRED.md
+resume_message: "Globus authentication is complete. Resume E3 readiness."
+
+decisions_recorded:
+  access_model: procedural_researcher_only        # E1/E2 model; no technical/sandbox isolation claimed
+  globus: mandatory                               # direct local reading is not an equivalent fallback
+  trial_design: "5 baseline + 5 CLIO, trial_01..trial_05 each"
+  invalid_attempts: "retained and marked invalid; never replaced or overwritten"
+  clio_deployment: undecided                      # ask researcher at Phase 5; no CLIO runner created
+
+phase_1_reconcile:
+  status: done
+  globus_marked_mandatory: true                   # runner + prepare now refuse posix_readonly_fallback (exit 3, ACTION_REQUIRED globus_mandatory)
+  planned_trial_locations:
+    baseline: [trial_01, trial_02, trial_03, trial_04, trial_05]   # all exist, clean agent-inputs/, verify --planned PASS
+    clio: [trial_01, trial_02, trial_03, trial_04, trial_05]       # only trial_01 exists; 02..05 NOT created (deployment undecided)
+  execution_environment: "ordinary user environment, no sandbox"
+  cubit_license_lookup: "per-user Coreform activation in $HOME/.config/Coreform/ (cubit_creds, Cubit_ticket, licenses/, login_tokens.json, Cubit.ini); the E3 modulefile sets no licence variable; nothing read or launched"
+  pending_for_phase_2_commit:
+    - "catalog access_method and trial_context.md still describe the POSIX root of globus_source_root as the same collection; must state Globus as the access method once the collection ID exists"
+    - "agent access to the pinned Globus CLI (automation/environment/tools/ is not yet in E3_SOFTWARE_ROOTS or the loader)"
+
+blockers:
+  globus_configuration:
+    status: BLOCKED
+    detail: "globus-cli 3.43.0 installed (automation/environment/tools/globus-cli-3.43.0); 'globus whoami' -> MissingLoginError (rc 4); no collection exists"
+    needs: "researcher login (browser, institutional login, MFA, consent)"
+  github_at_pinned_commit:
+    status: OPEN
+    detail: "pin bd0b042de8bd38fe1149e9fc64aea832beb1bf3c readable noninteractively from the login node; compute node not tested; pin will change with the Globus commit"
+  compute_node_qualification:
+    status: NOT_STARTED
+    detail: "Phase 3; E3_access_pilot not created yet"
+  claude_2_1_295_readiness:
+    status: OPEN
+    detail: "login node: version 2.1.295, sha256 4503bfe1...f358, flags present; compute node and headless auth not tested"
+  ordinary_morphorm_cubit_license:
+    status: OPEN
+    detail: "licence location identified (per-user, account home); compute-node visibility not tested; no Cubit/Morphorm run"
+  baseline_runner_readiness:
+    status: OPEN
+    detail: "dry runs pass non-blocked checks; waits on Globus collection and compute-node qualification"
+  clio_deployment_and_runner:
+    status: BLOCKED_DECISION
+    detail: "existing E3 docs define no CLIO deployment mechanism (clio/README.md: no runner exists); researcher must choose local CLIO Desktop connected to CHPC or a documented remote/headless runner"
+  final_packet_freeze:
+    status: NOT_STARTED
+  account_name_provenance:
+    status: OPEN
+    detail: "Phase 6 review not started"
+  trial_count_parity:
+    status: OPEN
+    detail: "baseline 5/5 workspaces exist; CLIO 1/5"
+
+observations:
+  - "Coreform credential files in $HOME/.config/Coreform/ are mode 644 (directory 755): readable by other CHPC users. Not changed (outside E3 scope); researcher may want chmod go-rwx."

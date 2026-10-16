@@ -1,0 +1,48 @@
+# Problem card — E3 candidate package example_13 (regenerated 2026-10-10T00:39:27Z by E3 remediation; logical source identifiers)
+package_id: example_13
+source_example_number: 13
+source_identifier: MORPHORM-CANDIDATE-EX13
+source_identifier_note: "logical identifier assigned by E3; it is not a filesystem path and not the original location"
+title: "2-D L-bracket (plane, QUAD4) with a Helmholtz (PDE) filter"
+classification: "general example (2-D)"
+scientific_role: "Two-dimensional minimum-compliance optimization of an L-bracket: 1 x 1 envelope with the upper-right region removed (leg width 0.4, re-entrant corner at (0.4, 0.4)), QUAD4 mesh (pave scheme, element size 0.0125) exported with dimension 2; top edge of the vertical arm (y = 1) clamped in dispx and dispy (nodeset ns_fix); downward traction (0, -1e5) on the right tip edge x = 1 (sideset ss_load); isotropic elastic, E = 200e9, nu = 0.3; SIMP minimum value 1e-3; weighted-sum compliance objective; relative volume constraint 0.4 evaluated by the engine service; Helmholtz filter radius_absolute 0.075 with boundary_sticking_penalty 1.0; density discretization, initial density 0.5, OC, 30 iterations. A self-contained general example of a 2-D Helmholtz-filter workflow (geometry, dimension, supports and load type all differ from a 3-D cantilever); it declares no symmetry plane."
+self_contained: "yes: the journal generates the mesh the deck reads; no other example's files or outputs are needed"
+shipped_from: "Morphorm Examples Manual, topology optimization / mechanical, Example 13 (manual-shipped input deck and journal)"
+authenticity: "files are byte-identical copies of the original example files (SHA-256 verified at copy time)"
+contains_completed_results: false
+source_file_identifiers:
+  - MORPHORM-CANDIDATE-EX13/problem_figure
+  - MORPHORM-CANDIDATE-EX13/input_deck
+  - MORPHORM-CANDIDATE-EX13/journal
+included_files:
+  - path: selected_source_materials/problem_geometry_figure.png
+    source_file_identifier: MORPHORM-CANDIDATE-EX13/problem_figure
+    role: "problem-statement geometry/mesh figure (no result)"
+    file_type: "PNG image"
+    size_bytes: 129771
+    sha256: 33380568f467adf995de860f3c5f55dd0b9aa0bc437c66cea7b2f43c56f5bbb2
+  - path: selected_source_materials/topology_mech_ex13.i
+    source_file_identifier: MORPHORM-CANDIDATE-EX13/input_deck
+    role: "candidate input deck (Example 13, as shipped)"
+    file_type: "Morphorm input deck (text)"
+    size_bytes: 1512
+    sha256: d1cd04aec8e1f21b87987f6b5b68cd6c747feb632514e061c31132fd614fe691
+  - path: selected_source_materials/topology_mech_ex13.jou
+    source_file_identifier: MORPHORM-CANDIDATE-EX13/journal
+    role: "candidate mesh-generation journal (Example 13, as shipped)"
+    file_type: "Coreform Cubit journal (text)"
+    size_bytes: 1170
+    sha256: 10d8fe5e1da16f75af2a0dfe225b823ddb76c1b1fbdfe417419f97b2c6d2b587
+omitted_result_categories:
+  - "completed final Exodus outputs (engine_output.exo, analyze outputs, per-iteration output directories)"
+  - "input/meshed Exodus files (regenerate from the journal where a journal is included)"
+  - "completed topology renderings and optimized-geometry figures"
+  - "final accepted result summaries and run READMEs"
+  - "numerical objective/compliance/constraint histories (optimizer diagnostics, criterion CSVs)"
+  - "solver, Cubit and Slurm logs"
+  - "generated runtime configuration (XMLGenerator output) of completed runs"
+  - "researcher validation material and scoring records"
+hashes:
+  selected_source_materials/problem_geometry_figure.png: 33380568f467adf995de860f3c5f55dd0b9aa0bc437c66cea7b2f43c56f5bbb2
+  selected_source_materials/topology_mech_ex13.i: d1cd04aec8e1f21b87987f6b5b68cd6c747feb632514e061c31132fd614fe691
+  selected_source_materials/topology_mech_ex13.jou: 10d8fe5e1da16f75af2a0dfe225b823ddb76c1b1fbdfe417419f97b2c6d2b587

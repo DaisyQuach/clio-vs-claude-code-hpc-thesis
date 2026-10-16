@@ -1,0 +1,17 @@
+{
+  "addendum": "E3-BASELINE-FREEZE-v1 replacement addendum r1",
+  "utc": "2026-10-10T14:58:57Z",
+  "freeze_sha256_unchanged": "e13d2fd6846a2a8814a821c17808575a500073b7e17e434ec4b4d300a868ec35",
+  "attempt": "02R",
+  "directory": "baseline/trial_06",
+  "replaces": "baseline/trial_02 (Slurm 16173744, audit_failed; retained unchanged and listed in every analysis)",
+  "requested_by": "researcher, 2026-10-10",
+  "configuration": "identical to the freeze: prompt 63f84f79..., model claude-fable-5-1, effort harness default, pin 62954055..., Globus 6dcea62e..., runtime/loader, 8 CPU/32G/2h hochhalter-np --export=NONE, audit_boundary.sh 05e49d4e... (unchanged, including its handling of the session's own config dir)",
+  "pre_submission_auth_check": "2026-10-10T14:57Z login node, isolated CLAUDE_CONFIG_DIR, env -i: claude 2.1.295 auth status loggedIn=true (claude.ai, max), no model call, no token rotation; access token valid until 2026-10-10T22:49Z",
+  "changed_execution_scripts": {
+    "job_body": "jobs/e3_baseline_counted_trial_r1.sh (accepts trial 06, records attempt_label; otherwise identical)",
+    "postprocess": "postprocess_r1/ (six attempts; output researcher_only/evaluation/baseline_prelim_r1_all_attempts)"
+  },
+  "directory_note": "the frozen runner only accepts baseline/trial_NN, so the replacement could not be named trial_02R",
+  "workspace_parity_note": "trial_06 README.md carries the same access-policy paragraph as trial_01..05 but no legacy-packet note; its manifest has only e3dc_* and e3rep_* fields (no legacy/e3rem/e3proc/e3ready history)"
+}

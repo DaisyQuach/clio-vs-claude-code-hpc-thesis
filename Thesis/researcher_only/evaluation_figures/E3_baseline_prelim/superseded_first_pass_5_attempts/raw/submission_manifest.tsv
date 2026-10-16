@@ -1,0 +1,8 @@
+submitted_utc	label	slurm_job_id	script	script_sha256	dependency	note
+2026-10-10T05:29:50Z	preflight	16173723	preflight/e3_baseline_preflight.sbatch	6851c94cccd32ce6b71e1ab1fa86b12c5e31ac8808813aabf2b0a5037a615546	none	unscored preflight, COMPLETED 0:0 (PASS)
+2026-10-10T05:38:02Z	trial_01	16173743	jobs/trial_01.sbatch	33fd2038b3841ea2281a1786623425d33540befa5a63d29fd0de6a05c89ae768	none (submitted held; released after this manifest was written)	counted
+2026-10-10T05:38:02Z	trial_02	16173744	jobs/trial_02.sbatch	7b6f2bb36d5b7f0e1d1f7361eeac74cd325025d151403b8b401629ecfda277f3	afterany:16173743	counted
+2026-10-10T05:38:02Z	trial_03	16173745	jobs/trial_03.sbatch	05e63b83c8e3739ea661aed291232cf257d8ae66aff03450e15e93f64b3d4027	afterany:16173744	counted
+2026-10-10T05:38:02Z	trial_04	16173746	jobs/trial_04.sbatch	ab9104b04c45b3be6ad4f00a6aba9cb60a8daa3aca01dde5b0743831e5048e65	afterany:16173745	counted
+2026-10-10T05:38:02Z	trial_05	16173748	jobs/trial_05.sbatch	05240b1bd6ffb834bd0b1f0ea5570ba853b9d9996bffb6a9ec5e27e98e81807c	afterany:16173746	counted
+2026-10-10T05:38:02Z	postprocess	16173749	postprocess/e3_baseline_postprocess.sbatch	1f578a76f6bc87e582b446f19cb2029726a10454c4f1d9300c77116b4beaaeb8	afterany:16173743:16173744:16173745:16173746:16173748	non-agent researcher-side postprocessing

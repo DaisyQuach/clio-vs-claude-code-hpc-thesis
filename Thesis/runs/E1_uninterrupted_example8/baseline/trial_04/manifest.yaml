@@ -1,0 +1,29 @@
+run_id: E1-example8-baseline-04
+status: failed
+experiment: E1
+experiment_selector: e1-example8
+workflow: frozen_example8
+paired_block: E1-04
+system: baseline
+frozen_configuration_id: FROZEN-EX8-v1
+frozen_configuration_sha256: cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+agent_inputs_sha256: cf15ac52f018defeba40afbedc910d757c08609c6a9adaa4a1b0e0428a570b4d
+model_identifier: claude-fable-5-1
+agent_harness: claude-code
+agent_harness_version: "2.1.295"
+headless: true
+slurm_contract: "account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00"
+created_utc: 2026-10-09T12:18:28Z
+started_utc: 2026-10-09T13:35:33Z
+finished_utc: 2026-10-09T13:40:49Z
+agent_session_ids: "4ad7d12e-2385-4306-862e-d8bd18678157"
+agent_host_job_ids: "16159248"
+workflow_job_ids: ""
+evidence_sha256_manifest: logs/evidence_SHA256SUMS.txt
+packet_verification: logs/packet_verification.json
+curation_researcher_reviewed: null
+curation_include_in_analysis: false
+curation_notes: "agent session aborted by the provider usage limit after 38 turns ('You've hit your session limit'); no deliverables produced; provider-limit abort, not an agent failure; packet kept unchanged"
+scoring_decision: null
+scoring_scored_utc: null
+scoring_record: null

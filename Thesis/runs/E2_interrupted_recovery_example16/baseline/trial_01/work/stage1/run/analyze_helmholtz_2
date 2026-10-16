@@ -1,0 +1,3993 @@
+ Reading input File: analyze_helmholtz_input_deck.xml
+Summary: GraphTools (Metis)
+===========================
+  Time
+             time for reordering:   0.286468 s
+
+TachoSolver: Analyze Linear System
+==================================
+Summary: SymbolicFactorize
+==========================
+  Time
+             time for symbolic factorization:                   0.005251 s
+             time for allocation of supernode data structure:   0.100296 s
+             time for additional calculations:                  0.000238 s
+             total time spent:                                  0.105785 s
+
+  Linear system A
+             number of equations:                                  30625
+             number of nonzeros:                                  772705 ( 0.08 % )
+
+  Factors U
+             number of nonzeros:                                 8481280 ( 0.45 % )
+             number of subgraphs:                                      1
+             number of supernodes:                                  9067
+             height of supernodal tree:                               23
+             number of leaf supernodes:                             2460
+             max number of children in tree:                           2
+             size of largest supernode:                              624
+             size of largest schur size:                             950
+
+  Memory
+             memory used:                                         2.7920 MB
+             peak memory used:                                   35.8464 MB
+
+TachoSolver: Initialize
+=======================
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016187 s
+             time for numeric factorization:                    0.252502 s
+             total time spent:                                  0.268689 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.806 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000110 s
+             time for numeric solve:                            0.013707 s
+             total time spent:                                  0.013817 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 1.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 2.325137e-18	Residual Norm: 2.325137e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015931 s
+             time for numeric factorization:                    0.251711 s
+             total time spent:                                  0.267642 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.866 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013708 s
+             total time spent:                                  0.013805 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 2.325137e-18	Residual Norm: 2.325137e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016094 s
+             time for numeric factorization:                    0.251501 s
+             total time spent:                                  0.267594 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.881 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013710 s
+             total time spent:                                  0.013804 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 2.325137e-18	Residual Norm: 2.325137e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015913 s
+             time for numeric factorization:                    0.250937 s
+             total time spent:                                  0.266850 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.924 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000095 s
+             time for numeric solve:                            0.013721 s
+             total time spent:                                  0.013816 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016102 s
+             time for numeric factorization:                    0.251951 s
+             total time spent:                                  0.268053 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.848 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013737 s
+             total time spent:                                  0.013835 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 2.325137e-18	Residual Norm: 2.325137e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015699 s
+             time for numeric factorization:                    0.250377 s
+             total time spent:                                  0.266075 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.966 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013704 s
+             total time spent:                                  0.013801 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015987 s
+             time for numeric factorization:                    0.251086 s
+             total time spent:                                  0.267073 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.912 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000091 s
+             time for numeric solve:                            0.013703 s
+             total time spent:                                  0.013794 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.355356e-18	Residual Norm: 4.355356e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015970 s
+             time for numeric factorization:                    0.251492 s
+             total time spent:                                  0.267461 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.882 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000092 s
+             time for numeric solve:                            0.013705 s
+             total time spent:                                  0.013797 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.355356e-18	Residual Norm: 4.355356e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016179 s
+             time for numeric factorization:                    0.251839 s
+             total time spent:                                  0.268018 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.856 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013736 s
+             total time spent:                                  0.013832 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.355356e-18	Residual Norm: 4.355356e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015996 s
+             time for numeric factorization:                    0.252311 s
+             total time spent:                                  0.268307 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.821 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000092 s
+             time for numeric solve:                            0.013699 s
+             total time spent:                                  0.013791 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015957 s
+             time for numeric factorization:                    0.252230 s
+             total time spent:                                  0.268188 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.827 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013699 s
+             total time spent:                                  0.013793 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.355356e-18	Residual Norm: 4.355356e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015838 s
+             time for numeric factorization:                    0.251434 s
+             total time spent:                                  0.267272 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.886 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013696 s
+             total time spent:                                  0.013790 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016114 s
+             time for numeric factorization:                    0.252023 s
+             total time spent:                                  0.268137 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.842 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000092 s
+             time for numeric solve:                            0.013664 s
+             total time spent:                                  0.013755 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.504324e-18	Residual Norm: 3.504324e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015950 s
+             time for numeric factorization:                    0.251679 s
+             total time spent:                                  0.267629 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.868 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000095 s
+             time for numeric solve:                            0.013685 s
+             total time spent:                                  0.013781 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.504324e-18	Residual Norm: 3.504324e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015839 s
+             time for numeric factorization:                    0.252774 s
+             total time spent:                                  0.268614 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.786 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000092 s
+             time for numeric solve:                            0.013688 s
+             total time spent:                                  0.013781 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.504324e-18	Residual Norm: 3.504324e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015747 s
+             time for numeric factorization:                    0.251633 s
+             total time spent:                                  0.267381 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.871 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013742 s
+             total time spent:                                  0.013840 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016006 s
+             time for numeric factorization:                    0.251897 s
+             total time spent:                                  0.267904 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.852 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000093 s
+             time for numeric solve:                            0.013727 s
+             total time spent:                                  0.013820 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.504324e-18	Residual Norm: 3.504324e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015952 s
+             time for numeric factorization:                    0.250911 s
+             total time spent:                                  0.266862 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.926 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000091 s
+             time for numeric solve:                            0.013724 s
+             total time spent:                                  0.013815 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016181 s
+             time for numeric factorization:                    0.251976 s
+             total time spent:                                  0.268157 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.846 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000091 s
+             time for numeric solve:                            0.013700 s
+             total time spent:                                  0.013792 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.717022e-18	Residual Norm: 3.717022e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015822 s
+             time for numeric factorization:                    0.253619 s
+             total time spent:                                  0.269440 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.724 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013427 s
+             total time spent:                                  0.013522 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.717022e-18	Residual Norm: 3.717022e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015659 s
+             time for numeric factorization:                    0.252416 s
+             total time spent:                                  0.268075 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.813 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013416 s
+             total time spent:                                  0.013514 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.717022e-18	Residual Norm: 3.717022e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015841 s
+             time for numeric factorization:                    0.252157 s
+             total time spent:                                  0.267998 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.832 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000100 s
+             time for numeric solve:                            0.013357 s
+             total time spent:                                  0.013457 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015800 s
+             time for numeric factorization:                    0.252583 s
+             total time spent:                                  0.268384 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.800 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000093 s
+             time for numeric solve:                            0.013374 s
+             total time spent:                                  0.013467 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.717022e-18	Residual Norm: 3.717022e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015891 s
+             time for numeric factorization:                    0.250888 s
+             total time spent:                                  0.266779 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.927 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013338 s
+             total time spent:                                  0.013435 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016070 s
+             time for numeric factorization:                    0.252692 s
+             total time spent:                                  0.268762 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.792 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013394 s
+             total time spent:                                  0.013492 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.343625e-18	Residual Norm: 3.343625e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015986 s
+             time for numeric factorization:                    0.251806 s
+             total time spent:                                  0.267792 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.858 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000101 s
+             time for numeric solve:                            0.013367 s
+             total time spent:                                  0.013468 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.343625e-18	Residual Norm: 3.343625e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016058 s
+             time for numeric factorization:                    0.252547 s
+             total time spent:                                  0.268605 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.803 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013362 s
+             total time spent:                                  0.013460 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.343625e-18	Residual Norm: 3.343625e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015836 s
+             time for numeric factorization:                    0.251489 s
+             total time spent:                                  0.267325 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.882 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000101 s
+             time for numeric solve:                            0.013367 s
+             total time spent:                                  0.013468 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015934 s
+             time for numeric factorization:                    0.251535 s
+             total time spent:                                  0.267468 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.879 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013415 s
+             total time spent:                                  0.013513 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.343625e-18	Residual Norm: 3.343625e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015762 s
+             time for numeric factorization:                    0.251675 s
+             total time spent:                                  0.267437 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.868 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000102 s
+             time for numeric solve:                            0.013373 s
+             total time spent:                                  0.013475 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015733 s
+             time for numeric factorization:                    0.252772 s
+             total time spent:                                  0.268505 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.786 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013340 s
+             total time spent:                                  0.013434 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.607297e-18	Residual Norm: 3.607297e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015729 s
+             time for numeric factorization:                    0.253337 s
+             total time spent:                                  0.269067 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.744 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013399 s
+             total time spent:                                  0.013497 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.607297e-18	Residual Norm: 3.607297e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015791 s
+             time for numeric factorization:                    0.250464 s
+             total time spent:                                  0.266255 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.959 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013378 s
+             total time spent:                                  0.013477 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.607297e-18	Residual Norm: 3.607297e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015906 s
+             time for numeric factorization:                    0.252107 s
+             total time spent:                                  0.268013 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.836 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000092 s
+             time for numeric solve:                            0.013369 s
+             total time spent:                                  0.013460 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015782 s
+             time for numeric factorization:                    0.252479 s
+             total time spent:                                  0.268261 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.808 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013410 s
+             total time spent:                                  0.013504 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.607297e-18	Residual Norm: 3.607297e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015980 s
+             time for numeric factorization:                    0.251324 s
+             total time spent:                                  0.267305 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.895 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013373 s
+             total time spent:                                  0.013471 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015808 s
+             time for numeric factorization:                    0.252609 s
+             total time spent:                                  0.268417 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.798 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013372 s
+             total time spent:                                  0.013469 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.406963e-18	Residual Norm: 3.406963e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016012 s
+             time for numeric factorization:                    0.253316 s
+             total time spent:                                  0.269328 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.746 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013365 s
+             total time spent:                                  0.013462 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.406963e-18	Residual Norm: 3.406963e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015662 s
+             time for numeric factorization:                    0.253529 s
+             total time spent:                                  0.269191 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.730 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000095 s
+             time for numeric solve:                            0.013387 s
+             total time spent:                                  0.013482 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.406963e-18	Residual Norm: 3.406963e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015830 s
+             time for numeric factorization:                    0.252423 s
+             total time spent:                                  0.268254 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.812 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000099 s
+             time for numeric solve:                            0.013404 s
+             total time spent:                                  0.013503 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015761 s
+             time for numeric factorization:                    0.252724 s
+             total time spent:                                  0.268485 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.790 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000101 s
+             time for numeric solve:                            0.013398 s
+             total time spent:                                  0.013499 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.406963e-18	Residual Norm: 3.406963e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015791 s
+             time for numeric factorization:                    0.251670 s
+             total time spent:                                  0.267460 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.869 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013402 s
+             total time spent:                                  0.013497 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015998 s
+             time for numeric factorization:                    0.253204 s
+             total time spent:                                  0.269202 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.754 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013415 s
+             total time spent:                                  0.013509 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.691870e-18	Residual Norm: 3.691870e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016051 s
+             time for numeric factorization:                    0.253179 s
+             total time spent:                                  0.269230 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.756 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013395 s
+             total time spent:                                  0.013494 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.691870e-18	Residual Norm: 3.691870e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015743 s
+             time for numeric factorization:                    0.252593 s
+             total time spent:                                  0.268336 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.800 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000100 s
+             time for numeric solve:                            0.013342 s
+             total time spent:                                  0.013442 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.691870e-18	Residual Norm: 3.691870e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015657 s
+             time for numeric factorization:                    0.251660 s
+             total time spent:                                  0.267317 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.869 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000093 s
+             time for numeric solve:                            0.013415 s
+             total time spent:                                  0.013508 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015734 s
+             time for numeric factorization:                    0.252965 s
+             total time spent:                                  0.268699 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.772 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013408 s
+             total time spent:                                  0.013502 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.691870e-18	Residual Norm: 3.691870e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015866 s
+             time for numeric factorization:                    0.252828 s
+             total time spent:                                  0.268694 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.782 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000092 s
+             time for numeric solve:                            0.013384 s
+             total time spent:                                  0.013476 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015933 s
+             time for numeric factorization:                    0.252278 s
+             total time spent:                                  0.268211 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.823 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013383 s
+             total time spent:                                  0.013480 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.895859e-18	Residual Norm: 3.895859e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015801 s
+             time for numeric factorization:                    0.252631 s
+             total time spent:                                  0.268432 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.797 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013378 s
+             total time spent:                                  0.013476 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.895859e-18	Residual Norm: 3.895859e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015711 s
+             time for numeric factorization:                    0.252439 s
+             total time spent:                                  0.268150 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.811 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013373 s
+             total time spent:                                  0.013471 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.895859e-18	Residual Norm: 3.895859e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015901 s
+             time for numeric factorization:                    0.252903 s
+             total time spent:                                  0.268804 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.777 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000100 s
+             time for numeric solve:                            0.013393 s
+             total time spent:                                  0.013493 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015997 s
+             time for numeric factorization:                    0.253138 s
+             total time spent:                                  0.269134 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.759 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013393 s
+             total time spent:                                  0.013487 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 3.895859e-18	Residual Norm: 3.895859e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015697 s
+             time for numeric factorization:                    0.251983 s
+             total time spent:                                  0.267680 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.845 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000100 s
+             time for numeric solve:                            0.013374 s
+             total time spent:                                  0.013474 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015883 s
+             time for numeric factorization:                    0.253607 s
+             total time spent:                                  0.269490 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.724 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013427 s
+             total time spent:                                  0.013521 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.159631e-18	Residual Norm: 4.159631e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015688 s
+             time for numeric factorization:                    0.252349 s
+             total time spent:                                  0.268037 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.818 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013400 s
+             total time spent:                                  0.013494 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.159631e-18	Residual Norm: 4.159631e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015854 s
+             time for numeric factorization:                    0.252613 s
+             total time spent:                                  0.268468 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.798 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000091 s
+             time for numeric solve:                            0.013375 s
+             total time spent:                                  0.013467 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.159631e-18	Residual Norm: 4.159631e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016111 s
+             time for numeric factorization:                    0.253717 s
+             total time spent:                                  0.269829 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.716 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013413 s
+             total time spent:                                  0.013509 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015925 s
+             time for numeric factorization:                    0.252428 s
+             total time spent:                                  0.268352 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.812 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000099 s
+             time for numeric solve:                            0.013381 s
+             total time spent:                                  0.013479 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.159631e-18	Residual Norm: 4.159631e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015790 s
+             time for numeric factorization:                    0.251030 s
+             total time spent:                                  0.266820 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.917 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013383 s
+             total time spent:                                  0.013478 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015714 s
+             time for numeric factorization:                    0.253514 s
+             total time spent:                                  0.269228 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.731 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000093 s
+             time for numeric solve:                            0.013434 s
+             total time spent:                                  0.013527 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.302389e-18	Residual Norm: 4.302389e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015676 s
+             time for numeric factorization:                    0.253033 s
+             total time spent:                                  0.268709 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.767 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000093 s
+             time for numeric solve:                            0.013406 s
+             total time spent:                                  0.013499 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.302389e-18	Residual Norm: 4.302389e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015713 s
+             time for numeric factorization:                    0.252177 s
+             total time spent:                                  0.267890 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.831 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000095 s
+             time for numeric solve:                            0.013350 s
+             total time spent:                                  0.013445 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.302389e-18	Residual Norm: 4.302389e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015693 s
+             time for numeric factorization:                    0.251966 s
+             total time spent:                                  0.267660 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.846 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013425 s
+             total time spent:                                  0.013521 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015753 s
+             time for numeric factorization:                    0.252178 s
+             total time spent:                                  0.267930 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.831 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000099 s
+             time for numeric solve:                            0.013376 s
+             total time spent:                                  0.013475 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.302389e-18	Residual Norm: 4.302389e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015788 s
+             time for numeric factorization:                    0.252688 s
+             total time spent:                                  0.268476 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.793 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013370 s
+             total time spent:                                  0.013468 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016036 s
+             time for numeric factorization:                    0.253117 s
+             total time spent:                                  0.269153 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.761 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013379 s
+             total time spent:                                  0.013477 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.444747e-18	Residual Norm: 4.444747e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015704 s
+             time for numeric factorization:                    0.253445 s
+             total time spent:                                  0.269149 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.736 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000100 s
+             time for numeric solve:                            0.013411 s
+             total time spent:                                  0.013511 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.444747e-18	Residual Norm: 4.444747e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016041 s
+             time for numeric factorization:                    0.253824 s
+             total time spent:                                  0.269865 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.708 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000099 s
+             time for numeric solve:                            0.013423 s
+             total time spent:                                  0.013522 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.444747e-18	Residual Norm: 4.444747e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015692 s
+             time for numeric factorization:                    0.251492 s
+             total time spent:                                  0.267184 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.882 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000095 s
+             time for numeric solve:                            0.013367 s
+             total time spent:                                  0.013461 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015738 s
+             time for numeric factorization:                    0.253257 s
+             total time spent:                                  0.268995 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.750 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000102 s
+             time for numeric solve:                            0.013366 s
+             total time spent:                                  0.013467 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.444747e-18	Residual Norm: 4.444747e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016061 s
+             time for numeric factorization:                    0.252475 s
+             total time spent:                                  0.268536 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.808 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000099 s
+             time for numeric solve:                            0.013362 s
+             total time spent:                                  0.013461 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015734 s
+             time for numeric factorization:                    0.253282 s
+             total time spent:                                  0.269016 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.749 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013387 s
+             total time spent:                                  0.013484 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.474073e-18	Residual Norm: 4.474073e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015863 s
+             time for numeric factorization:                    0.253997 s
+             total time spent:                                  0.269859 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.696 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000095 s
+             time for numeric solve:                            0.013398 s
+             total time spent:                                  0.013492 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.474073e-18	Residual Norm: 4.474073e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015968 s
+             time for numeric factorization:                    0.252817 s
+             total time spent:                                  0.268785 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.783 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000093 s
+             time for numeric solve:                            0.013418 s
+             total time spent:                                  0.013511 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.474073e-18	Residual Norm: 4.474073e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015923 s
+             time for numeric factorization:                    0.251714 s
+             total time spent:                                  0.267637 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.865 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013378 s
+             total time spent:                                  0.013476 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016014 s
+             time for numeric factorization:                    0.252153 s
+             total time spent:                                  0.268167 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.832 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013432 s
+             total time spent:                                  0.013530 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.474073e-18	Residual Norm: 4.474073e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015886 s
+             time for numeric factorization:                    0.253045 s
+             total time spent:                                  0.268930 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.766 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000095 s
+             time for numeric solve:                            0.013642 s
+             total time spent:                                  0.013737 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015679 s
+             time for numeric factorization:                    0.252709 s
+             total time spent:                                  0.268387 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.791 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000095 s
+             time for numeric solve:                            0.013402 s
+             total time spent:                                  0.013497 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.439483e-18	Residual Norm: 4.439483e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015766 s
+             time for numeric factorization:                    0.252878 s
+             total time spent:                                  0.268645 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.778 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000093 s
+             time for numeric solve:                            0.013332 s
+             total time spent:                                  0.013425 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.439483e-18	Residual Norm: 4.439483e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015700 s
+             time for numeric factorization:                    0.252797 s
+             total time spent:                                  0.268497 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.784 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013406 s
+             total time spent:                                  0.013503 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.439483e-18	Residual Norm: 4.439483e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015908 s
+             time for numeric factorization:                    0.252808 s
+             total time spent:                                  0.268716 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.784 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013382 s
+             total time spent:                                  0.013476 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015701 s
+             time for numeric factorization:                    0.252664 s
+             total time spent:                                  0.268364 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.794 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000095 s
+             time for numeric solve:                            0.013433 s
+             total time spent:                                  0.013529 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.439483e-18	Residual Norm: 4.439483e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015841 s
+             time for numeric factorization:                    0.252613 s
+             total time spent:                                  0.268454 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.798 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013586 s
+             total time spent:                                  0.013680 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015825 s
+             time for numeric factorization:                    0.252082 s
+             total time spent:                                  0.267907 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.838 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013418 s
+             total time spent:                                  0.013515 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.771705e-18	Residual Norm: 4.771705e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015765 s
+             time for numeric factorization:                    0.252411 s
+             total time spent:                                  0.268176 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.813 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000093 s
+             time for numeric solve:                            0.013366 s
+             total time spent:                                  0.013459 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.771705e-18	Residual Norm: 4.771705e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015939 s
+             time for numeric factorization:                    0.253130 s
+             total time spent:                                  0.269069 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.760 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000101 s
+             time for numeric solve:                            0.013396 s
+             total time spent:                                  0.013497 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.771705e-18	Residual Norm: 4.771705e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015628 s
+             time for numeric factorization:                    0.250948 s
+             total time spent:                                  0.266576 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.923 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000102 s
+             time for numeric solve:                            0.013409 s
+             total time spent:                                  0.013511 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015814 s
+             time for numeric factorization:                    0.251742 s
+             total time spent:                                  0.267556 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.863 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000099 s
+             time for numeric solve:                            0.013402 s
+             total time spent:                                  0.013501 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.771705e-18	Residual Norm: 4.771705e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015885 s
+             time for numeric factorization:                    0.251280 s
+             total time spent:                                  0.267165 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.898 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000102 s
+             time for numeric solve:                            0.013381 s
+             total time spent:                                  0.013483 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015823 s
+             time for numeric factorization:                    0.251893 s
+             total time spent:                                  0.267716 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.852 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000093 s
+             time for numeric solve:                            0.013379 s
+             total time spent:                                  0.013472 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.745748e-18	Residual Norm: 4.745748e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015945 s
+             time for numeric factorization:                    0.252869 s
+             total time spent:                                  0.268814 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.779 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013449 s
+             total time spent:                                  0.013548 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.745748e-18	Residual Norm: 4.745748e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015761 s
+             time for numeric factorization:                    0.251776 s
+             total time spent:                                  0.267536 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.861 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000093 s
+             time for numeric solve:                            0.013385 s
+             total time spent:                                  0.013479 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.745748e-18	Residual Norm: 4.745748e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016021 s
+             time for numeric factorization:                    0.252575 s
+             total time spent:                                  0.268596 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.801 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000100 s
+             time for numeric solve:                            0.013372 s
+             total time spent:                                  0.013472 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015848 s
+             time for numeric factorization:                    0.253700 s
+             total time spent:                                  0.269548 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.718 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013391 s
+             total time spent:                                  0.013487 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.745748e-18	Residual Norm: 4.745748e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016061 s
+             time for numeric factorization:                    0.251254 s
+             total time spent:                                  0.267316 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.900 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013423 s
+             total time spent:                                  0.013519 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015984 s
+             time for numeric factorization:                    0.251790 s
+             total time spent:                                  0.267774 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.860 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013377 s
+             total time spent:                                  0.013473 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.824386e-18	Residual Norm: 4.824386e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015740 s
+             time for numeric factorization:                    0.252734 s
+             total time spent:                                  0.268474 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.789 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000100 s
+             time for numeric solve:                            0.013382 s
+             total time spent:                                  0.013482 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.824386e-18	Residual Norm: 4.824386e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016082 s
+             time for numeric factorization:                    0.252770 s
+             total time spent:                                  0.268852 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.786 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013411 s
+             total time spent:                                  0.013506 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.824386e-18	Residual Norm: 4.824386e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015737 s
+             time for numeric factorization:                    0.250967 s
+             total time spent:                                  0.266704 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.921 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013362 s
+             total time spent:                                  0.013457 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016066 s
+             time for numeric factorization:                    0.253664 s
+             total time spent:                                  0.269730 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.720 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000099 s
+             time for numeric solve:                            0.013479 s
+             total time spent:                                  0.013577 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.824386e-18	Residual Norm: 4.824386e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015828 s
+             time for numeric factorization:                    0.253436 s
+             total time spent:                                  0.269265 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.737 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000099 s
+             time for numeric solve:                            0.013415 s
+             total time spent:                                  0.013514 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015867 s
+             time for numeric factorization:                    0.252116 s
+             total time spent:                                  0.267983 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.835 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013407 s
+             total time spent:                                  0.013504 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.919210e-18	Residual Norm: 4.919210e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015698 s
+             time for numeric factorization:                    0.252826 s
+             total time spent:                                  0.268525 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.782 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000102 s
+             time for numeric solve:                            0.013360 s
+             total time spent:                                  0.013462 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.919210e-18	Residual Norm: 4.919210e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015861 s
+             time for numeric factorization:                    0.251962 s
+             total time spent:                                  0.267824 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.847 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000095 s
+             time for numeric solve:                            0.013339 s
+             total time spent:                                  0.013434 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.919210e-18	Residual Norm: 4.919210e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015984 s
+             time for numeric factorization:                    0.251374 s
+             total time spent:                                  0.267358 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.891 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013387 s
+             total time spent:                                  0.013485 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015957 s
+             time for numeric factorization:                    0.252105 s
+             total time spent:                                  0.268062 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.836 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000096 s
+             time for numeric solve:                            0.013382 s
+             total time spent:                                  0.013479 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.919210e-18	Residual Norm: 4.919210e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015883 s
+             time for numeric factorization:                    0.251420 s
+             total time spent:                                  0.267303 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.887 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000099 s
+             time for numeric solve:                            0.013406 s
+             total time spent:                                  0.013505 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016116 s
+             time for numeric factorization:                    0.252435 s
+             total time spent:                                  0.268551 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.811 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013411 s
+             total time spent:                                  0.013508 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.844807e-18	Residual Norm: 4.844807e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015862 s
+             time for numeric factorization:                    0.252978 s
+             total time spent:                                  0.268841 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.771 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000100 s
+             time for numeric solve:                            0.013424 s
+             total time spent:                                  0.013523 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.844807e-18	Residual Norm: 4.844807e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015744 s
+             time for numeric factorization:                    0.252479 s
+             total time spent:                                  0.268223 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.808 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000095 s
+             time for numeric solve:                            0.013383 s
+             total time spent:                                  0.013478 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.844807e-18	Residual Norm: 4.844807e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016091 s
+             time for numeric factorization:                    0.253154 s
+             total time spent:                                  0.269246 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.758 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013402 s
+             total time spent:                                  0.013499 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015942 s
+             time for numeric factorization:                    0.253267 s
+             total time spent:                                  0.269209 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.750 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000099 s
+             time for numeric solve:                            0.013451 s
+             total time spent:                                  0.013550 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.844807e-18	Residual Norm: 4.844807e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016087 s
+             time for numeric factorization:                    0.252175 s
+             total time spent:                                  0.268262 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.831 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013413 s
+             total time spent:                                  0.013511 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015664 s
+             time for numeric factorization:                    0.253155 s
+             total time spent:                                  0.268819 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.758 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013435 s
+             total time spent:                                  0.013532 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.955870e-18	Residual Norm: 4.955870e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015847 s
+             time for numeric factorization:                    0.252843 s
+             total time spent:                                  0.268690 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.781 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013347 s
+             total time spent:                                  0.013443 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.955870e-18	Residual Norm: 4.955870e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.016033 s
+             time for numeric factorization:                    0.252999 s
+             total time spent:                                  0.269032 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.769 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000100 s
+             time for numeric solve:                            0.013332 s
+             total time spent:                                  0.013432 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.955870e-18	Residual Norm: 4.955870e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015885 s
+             time for numeric factorization:                    0.251308 s
+             total time spent:                                  0.267193 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.896 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013379 s
+             total time spent:                                  0.013476 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015947 s
+             time for numeric factorization:                    0.252884 s
+             total time spent:                                  0.268831 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.778 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013452 s
+             total time spent:                                  0.013546 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.955870e-18	Residual Norm: 4.955870e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015823 s
+             time for numeric factorization:                    0.253240 s
+             total time spent:                                  0.269063 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.752 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000094 s
+             time for numeric solve:                            0.013438 s
+             total time spent:                                  0.013532 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015849 s
+             time for numeric factorization:                    0.252296 s
+             total time spent:                                  0.268145 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.822 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000103 s
+             time for numeric solve:                            0.013345 s
+             total time spent:                                  0.013448 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.973571e-18	Residual Norm: 4.973571e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015801 s
+             time for numeric factorization:                    0.252882 s
+             total time spent:                                  0.268684 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.778 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013427 s
+             total time spent:                                  0.013524 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.973571e-18	Residual Norm: 4.973571e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015947 s
+             time for numeric factorization:                    0.252391 s
+             total time spent:                                  0.268337 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.815 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000100 s
+             time for numeric solve:                            0.013390 s
+             total time spent:                                  0.013490 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.973571e-18	Residual Norm: 4.973571e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015911 s
+             time for numeric factorization:                    0.252877 s
+             total time spent:                                  0.268788 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.779 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000097 s
+             time for numeric solve:                            0.013389 s
+             total time spent:                                  0.013486 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015716 s
+             time for numeric factorization:                    0.253016 s
+             total time spent:                                  0.268733 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.768 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000098 s
+             time for numeric solve:                            0.013412 s
+             total time spent:                                  0.013510 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ 
+*** Newton-Raphson Solver Report: Relative residual norm tolerance satisfied ***
+
+ Cycle: 1.000000e+00	Increment: 0.000000e+00	N-R Itr: 1	Increment Norm: 1.797693e+308	Relative Residual Norm: 4.973571e-18	Residual Norm: 4.973571e-18
+
+TachoSolver: Factorize Cholesky
+===============================
+Summary: NumericTools, Cholesky (SerialFactorization)
+=====================================================
+  Time
+             time for copying A into supernodes:                0.015842 s
+             time for numeric factorization:                    0.253307 s
+             total time spent:                                  0.269149 s
+
+  Memory
+             memory used in factorization:                        74.401 MB
+             peak memory used in factorization:                   81.293 MB
+
+  FLOPs
+             gflop   for numeric factorization:                    4.749 GFLOP
+             gflop/s for numeric factorization:                   18.747 GFLOP/s
+
+TachoSolver: Solve Cholesky
+===========================
+Summary: NumericTools, Cholesky (SerialSolve:   1)
+==================================================
+  Time
+             time for extra work e.g.,copy rhs:                 0.000093 s
+             time for numeric solve:                            0.013397 s
+             total time spent:                                  0.013489 s
+  Memory
+             memory used in solve:                                74.401 MB
+
+ -----------------------------------------------------------------------------
+  Terminate signal received on Performer 'analyze_helmholtz': 
+    Message: 
+
+ INFO: Interface::broadcastStageIndex: Terminate stage requested.  Exiting.
+
+
+ -----------------------------------------------------------------------------
+

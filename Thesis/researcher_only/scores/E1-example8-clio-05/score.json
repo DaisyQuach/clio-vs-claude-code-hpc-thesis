@@ -1,0 +1,107 @@
+{
+  "run_id": "E1-example8-clio-05",
+  "spec_id": "ACCEPT-EX8-v1",
+  "workflow": "frozen_example8",
+  "scored_utc": "2026-10-13T06:11:34Z",
+  "decision": "accepted",
+  "reasons": [
+    "[accepted] all predeclared checks passed within accept tolerances against the accepted reference"
+  ],
+  "tolerances": {
+    "final_compliance_rel_accept": 1e-06,
+    "final_compliance_rel_review": 0.01,
+    "volume_fraction_abs_accept": 1e-06,
+    "density_max_abs_accept": 1e-06,
+    "density_max_abs_review": 0.05
+  },
+  "reference_policy": "symmetry_honored_variant",
+  "measured": {
+    "packet_verification": "verified",
+    "mesh": {
+      "path": "outputs/mesh.exo",
+      "report": {
+        "num_nodes": 15925,
+        "num_elem": 13824,
+        "block_names": [
+          "block_1"
+        ],
+        "element_type": "HEX8",
+        "bbox": [
+          0.0,
+          0.0,
+          0.0,
+          2.0,
+          1.0,
+          0.5
+        ],
+        "nodesets": {
+          "ns_fix": 325,
+          "ns_load": 13
+        },
+        "sidesets": {
+          "ss_sym": 1152
+        }
+      },
+      "checks": {
+        "num_elem": true,
+        "num_nodes": true,
+        "block_1": true,
+        "HEX8": true,
+        "bbox": true,
+        "ns_fix": true,
+        "ns_load": true,
+        "sideset_ss_sym": true
+      }
+    },
+    "generated_config": {
+      "dir": "outputs/generated_config",
+      "symmetry_plane_sides_present": true,
+      "input_mesh_name": "mesh.exo",
+      "all_other_checks_pass": true,
+      "fails": [],
+      "summary": "34/34 checks pass; all_checks_pass=True"
+    },
+    "iterations": {
+      "first": 0,
+      "last": 50,
+      "count": 51,
+      "stop_message_present": true
+    },
+    "reference_comparison": {
+      "symmetry_honored_variant": {
+        "comparable": true,
+        "iterations_compared": 51,
+        "max_rel_diff_compliance": 0.0,
+        "final_rel_diff_compliance": 0.0,
+        "trial_final_compliance": 104470.1,
+        "reference_final_compliance": 104470.1,
+        "trial_final_H1": -1.628697e-13,
+        "final_topology": {
+          "comparable": true,
+          "max_abs_diff": 0.0,
+          "mean_abs_diff": 0.0,
+          "node_order_identical": false
+        }
+      },
+      "canonical_shipped_deck": {
+        "comparable": true,
+        "iterations_compared": 51,
+        "max_rel_diff_compliance": 0.28882800028591166,
+        "final_rel_diff_compliance": 0.28882800028591166,
+        "trial_final_compliance": 104470.1,
+        "reference_final_compliance": 146898.5,
+        "trial_final_H1": -1.628697e-13,
+        "final_topology": {
+          "comparable": true,
+          "max_abs_diff": 0.9299411629811483,
+          "mean_abs_diff": 0.20704340510915814,
+          "node_order_identical": false
+        }
+      }
+    },
+    "matched_variant": "symmetry_honored_variant",
+    "matched_final_rel_diff": 0.0,
+    "reference_policy": "symmetry_honored_variant",
+    "figure": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/researcher_only/evaluation_figures/E1-example8-clio-05_final_iteration50_vs_symmetry_honored_variant.png"
+  }
+}

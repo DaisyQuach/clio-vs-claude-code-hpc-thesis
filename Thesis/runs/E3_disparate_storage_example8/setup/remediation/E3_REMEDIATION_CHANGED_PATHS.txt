@@ -1,0 +1,230 @@
+# E3 remediation — complete path-level change list (E3 tree snapshot 2026-10-10T00:32:58Z vs 2026-10-10T00:58:07Z)
+# + created  - gone from original location (all moved; see E3_REMEDIATION_REPORT.md §1)  ~ content modified  m mode changed
+# 34677 entries under automation/environment/runtime/ are summarised (verified byte-identical copies; see automation/environment/environment_inventory.txt)
+CREATED (excluding 34677 entries inside automation/environment/runtime/):
+  + automation/environment d
+  + automation/environment/.copy_finished_utc f
+  + automation/environment/.copy_started_utc f
+  + automation/environment/README.md f
+  + automation/environment/environment_inventory.txt f
+  + automation/environment/load_morphorm_e3.sh f
+  + automation/environment/load_morphorm_e3.sha256 f
+  + automation/environment/modulefiles d
+  + automation/environment/modulefiles/Core d
+  + automation/environment/modulefiles/Core/cubit-edu d
+  + automation/environment/modulefiles/Core/cubit-edu/2026.8.lua f
+  + automation/environment/modulefiles/Core/morphorm d
+  + automation/environment/modulefiles/Core/morphorm/approved-runtime.lua f
+  + automation/environment/runtime d
+  + automation/environment/runtime_manifests d
+  + automation/environment/runtime_manifests/coreform_cubit.sha256 f
+  + automation/sandbox d
+  + automation/sandbox/README.md f
+  + automation/sandbox/allowed_paths.txt f
+  + automation/sandbox/denied_paths.txt f
+  + automation/sandbox/launch_e3_sandbox.sh f
+  + automation/sandbox/sandbox_probe.sh f
+  + automation/sandbox/sandbox_validation_plan.md f
+  + automation/sandbox/validation_record_login_node.txt f
+  + baseline/trial_01/README.md f
+  + chpc_candidate_archive/example_13 d
+  + chpc_candidate_archive/example_13/README.md f
+  + chpc_candidate_archive/example_13/problem_card.yaml f
+  + chpc_candidate_archive/example_13/provenance.yaml f
+  + chpc_candidate_archive/example_13/selected_source_materials d
+  + chpc_candidate_archive/example_13/selected_source_materials/problem_geometry_figure.png f
+  + chpc_candidate_archive/example_13/selected_source_materials/topology_mech_ex13.i f
+  + chpc_candidate_archive/example_13/selected_source_materials/topology_mech_ex13.jou f
+  + github_control_repo_worktree/.git/objects/00 d
+  + github_control_repo_worktree/.git/objects/00/944c4ab813ed7884e223b7714b264837bebaa4 f
+  + github_control_repo_worktree/.git/objects/29 d
+  + github_control_repo_worktree/.git/objects/29/ca77749b044999b86763e76f34cad4a7b07dc5 f
+  + github_control_repo_worktree/.git/objects/34 d
+  + github_control_repo_worktree/.git/objects/34/46cac64d8df15dcf91eb21a456c0c0c6061960 f
+  + github_control_repo_worktree/.git/objects/3b d
+  + github_control_repo_worktree/.git/objects/3b/2bd80450a613f586e2741b7a934edfc962b561 f
+  + github_control_repo_worktree/.git/objects/5e d
+  + github_control_repo_worktree/.git/objects/5e/c0f235355f68213ac20b3593024e9798892a60 f
+  + github_control_repo_worktree/.git/objects/5f d
+  + github_control_repo_worktree/.git/objects/5f/c986cfed29aceba3be615ed894803ddc806be1 f
+  + github_control_repo_worktree/.git/objects/61 d
+  + github_control_repo_worktree/.git/objects/61/f32c8041a24f690c912319ecd493583cd5197e f
+  + github_control_repo_worktree/.git/objects/63 d
+  + github_control_repo_worktree/.git/objects/63/9cd72f3fc823f215d2f60c89eee726237774af f
+  + github_control_repo_worktree/.git/objects/6a d
+  + github_control_repo_worktree/.git/objects/6a/42010d32d1b75760e946e912788c25035aef7b f
+  + github_control_repo_worktree/.git/objects/83 d
+  + github_control_repo_worktree/.git/objects/83/401edf416110b81a7ba2ea307b3ce7c6451ac2 f
+  + github_control_repo_worktree/.git/objects/bd d
+  + github_control_repo_worktree/.git/objects/bd/9613c429bb70e74fdddd33046c9ab7cf8ea3ab f
+  + github_control_repo_worktree/.git/objects/c3 d
+  + github_control_repo_worktree/.git/objects/c3/b87369b51ee9e33f66c55f9608a16e447ab3e7 f
+  + github_control_repo_worktree/.git/objects/c5 d
+  + github_control_repo_worktree/.git/objects/c5/081abb5fd614f9e24184a8bf87578079675250 f
+  + github_control_repo_worktree/.git/objects/d4 d
+  + github_control_repo_worktree/.git/objects/d4/e96a4bf13a39354576be610b8556c1f26d3616 f
+  + github_control_repo_worktree/.git/objects/f8 d
+  + github_control_repo_worktree/.git/objects/f8/3e18433d94a7324f680c65824e4f702902df65 f
+  + github_control_repo_worktree/catalog/artifact_cards/example_13.yaml f
+  + researcher_only/evaluation/E3_SCORING_SCOPE.md f
+  + researcher_only/provenance d
+  + researcher_only/provenance/README.md f
+  + researcher_only/provenance/agent_visible_to_canonical_source_map.tsv f
+  + setup/COMPUTE_NODE_QUALIFICATION_ACTION_REQUIRED.md f
+  + setup/GROUND_TRUTH_ISOLATION_ACTION_REQUIRED.md f
+  + setup/permissions_audit_remediation.md f
+  + setup/preexisting_state/E3_README.md.pre_remediation f
+  + setup/preexisting_state/access_qualification_plan.pre_remediation.md f
+  + setup/preexisting_state/automation_pre_remediation d
+  + setup/preexisting_state/automation_pre_remediation/README.md f
+  + setup/preexisting_state/automation_pre_remediation/audit_boundary.sh f
+  + setup/preexisting_state/automation_pre_remediation/baseline d
+  + setup/preexisting_state/automation_pre_remediation/baseline/README.md f
+  + setup/preexisting_state/automation_pre_remediation/baseline/baseline_e3_config.env f
+  + setup/preexisting_state/automation_pre_remediation/baseline/prepare_baseline_trial.sh f
+  + setup/preexisting_state/automation_pre_remediation/lib d
+  + setup/preexisting_state/automation_pre_remediation/lib/e3_common.sh f
+  + setup/preexisting_state/automation_pre_remediation/verify_readonly_sources.sh f
+  + setup/preexisting_state/baseline_trial_01_manifest.pre_remediation.yaml f
+  + setup/preexisting_state/candidate_archive_pre_remediation d
+  + setup/preexisting_state/candidate_archive_pre_remediation/MANIFEST.sha256 f
+  + setup/preexisting_state/candidate_archive_pre_remediation/README.md f
+  + setup/preexisting_state/candidate_archive_pre_remediation/example_01 d
+  + setup/preexisting_state/candidate_archive_pre_remediation/example_01/problem_card.yaml f
+  + setup/preexisting_state/candidate_archive_pre_remediation/example_01/provenance.yaml f
+  + setup/preexisting_state/candidate_archive_pre_remediation/example_07 d
+  + setup/preexisting_state/candidate_archive_pre_remediation/example_07/problem_card.yaml f
+  + setup/preexisting_state/candidate_archive_pre_remediation/example_07/provenance.yaml f
+  + setup/preexisting_state/candidate_archive_pre_remediation/example_16_restart d
+  + setup/preexisting_state/candidate_archive_pre_remediation/example_16_restart/problem_card.yaml f
+  + setup/preexisting_state/candidate_archive_pre_remediation/example_16_restart/provenance.yaml f
+  + setup/preexisting_state/control_repo_pre_remediation_333edab d
+  + setup/preexisting_state/control_repo_pre_remediation_333edab/README.md f
+  + setup/preexisting_state/control_repo_pre_remediation_333edab/catalog d
+  + setup/preexisting_state/control_repo_pre_remediation_333edab/catalog/artifact_cards d
+  + setup/preexisting_state/control_repo_pre_remediation_333edab/catalog/artifact_cards/example_01.yaml f
+  + setup/preexisting_state/control_repo_pre_remediation_333edab/catalog/artifact_cards/example_02.yaml f
+  + setup/preexisting_state/control_repo_pre_remediation_333edab/catalog/artifact_cards/example_07.yaml f
+  + setup/preexisting_state/control_repo_pre_remediation_333edab/catalog/artifact_cards/example_16_restart.yaml f
+  + setup/preexisting_state/control_repo_pre_remediation_333edab/catalog/artifact_cards/symmetry_plane_target.yaml f
+  + setup/preexisting_state/control_repo_pre_remediation_333edab/catalog/checksums.sha256 f
+  + setup/preexisting_state/control_repo_pre_remediation_333edab/catalog/permitted_storage_catalog.yaml f
+  + setup/preexisting_state/control_repo_pre_remediation_333edab/protocol d
+  + setup/preexisting_state/control_repo_pre_remediation_333edab/protocol/access_rules.md f
+  + setup/preexisting_state/example_02_incomplete_candidate d
+  + setup/preexisting_state/example_02_incomplete_candidate/README.md f
+  + setup/preexisting_state/example_02_incomplete_candidate/problem_card.yaml f
+  + setup/preexisting_state/example_02_incomplete_candidate/provenance.yaml f
+  + setup/preexisting_state/example_02_incomplete_candidate/selected_source_materials d
+  + setup/preexisting_state/example_02_incomplete_candidate/selected_source_materials/topology_mech_ex2.i f
+  + setup/preexisting_state/globus_source_root_pre_remediation d
+  + setup/preexisting_state/globus_source_root_pre_remediation/MANIFEST.sha256 f
+  + setup/preexisting_state/globus_source_root_pre_remediation/MANIFEST.tsv f
+  + setup/preexisting_state/globus_source_root_pre_remediation/documentation d
+  + setup/preexisting_state/globus_source_root_pre_remediation/documentation/curated_permitted_materials d
+  + setup/preexisting_state/globus_source_root_pre_remediation/documentation/curated_permitted_materials/software_contract.md f
+  + setup/preexisting_state/globus_source_root_pre_remediation/documentation/version_provenance.yaml f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs d
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/E3_PLANNED_NOT_EXECUTABLE.md f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/FROZEN_CONFIG_FILES.sha256 f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/FROZEN_CONFIG_ID.txt f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/FROZEN_CONFIG_SHA256.txt f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/acceptance_visibility_boundary.md f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/compute_resources.md f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/formal_configuration.md f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/manuals d
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/manuals/Morphorm_Theory_Manual.pdf f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/manuals/Morphorm_User_Manual.pdf f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/provenance_requirements.md f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/scientific_problem_specification.md f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/software_contract.md f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/task_prompt.md f
+  + setup/preexisting_state/legacy_baseline_trial01_agent_inputs/workspace_rules.md f
+  + setup/remediation d
+  + setup/remediation/claude_2.1.295_help.txt f
+  + setup/remediation/remediation_source_inventory.csv f
+  + setup/remediation/remediation_source_inventory.sha256 f
+  + setup/remediation/sanitize_candidate_archive.py f
+GONE FROM ORIGINAL LOCATION (moved, see report):
+  - baseline/trial_01/agent_inputs
+  - baseline/trial_01/agent_inputs/E3_PLANNED_NOT_EXECUTABLE.md
+  - baseline/trial_01/agent_inputs/FROZEN_CONFIG_FILES.sha256
+  - baseline/trial_01/agent_inputs/FROZEN_CONFIG_ID.txt
+  - baseline/trial_01/agent_inputs/FROZEN_CONFIG_SHA256.txt
+  - baseline/trial_01/agent_inputs/acceptance_visibility_boundary.md
+  - baseline/trial_01/agent_inputs/compute_resources.md
+  - baseline/trial_01/agent_inputs/formal_configuration.md
+  - baseline/trial_01/agent_inputs/manuals
+  - baseline/trial_01/agent_inputs/manuals/Morphorm_Theory_Manual.pdf
+  - baseline/trial_01/agent_inputs/manuals/Morphorm_User_Manual.pdf
+  - baseline/trial_01/agent_inputs/provenance_requirements.md
+  - baseline/trial_01/agent_inputs/scientific_problem_specification.md
+  - baseline/trial_01/agent_inputs/software_contract.md
+  - baseline/trial_01/agent_inputs/task_prompt.md
+  - baseline/trial_01/agent_inputs/workspace_rules.md
+  - chpc_candidate_archive/example_02
+  - chpc_candidate_archive/example_02/README.md
+  - chpc_candidate_archive/example_02/problem_card.yaml
+  - chpc_candidate_archive/example_02/provenance.yaml
+  - chpc_candidate_archive/example_02/selected_source_materials
+  - chpc_candidate_archive/example_02/selected_source_materials/topology_mech_ex2.i
+  - github_control_repo_worktree/catalog/artifact_cards/example_02.yaml
+CONTENT MODIFIED (pre-existing files):
+  ~ README.md
+  ~ automation/audit_boundary.sh
+  ~ automation/baseline/README.md
+  ~ automation/baseline/baseline_e3_config.env
+  ~ automation/baseline/prepare_baseline_trial.sh
+  ~ automation/lib/e3_common.sh
+  ~ automation/verify_readonly_sources.sh
+  ~ baseline/trial_01/manifest.yaml
+  ~ chpc_candidate_archive/MANIFEST.sha256
+  ~ chpc_candidate_archive/README.md
+  ~ chpc_candidate_archive/example_01/problem_card.yaml
+  ~ chpc_candidate_archive/example_01/provenance.yaml
+  ~ chpc_candidate_archive/example_07/problem_card.yaml
+  ~ chpc_candidate_archive/example_07/provenance.yaml
+  ~ chpc_candidate_archive/example_16_restart/problem_card.yaml
+  ~ chpc_candidate_archive/example_16_restart/provenance.yaml
+  ~ github_control_repo_worktree/.git/COMMIT_EDITMSG
+  ~ github_control_repo_worktree/.git/index
+  ~ github_control_repo_worktree/.git/logs/HEAD
+  ~ github_control_repo_worktree/.git/logs/refs/heads/main
+  ~ github_control_repo_worktree/.git/logs/refs/remotes/origin/main
+  ~ github_control_repo_worktree/.git/refs/heads/main
+  ~ github_control_repo_worktree/.git/refs/remotes/origin/main
+  ~ github_control_repo_worktree/README.md
+  ~ github_control_repo_worktree/catalog/artifact_cards/example_01.yaml
+  ~ github_control_repo_worktree/catalog/artifact_cards/example_07.yaml
+  ~ github_control_repo_worktree/catalog/artifact_cards/example_16_restart.yaml
+  ~ github_control_repo_worktree/catalog/artifact_cards/symmetry_plane_target.yaml
+  ~ github_control_repo_worktree/catalog/checksums.sha256
+  ~ github_control_repo_worktree/catalog/permitted_storage_catalog.yaml
+  ~ github_control_repo_worktree/protocol/access_rules.md
+  ~ globus_source_root/MANIFEST.sha256
+  ~ globus_source_root/MANIFEST.tsv
+  ~ globus_source_root/documentation/curated_permitted_materials/software_contract.md
+  ~ globus_source_root/documentation/version_provenance.yaml
+  ~ setup/access_qualification_plan.md
+MODE CHANGED:
+  m globus_source_root 755 -> 700
+  m globus_source_root/MANIFEST.sha256 644 -> 600
+  m globus_source_root/MANIFEST.tsv 644 -> 600
+  m globus_source_root/README.md 644 -> 600
+  m globus_source_root/documentation 755 -> 700
+  m globus_source_root/documentation/MANIFEST_README.md 644 -> 600
+  m globus_source_root/documentation/curated_permitted_materials 755 -> 700
+  m globus_source_root/documentation/curated_permitted_materials/compute_resources.md 644 -> 600
+  m globus_source_root/documentation/curated_permitted_materials/software_contract.md 644 -> 600
+  m globus_source_root/documentation/curated_readme.md 644 -> 600
+  m globus_source_root/documentation/version_provenance.yaml 644 -> 600
+  m globus_source_root/manuals 755 -> 700
+  m globus_source_root/manuals/Morphorm_Theory_Manual.pdf 644 -> 600
+  m globus_source_root/manuals/Morphorm_User_Manual.pdf 644 -> 600
+  m globus_source_root/target_materials 755 -> 700
+  m globus_source_root/target_materials/symmetry_plane_cantilever 755 -> 700
+  m globus_source_root/target_materials/symmetry_plane_cantilever/README.md 644 -> 600
+  m globus_source_root/target_materials/symmetry_plane_cantilever/geometry_and_loading_figure.png 644 -> 600
+  m globus_source_root/target_materials/symmetry_plane_cantilever/permitted_starting_materials 755 -> 700
+  m globus_source_root/target_materials/symmetry_plane_cantilever/permitted_starting_materials/README.md 644 -> 600
+  m globus_source_root/target_materials/symmetry_plane_cantilever/problem_specification.md 644 -> 600

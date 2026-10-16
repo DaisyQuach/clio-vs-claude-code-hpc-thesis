@@ -1,0 +1,46 @@
+# E3 permitted storage catalog. These are the ONLY storage locations a trial may read.
+# No credentials are stored here. Endpoint aliases are used in all provenance records.
+catalog_version: 5   # v2: Example 2 withdrawn, Example 13 added, logical source identifiers; v3: access model; v4: Globus collection; v5: Globus staging destination, node-local $TMPDIR
+task_specification_id: E3-SPC-v1
+collections:
+  - alias: e3-control
+    kind: private GitHub repository (this repository)
+    access_method: "git, read-only, noninteractive; a snapshot at the pinned commit is provided in agent-inputs/control/"
+    location: "git@github.com:DaisyQuach/daisy-e3-distributed-context-control.git"
+    pinned_commit_record: agent-inputs/CONTROL_COMMIT.txt
+    top_level: [task/, catalog/, protocol/, scripts/]
+    material_categories: [task statement, frozen task specification, required deliverables, storage catalog, artifact cards, protocol, record-keeping helpers]
+  - alias: e3-private-source
+    kind: private Globus guest collection (read-only)
+    access_method: "Globus only, through this collection ID (globus ls / globus transfer). Direct POSIX reading of posix_root is not a permitted access method. Other Globus collections, including CHPC mapped collections, are not permitted."
+    globus_collection_id: 6dcea62e-130d-47a9-8b77-80fba6f58693
+    globus_collection_name: daisy-e3-private-source
+    globus_collection_root: "/ (= posix_root)"
+    posix_root: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/globus_source_root   # host path, for provenance only
+    manifest: MANIFEST.sha256
+    manifest_sha256: d856bed27efea0561e35e01ce9e3202bf121c14e3d313b3ec34a4dafa9a8cc53
+    top_level: [manuals/, documentation/, target_materials/]
+    material_categories: [software manuals, approved software interface, compute-resource contract, version provenance, task specification, problem-statement figure]
+  - alias: e3-trial-inbox-destination
+    kind: CHPC Globus mapped collection, permitted ONLY as a transfer destination
+    access_method: "destination of Globus transfers from e3-private-source, limited to <trial root>/staging-inbox/ of your own trial (globus_stage_file.sh). Never a source, never listed or browsed, never any other path."
+    globus_collection_id: 7cf0baa1-8bd0-4e91-a1e6-c19042952a7c
+    permitted_path: "<trial root>/staging-inbox/"
+  - alias: e3-chpc-candidate-archive
+    kind: CHPC read-only archive of curated example packages
+    access_method: "read-only POSIX path"
+    posix_root: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/chpc_candidate_archive
+    manifest: MANIFEST.sha256
+    manifest_sha256: 3c89c503d0888be096a9b1740b44d7b9f3de309d5701fdcaef7c40627ba57dac
+    top_level: [example_01/, example_07/, example_13/, example_16_restart/]
+    material_categories: [authentic related Morphorm example workflows, input decks, Cubit journals, problem-statement figures, problem cards, provenance records]
+artifact_cards:
+  - catalog/artifact_cards/example_01.yaml
+  - catalog/artifact_cards/example_07.yaml
+  - catalog/artifact_cards/example_13.yaml
+  - catalog/artifact_cards/example_16_restart.yaml
+  - catalog/artifact_cards/symmetry_plane_target.yaml
+source_identifiers: "MORPHORM-* identifiers in cards, problem cards and provenance files are logical identifiers; they are not filesystem paths and must not be resolved"
+approved_software_interface: /uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E3_disparate_storage_example8/automation/environment/load_morphorm_e3.sh
+not_permitted: "every location not listed under collections (see protocol/access_rules.md)"
+access_model: "procedural (same as E1/E2): researcher-only material is excluded from the agent-visible packet; agents are instructed and audited not to access it; agents and their Slurm jobs run under the researcher's account, so this is not a technically enforced filesystem boundary"

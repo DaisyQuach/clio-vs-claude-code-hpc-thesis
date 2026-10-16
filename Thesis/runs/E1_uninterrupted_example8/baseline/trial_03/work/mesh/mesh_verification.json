@@ -1,0 +1,307 @@
+{
+ "file": "work/mesh/mesh.exo",
+ "utc": "2026-10-09T13:17:11.079122+00:00",
+ "checks": [
+  {
+   "check": "num_dim",
+   "got": 3,
+   "expected": 3,
+   "pass": true
+  },
+  {
+   "check": "num_elem",
+   "got": 13824,
+   "expected": 13824,
+   "pass": true
+  },
+  {
+   "check": "num_nodes",
+   "got": 15925,
+   "expected": 15925,
+   "pass": true
+  },
+  {
+   "check": "num_el_blk",
+   "got": 1,
+   "expected": 1,
+   "pass": true
+  },
+  {
+   "check": "num_node_sets",
+   "got": 2,
+   "expected": 2,
+   "pass": true
+  },
+  {
+   "check": "num_side_sets",
+   "got": 1,
+   "expected": 1,
+   "pass": true
+  },
+  {
+   "check": "bounding_box",
+   "got": [
+    [
+     0.0,
+     2.0
+    ],
+    [
+     0.0,
+     1.0
+    ],
+    [
+     0.0,
+     0.5
+    ]
+   ],
+   "expected": [
+    [
+     0.0,
+     2.0
+    ],
+    [
+     0.0,
+     1.0
+    ],
+    [
+     0.0,
+     0.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "check": "block_names",
+   "got": [
+    "block_1"
+   ],
+   "expected": [
+    "block_1"
+   ],
+   "pass": true
+  },
+  {
+   "check": "elem_type_block1",
+   "got": "HEX8",
+   "expected": "HEX8",
+   "pass": true
+  },
+  {
+   "check": "num_el_in_blk1",
+   "got": 13824,
+   "expected": 13824,
+   "pass": true
+  },
+  {
+   "check": "num_nod_per_el1",
+   "got": 8,
+   "expected": 8,
+   "pass": true
+  },
+  {
+   "check": "block_ids",
+   "got": [
+    1
+   ],
+   "expected": [
+    1
+   ],
+   "pass": true
+  },
+  {
+   "check": "unique_x_levels(49)",
+   "got": 49,
+   "expected": 49,
+   "pass": true
+  },
+  {
+   "check": "unique_y_levels(25)",
+   "got": 25,
+   "expected": 25,
+   "pass": true
+  },
+  {
+   "check": "unique_z_levels(13)",
+   "got": 13,
+   "expected": 13,
+   "pass": true
+  },
+  {
+   "check": "uniform_h_x",
+   "got": [
+    0.0416666659999998,
+    0.0416666670000001
+   ],
+   "expected": 0.041666666666666664,
+   "pass": true
+  },
+  {
+   "check": "uniform_h_y",
+   "got": [
+    0.041666666,
+    0.041666667000000004
+   ],
+   "expected": 0.041666666666666664,
+   "pass": true
+  },
+  {
+   "check": "uniform_h_z",
+   "got": [
+    0.041666666,
+    0.041666667000000004
+   ],
+   "expected": 0.041666666666666664,
+   "pass": true
+  },
+  {
+   "check": "elem_extent_x",
+   "got": [
+    0.041666666666666075,
+    0.041666666666668295
+   ],
+   "expected": 0.041666666666666664,
+   "pass": true
+  },
+  {
+   "check": "elem_extent_y",
+   "got": [
+    0.04166666666666641,
+    0.04166666666666741
+   ],
+   "expected": 0.041666666666666664,
+   "pass": true
+  },
+  {
+   "check": "elem_extent_z",
+   "got": [
+    0.041666666666666574,
+    0.04166666666666696
+   ],
+   "expected": 0.041666666666666664,
+   "pass": true
+  },
+  {
+   "check": "nodeset_names",
+   "got": [
+    "ns_fix",
+    "ns_load"
+   ],
+   "expected": [
+    "ns_fix",
+    "ns_load"
+   ],
+   "pass": true
+  },
+  {
+   "check": "nodeset_ids",
+   "got": [
+    1,
+    2
+   ],
+   "expected": [
+    1,
+    2
+   ],
+   "pass": true
+  },
+  {
+   "check": "ns_fix_size",
+   "got": 325,
+   "expected": 325,
+   "pass": true
+  },
+  {
+   "check": "ns_fix_all_on_x=0",
+   "got": 0.0,
+   "expected": 0.0,
+   "pass": true
+  },
+  {
+   "check": "ns_fix_contains_every_x=0_node",
+   "got": 325,
+   "expected": 325,
+   "pass": true
+  },
+  {
+   "check": "ns_load_size",
+   "got": 13,
+   "expected": 13,
+   "pass": true
+  },
+  {
+   "check": "ns_load_all_on_x=2_y=0",
+   "got": [
+    0.0,
+    0.0
+   ],
+   "expected": 0.0,
+   "pass": true
+  },
+  {
+   "check": "ns_load_contains_every_edge_node",
+   "got": 13,
+   "expected": 13,
+   "pass": true
+  },
+  {
+   "check": "ns_load_z_range",
+   "got": [
+    0.0,
+    0.5
+   ],
+   "expected": [
+    0.0,
+    0.5
+   ],
+   "pass": true
+  },
+  {
+   "check": "sideset_names",
+   "got": [
+    "ss_sym"
+   ],
+   "expected": [
+    "ss_sym"
+   ],
+   "pass": true
+  },
+  {
+   "check": "sideset_ids",
+   "got": [
+    1
+   ],
+   "expected": [
+    1
+   ],
+   "pass": true
+  },
+  {
+   "check": "ss_sym_size",
+   "got": 1152,
+   "expected": 1152,
+   "pass": true
+  },
+  {
+   "check": "ss_sym_all_faces_on_z=0.5",
+   "got": [
+    0.5,
+    0.5
+   ],
+   "expected": 0.5,
+   "pass": true
+  },
+  {
+   "check": "ss_sym_unique_elements",
+   "got": 1152,
+   "expected": 1152,
+   "pass": true
+  },
+  {
+   "check": "num_side_ss1_dim",
+   "got": 1152,
+   "expected": 1152,
+   "pass": true
+  }
+ ],
+ "all_pass": true
+}

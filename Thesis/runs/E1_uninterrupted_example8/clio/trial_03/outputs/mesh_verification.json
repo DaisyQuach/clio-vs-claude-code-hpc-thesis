@@ -1,0 +1,36 @@
+{
+ "file": "mesh.exo",
+ "num_nodes": 15925,
+ "num_elem": 13824,
+ "num_dim": 3,
+ "bbox_min": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "bbox_max": [
+  2.0,
+  1.0,
+  0.5
+ ],
+ "blocks": [
+  {
+   "name": "block_1",
+   "type": "HEX8",
+   "elems": 13824,
+   "nodes_per_elem": 8
+  }
+ ],
+ "nodesets": {
+  "ns_fix": 325,
+  "ns_load": 13
+ },
+ "sidesets": {
+  "ss_sym": 1152
+ },
+ "time_steps": 0,
+ "nodal_vars": [],
+ "elem_vars": [],
+ "expect_failures": [],
+ "expect_ok": true
+}

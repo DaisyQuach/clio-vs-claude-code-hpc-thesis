@@ -1,0 +1,187 @@
+WARNING | ⚑ RESIDENT-LEDGER metrics seeded via streaming corpus walk (bounded memory, O(corpus) boot time); index-only rollup is owner-gated (design 1.13/§3.1)
+WARNING | fetched_catalog: reason=catalog_unavailable_offline name=claude-code-models url=https://raw.githubusercontent.com/iowarp/clio-agent/main/catalogs/claude-code-models.json fetch=fetch_disabled
+INFO:     Started server process [1776574]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:17938 (Press CTRL+C to quit)
+WARNING | reason=clio_core_search_indexer_absent config=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-05/session_b/clio_home/data/cte/hosts/notch351/cte.yaml problem=no clio_cte_indexer chimod declared; ARCMemory.search_segment_scopes will return zero hits against clio-core >=2.2.0 (the chimod's binary is absent from the published 2.2.1 wheels -- not fixable in clio-agent config) upstream=https://github.com/iowarp/clio-core/issues/905#issuecomment-5826003299
+INFO:     127.0.0.1:42394 - "GET /v1/health HTTP/1.1" 200 OK
+WARNING | relay first discovery reason=relay_tools_not_configured federation=ABSENT
+WARNING | relay tool surface degraded reason=relay_tools_not_configured
+WARNING | claude_code model discovery failed at startup: Claude Code is not signed in on the connected agent. Sign in to Claude Code from CLIO to use its models.
+[clio-agent-gact] agent ready.
+INFO:     127.0.0.1:34312 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34320 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42984 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40684 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42114 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56264 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46106 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41338 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39474 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53668 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44040 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54866 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56930 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36712 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37346 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52656 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43282 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39838 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42692 - "GET /v1/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35264 - "GET /v1/health HTTP/1.1" 200 OK
+/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/fastapi/openapi/utils.py:303: UserWarning: Duplicate Operation ID collabora_file_info_v1_internal_document_editors_collabora_wopi_files__working_copy_id__post for function collabora_file_info at /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/routes/documents.py
+  warnings.warn(message, stacklevel=1)
+/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/fastapi/openapi/utils.py:303: UserWarning: Duplicate Operation ID collabora_contents_v1_internal_document_editors_collabora_wopi_files__working_copy_id__contents_post for function collabora_contents at /uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/routes/documents.py
+  warnings.warn(message, stacklevel=1)
+INFO:     127.0.0.1:35274 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35290 - "GET /v1/settings/runtime HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35294 - "GET /v1/capabilities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35298 - "GET /v1/session-defaults HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35306 - "GET /v1/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35318 - "GET /v1/agent-blueprints/factorio-flat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35328 - "POST /v1/workspaces HTTP/1.1" 201 Created
+INFO:     127.0.0.1:35344 - "POST /v1/sessions HTTP/1.1" 200 OK
+WARNING | relay tool surface degraded reason=relay_tools_not_configured
+WARNING | ⚑ TOOLS workspace_fleet_restarted root=/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/clio/trial_05 reason=grant_applied_live
+INFO:     127.0.0.1:35354 - "POST /v1/sessions/sess_bf946304fcf4/agent-blueprint HTTP/1.1" 200 OK
+WARNING | relay tool surface degraded reason=relay_tools_not_configured
+INFO:     127.0.0.1:35366 - "GET /v1/sessions/sess_bf946304fcf4/agent-blueprint HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35374 - "PATCH /v1/sessions/sess_bf946304fcf4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35386 - "GET /v1/sessions/sess_bf946304fcf4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35392 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35408 - "GET /v1/sessions/sess_bf946304fcf4/events HTTP/1.1" 200 OK
+WARNING | ⚑ PROVIDER-AUTH claude_code_auth_reprobe outcome=signed_out trigger=message
+WARNING | ARC store read 'get' issued from loop thread MainThread (name='sess_bf946304fcf4___events~m~gen'): a store_read_on_loop_thread stall; move the caller off the loop (further reads of this op audit-only)
+INFO:     127.0.0.1:35418 - "POST /v1/sessions/sess_bf946304fcf4/messages HTTP/1.1" 200 OK
+Checked 110 packages in 67ms
+{"cache_dir": "/uufs/chpc.utah.edu/common/home/u1282901/.cache/clio-kit/uv-cache", "event": "uv_cache_prune", "ok": true, "ran": true, "reason": "pruned", "schema_version": "clio-kit.cache-event.v1"}
+{"cache_root": "/uufs/chpc.utah.edu/common/home/u1282901/.cache/clio-kit", "event": "cache_budget_measurement", "ran": false, "reason": "budget_unconfigured", "schema_version": "clio-kit.cache-event.v1"}
+[10/13/26 04:50:25] INFO     Starting MCP server 'web' with     transport.py:242
+                             transport 'stdio'                                  
+WARNING | ⚑ TOOLS mcp_server_identity_unavailable server=web reason=launcher_has_no_identity (listing keeps its TTL)
+WARNING | ⚑ TOOLS mcp_listing_cached namespace=web tools=3
+WARNING | ⚑ TOOLSET-INVENTORY custom_agent_tool_unavailable agent_id=main tool=fs_apply_edit_write detail=fs_apply_edit_write -- degraded, not bricked
+ERROR | turn forward failed session=sess_bf946304fcf4
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/agents/clio_react.py", line 639, in _call_lm
+    return run_on_lm_loop(run)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/lm/engines/lm_loop.py", line 72, in run_on_lm_loop
+    return result.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/lm/engines/lm_loop.py", line 76, in _awaited
+    return await make()
+           ^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/agents/clio_react.py", line 633, in run
+    raise leaf  # noqa: B904 - the leaf keeps its own cause chain
+    ^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/agents/clio_react.py", line 625, in run
+    response = await lm.acall(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/dspy/utils/callback.py", line 360, in async_wrapper
+    results = await fn(instance, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/dspy/clients/base_lm.py", line 207, in acall
+    return finalize(self, call, await aexecute(self, call))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/dspy/clients/execution.py", line 708, in aexecute
+    with boundary:
+         ^^^^^^^^
+  File "/usr/lib64/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/dspy/clients/errors.py", line 123, in error_boundary
+    raise error from exc
+dspy.utils.exceptions.LMUnexpectedError: [claude_code/claude-fable-5-1] Claude Code is signed out. Sign in to Claude Code again, then resend. Signing in on another machine can end this session. (model=claude-fable-5-1: Failed to authenticate: OAuth session expired and could not be refreshed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/turn.py", line 341, in _run_turn_in_background
+    state.pred = await forward_turn(state)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/turn_forward.py", line 192, in forward_turn
+    return await _forward_turn_leased(state)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/turn_forward.py", line 459, in _forward_turn_leased
+    state.pred = await await_turn_work(state, _run_module(state, module, cancel_cb))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/turn_watchdog.py", line 107, in await_turn_work
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/turn_forward.py", line 142, in _run_module
+    return await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/turn_forward.py", line 143, in <lambda>
+    _forward_executor(state), lambda: turn_context.run(module, **kwargs)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/dspy/utils/callback.py", line 377, in sync_wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/dspy/primitives/module.py", line 110, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/agents/builders.py", line 1189, in forward
+    result = self.program(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/dspy/utils/callback.py", line 377, in sync_wrapper
+    return fn(instance, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/dspy/primitives/module.py", line 110, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/agents/clio_react.py", line 191, in forward
+    return _Loop(self, input_args).run()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/agents/clio_react.py", line 391, in run
+    done = self._one_step()
+           ^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/agents/clio_react.py", line 425, in _one_step
+    response = _call_lm(self.lm, request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/gact/agents/clio_react.py", line 645, in _call_lm
+    raise cause from exc
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/dspy/clients/errors.py", line 116, in error_boundary
+    yield
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/dspy/clients/execution.py", line 709, in aexecute
+    await _aattempt(lm, call, backend, request, provider, state, results)
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/dspy/clients/execution.py", line 678, in _aattempt
+    async for event in events:
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/dspy/clients/engines/stream_guard.py", line 57, in achecked_stream
+    async for event in source:
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/providers/claude_code_engine.py", line 153, in stream
+    async for event in self._query(request, system, send):
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/providers/claude_code_engine.py", line 193, in _query
+    for out in turn.handle(message):
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/providers/claude_code_engine.py", line 311, in handle
+    raise_classified_result_error(
+  File "/uufs/chpc.utah.edu/common/home/chet/Daisy/clioSessions/CLIOruntime/clio-agent/.venv/lib64/python3.12/site-packages/clio_agent/providers/claude_code_result_errors.py", line 93, in raise_classified_result_error
+    raise ClaudeCodeSignedOutError(detail=result_error_detail(msg), model=model)
+clio_agent.providers.claude_code_errors.ClaudeCodeSignedOutError: Claude Code is signed out. Sign in to Claude Code again, then resend. Signing in on another machine can end this session. (model=claude-fable-5-1: Failed to authenticate: OAuth session expired and could not be refreshed)
+INFO:     127.0.0.1:40516 - "GET /v1/sessions/sess_bf946304fcf4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40524 - "POST /v1/sessions/sess_bf946304fcf4/cancel HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:58574 - "GET /v1/sessions/sess_bf946304fcf4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58576 - "GET /v1/sessions/sess_bf946304fcf4/export?mode=transcript HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58582 - "GET /v1/sessions/sess_bf946304fcf4/export?mode=full HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44160 - "GET /v1/sessions/sess_bf946304fcf4/messages?limit=100000&include_system=true HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44166 - "GET /v1/sessions/sess_bf946304fcf4/trace HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44178 - "GET /v1/sessions/sess_bf946304fcf4/interactions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44192 - "GET /v1/sessions/sess_bf946304fcf4/questions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44202 - "GET /v1/sessions/sess_bf946304fcf4/attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44210 - "GET /v1/sessions/sess_bf946304fcf4/agent-tasks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44224 - "GET /v1/sessions/sess_bf946304fcf4/provenance/execution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44226 - "GET /v1/sessions/sess_bf946304fcf4/agent-blueprint HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44236 - "GET /v1/permissions HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1776574]

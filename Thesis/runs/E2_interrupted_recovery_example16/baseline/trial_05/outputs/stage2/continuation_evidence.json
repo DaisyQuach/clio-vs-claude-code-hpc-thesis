@@ -1,0 +1,163 @@
+{
+  "utc": "2026-10-10T01:08:38Z",
+  "stage1_run_dir": "work/stage1/run",
+  "stage2_run_dir": "work/stage2/run",
+  "checks": {
+    "restart_input.exo is an exact copy of the Stage-1 checkpoint engine_output.exo": true,
+    "Stage-2 first compliance == Stage-1 iteration-20 compliance (diagnostics, 7 significant digits)": true,
+    "Stage-2 first compliance == Stage-1 iteration-20 compliance (opt_criteria_history.csv, rel diff < 1e-10)": true,
+    "Stage-2 initial control field is bit-identical to the Stage-1 iteration-20 (Exodus step 21) control field": true,
+    "Stage-2 initial topology (filtered) field equals Stage-1 iteration-20 topology (max abs diff < 1e-10)": true
+  },
+  "restart_settings_in_stage2_deck": {
+    "initial_guess_file_name": "restart_input.exo",
+    "initial_guess_field_name": "control",
+    "restart_iteration": "21",
+    "max_iterations": "40"
+  },
+  "restart_iteration_used": "21",
+  "restart_input_sha256": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+  "stage1_checkpoint_sha256": "58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8",
+  "stage1_compliance_iter19": 238839.4,
+  "stage1_compliance_iter20": 236004.0,
+  "stage1_criteria_history_last": 236003.95811001546,
+  "stage2_first_compliance_local_iter0": 236004.0,
+  "stage2_criteria_history_first": 236003.95811001546,
+  "stage1_iterations_matching_stage2_first_compliance (6-digit diagnostics)": [
+    20
+  ],
+  "criteria_history_rel_diff_iter20_vs_stage2_first": 0.0,
+  "stage2_state1_vs_stage1_states": [
+    {
+      "stage1_exodus_step": 1,
+      "stage1_iteration": 0,
+      "max_abs_diff_control": 0.85,
+      "max_abs_diff_topology": 0.7803541918601189
+    },
+    {
+      "stage1_exodus_step": 2,
+      "stage1_iteration": 1,
+      "max_abs_diff_control": 0.8142769881849347,
+      "max_abs_diff_topology": 0.6091978224183016
+    },
+    {
+      "stage1_exodus_step": 3,
+      "stage1_iteration": 2,
+      "max_abs_diff_control": 0.8861075912238656,
+      "max_abs_diff_topology": 0.6903803410281809
+    },
+    {
+      "stage1_exodus_step": 4,
+      "stage1_iteration": 3,
+      "max_abs_diff_control": 0.896231008240401,
+      "max_abs_diff_topology": 0.6813192629479755
+    },
+    {
+      "stage1_exodus_step": 5,
+      "stage1_iteration": 4,
+      "max_abs_diff_control": 0.95,
+      "max_abs_diff_topology": 0.6898741167362186
+    },
+    {
+      "stage1_exodus_step": 6,
+      "stage1_iteration": 5,
+      "max_abs_diff_control": 1.0,
+      "max_abs_diff_topology": 0.675956629849797
+    },
+    {
+      "stage1_exodus_step": 7,
+      "stage1_iteration": 6,
+      "max_abs_diff_control": 1.0,
+      "max_abs_diff_topology": 0.6652556974978465
+    },
+    {
+      "stage1_exodus_step": 8,
+      "stage1_iteration": 7,
+      "max_abs_diff_control": 1.0,
+      "max_abs_diff_topology": 0.614748547992749
+    },
+    {
+      "stage1_exodus_step": 9,
+      "stage1_iteration": 8,
+      "max_abs_diff_control": 1.0,
+      "max_abs_diff_topology": 0.5587739091735439
+    },
+    {
+      "stage1_exodus_step": 10,
+      "stage1_iteration": 9,
+      "max_abs_diff_control": 1.0,
+      "max_abs_diff_topology": 0.5041661363571325
+    },
+    {
+      "stage1_exodus_step": 11,
+      "stage1_iteration": 10,
+      "max_abs_diff_control": 0.9820230444625124,
+      "max_abs_diff_topology": 0.44252798500986495
+    },
+    {
+      "stage1_exodus_step": 12,
+      "stage1_iteration": 11,
+      "max_abs_diff_control": 0.963380752902136,
+      "max_abs_diff_topology": 0.38236937949205485
+    },
+    {
+      "stage1_exodus_step": 13,
+      "stage1_iteration": 12,
+      "max_abs_diff_control": 0.9378155304593868,
+      "max_abs_diff_topology": 0.337009032782864
+    },
+    {
+      "stage1_exodus_step": 14,
+      "stage1_iteration": 13,
+      "max_abs_diff_control": 0.8830844454897971,
+      "max_abs_diff_topology": 0.3015423974175727
+    },
+    {
+      "stage1_exodus_step": 15,
+      "stage1_iteration": 14,
+      "max_abs_diff_control": 0.801127417038701,
+      "max_abs_diff_topology": 0.26448887721901737
+    },
+    {
+      "stage1_exodus_step": 16,
+      "stage1_iteration": 15,
+      "max_abs_diff_control": 0.715467810996641,
+      "max_abs_diff_topology": 0.2216644141420845
+    },
+    {
+      "stage1_exodus_step": 17,
+      "stage1_iteration": 16,
+      "max_abs_diff_control": 0.6181876950633842,
+      "max_abs_diff_topology": 0.18091512744761984
+    },
+    {
+      "stage1_exodus_step": 18,
+      "stage1_iteration": 17,
+      "max_abs_diff_control": 0.5041427777297635,
+      "max_abs_diff_topology": 0.1373248093821665
+    },
+    {
+      "stage1_exodus_step": 19,
+      "stage1_iteration": 18,
+      "max_abs_diff_control": 0.37648919964488287,
+      "max_abs_diff_topology": 0.09411234088307563
+    },
+    {
+      "stage1_exodus_step": 20,
+      "stage1_iteration": 19,
+      "max_abs_diff_control": 0.20000000000000007,
+      "max_abs_diff_topology": 0.047426354733120846
+    },
+    {
+      "stage1_exodus_step": 21,
+      "stage1_iteration": 20,
+      "max_abs_diff_control": 0.0,
+      "max_abs_diff_topology": 0.0
+    }
+  ],
+  "stage1_iterations_whose_control_field_equals_stage2_initial_control": [
+    20
+  ],
+  "stage2_num_saved_states": 41,
+  "ALL_CHECKS_PASS": true
+}

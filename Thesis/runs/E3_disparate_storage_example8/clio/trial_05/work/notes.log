@@ -1,0 +1,27 @@
+2026-10-13T18:13:15Z start trial=E3-clio-trial_05 staging=/scratch/local/u1282901/16248146/e3/clio/E3-clio-trial_05 host=notch204
+2026-10-13T18:13:39Z control checksums verified: only .gitignore absent from snapshot, all others OK
+2026-10-13T18:13:55Z globus_stage README.md rc=0
+2026-10-13T18:14:03Z globus_stage MANIFEST.tsv rc=0
+2026-10-13T18:14:33Z globus_stage documentation/MANIFEST_README.md rc=0
+2026-10-13T18:14:42Z globus_stage documentation/curated_readme.md rc=0
+2026-10-13T18:14:50Z globus_stage documentation/version_provenance.yaml rc=0
+2026-10-13T18:15:22Z globus_stage documentation/curated_permitted_materials/compute_resources.md rc=0
+2026-10-13T18:15:31Z globus_stage documentation/curated_permitted_materials/software_contract.md rc=0
+2026-10-13T18:16:31Z globus_stage target_materials/symmetry_plane_cantilever/README.md rc=0
+2026-10-13T18:16:40Z globus_stage target_materials/symmetry_plane_cantilever/problem_specification.md rc=0
+2026-10-13T18:17:11Z globus_stage target_materials/symmetry_plane_cantilever/permitted_starting_materials/README.md rc=0
+2026-10-13T18:17:27Z staged example_07 deck/journal/provenance and example_16 stage-1 deck/journal
+2026-10-13T18:18:29Z globus_stage manuals/Morphorm_User_Manual.pdf rc=0
+2026-10-13T18:18:48Z pdftotext user manual -> work/manual/user_manual.txt
+2026-10-13T18:18:51Z sourced approved loader on agent host; checked PATH
+2026-10-13T18:20:42Z cubit mesh.jou rc=0
+2026-10-13T18:21:04Z XMLGenerator input_deck.i rc=0 (work/run)
+2026-10-13T18:21:04Z exo_summary mesh.exo rc=0 -> work/verify/mesh_verification.json
+2026-10-13T18:21:43Z run1 (filter block form): symmetry plane MISSING from analyze_helmholtz_input_deck.xml; Length Scale 0.043301 (=0.15/(2*sqrt3)), Surface Length Scale 1.0. Re-translating with legacy study-level form in work/run2
+2026-10-13T18:21:47Z XMLGenerator input_deck.i rc=0 (work/run2, legacy filter form)
+2026-10-13T18:22:16Z sbatch jobs/morphorm_e3_spc_v1.sbatch -> jobid=16248958 (run dir work/run2)
+2026-10-13T18:22:53Z wrote provenance/artifact_selections.md
+2026-10-13T18:41:21Z job 16248958 COMPLETED exit 0:0 elapsed 00:17:11 node notch273; sacct -> jobs/sacct_16248958.txt
+2026-10-13T18:41:37Z verified iteration50.exo and engine_output.exo with exo_summary -> work/verify/
+2026-10-13T18:42:18Z deliverables copied to outputs/ and hashed (hash_outputs.sh)
+2026-10-13T18:44:29Z wrote work/run_summary.md

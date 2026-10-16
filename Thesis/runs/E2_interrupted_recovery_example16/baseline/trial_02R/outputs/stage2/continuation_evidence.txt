@@ -1,0 +1,52 @@
+CONTINUATION EVIDENCE -- frozen workflow EX16 (FROZEN-EX16-v1), trial E2-example16-baseline-02R
+Generated 2026-10-09T20:02:40Z by work/scripts/continuation_evidence.py (machine-readable record: outputs/stage2/continuation_evidence.json)
+
+Requirement (spec section 7): Stage 2 must resume from the design saved at the END of Stage 1 (iteration 20), read from the
+`control` field (raw design variables, not the filtered `topology`), and its first evaluated compliance must equal Stage 1's
+iteration-20 compliance.
+
+Saved state used
+  checkpoint read by Stage 2 : outputs/stage2/restart_input.exo (byte-identical copy of outputs/stage1/engine_output.exo, SHA-256 58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8)
+  saved states in checkpoint : 21 Exodus time steps; time step k+1 holds optimizer iteration k (steps 1..21 = iterations 0..20)
+  deck keywords              : initial_guess_file_name restart_input.exo, initial_guess_field_name control, restart_iteration 21, max_iterations 40
+  generated configuration    : engine_operations.xml Initialize Field Method FromFieldOnInputMesh, Name restart_input.exo, VariableName control, Iteration 21
+  => field `control`, saved state = checkpoint time step 21 = Stage-1 optimizer iteration 20 (the last saved state).
+
+Compliance comparison (optimizer diagnostics of both stages)
+  Stage-1 iteration 20 F(X)      : 2.360040e+05   (opt_criteria_history.csv full precision: 236003.95811001546)
+  Stage-2 local iteration 0 F(X) : 2.360040e+05   (opt_criteria_history.csv full precision: 236003.95811001546)
+  relative difference            : 0.000e+00  (identical)
+  Stage-1 iterations whose F(X) equals the first Stage-2 F(X): [20]  (iteration 19 would have been 2.388394e+05)
+  Norm(F') and H1(X) at Stage-2 iteration 0 also equal the Stage-1 iteration-20 values (see JSON).
+
+Saved-field comparison (netCDF4 read of the Exodus files)
+  max|control(Stage-2 engine_output step 1) - control(checkpoint step 21, iteration 20)| = 0.000e+00
+  max|control(Stage-2 engine_output step 1) - control(checkpoint step 20, iteration 19)| = 2.000e-01  (contrast: a different design)
+  max|topology(Stage-2 step 1) - topology(checkpoint step 21)|                         = 0.000e+00
+
+How the restart_iteration value was determined (and what would have been wrong)
+  The User Manual (2.5.10) defines restart_iteration as 'which iteration (time step) in the initial guess file'. The checkpoint stores
+  iteration k at time step k+1, so the value was settled by two 1-iteration probe jobs on compute nodes before Stage 2 was submitted:
+    probe_ri20: restart_iteration 20 -> first F(X) 2.388394e+05 = Stage-1 iteration [19]  (run dir work/stage2/probe_runs/ri20)
+    probe_ri21: restart_iteration 21 -> first F(X) 2.360040e+05 = Stage-1 iteration [20]  (run dir work/stage2/probe_runs/ri21)
+  restart_iteration 20 would have restarted from the iteration-19 design (its own next iteration then reproduced the iteration-20
+  compliance 2.360040e+05, confirming the one-step offset). The engine interprets the value as the 1-based Exodus time-step index,
+  so restart_iteration 21 was used for Stage 2. The probes were not used as Stage-2 results; they are kept under work/stage2/probe_runs/
+  and their diagnostics/logs under outputs/stage2/run_logs/restart_probes/.
+
+Iteration counts
+  Stage 1: iterations 0..20 (21 evaluations), stopped at the iteration cap. Stage 2: local iterations 0..40 (41 evaluations), stopped at the
+  iteration cap; overall iteration reached = 60. Stage-2 local iteration 0 is a re-evaluation of the Stage-1 iteration-20 design.
+  Stage-2 compliance history: first 2.360040e+05, last (local 40 = overall 60) 2.135584e+05
+
+Checks: 10/10 pass (ALL PASS)
+  [PASS] stage 2 reads the `control` field (not `topology`)
+  [PASS] stage 2 reads restart_input.exo = byte-identical copy of the Stage-1 checkpoint
+  [PASS] first Stage-2 compliance (local iter 0) == Stage-1 iteration-20 compliance (diagnostics, 7 significant digits)
+  [PASS] Stage-1 iteration matched by the first Stage-2 compliance is 20 only
+  [PASS] first Stage-2 objective == last Stage-1 objective (full precision, opt_criteria_history.csv, rel diff <= 1e-12)
+  [PASS] first Stage-2 Norm(F') and H1 equal Stage-1 iteration-20 values
+  [PASS] checkpoint has 21 saved states; restart <Iteration> points at the last one (time step 21 = optimizer iteration 20)
+  [PASS] Stage-2 initial `control` (engine output step 1) == checkpoint `control` at time step 21 (iteration 20), max|diff| == 0
+  [PASS] Stage-2 initial `topology` == checkpoint `topology` at time step 21 (filter reproduces the same filtered density)
+  [PASS] the saved state named by <Iteration> is the iteration-20 control field

@@ -1,0 +1,31 @@
+# Frozen workflow EX8 (FROZEN-EX8-v1): half cantilever design domain
+# Brick x in [0,2], y in [0,1], z in [0,0.5]; structured HEX8 mesh, h = 1/24
+# Trial: E1-example8-baseline-02
+reset
+brick x 2.0 y 1.0 z 0.5
+# Cubit creates the brick centred at the origin; translate so the corner is at the origin
+move volume 1 x 1.0 y 0.5 z 0.25
+# Intervals: x-edges (length 2.0) -> 48, y-edges (length 1.0) -> 24, z-edges (length 0.5) -> 12
+curve all interval 24
+curve with length > 1.5 interval 48
+curve with length < 0.75 interval 12
+volume 1 scheme map
+mesh volume 1
+# Single optimizable block containing every element
+block 1 add volume 1
+block 1 name "block_1"
+block 1 element type HEX8
+# Fixed face x = 0
+nodeset 1 add surface with x_coord < 0.001
+nodeset 1 name "ns_fix"
+# Loaded edge x = 2, y = 0, spanning z in [0, 0.5]
+nodeset 2 add curve with x_coord > 1.999 and y_coord < 0.001
+nodeset 2 name "ns_load"
+# Symmetry (cut) plane z = 0.5
+sideset 1 add surface with z_coord > 0.499
+sideset 1 name "ss_sym"
+list block 1
+list nodeset 1
+list nodeset 2
+list sideset 1
+export mesh "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_02/work/mesh/mesh.exo" dimension 3 overwrite

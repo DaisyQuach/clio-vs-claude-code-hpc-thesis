@@ -1,0 +1,626 @@
+{
+  "directory": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2",
+  "utc": "2026-10-09T21:48:17Z",
+  "checks": [
+    {
+      "check": "helmholtz_physics",
+      "pass": true,
+      "got": "Helmholtz Filter",
+      "expected": "Helmholtz Filter",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_helmholtz_input_deck.xml"
+    },
+    {
+      "check": "helmholtz_mesh",
+      "pass": true,
+      "got": "mesh.exo",
+      "expected": "mesh.exo",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_helmholtz_input_deck.xml"
+    },
+    {
+      "check": "helmholtz_length_scale_present_and_equals_0.15/(2sqrt3)",
+      "pass": true,
+      "got": 0.043301,
+      "expected": 0.043301,
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_helmholtz_input_deck.xml"
+    },
+    {
+      "check": "helmholtz_surface_length_scale_present_=1.0",
+      "pass": true,
+      "got": "1.0",
+      "expected": "1.0",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_helmholtz_input_deck.xml"
+    },
+    {
+      "check": "helmholtz_symmetry_plane_sideset_present_=ss_sym",
+      "pass": true,
+      "got": "{ss_sym}",
+      "expected": "{ss_sym}",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_helmholtz_input_deck.xml"
+    },
+    {
+      "check": "helmholtz_domain_block_1_only",
+      "pass": true,
+      "got": [
+        "block_1"
+      ],
+      "expected": [
+        "block_1"
+      ],
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_helmholtz_input_deck.xml"
+    },
+    {
+      "check": "analyze_physics_mechanical",
+      "pass": true,
+      "got": "Mechanical",
+      "expected": "Mechanical",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_spatial_dimension_3",
+      "pass": true,
+      "got": "3",
+      "expected": "3",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_mesh",
+      "pass": true,
+      "got": "mesh.exo",
+      "expected": "mesh.exo",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_single_material",
+      "pass": true,
+      "got": [
+        "material_1"
+      ],
+      "expected": 1,
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_material_isotropic_linear_elastic",
+      "pass": true,
+      "got": true,
+      "expected": true,
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_youngs_modulus_1.0",
+      "pass": true,
+      "got": "1.0",
+      "expected": "1.0",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_poissons_ratio_0.3",
+      "pass": true,
+      "got": "0.3",
+      "expected": "0.3",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_domain_block_1_only",
+      "pass": true,
+      "got": [
+        "block_1"
+      ],
+      "expected": [
+        "block_1"
+      ],
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_single_objective_criterion",
+      "pass": true,
+      "got": [
+        "My Objective"
+      ],
+      "expected": 1,
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_criterion_type_compliance(Internal Elastic Energy)",
+      "pass": true,
+      "got": "Internal Elastic Energy",
+      "expected": "Internal Elastic Energy",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_criterion_SIMP",
+      "pass": true,
+      "got": "SIMP",
+      "expected": "SIMP",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_criterion_SIMP_exponent_3.0",
+      "pass": true,
+      "got": "3.0",
+      "expected": "3.0",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_criterion_minimum_ersatz_1e-3",
+      "pass": true,
+      "got": "1e-3",
+      "expected": "1e-3",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_residual_single_phase",
+      "pass": true,
+      "got": "Single-Phase",
+      "expected": "Single-Phase",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_residual_linear",
+      "pass": true,
+      "got": "Linear",
+      "expected": "Linear",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_residual_SIMP",
+      "pass": true,
+      "got": "SIMP",
+      "expected": "SIMP",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_residual_SIMP_exponent_3.0",
+      "pass": true,
+      "got": "3.0",
+      "expected": "3.0",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_residual_SIMP_minimum_1e-3",
+      "pass": true,
+      "got": "1e-3",
+      "expected": "1e-3",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_one_concentrated_load",
+      "pass": true,
+      "got": 1,
+      "expected": 1,
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_load_dof_y(index1)",
+      "pass": true,
+      "got": "1",
+      "expected": "1",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_load_value_-1.0",
+      "pass": true,
+      "got": "-1.0",
+      "expected": "-1.0",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_load_nodeset_ns_load",
+      "pass": true,
+      "got": "ns_load",
+      "expected": "ns_load",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_no_tractions",
+      "pass": true,
+      "got": 0,
+      "expected": 0,
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_no_body_loads",
+      "pass": true,
+      "got": false,
+      "expected": false,
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_essential_bcs_ns_fix_xyz_and_ss_sym_z",
+      "pass": true,
+      "got": [
+        [
+          "ns_fix",
+          "0",
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "ns_fix",
+          "1",
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "ns_fix",
+          "2",
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "ss_sym",
+          "2",
+          "Fixed Value",
+          "0.0"
+        ]
+      ],
+      "expected": [
+        [
+          "ns_fix",
+          "0",
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "ns_fix",
+          "1",
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "ns_fix",
+          "2",
+          "Fixed Value",
+          "0.0"
+        ],
+        [
+          "ss_sym",
+          "2",
+          "Fixed Value",
+          "0.0"
+        ]
+      ],
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "analyze_output_displacements_xyz",
+      "pass": true,
+      "got": "{displacement_x, displacement_y, displacement_z}",
+      "expected": "{displacement_x, displacement_y, displacement_z}",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/analyze_2_input_deck.xml"
+    },
+    {
+      "check": "interface_performers_engine+analyze+helmholtz",
+      "pass": true,
+      "got": [
+        [
+          "engine_1",
+          "engine"
+        ],
+        [
+          "analyze_2",
+          "analyze"
+        ],
+        [
+          "analyze_helmholtz",
+          "analyze"
+        ]
+      ],
+      "expected": [
+        [
+          "engine_1",
+          "engine"
+        ],
+        [
+          "analyze_2",
+          "analyze"
+        ],
+        [
+          "analyze_helmholtz",
+          "analyze"
+        ]
+      ],
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_optimizer_OC",
+      "pass": true,
+      "got": "OC",
+      "expected": "OC",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_max_iterations_50",
+      "pass": true,
+      "got": "50",
+      "expected": "50",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_update_problem_frequency_1",
+      "pass": true,
+      "got": "1",
+      "expected": "1",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_update_problem_stage_present",
+      "pass": true,
+      "got": "Update Problem",
+      "expected": "Update Problem",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_OC_default_tolerances",
+      "pass": true,
+      "got": {
+        "OCControlStagnationTolerance": "1e-4",
+        "OCObjectiveStagnationTolerance": "1e-8",
+        "OCGradientTolerance": "1e-8"
+      },
+      "expected": {
+        "OCControlStagnationTolerance": "1e-4",
+        "OCObjectiveStagnationTolerance": "1e-8",
+        "OCGradientTolerance": "1e-8"
+      },
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_single_constraint",
+      "pass": true,
+      "got": 1,
+      "expected": 1,
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_constraint_relative_target_0.15",
+      "pass": true,
+      "got": "0.15",
+      "expected": "0.15",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_constraint_reference_design_volume",
+      "pass": true,
+      "got": "Design Volume",
+      "expected": "Design Volume",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_bounds_0_1",
+      "pass": true,
+      "got": [
+        "0.0",
+        "1.0"
+      ],
+      "expected": [
+        "0.0",
+        "1.0"
+      ],
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_filtered_variable_Topology",
+      "pass": true,
+      "got": "Topology",
+      "expected": "Topology",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_constraint_value_by_engine",
+      "pass": true,
+      "got": [
+        [
+          "Filter Control",
+          "analyze_helmholtz"
+        ],
+        [
+          "Compute Constraint Value 1",
+          "engine_1"
+        ],
+        [
+          "Copy Value",
+          "engine_1"
+        ]
+      ],
+      "expected": "engine_1 computes constraint",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_objective_value_by_analyze",
+      "pass": true,
+      "got": [
+        [
+          "Filter Control",
+          "analyze_helmholtz"
+        ],
+        [
+          "Compute Objective Value",
+          "analyze_2"
+        ],
+        [
+          "Aggregate Data",
+          "engine_1"
+        ]
+      ],
+      "expected": "analyze_2 computes objective",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_filter_by_helmholtz_service",
+      "pass": true,
+      "got": [
+        [
+          [
+            "Filter Control",
+            "analyze_helmholtz"
+          ],
+          [
+            "Compute Objective Value",
+            "analyze_2"
+          ],
+          [
+            "Aggregate Data",
+            "engine_1"
+          ]
+        ],
+        [
+          [
+            "Filter Control",
+            "analyze_helmholtz"
+          ],
+          [
+            "Compute Objective Gradient",
+            "analyze_2"
+          ],
+          [
+            "Aggregate Data",
+            "engine_1"
+          ],
+          [
+            "Filter Gradient",
+            "analyze_helmholtz"
+          ]
+        ]
+      ],
+      "expected": "analyze_helmholtz filters control and gradient",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "interface_output_stage_present",
+      "pass": true,
+      "got": "Output To File",
+      "expected": "Output To File",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/interface.xml"
+    },
+    {
+      "check": "engine_initial_density_uniform_0.15",
+      "pass": true,
+      "got": [
+        "Uniform",
+        "0.15"
+      ],
+      "expected": [
+        "Uniform",
+        "0.15"
+      ],
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/engine_operations.xml"
+    },
+    {
+      "check": "engine_update_problem_frequency_1",
+      "pass": true,
+      "got": "1",
+      "expected": "1",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/engine_operations.xml"
+    },
+    {
+      "check": "engine_output_control_and_topology",
+      "pass": true,
+      "got": [
+        "control",
+        "topology"
+      ],
+      "expected": [
+        "control",
+        "topology"
+      ],
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/engine_operations.xml"
+    },
+    {
+      "check": "engine_output_max_iterations_50",
+      "pass": true,
+      "got": "50",
+      "expected": "50",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/engine_operations.xml"
+    },
+    {
+      "check": "engine_aggregator_single_weight_1",
+      "pass": true,
+      "got": [
+        "1"
+      ],
+      "expected": [
+        "1"
+      ],
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/engine_operations.xml"
+    },
+    {
+      "check": "engine_aggregator_no_normalization(normalize_in_aggregator=false)",
+      "pass": true,
+      "got": "no normalization element",
+      "expected": "no normalization element",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/engine_operations.xml"
+    },
+    {
+      "check": "engine_discretization_density",
+      "pass": true,
+      "got": "density",
+      "expected": "density",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/engine_operations.xml"
+    },
+    {
+      "check": "engine_constraint_is_volume",
+      "pass": true,
+      "got": "ComputeVolume",
+      "expected": "ComputeVolume",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/engine_operations.xml"
+    },
+    {
+      "check": "engine_mesh_file",
+      "pass": true,
+      "got": "mesh.exo",
+      "expected": "mesh.exo",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/engine_input_deck.xml"
+    },
+    {
+      "check": "engine_single_block",
+      "pass": true,
+      "got": [
+        1,
+        "1"
+      ],
+      "expected": [
+        1,
+        "1"
+      ],
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/engine_input_deck.xml"
+    },
+    {
+      "check": "engine_output_file_engine_output",
+      "pass": true,
+      "got": "engine_output",
+      "expected": "engine_output",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/engine_input_deck.xml"
+    },
+    {
+      "check": "mpirun_three_single_rank_performers",
+      "pass": true,
+      "got": [
+        "1",
+        "1",
+        "1"
+      ],
+      "expected": [
+        "1",
+        "1",
+        "1"
+      ],
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/mpirun.source"
+    },
+    {
+      "check": "mpirun_executables",
+      "pass": true,
+      "got": "PlatoMain + 2x analyze_MPMD",
+      "expected": "PlatoMain + 2x analyze_MPMD",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/mpirun.source"
+    },
+    {
+      "check": "mpirun_no_mesh_decomposition",
+      "pass": true,
+      "got": "no decomposition",
+      "expected": "no decomposition",
+      "where": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_04R2/work/run2/mpirun.source"
+    }
+  ],
+  "all_pass": true,
+  "n_checks": 61
+}

@@ -1,0 +1,29 @@
+## Cubit journal -- frozen workflow EX16 (FROZEN-EX16-v1), full cantilever design domain
+## Domain: brick x in [0,2], y in [0,1], z in [0,1]; structured HEX8 mapped mesh, h = 1/24
+## Produces: 48 x 24 x 24 = 27,648 HEX8 elements, 30,625 nodes
+## Block: block_1 (all elements); nodesets: ns_fix (face x=0), ns_load (edge x=2, y=0)
+reset
+brick x 2 y 1 z 1
+## brick is created centred at the origin; move it so the corner sits at the origin
+move volume 1 x 1 y 0.5 z 0.5 include_merged
+## uniform structured intervals: 48 along x (length 2), 24 along y and z (length 1)
+curve in volume 1 with length > 1.5 interval 48
+curve in volume 1 with length < 1.5 interval 24
+volume 1 scheme map
+mesh volume 1
+## element block containing the whole domain
+block 1 add volume 1
+block 1 name "block_1"
+block 1 element type HEX8
+## nodeset ns_fix: all nodes on the face x = 0
+nodeset 1 add surface in volume 1 with x_coord < 0.001
+nodeset 1 name "ns_fix"
+## nodeset ns_load: all nodes on the edge x = 2, y = 0 (spanning z in [0,1])
+nodeset 2 add curve in volume 1 with x_coord > 1.999 and y_coord < 0.001
+nodeset 2 name "ns_load"
+## report
+list block 1
+list nodeset 1
+list nodeset 2
+## export Exodus II, dimension 3
+export mesh "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E2_interrupted_recovery_example16/baseline/trial_02R/work/mesh/mesh.exo" dimension 3 overwrite

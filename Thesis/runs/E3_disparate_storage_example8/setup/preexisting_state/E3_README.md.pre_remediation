@@ -1,0 +1,17 @@
+# E3 — distributed-context study (Symmetry-Plane Cantilever, based on Morphorm Example 8)
+
+Set up 2026-10-09/10 UTC. **No trial has been run; nothing here is a result.** Start with `setup/E3_SETUP_REPORT.md`.
+
+| Path | Content | Visibility |
+|---|---|---|
+| `setup/` | setup report, source inventory (CSV + SHA-256), exclusions, permissions audit, access-qualification plan, Globus action, pre-existing state | researcher |
+| `github_control_repo_worktree/` | worktree of the private repo `DaisyQuach/daisy-e3-distributed-context-control` (task, frozen spec `E3-SPC-v1`, catalog, protocol, helpers) | agent-visible (via clone at pinned commit) |
+| `globus_source_root/` | private Globus-ready collection: manuals, curated documentation, target specification + figure | agent-visible, private |
+| `chpc_candidate_archive/` | read-only curated packages of Examples 1, 2, 7, 16 (no results) | agent-visible |
+| `researcher_only/` | Example 8 reference records (hashes only) and reserved evaluation area | **never agent-visible** |
+| `baseline/trial_01/`, `clio/trial_01/` | fresh E3 trial workspaces (`agent-inputs work staging-manifest jobs logs outputs provenance manifest.yaml`) | agent-visible during a trial |
+| `automation/` | non-destructive workspace/staging/provenance/audit scripts and the baseline headless automation | researcher |
+
+Pre-existing content kept unchanged: `baseline/trial_01..05/agent_inputs/` and `manifest.yaml` legacy keys from the 2026-10-09 thesis
+build (E1-identical frozen Example 8 packets), `clio/README.md`. The previous version of this README is
+`setup/preexisting_state/E3_README.md.pre_e3_setup`.

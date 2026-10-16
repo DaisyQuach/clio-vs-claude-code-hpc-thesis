@@ -1,0 +1,9 @@
+FROZEN-EX16-v1 Stage-1 checkpoint (trial E2-example16-baseline-03)
+Checkpoint file (unmodified Stage-1 engine output, 21 saved states = iterations 0..20):
+  outputs/stage1/engine_output.exo   sha256 58dee7768b6c3bd768df5e4db4ec2c012e7eb9706647484920a38b03be5a07e8
+  (original in run directory: work/stage1/engine_output.exo, identical sha256)
+Nodal fields: control (raw design variable), topology (filtered density)
+Exodus time-step index k (1-based, time_whole = k) holds optimization iteration k-1; the iteration-20 design is the LAST saved state (time step 21, time value 21.0).
+Stage 2 must read the iteration-20 design from the 'control' field of a COPY of this file (locked path outputs/stage2/restart_input.exo).
+Stage-1 compliance at iteration 20 (diagnostics F(X)): 2.360040e+05 (opt_criteria_history.csv: 2.3600395811001546e+05)
+Stage 2 has NOT been started in Session A.

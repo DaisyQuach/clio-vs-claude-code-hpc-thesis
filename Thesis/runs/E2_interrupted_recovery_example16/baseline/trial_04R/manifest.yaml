@@ -1,0 +1,29 @@
+run_id: E2-example16-baseline-04R
+status: completed_unscored
+experiment: E2
+experiment_selector: e2-example16
+workflow: frozen_example16
+paired_block: E2-04
+system: baseline
+frozen_configuration_id: FROZEN-EX16-v1
+frozen_configuration_sha256: a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+agent_inputs_sha256: a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+model_identifier: claude-fable-5-1
+agent_harness: claude-code
+agent_harness_version: "2.1.295"
+headless: true
+slurm_contract: "account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00"
+created_utc: 2026-10-09T22:38:14Z
+started_utc: 2026-10-09T22:39:26Z
+finished_utc: 2026-10-09T23:53:05Z
+agent_session_ids: "c8180d83-a7ea-40ac-b5c0-c03a883e40ba,ac097af2-04d3-41a0-9159-18dd75bc7c42"
+agent_host_job_ids: "16168160,16168311"
+workflow_job_ids: "16168225,16168323,16168342"
+evidence_sha256_manifest: logs/evidence_SHA256SUMS.txt
+packet_verification: logs/packet_verification.json
+curation_researcher_reviewed: "2026-10-10"
+curation_include_in_analysis: true
+curation_notes: "replacement for trial_04 (provider session limit abort); trial_04 retained as evidence and excluded"
+scoring_decision: accepted
+scoring_scored_utc: 2026-10-09T23:53:49Z
+scoring_record: researcher_only/scores/E2-example16-baseline-04R/score.json

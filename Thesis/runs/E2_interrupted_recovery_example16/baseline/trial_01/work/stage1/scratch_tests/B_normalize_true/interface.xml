@@ -1,0 +1,531 @@
+<?xml version="1.0"?>
+<Console>
+  <Enabled>true</Enabled>
+  <Verbose>false</Verbose>
+</Console>
+<Performer>
+  <Name>engine_1</Name>
+  <Code>engine</Code>
+  <PerformerID>0</PerformerID>
+</Performer>
+<Performer>
+  <Name>analyze_2</Name>
+  <Code>analyze</Code>
+  <PerformerID>1</PerformerID>
+</Performer>
+<Performer>
+  <Name>analyze_helmholtz</Name>
+  <Code>analyze</Code>
+  <PerformerID>2</PerformerID>
+</Performer>
+<SharedData>
+  <Name>Control</Name>
+  <Type>Scalar</Type>
+  <Layout>Nodal Field</Layout>
+  <OwnerName>engine_1</OwnerName>
+  <UserName>engine_1</UserName>
+  <UserName>analyze_2</UserName>
+  <UserName>analyze_helmholtz</UserName>
+</SharedData>
+<SharedData>
+  <Name>Lower Bound Value</Name>
+  <Type>Scalar</Type>
+  <Layout>Global</Layout>
+  <Size>1</Size>
+  <OwnerName>engine_1</OwnerName>
+  <UserName>engine_1</UserName>
+</SharedData>
+<SharedData>
+  <Name>Lower Bound Vector</Name>
+  <Type>Scalar</Type>
+  <Layout>Nodal Field</Layout>
+  <OwnerName>engine_1</OwnerName>
+  <UserName>engine_1</UserName>
+</SharedData>
+<SharedData>
+  <Name>Upper Bound Value</Name>
+  <Type>Scalar</Type>
+  <Layout>Global</Layout>
+  <Size>1</Size>
+  <OwnerName>engine_1</OwnerName>
+  <UserName>engine_1</UserName>
+</SharedData>
+<SharedData>
+  <Name>Upper Bound Vector</Name>
+  <Type>Scalar</Type>
+  <Layout>Nodal Field</Layout>
+  <OwnerName>engine_1</OwnerName>
+  <UserName>engine_1</UserName>
+</SharedData>
+<SharedData>
+  <Name>Design Volume</Name>
+  <Type>Scalar</Type>
+  <Layout>Global</Layout>
+  <Size>1</Size>
+  <OwnerName>engine_1</OwnerName>
+  <UserName>engine_1</UserName>
+</SharedData>
+<SharedData>
+  <Name>Criterion Value - criterion_1_service_2_scenario_1</Name>
+  <Type>Scalar</Type>
+  <Layout>Global</Layout>
+  <Size>1</Size>
+  <OwnerName>analyze_2</OwnerName>
+  <UserName>engine_1</UserName>
+</SharedData>
+<SharedData>
+  <Name>Criterion Gradient - criterion_1_service_2_scenario_1</Name>
+  <Type>Scalar</Type>
+  <Layout>Nodal Field</Layout>
+  <OwnerName>analyze_2</OwnerName>
+  <UserName>engine_1</UserName>
+  <UserName>analyze_helmholtz</UserName>
+</SharedData>
+<SharedData>
+  <Name>Criterion Value - criterion_2_service_1_scenario_</Name>
+  <Type>Scalar</Type>
+  <Layout>Global</Layout>
+  <Size>1</Size>
+  <OwnerName>engine_1</OwnerName>
+  <UserName>engine_1</UserName>
+</SharedData>
+<SharedData>
+  <Name>Criterion Gradient - criterion_2_service_1_scenario_</Name>
+  <Type>Scalar</Type>
+  <Layout>Nodal Field</Layout>
+  <OwnerName>engine_1</OwnerName>
+  <UserName>engine_1</UserName>
+  <UserName>analyze_helmholtz</UserName>
+</SharedData>
+<SharedData>
+  <Name>Constraint Value 1</Name>
+  <Type>Scalar</Type>
+  <Layout>Global</Layout>
+  <Size>1</Size>
+  <OwnerName>engine_1</OwnerName>
+  <UserName>engine_1</UserName>
+</SharedData>
+<SharedData>
+  <Name>Constraint Gradient 1</Name>
+  <Type>Scalar</Type>
+  <Layout>Nodal Field</Layout>
+  <OwnerName>analyze_helmholtz</OwnerName>
+  <UserName>analyze_helmholtz</UserName>
+  <UserName>engine_1</UserName>
+</SharedData>
+<SharedData>
+  <Name>Objective Value</Name>
+  <Type>Scalar</Type>
+  <Layout>Global</Layout>
+  <Size>1</Size>
+  <OwnerName>engine_1</OwnerName>
+  <UserName>engine_1</UserName>
+</SharedData>
+<SharedData>
+  <Name>Objective Gradient</Name>
+  <Type>Scalar</Type>
+  <Layout>Nodal Field</Layout>
+  <OwnerName>analyze_helmholtz</OwnerName>
+  <UserName>analyze_helmholtz</UserName>
+  <UserName>engine_1</UserName>
+</SharedData>
+<SharedData>
+  <Name>Aggregate Gradient</Name>
+  <Type>Scalar</Type>
+  <Layout>Nodal Field</Layout>
+  <OwnerName>engine_1</OwnerName>
+  <UserName>engine_1</UserName>
+  <UserName>analyze_helmholtz</UserName>
+</SharedData>
+<SharedData>
+  <Name>Initial Criterion Value - criterion_1_service_2_scenario_1</Name>
+  <Type>Scalar</Type>
+  <Layout>Global</Layout>
+  <Size>1</Size>
+  <OwnerName>analyze_2</OwnerName>
+  <UserName>engine_1</UserName>
+</SharedData>
+<SharedData>
+  <Name>Topology</Name>
+  <Type>Scalar</Type>
+  <Layout>Nodal Field</Layout>
+  <OwnerName>analyze_helmholtz</OwnerName>
+  <UserName>engine_1</UserName>
+  <UserName>analyze_2</UserName>
+  <UserName>analyze_helmholtz</UserName>
+</SharedData>
+<Stage>
+  <Name>Design Volume</Name>
+  <Operation>
+    <Name>Design Volume</Name>
+    <PerformerName>engine_1</PerformerName>
+    <Output>
+      <ArgumentName>Design Volume</ArgumentName>
+      <SharedDataName>Design Volume</SharedDataName>
+    </Output>
+  </Operation>
+  <Output>
+    <SharedDataName>Design Volume</SharedDataName>
+  </Output>
+</Stage>
+<Stage>
+  <Name>Initial Guess</Name>
+  <Operation>
+    <Name>Initialize Field</Name>
+    <PerformerName>engine_1</PerformerName>
+    <Output>
+      <ArgumentName>Initialized Field</ArgumentName>
+      <SharedDataName>Control</SharedDataName>
+    </Output>
+  </Operation>
+  <Operation>
+    <Name>Filter Control</Name>
+    <PerformerName>analyze_helmholtz</PerformerName>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Control</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Topology</SharedDataName>
+    </Output>
+  </Operation>
+  <Operation>
+    <Name>Compute Objective Value</Name>
+    <PerformerName>analyze_2</PerformerName>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Topology</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Objective Value</ArgumentName>
+      <SharedDataName>Initial Criterion Value - criterion_1_service_2_scenario_1</SharedDataName>
+    </Output>
+  </Operation>
+  <Output>
+    <SharedDataName>Control</SharedDataName>
+  </Output>
+</Stage>
+<Stage>
+  <Name>Set Lower Bounds</Name>
+  <Input>
+    <SharedDataName>Lower Bound Value</SharedDataName>
+  </Input>
+  <Operation>
+    <Name>Compute Lower Bounds</Name>
+    <PerformerName>engine_1</PerformerName>
+    <Input>
+      <ArgumentName>Lower Bound Value</ArgumentName>
+      <SharedDataName>Lower Bound Value</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Lower Bound Vector</ArgumentName>
+      <SharedDataName>Lower Bound Vector</SharedDataName>
+    </Output>
+  </Operation>
+  <Output>
+    <SharedDataName>Lower Bound Vector</SharedDataName>
+  </Output>
+</Stage>
+<Stage>
+  <Name>Set Upper Bounds</Name>
+  <Input>
+    <SharedDataName>Upper Bound Value</SharedDataName>
+  </Input>
+  <Operation>
+    <Name>Compute Upper Bounds</Name>
+    <PerformerName>engine_1</PerformerName>
+    <Input>
+      <ArgumentName>Upper Bound Value</ArgumentName>
+      <SharedDataName>Upper Bound Value</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Upper Bound Vector</ArgumentName>
+      <SharedDataName>Upper Bound Vector</SharedDataName>
+    </Output>
+  </Operation>
+  <Output>
+    <SharedDataName>Upper Bound Vector</SharedDataName>
+  </Output>
+</Stage>
+<Stage>
+  <Name>Output To File</Name>
+  <Operation>
+    <Name>Visualization</Name>
+    <PerformerName>analyze_2</PerformerName>
+  </Operation>
+  <Operation>
+    <Name>PlatoMainOutput</Name>
+    <PerformerName>engine_1</PerformerName>
+    <Input>
+      <ArgumentName>topology</ArgumentName>
+      <SharedDataName>Topology</SharedDataName>
+    </Input>
+    <Input>
+      <ArgumentName>control</ArgumentName>
+      <SharedDataName>Control</SharedDataName>
+    </Input>
+  </Operation>
+</Stage>
+<Stage>
+  <Name>Update Problem</Name>
+  <Operation>
+    <Name>Update Problem</Name>
+    <PerformerName>engine_1</PerformerName>
+  </Operation>
+</Stage>
+<Stage>
+  <Name>Compute Constraint Value 1</Name>
+  <Input>
+    <SharedDataName>Control</SharedDataName>
+  </Input>
+  <Operation>
+    <Name>Filter Control</Name>
+    <PerformerName>analyze_helmholtz</PerformerName>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Control</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Topology</SharedDataName>
+    </Output>
+  </Operation>
+  <Operation>
+    <Name>Compute Constraint Value 1</Name>
+    <PerformerName>engine_1</PerformerName>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Topology</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Volume</ArgumentName>
+      <SharedDataName>Criterion Value - criterion_2_service_1_scenario_</SharedDataName>
+    </Output>
+    <Output>
+      <ArgumentName>Volume Gradient</ArgumentName>
+      <SharedDataName>Criterion Gradient - criterion_2_service_1_scenario_</SharedDataName>
+    </Output>
+  </Operation>
+  <Operation>
+    <Name>Copy Value</Name>
+    <PerformerName>engine_1</PerformerName>
+    <Input>
+      <ArgumentName>InputValue</ArgumentName>
+      <SharedDataName>Criterion Value - criterion_2_service_1_scenario_</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>OutputValue</ArgumentName>
+      <SharedDataName>Constraint Value 1</SharedDataName>
+    </Output>
+  </Operation>
+  <Output>
+    <SharedDataName>Constraint Value 1</SharedDataName>
+  </Output>
+</Stage>
+<Stage>
+  <Name>Compute Constraint Gradient 1</Name>
+  <Input>
+    <SharedDataName>Control</SharedDataName>
+  </Input>
+  <Operation>
+    <Name>Filter Control</Name>
+    <PerformerName>analyze_helmholtz</PerformerName>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Control</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Topology</SharedDataName>
+    </Output>
+  </Operation>
+  <Operation>
+    <Name>Compute Constraint Gradient 1</Name>
+    <PerformerName>engine_1</PerformerName>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Topology</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Volume</ArgumentName>
+      <SharedDataName>Criterion Value - criterion_2_service_1_scenario_</SharedDataName>
+    </Output>
+    <Output>
+      <ArgumentName>Volume Gradient</ArgumentName>
+      <SharedDataName>Criterion Gradient - criterion_2_service_1_scenario_</SharedDataName>
+    </Output>
+  </Operation>
+  <Operation>
+    <Name>Filter Gradient</Name>
+    <PerformerName>analyze_helmholtz</PerformerName>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Criterion Gradient - criterion_2_service_1_scenario_</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Constraint Gradient 1</SharedDataName>
+    </Output>
+  </Operation>
+  <Output>
+    <SharedDataName>Constraint Gradient 1</SharedDataName>
+  </Output>
+</Stage>
+<Stage>
+  <Name>Compute Objective Value</Name>
+  <Input>
+    <SharedDataName>Control</SharedDataName>
+  </Input>
+  <Operation>
+    <Name>Filter Control</Name>
+    <PerformerName>analyze_helmholtz</PerformerName>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Control</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Topology</SharedDataName>
+    </Output>
+  </Operation>
+  <Operation>
+    <Name>Compute Objective Value</Name>
+    <PerformerName>analyze_2</PerformerName>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Topology</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Objective Value</ArgumentName>
+      <SharedDataName>Criterion Value - criterion_1_service_2_scenario_1</SharedDataName>
+    </Output>
+  </Operation>
+  <Operation>
+    <Name>Aggregate Data</Name>
+    <PerformerName>engine_1</PerformerName>
+    <Input>
+      <ArgumentName>Value 1</ArgumentName>
+      <SharedDataName>Criterion Value - criterion_1_service_2_scenario_1</SharedDataName>
+    </Input>
+    <Input>
+      <ArgumentName>Normal 1</ArgumentName>
+      <SharedDataName>Initial Criterion Value - criterion_1_service_2_scenario_1</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Value</ArgumentName>
+      <SharedDataName>Objective Value</SharedDataName>
+    </Output>
+  </Operation>
+  <Output>
+    <SharedDataName>Objective Value</SharedDataName>
+  </Output>
+</Stage>
+<Stage>
+  <Name>Compute Objective Gradient</Name>
+  <Input>
+    <SharedDataName>Control</SharedDataName>
+  </Input>
+  <Operation>
+    <Name>Filter Control</Name>
+    <PerformerName>analyze_helmholtz</PerformerName>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Control</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Topology</SharedDataName>
+    </Output>
+  </Operation>
+  <Operation>
+    <Name>Compute Objective Gradient</Name>
+    <PerformerName>analyze_2</PerformerName>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Topology</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Objective Gradient</ArgumentName>
+      <SharedDataName>Criterion Gradient - criterion_1_service_2_scenario_1</SharedDataName>
+    </Output>
+  </Operation>
+  <Operation>
+    <Name>Aggregate Data</Name>
+    <PerformerName>engine_1</PerformerName>
+    <Input>
+      <ArgumentName>Field 1</ArgumentName>
+      <SharedDataName>Criterion Gradient - criterion_1_service_2_scenario_1</SharedDataName>
+    </Input>
+    <Input>
+      <ArgumentName>Normal 1</ArgumentName>
+      <SharedDataName>Initial Criterion Value - criterion_1_service_2_scenario_1</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Field</ArgumentName>
+      <SharedDataName>Aggregate Gradient</SharedDataName>
+    </Output>
+  </Operation>
+  <Operation>
+    <Name>Filter Gradient</Name>
+    <PerformerName>analyze_helmholtz</PerformerName>
+    <Input>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Aggregate Gradient</SharedDataName>
+    </Input>
+    <Output>
+      <ArgumentName>Topology</ArgumentName>
+      <SharedDataName>Objective Gradient</SharedDataName>
+    </Output>
+  </Operation>
+  <Output>
+    <SharedDataName>Objective Gradient</SharedDataName>
+  </Output>
+</Stage>
+<Optimizer>
+  <Package>OC</Package>
+  <Options>
+    <OCControlStagnationTolerance>1e-4</OCControlStagnationTolerance>
+    <OCObjectiveStagnationTolerance>1e-8</OCObjectiveStagnationTolerance>
+    <OCGradientTolerance>1e-8</OCGradientTolerance>
+    <ProblemUpdateFrequency>1</ProblemUpdateFrequency>
+  </Options>
+  <Convergence>
+    <MaxIterations>20</MaxIterations>
+  </Convergence>
+  <UpdateProblemStage>
+    <Name>Update Problem</Name>
+  </UpdateProblemStage>
+  <Output>
+    <OutputStage>Output To File</OutputStage>
+  </Output>
+  <OptimizationVariables>
+    <ValueName>Control</ValueName>
+    <InitializationStage>Initial Guess</InitializationStage>
+    <FilteredName>Topology</FilteredName>
+    <LowerBoundValueName>Lower Bound Value</LowerBoundValueName>
+    <LowerBoundVectorName>Lower Bound Vector</LowerBoundVectorName>
+    <UpperBoundValueName>Upper Bound Value</UpperBoundValueName>
+    <UpperBoundVectorName>Upper Bound Vector</UpperBoundVectorName>
+    <SetLowerBoundsStage>Set Lower Bounds</SetLowerBoundsStage>
+    <SetUpperBoundsStage>Set Upper Bounds</SetUpperBoundsStage>
+  </OptimizationVariables>
+  <Objective>
+    <GradientName>Objective Gradient</GradientName>
+    <GradientStageName>Compute Objective Gradient</GradientStageName>
+    <ValueName>Objective Value</ValueName>
+    <ValueStageName>Compute Objective Value</ValueStageName>
+  </Objective>
+  <Constraint>
+    <GradientName>Constraint Gradient 1</GradientName>
+    <GradientStageName>Compute Constraint Gradient 1</GradientStageName>
+    <NormalizedTargetValue>0.15</NormalizedTargetValue>
+    <ReferenceValueName>Design Volume</ReferenceValueName>
+    <ValueName>Constraint Value 1</ValueName>
+    <ValueStageName>Compute Constraint Value 1</ValueStageName>
+  </Constraint>
+  <BoundConstraint>
+    <Upper>1.0</Upper>
+    <Lower>0.0</Lower>
+  </BoundConstraint>
+</Optimizer>

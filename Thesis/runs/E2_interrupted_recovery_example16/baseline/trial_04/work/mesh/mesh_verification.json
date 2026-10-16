@@ -1,0 +1,105 @@
+{
+  "frozen_configuration_id": "FROZEN-EX16-v1",
+  "mesh_file": "work/mesh/mesh.exo",
+  "mesh_sha256": "e28684a0510707efc9da8d68e59d99192567e1d21309d4edfae453d030ac0dec",
+  "verified_utc": "2026-10-09T21:45:33Z",
+  "num_dim": 3,
+  "num_nodes": 30625,
+  "num_elem": 27648,
+  "num_element_blocks": 1,
+  "num_nodesets": 2,
+  "num_sidesets": 0,
+  "bounding_box": [
+    [
+      0.0,
+      2.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      1.0
+    ]
+  ],
+  "blocks": [
+    {
+      "id": 1,
+      "name": "block_1",
+      "elem_type": "HEX8",
+      "num_elem": 27648,
+      "nodes_per_elem": 8
+    }
+  ],
+  "nodesets": [
+    {
+      "id": 1,
+      "name": "ns_fix",
+      "num_nodes": 625,
+      "x_range": [
+        0.0,
+        0.0
+      ],
+      "y_range": [
+        0.0,
+        1.0
+      ],
+      "z_range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ns_load",
+      "num_nodes": 25,
+      "x_range": [
+        2.0,
+        2.0
+      ],
+      "y_range": [
+        0.0,
+        0.0
+      ],
+      "z_range": [
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "sidesets": [],
+  "spacing": {
+    "nx_unique": 49,
+    "ny_unique": 25,
+    "nz_unique": 25,
+    "dx_min": 0.041666666599999846,
+    "dx_max": 0.04166666670000008,
+    "dy_min": 0.04166666659999996,
+    "dy_max": 0.04166666670000002,
+    "dz_min": 0.04166666659999996,
+    "dz_max": 0.04166666670000002
+  },
+  "element_volume": {
+    "min_elem_bbox_volume": 7.233796296296197e-05,
+    "max_elem_bbox_volume": 7.233796296296682e-05,
+    "total_volume": 2.0000000000000244,
+    "expected_elem_volume": 7.233796296296295e-05
+  },
+  "checks": {
+    "num_dim == 3": true,
+    "num_elem == 27648": true,
+    "num_nodes == 30625": true,
+    "one element block": true,
+    "block name == block_1": true,
+    "block elem type HEX8": true,
+    "block contains every element": true,
+    "bounding box [0,2]x[0,1]x[0,1]": true,
+    "uniform h=1/24 in x,y,z (49x25x25 coordinate planes)": true,
+    "total volume == 2.0": true,
+    "nodeset ns_fix exists with 625 nodes on x=0": true,
+    "nodeset ns_load exists with 25 nodes on x=2,y=0,z in [0,1]": true,
+    "no sidesets required (count recorded)": true
+  },
+  "all_checks_pass": true
+}

@@ -1,0 +1,93 @@
+# E3 blocker status (researcher-side; never agent-visible). Updated by each readiness step.
+updated_utc: 2026-10-10T03:20Z   # previous versions: preexisting_state/E3_BLOCKER_STATUS.{globus_login,gcs_consent}.yaml
+overall: NO-GO
+stopped_at: "Phase 2.4 — guest collection must be created in the Globus web app (CHPC GCS manager unreachable from login node notchpeak1)"
+next_action: setup/RESEARCHER_ACTION_REQUIRED.md
+resume_message: "Guest collection created: <UUID>. Resume E3 readiness."
+
+decisions_recorded:
+  access_model: procedural_researcher_only        # E1/E2 model; no technical/sandbox isolation claimed
+  globus: mandatory                               # direct local reading is not an equivalent fallback
+  trial_design: "5 baseline + 5 CLIO, trial_01..trial_05 each"
+  invalid_attempts: "retained and marked invalid; never replaced or overwritten"
+  clio_deployment: undecided                      # ask researcher at Phase 5; no CLIO runner created
+
+phase_1_reconcile:
+  status: done
+  globus_marked_mandatory: true                   # runner + prepare now refuse posix_readonly_fallback (exit 3, ACTION_REQUIRED globus_mandatory)
+  planned_trial_locations:
+    baseline: [trial_01, trial_02, trial_03, trial_04, trial_05]   # all exist, clean agent-inputs/, verify --planned PASS
+    clio: [trial_01, trial_02, trial_03, trial_04, trial_05]       # only trial_01 exists; 02..05 NOT created (deployment undecided)
+  execution_environment: "ordinary user environment, no sandbox"
+  cubit_license_lookup: "per-user Coreform activation in $HOME/.config/Coreform/ (cubit_creds, Cubit_ticket, licenses/, login_tokens.json, Cubit.ini); the E3 modulefile sets no licence variable; nothing read or launched"
+  pending_for_phase_2_commit:
+    - "catalog access_method and trial_context.md still describe the POSIX root of globus_source_root as the same collection; must state Globus as the access method once the collection ID exists"
+    - "agent access to the pinned Globus CLI (automation/environment/tools/ is not yet in E3_SOFTWARE_ROOTS or the loader)"
+
+blockers:
+  globus_configuration:
+    status: BLOCKED
+    detail: >-
+      globus-cli 3.43.0 installed (automation/environment/tools/globus-cli-3.43.0). Researcher login done:
+      'globus whoami' -> researcher identity (rc 0). Own/shared-by-me collections: none. Non-mutating 'globus ls' of
+      globus_source_root/ works through the CHPC mapped collections 7cf0baa1-8bd0-4e91-a1e6-c19042952a7c
+      (University of Utah -- CHPC DMZ Clustered Endpoint; GCS endpoint 70ea92f5-e653-42f3-bbe0-decb336c32cc) and
+      c9db086d-2b34-4d45-be5a-53886b48d475 (Intra-Campus). Mapped collections expose the account's whole filesystem
+      view, so they are not least-privilege. Required: a private guest collection rooted at globus_source_root/.
+      'globus gcs collection show' -> MissingLoginError: manage_collections consent missing.
+    needs: "researcher creates the guest collection in the Globus web app (setup/RESEARCHER_ACTION_REQUIRED.md)"
+    consent_step: "researcher reports manage_collections consent done (2026-10-10); not verifiable from here because the GCS manager is unreachable"
+    host_collection_properties:   # transfer API record, read-only (2026-10-10T03:15Z)
+      entity_type: GCSv5_mapped_collection
+      high_assurance: true
+      shareable: true              # guest collections permitted
+      authentication_timeout_mins: 525600   # 1 year: a noninteractive session will not expire mid-trial
+      force_encryption: true
+      gcs_manager_url: https://264d8.75bc.data.globus.org
+      https_server: https://m-78bbc5.264d8.75bc.data.globus.org
+    network_from_login_node_notchpeak1:
+      transfer_api: "reachable (HTTP 404 on /v0.10/ root, 0.25 s)"
+      globus_ls_via_transfer_api: works
+      gcs_manager_443: "timeout (DNS 204.99.128.85-88 resolves; TCP 443 filtered)"
+      collection_https_server_443: timeout
+      consequence: >-
+        CLI collection management (gcs collection create/show) and HTTPS download from the collection cannot run from
+        notchpeak1. Staging into $SLURM_TMPDIR is therefore expected to use a Globus transfer (DTN to DTN) into a
+        trial-local CHPC path, followed by a hash-checked cp. To be confirmed on a compute node in Phase 3.
+    chosen_host_collection: 7cf0baa1-8bd0-4e91-a1e6-c19042952a7c   # DMZ Clustered Endpoint (general-purpose CHPC DTN); guest-collection support not yet confirmed
+    planned_after_consent:
+      - "check that the storage gateway allows guest collections; if it does not, stop and give the CHPC helpdesk request"
+      - "create guest collection 'daisy-e3-private-source' rooted at globus_source_root/; no public access; no ACL for any other identity"
+      - "make globus_source_root/ read-only at the filesystem level (chmod a-w, like the candidate archive), because guest-collection ACLs alone may not stop the owning identity from writing (to be verified)"
+      - "verify with non-mutating 'globus ls'; record name, UUID, type, root, policy; no transfer of E3 files"
+    open_design_question: "how trials stage Globus files into node-local $SLURM_TMPDIR (Globus transfer to a CHPC path, then cp; or HTTPS download from the guest collection); fixed in Phase 3/4, identical for all ten trials"
+    procedural_note: "the researcher's Globus identity can also reach the mapped collections; agents must use only the guest collection ID, and Globus commands and collection IDs in session records will be audited"
+  github_at_pinned_commit:
+    status: OPEN
+    detail: "pin bd0b042de8bd38fe1149e9fc64aea832beb1bf3c readable noninteractively from the login node; compute node not tested; pin will change with the Globus commit"
+  compute_node_qualification:
+    status: NOT_STARTED
+    detail: "Phase 3; E3_access_pilot not created yet"
+  claude_2_1_295_readiness:
+    status: OPEN
+    detail: "login node: version 2.1.295, sha256 4503bfe1...f358, flags present; compute node and headless auth not tested"
+  ordinary_morphorm_cubit_license:
+    status: OPEN
+    detail: "licence location identified (per-user, account home); compute-node visibility not tested; no Cubit/Morphorm run"
+  baseline_runner_readiness:
+    status: OPEN
+    detail: "dry runs pass non-blocked checks; waits on Globus collection and compute-node qualification"
+  clio_deployment_and_runner:
+    status: BLOCKED_DECISION
+    detail: "existing E3 docs define no CLIO deployment mechanism (clio/README.md: no runner exists); researcher must choose local CLIO Desktop connected to CHPC or a documented remote/headless runner"
+  final_packet_freeze:
+    status: NOT_STARTED
+  account_name_provenance:
+    status: OPEN
+    detail: "Phase 6 review not started"
+  trial_count_parity:
+    status: OPEN
+    detail: "baseline 5/5 workspaces exist; CLIO 1/5"
+
+observations:
+  - "Coreform credential files in $HOME/.config/Coreform/ are mode 644 (directory 755): readable by other CHPC users. Not changed (outside E3 scope); researcher may want chmod go-rwx."

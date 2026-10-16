@@ -1,0 +1,487 @@
+{
+ "run_dir": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/runs/E1_uninterrupted_example8/baseline/trial_03/work/run1",
+ "utc": "2026-10-09T13:19:14.126846+00:00",
+ "checks": [
+  {
+   "check": "helmholtz_input_deck_exists",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "helmholtz_physics",
+   "got": "Helmholtz Filter",
+   "expected": "Helmholtz Filter",
+   "pass": true
+  },
+  {
+   "check": "helmholtz_length_scale_present",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "helmholtz_length_scale_value (R=0.15 -> R/(2*sqrt3))",
+   "got": "0.043301",
+   "expected": 0.043301,
+   "pass": true
+  },
+  {
+   "check": "helmholtz_surface_length_scale_present",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "helmholtz_surface_length_scale_value (boundary_sticking_penalty 1.0)",
+   "got": "1.0",
+   "expected": "1.0",
+   "pass": true
+  },
+  {
+   "check": "helmholtz_symmetry_plane_sideset_present (ss_sym)",
+   "got": {},
+   "expected": "a parameter naming ss_sym",
+   "pass": false
+  },
+  {
+   "check": "helmholtz_mesh",
+   "got": "mesh.exo",
+   "expected": "mesh.exo",
+   "pass": true
+  },
+  {
+   "check": "helmholtz_domain_block",
+   "got": "block_1",
+   "expected": "block_1",
+   "pass": true
+  },
+  {
+   "check": "analyze_input_deck_exists",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "analyze_physics",
+   "got": "Mechanical",
+   "expected": "Mechanical",
+   "pass": true
+  },
+  {
+   "check": "analyze_dimension",
+   "got": "3",
+   "expected": "3",
+   "pass": true
+  },
+  {
+   "check": "analyze_mesh",
+   "got": "mesh.exo",
+   "expected": "mesh.exo",
+   "pass": true
+  },
+  {
+   "check": "material_youngs_modulus",
+   "got": "1.0",
+   "expected": "1.0",
+   "pass": true
+  },
+  {
+   "check": "material_poissons_ratio",
+   "got": "0.3",
+   "expected": "0.3",
+   "pass": true
+  },
+  {
+   "check": "block_1_domain_present",
+   "got": "block_1",
+   "expected": "block_1",
+   "pass": true
+  },
+  {
+   "check": "block_1_uses_material_1",
+   "got": "material_1",
+   "expected": "material_1",
+   "pass": true
+  },
+  {
+   "check": "objective_criterion_type",
+   "got": "Internal Elastic Energy",
+   "expected": "Internal Elastic Energy",
+   "pass": true
+  },
+  {
+   "check": "objective_domains",
+   "got": "{block_1}",
+   "expected": "{block_1}",
+   "pass": true
+  },
+  {
+   "check": "criterion_simp_type",
+   "got": "SIMP",
+   "expected": "SIMP",
+   "pass": true
+  },
+  {
+   "check": "criterion_simp_exponent",
+   "got": "3.0",
+   "expected": "3.0",
+   "pass": true
+  },
+  {
+   "check": "criterion_simp_minimum_value (minimum_ersatz_material_value)",
+   "got": "1e-3",
+   "expected": "1e-3",
+   "pass": true
+  },
+  {
+   "check": "residual_interpolation_single_phase",
+   "got": "Single-Phase",
+   "expected": "Single-Phase",
+   "pass": true
+  },
+  {
+   "check": "residual_response_linear",
+   "got": "Linear",
+   "expected": "Linear",
+   "pass": true
+  },
+  {
+   "check": "residual_simp_type",
+   "got": "SIMP",
+   "expected": "SIMP",
+   "pass": true
+  },
+  {
+   "check": "residual_simp_exponent",
+   "got": "3.0",
+   "expected": "3.0",
+   "pass": true
+  },
+  {
+   "check": "residual_simp_minimum_value",
+   "got": "1e-3",
+   "expected": "1e-3",
+   "pass": true
+  },
+  {
+   "check": "num_concentrated_loads",
+   "got": 1,
+   "expected": 1,
+   "pass": true
+  },
+  {
+   "check": "load_dof_y (index 1)",
+   "got": "1",
+   "expected": "1",
+   "pass": true
+  },
+  {
+   "check": "load_value",
+   "got": "-1.0",
+   "expected": "-1.0",
+   "pass": true
+  },
+  {
+   "check": "load_nodeset",
+   "got": "ns_load",
+   "expected": "ns_load",
+   "pass": true
+  },
+  {
+   "check": "no_tractions_or_pressures",
+   "got": 0,
+   "expected": 0,
+   "pass": true
+  },
+  {
+   "check": "no_body_loads",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "essential_bcs (ns_fix ux,uy,uz=0; ss_sym uz=0)",
+   "got": [
+    [
+     "ns_fix",
+     0,
+     "Fixed Value",
+     0.0
+    ],
+    [
+     "ns_fix",
+     1,
+     "Fixed Value",
+     0.0
+    ],
+    [
+     "ns_fix",
+     2,
+     "Fixed Value",
+     0.0
+    ],
+    [
+     "ss_sym",
+     2,
+     "Fixed Value",
+     0.0
+    ]
+   ],
+   "expected": [
+    [
+     "ns_fix",
+     0,
+     "Fixed Value",
+     0.0
+    ],
+    [
+     "ns_fix",
+     1,
+     "Fixed Value",
+     0.0
+    ],
+    [
+     "ns_fix",
+     2,
+     "Fixed Value",
+     0.0
+    ],
+    [
+     "ss_sym",
+     2,
+     "Fixed Value",
+     0.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "check": "analyze_output_displacements",
+   "got": "{displacement_x, displacement_y, displacement_z}",
+   "expected": "{displacement_x, displacement_y, displacement_z}",
+   "pass": true
+  },
+  {
+   "check": "interface_exists",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "performers (engine, analyze, helmholtz analyze)",
+   "got": [
+    [
+     "engine_1",
+     "engine"
+    ],
+    [
+     "analyze_2",
+     "analyze"
+    ],
+    [
+     "analyze_helmholtz",
+     "analyze"
+    ]
+   ],
+   "expected": [
+    [
+     "engine_1",
+     "engine"
+    ],
+    [
+     "analyze_2",
+     "analyze"
+    ],
+    [
+     "analyze_helmholtz",
+     "analyze"
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "check": "optimizer_package_OC",
+   "got": "OC",
+   "expected": "OC",
+   "pass": true
+  },
+  {
+   "check": "max_iterations_50",
+   "got": "50",
+   "expected": "50",
+   "pass": true
+  },
+  {
+   "check": "update_problem_frequency_1",
+   "got": "1",
+   "expected": "1",
+   "pass": true
+  },
+  {
+   "check": "update_problem_stage_present",
+   "got": "Update Problem",
+   "expected": "Update Problem",
+   "pass": true
+  },
+  {
+   "check": "oc_control_stagnation_tol_default",
+   "got": "1e-4",
+   "expected": "1e-4",
+   "pass": true
+  },
+  {
+   "check": "oc_objective_stagnation_tol_default",
+   "got": "1e-8",
+   "expected": "1e-8",
+   "pass": true
+  },
+  {
+   "check": "oc_gradient_tol_default",
+   "got": "1e-8",
+   "expected": "1e-8",
+   "pass": true
+  },
+  {
+   "check": "constraint_normalized_target_0.15",
+   "got": "0.15",
+   "expected": "0.15",
+   "pass": true
+  },
+  {
+   "check": "constraint_reference_design_volume",
+   "got": "Design Volume",
+   "expected": "Design Volume",
+   "pass": true
+  },
+  {
+   "check": "bounds_0_1",
+   "got": [
+    "0.0",
+    "1.0"
+   ],
+   "expected": [
+    "0.0",
+    "1.0"
+   ],
+   "pass": true
+  },
+  {
+   "check": "filtered_variable_is_Topology",
+   "got": "Topology",
+   "expected": "Topology",
+   "pass": true
+  },
+  {
+   "check": "constraint_value_by_engine",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "objective_value_by_analyze",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "filter_control_by_helmholtz_in_objective_stage",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "filter_gradient_by_helmholtz_in_objective_gradient_stage",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "output_stage_has_engine_output",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "output_stage_has_analyze_visualization",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "initial_density_uniform_0.15",
+   "got": [
+    "Uniform",
+    "0.15"
+   ],
+   "expected": [
+    "Uniform",
+    "0.15"
+   ],
+   "pass": true
+  },
+  {
+   "check": "engine_output_fields_topology_control",
+   "got": [
+    "control",
+    "topology"
+   ],
+   "expected": [
+    "control",
+    "topology"
+   ],
+   "pass": true
+  },
+  {
+   "check": "engine_output_max_iterations_50",
+   "got": "50",
+   "expected": "50",
+   "pass": true
+  },
+  {
+   "check": "aggregator_weight_1",
+   "got": "1",
+   "expected": "1",
+   "pass": true
+  },
+  {
+   "check": "normalize_in_aggregator_false (no Normals element)",
+   "got": true,
+   "expected": true,
+   "pass": true
+  },
+  {
+   "check": "volume_constraint_by_ComputeVolume",
+   "got": "ComputeVolume",
+   "expected": "ComputeVolume",
+   "pass": true
+  },
+  {
+   "check": "update_problem_operation_freq_1",
+   "got": "1",
+   "expected": "1",
+   "pass": true
+  },
+  {
+   "check": "mpirun_three_single_rank_performers",
+   "got": 3,
+   "expected": 3,
+   "pass": true
+  },
+  {
+   "check": "mpirun_no_decomposition (no -np >1)",
+   "got": [
+    "1",
+    "1",
+    "1"
+   ],
+   "expected": [
+    "1",
+    "1",
+    "1"
+   ],
+   "pass": true
+  }
+ ],
+ "all_pass": false
+}

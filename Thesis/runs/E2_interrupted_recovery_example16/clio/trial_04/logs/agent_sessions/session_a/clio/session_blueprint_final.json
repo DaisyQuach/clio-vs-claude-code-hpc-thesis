@@ -1,0 +1,78 @@
+{
+  "session_id": "sess_87a77e8adf3b",
+  "workspace_id": "ws_e8790dc6b7b4",
+  "active_agent_blueprint_id": "factorio-flat",
+  "active_agent_blueprint_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-04/session_a/clio_home/config/agent-blueprints/factorio-flat",
+  "agent_blueprint": {
+    "id": "factorio-flat",
+    "version": "0.5.0",
+    "title": "Factorio Flat",
+    "display_name": "Factorio Flat",
+    "description": "Factorio Flat tuned for non-interactive HPC simulation work (bounded Slurm waits with a helper, simulation skills on the root expert, packet mode, bundled Morphorm/Exodus checks, tool-call hygiene). A scientist-facing research partner spanning research framing, evidence coordination, simulation, and adversarial review, extended with materials science, manufacturing, characterization, mechanical testing, fatigue/failure, and data analysis specialists.",
+    "scope": "global",
+    "root": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-04/session_a/clio_home/config/agent-blueprints/factorio-flat",
+    "root_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-04/session_a/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+    "root_expert": "main",
+    "enabled": true,
+    "validation_errors": [],
+    "defaults": {
+      "prompt_profile": "heavy"
+    },
+    "metadata": {
+      "layout": "agent_blueprint",
+      "body": "# Factorio Flat\n\nFactorio Flat keeps the scientist-facing identity and scientific integrity of\nits original design while adding materials-science specialists as siblings\nrather than replacements. `main` remains the root: it decides whether to\nanswer directly, ask a consequential clarification, load a skill itself, or\nconsult a specialist.\n\nThe original nine experts are unchanged in role: `research_methodologist`\n(framing), `virtual_lab` (feasibility), `evidence_researcher` with its\n`evidence_leaf`/`evidence_critic` children (literature evidence fan-out and\ncriticism), `simulation_methodologist` and `abaqus_engineer` (simulation\nformulation and Abaqus/Tosca/Morphorm implementation), and\n`independent_reviewer` (adversarial review).\n\nSix materials-science specialists sit alongside them, also as direct children\nof `main`, covering ground the original nine did not: `materials_scientist`\n(processing-structure-property reasoning), `manufacturing_expert`\n(design-to-part manufacturing route), `characterization_expert` (turning\nmeasurements into evidence), `mechanical_testing_expert` (physical test\ndesign and interpretation), `fatigue_failure_expert` (fatigue life prediction\nand failure analysis), and `data_analysis_expert` (statistics, uncertainty,\nand figures). Where a new specialist's skill set would have duplicated an\noriginal expert's role too closely, the skill went to the original expert\ninstead of a new one \u2014 `simulation_methodologist` and `abaqus_engineer` carry\nthe FEA/topology-optimization and Abaqus/Tosca/Morphorm skills, and\n`evidence_researcher` carries the literature-search/synthesis skills.\n\n**HPC variant (0.4.0-hpc.1).** Same experts and science rules as Factorio Flat 0.4.0.\nPilot traces showed that `main` does simulation packets alone and never delegates. It never saw the Morphorm,\ntopology-optimization or meshing skills, because those sit on its children. It also had no Slurm guidance.\nThis variant makes three changes:\n- `main` carries `hpc-batch-jobs`, `morphorm`, `topology_optimization` and `meshing` directly.\n- `main` has a non-interactive packet mode.\n- `morphorm` describes the general Cubit \u2192 input deck \u2192 XMLGenerator \u2192 Slurm workflow.\n\nSkills are the reusable procedures each expert loads on demand; a skill can be\nshared by more than one expert (for example `heat_treatment` is used by both\n`materials_scientist` and `manufacturing_expert`).\n\n**HPC variant 0.4.0-hpc.2.** Changes after the hpc.1 pilots (`pilot_program_20261012_bpv2/STUDY.md`). Model output\nis about 70 tokens/s, so output tokens set model time. In hpc.1 they went to:\n- 27\u201339 % run reports: written once, rejected for length (16,000-character command limit), then written again in parts;\n- 12\u201331 % one-off verification scripts;\n- 3\u201311 % tool-call blocks that did not parse (raw line breaks inside JSON strings in heredocs);\n- one wasted call per `load_skill` with null optional arguments;\n- translation and restart retries that every pilot repeated.\n\nhpc.2 changes:\n- `main`: tool-call formatting rules (JSON escaping, the command-length limit, patch instead of re-send);\n  `load_skill` with `skill_id` only; a facts log plus reports written once; bundled checks before new scripts.\n- `morphorm`: bundled `scripts/exo_summary.py`, `xml_params.py` and `diag_summary.py`; guidance to re-translate once\n  with the manual's equivalent keyword form when a setting is missing from the generated XML; restart-state\n  counting, with a first-objective check right after submitting a continuation.\n- `hpc-batch-jobs`: bundled `scripts/wait_job.sh` (one status line per bounded wait) and low-output wait steps.\n\nNo task parameters, reference values or packet-specific paths are included.",
+      "compatibility": {},
+      "requires": {
+        "clio_agent": ">=0.9.4.23"
+      },
+      "mcp_servers": {
+        "web": "clio-kit mcp-server web"
+      },
+      "a2ui_catalogs": [
+        "clio-workspace",
+        {
+          "abaqus-topology": "catalogs/abaqus-topology"
+        }
+      ],
+      "includes": [],
+      "blueprint": {
+        "format": "agent-blueprint-v1"
+      },
+      "workflow_state": null,
+      "install": {
+        "source": "https://github.com/iowarp/clio-agent-marketplace.git",
+        "source_kind": "git",
+        "ref": "main",
+        "commit": "none",
+        "pinned_commit": "",
+        "installed_at": "2026-10-13T02:54:57+00:00",
+        "scope": "global",
+        "checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+        "note": "counted thesis CLIO trials; content is the frozen copy in Thesis/automation/clio/blueprints/factorio-flat-0.5.0 (see factorio-flat-0.5.0.PROVENANCE.md), registered under the marketplace source and ref (CLIO derives the source id from them) so it replaces the stock pack instead of adding a second factorio-flat"
+      },
+      "default_registry": {}
+    },
+    "definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-04/session_a/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+    "kind": "blueprint",
+    "name": "Factorio Flat",
+    "identity": "global::src_2c209bcc880d::factorio-flat",
+    "source_id": "src_2c209bcc880d",
+    "blueprint_id": "factorio-flat"
+  },
+  "agent_overlay": {},
+  "activation": {
+    "active_agent_blueprint_id": "factorio-flat",
+    "active_agent_blueprint_name": "Factorio Flat",
+    "active_agent_blueprint_version": "0.5.0",
+    "active_agent_blueprint_scope": "global",
+    "active_agent_blueprint_definition_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-04/session_a/clio_home/config/agent-blueprints/factorio-flat/AGENT.md",
+    "active_agent_blueprint_source": "https://github.com/iowarp/clio-agent-marketplace.git",
+    "active_agent_blueprint_source_kind": "git",
+    "active_agent_blueprint_ref": "main",
+    "active_agent_blueprint_commit": "none",
+    "active_agent_blueprint_checksum": "6076c0269adaed32e216fb8ef423ea4cf189daf2ebd9d8675e26b84eabe56075",
+    "active_agent_blueprint_installed_at": "2026-10-13T02:54:57+00:00",
+    "active_agent_blueprint_path": "/uufs/chpc.utah.edu/common/home/chet/Daisy/Thesis/.agent_runtime/E2-example16-clio-04/session_a/clio_home/config/agent-blueprints/factorio-flat",
+    "active_agent_blueprint_identity": "global::src_2c209bcc880d::factorio-flat"
+  }
+}

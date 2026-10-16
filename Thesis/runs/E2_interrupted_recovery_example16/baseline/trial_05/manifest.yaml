@@ -1,0 +1,29 @@
+run_id: E2-example16-baseline-05
+status: completed_unscored
+experiment: E2
+experiment_selector: e2-example16
+workflow: frozen_example16
+paired_block: E2-05
+system: baseline
+frozen_configuration_id: FROZEN-EX16-v1
+frozen_configuration_sha256: a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+agent_inputs_sha256: a67d6cba7f0ce35ae6dc227f33b39056514be9494d6e15bc8e58524dfba1a86b
+model_identifier: claude-fable-5-1
+agent_harness: claude-code
+agent_harness_version: "2.1.295"
+headless: true
+slurm_contract: "account=hochhalter-np partition=hochhalter-np nodes=1 ntasks=1 cpus=8 mem=32G time=02:00:00"
+created_utc: 2026-10-09T12:18:30Z
+started_utc: 2026-10-09T23:54:10Z
+finished_utc: 2026-10-10T01:12:05Z
+agent_session_ids: "b68d4efb-30f9-4839-8e9b-533967067892,a9dd6b6b-e5d3-42ba-913a-33d37eeb5d20"
+agent_host_job_ids: "16168659,16169529"
+workflow_job_ids: "16168729,16169758,16169770"
+evidence_sha256_manifest: logs/evidence_SHA256SUMS.txt
+packet_verification: logs/packet_verification.json
+curation_researcher_reviewed: "2026-10-10"
+curation_include_in_analysis: true
+curation_notes: "the Claude Code session that started the chain ended during Session A, but the orchestrating runner survived and launched Session B itself (00:25:49Z, job 16169529); a researcher recovery job (16168670) wrote the Session A agent_host_job_id/sacct files, briefly set status to paused_after_session_a, then correctly refused to launch a second Session B (rc 4); status restored to running_session_b at 2026-10-10T01:09:38Z; no duplicate session was launched"
+scoring_decision: accepted
+scoring_scored_utc: 2026-10-10T01:23:22Z
+scoring_record: researcher_only/scores/E2-example16-baseline-05/score.json

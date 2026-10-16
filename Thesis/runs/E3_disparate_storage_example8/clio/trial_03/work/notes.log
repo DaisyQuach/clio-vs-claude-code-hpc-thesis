@@ -1,0 +1,27 @@
+2026-10-13T17:19:16Z start trial=E3-clio-trial_03 staging=/scratch/local/u1282901/16246881/e3/clio/E3-clio-trial_03 host=notch204 slurm_job=16246881
+2026-10-13T17:20:10Z note: e3-chpc-candidate-archive verification=FAIL only because manifest lists ./.gitignore which is absent from the collection; every other listed file (25) verified OK; MANIFEST.sha256 sha256 equals catalog manifest_sha256 3c89c503d0888be096a9b1740b44d7b9f3de309d5701fdcaef7c40627ba57dac
+2026-10-13T17:20:10Z globus ls of e3-private-source done
+2026-10-13T17:20:10Z globus_stage_file.sh software_contract.md exit=0
+2026-10-13T17:21:13Z globus_stage_file.sh documentation/curated_permitted_materials/compute_resources.md exit=0
+2026-10-13T17:21:22Z globus_stage_file.sh manuals/Morphorm_User_Manual.pdf exit=0
+2026-10-13T17:21:53Z globus_stage_file.sh manuals/Morphorm_Theory_Manual.pdf exit=0
+2026-10-13T17:22:43Z globus_stage_file.sh README.md exit=0
+2026-10-13T17:22:52Z globus_stage_file.sh documentation/MANIFEST_README.md exit=0
+2026-10-13T17:23:01Z globus_stage_file.sh documentation/curated_readme.md exit=0
+2026-10-13T17:23:09Z globus_stage_file.sh documentation/version_provenance.yaml exit=0
+2026-10-13T17:23:17Z globus_stage_file.sh target_materials/symmetry_plane_cantilever/README.md exit=0
+2026-10-13T17:23:48Z globus_stage_file.sh target_materials/symmetry_plane_cantilever/problem_specification.md exit=0
+2026-10-13T17:23:56Z globus_stage_file.sh target_materials/symmetry_plane_cantilever/permitted_starting_materials/README.md exit=0
+2026-10-13T17:24:28Z globus_stage_file.sh target_materials/symmetry_plane_cantilever/geometry_and_loading_figure.png exit=0
+2026-10-13T17:24:59Z pdftotext manuals -> work/manual_text/ exit=0
+2026-10-13T17:26:41Z staged example_07 deck+journal as adaptation templates
+2026-10-13T17:26:46Z cubit -batch -nographics -nojournal -input work/mesh/mesh.jou exit=0
+2026-10-13T17:27:10Z exo_summary.py mesh verification exit=0 -> work/verify/mesh.json
+2026-10-13T17:27:48Z XMLGenerator input_deck.i (work/run) exit=0
+2026-10-13T17:28:39Z run1 (filter block form): xml_params MISSING symmetry; Helmholtz XML has Length Scale 0.043301 and Surface Length Scale 1.0 but no symmetry sideset -> re-translate with study-level keywords in work/run2
+2026-10-13T17:28:42Z XMLGenerator input_deck.i (work/run2, study-level filter keywords) exit=0
+2026-10-13T17:29:47Z sbatch --parsable jobs/morphorm_spc_run2.sbatch -> job 16247250 (exit=0)
+2026-10-13T17:43:35Z job 16247250 COMPLETED exit 0:0 elapsed 00:09:54 node notch351
+2026-10-13T17:44:13Z deliverables copied to outputs/ (cp -p) and hashed with hash_outputs.sh
+2026-10-13T17:46:24Z work/run_summary.md written (staged_total_bytes=4218087)
+2026-10-13T17:46:51Z appended 6 late search records to provenance/sources_searched.tsv; summary count corrected to 17
