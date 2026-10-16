@@ -1,6 +1,10 @@
 # Thesis: Claude Code baseline vs CLIO on HPC topology-optimization workflows (official results)
 
-**How to cite:** see `CITATION.cff` (GitHub's "Cite this repository" button) and the Zenodo DOI of the release.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23408965.svg)](https://doi.org/10.5281/zenodo.23408965)
+
+**How to cite:** Quach, D. (2026). *CLIO vs. Claude Code on HPC topology-optimization workflows: official thesis experiments
+E1–E3 (data and automation)* (Version 1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23408965
+(this version; all versions: https://doi.org/10.5281/zenodo.23408964). Machine-readable: `CITATION.cff`.
 **License:** code (`*.sh`, `*.py`) under MIT (`LICENSE`); data, documents, figures and slides under CC BY 4.0
 (`LICENSE-DATA`). Third-party software, manuals and example files are not included (`PUBLIC_EXCLUSIONS.md`).
 
